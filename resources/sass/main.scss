@@ -1,0 +1,247 @@
+// @import '_config.scss';
+// @use '_config.scss';
+
+input:active,
+input:focus,
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+input::-moz-focus-inner {
+  border: 0;
+}
+textarea {
+  resize: none;
+}
+a, a:focus, a:active {
+  outline: none;
+}
+a, a:hover {
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+button, button:focus, button:active {
+  outline: none;
+}
+img {
+  border-style: none;
+  vertical-align: middle;
+}
+ul {
+  padding-left: 25px;
+}
+ol {
+  padding-left: 25px;
+}
+p {
+  margin: 0 0 .5rem 0;
+  padding: 0;
+}
+.full-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.clear-both {
+  clear: both;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-center {
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.hidden-desktop {
+  display: none;
+}
+.position-relative {
+  position: relative;
+}
+
+
+.header {
+  .grid-container {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 200px 1fr 200px;
+  }
+  .top-menu {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    gap: 30px;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+  }
+  .menu-item {
+    color: black;
+  }
+  .phone {
+    text-align: right;
+  }
+}
+
+
+.products {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  .products-item {
+    height: 200px;
+    background-color: grey;
+  }
+}
+
+.categories {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  .categories-item__image {
+    height: 200px;
+  }
+  .categories-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.footer {
+  margin: 30px 0;
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    grid-gap: 0 24px;
+  }
+  .logo {
+    grid-column: col-start/span 4;
+  }
+  .club {
+    grid-column: col-start 5 / span 2;
+  }
+  .booking {
+    grid-column: col-start 7 / span 3;
+  }
+  .help {
+    grid-column: col-start 10 / span 3;
+  }
+  .bottom-menu {
+    margin: 0;
+  }
+}
+
+
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: calc(12px);
+  padding-left: calc(12px);
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+}
+
+
+@media only screen and (max-width : 1400px) {
+
+}
+
+@media only screen and (max-width : 1200px) {
+  .footer {
+    .logo {
+      grid-column: col-start/span 2;
+    }
+    .club {
+      grid-column: col-start 3/span 2;
+    }
+    .booking {
+      grid-column: col-start 5/span 4;
+    }
+    .help {
+      grid-column: col-start 9/span 4;
+    }
+  }
+}
+
+@media only screen and (max-width : 992px) {
+
+}
+
+@media only screen and (max-width : 768px) {
+  .footer {
+    .grid-container {
+      grid-template-columns: 100%;
+    }
+    .logo {
+      grid-column: 1;
+    }
+    .club {
+      grid-column: 1;
+    }
+    .booking {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .help {
+      grid-column: 1;
+    }
+  }
+}
+
+@media only screen and (max-width : 576px) {
+  
+}
+
+@media only screen and (max-width : 480px) {
+ 
+}
+
+@media only screen and (max-width : 360px) {
+  
+}
