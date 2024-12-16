@@ -130,7 +130,25 @@ p {
 
 // product
 .product-page {
-  
+  .grid-container {
+    display: grid;
+    grid-template-columns: 112px 526px 1fr;
+    gap: 10px;
+  }
+  .product-gallery {
+    display: grid;
+    width: 112px;
+    height: 100%;
+    gap: 10px 0;
+  }
+  .product-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .product-content {
+    padding: 0 0 0 15px;
+  }
 }
 
 // footer
