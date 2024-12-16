@@ -40,8 +40,18 @@ class MainController extends Controller
             return view('product', compact('category', 'product'));
         }
 
-        dd($category);
-
         return abort(404);
+    }
+
+
+
+    public function privacy_policy(): View
+    {
+        return view('privacy-policy');
+    }
+
+    public function agreement(): View
+    {
+        return view('agreement');
     }
 }

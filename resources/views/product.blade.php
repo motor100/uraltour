@@ -16,7 +16,7 @@
   <div class="active">{{ $product->title }}</div>
 </div>
 
-<div class="product">
+<div class="product-page">
 
 
 

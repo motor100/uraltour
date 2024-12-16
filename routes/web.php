@@ -20,9 +20,9 @@ Route::get('/contacts', [MainController::class, 'contacts']);
 
 
 
-Route::get('/politika-konfidencialnosti', [MainController::class, 'politika_konfidencialnosti']);
+Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
 
-Route::get('/polzovatelskoe-soglashenie-s-publichnoj-ofertoj', [MainController::class, 'polzovatelskoe_soglashenie_s_publichnoj_ofertoj']);
+Route::get('/agreement', [MainController::class, 'agreement']);
 
 Route::get('/sitemap.xml', [MainController::class, 'sitemap']);
 
