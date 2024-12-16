@@ -24,11 +24,11 @@ class MainController extends Controller
     {
         if ($category) {
 
-            $products = Product::where('category_id', $category->id);
+            $products = Product::where('category_id', $category->id)->paginate();
 
-            return view('category', compact('category'));
+            return view('category', compact('category', 'products'));
         }
-        dd();
+
         return abort(404);
     }
 
@@ -37,8 +37,10 @@ class MainController extends Controller
         // Если есть модели Category и Product и товар из этой категории $product->category_id == $category->id
         if ($category && $product && $product->category_id == $category->id) {
 
-            return view('single-product', compact('product'));
+            return view('product', compact('category', 'product'));
         }
+
+        dd($category);
 
         return abort(404);
     }

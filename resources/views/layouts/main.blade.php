@@ -24,7 +24,9 @@
     <div class="container">
       <div class="grid-container">
         <div class="logo">
-          <img src="/img/logo.png" alt="">
+          <a href="/">
+            <img src="/img/logo.png" alt="">
+          </a>
         </div>
         <ul class="top-menu">
           <li class="menu-item">
