@@ -1,128 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="shortcut icon" href="{{ asset('/img/favicon.svg') }}" type="image/x-icon">
-    @vite(['resources/sass/main.scss'])
-</head>
-<body>
+@section('title', 'Home')
 
-  <header class="header">
+@extends('layouts.main')
+
+@section('content')
+
+<div class="home-page">
+  <div class="main-section">
     <div class="container">
-      <div class="grid-container">
-        <div class="logo">
-          <img src="/img/logo.png" alt="">
+      <div class="main-title">Урал Тур</div>
+      <div class="main-subtitle">Клуб путешественников</div>
+      <div class="search-wrapper">
+        <form class="search-form" action="/search" method="get">
+          <div class="grid-container">
+            <input type="text" name="search_query" class="search-input" placeholder="Найти тур">
+            <button class="search-submit-btn">
+              <img src="/img/search-icon.png" class="search-submit-btn__image" alt="">
+              <span class="search-submit-btn__text">Найти тур</span>
+            </button>
+           </div>
+          <img src="/img/search-lens.png" class="search-lens" alt="">
+        </form>
+        
+      </div>
+      <div class="selection">
+        <div class="grid-container">
+          <div class="selection-item"></div>
+          <div class="selection-item"></div>
+          <div class="selection-item"></div>
+          <div class="selection-item"></div>
         </div>
-        <ul class="top-menu">
-          <li class="menu-item">Главная</li>
-          <li class="menu-item">Туры</li>
-          <li class="menu-item">Отзывы</li>
-          <li class="menu-item">Контакты</li>
-        </ul>
-        <div class="phone">+7 955 212 11 22</div>
       </div>
     </div>
-  </header>
+    <div class="main-section-bg">
+      <img src="/img/main-section-bg.png" alt="">
+    </div>
+  </div>
+</div>
 
-  <div class="content-wrapper">
-    <div class="container">
-      
-      <p>Товары</p>
-      <div class="products">
-        <div class="products-item"></div>
-        <div class="products-item"></div>
-        <div class="products-item"></div>
-        <div class="products-item"></div>
+<div class="category-section">
+  <div class="container">
+    <div class="section-title">Категории туров</div>
+    <div class="categories">
+      <div class="categories-item">
+        <!-- <div class="grid-container"> -->
+          <div class="categories-item__title">Национальные маршруты</div>
+          <div class="categories-item__quantity">56 туров</div>
+        <!-- </div> -->
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
+        </div>
+        <!-- <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a> -->
       </div>
-
-      <p>Категории</p>
-      <div class="categories">
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a>
+        <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
         </div>
-        <div class="categories-item">
-          <div class="categories-item__image">
-            <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
-          </div>
-          <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
-        </div>
+        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
       </div>
     </div>
   </div>
+</div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="grid-container">
-        <div class="logo">
-          <img src="/img/logo.png" alt="">
-        </div>
-        <div class="club">
-          <div class="bottom-menu">
-            <div class="menu-item">Контакты</div>
-            <div class="menu-item">Документы</div>
-            <div class="menu-item">Отзывы</div>
-            <div class="menu-item">Оставить отзыв</div>
-          </div>
-        </div>
-        <div class="booking">
-          <ul class="bottom-menu">
-            <li class="menu-item">Забронировать онлайн</li>
-            <li class="menu-item">Спецпредложения</li>
-            <li class="menu-item">Способы оплаты</li>
-            <li class="menu-item">Забронировать онлайн</li>
-          </ul>
-        </div>
-        <div class="help">
-          <ul class="bottom-menu">
-            <li class="menu-item">Политика конфиденциальности</li>
-            <li class="menu-item">Согласие на обработку персональных данных</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+<div class="container">
+  <p>Товары</p>
+  <div class="products">
+    <div class="products-item"></div>
+    <div class="products-item"></div>
+    <div class="products-item"></div>
+    <div class="products-item"></div>
+  </div>
+</div>
 
-  @vite(['resources/js/main.js'])
-</body>
-</html>
+
+
+@endsection

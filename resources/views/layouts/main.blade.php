@@ -10,9 +10,9 @@
   @yield('robots')
   <link rel="shortcut icon" href="{{ asset('/img/favicon.svg') }}" type="image/x-icon">
   @if(Route::is('home'))
-    <title>Гидравлическое оборудование в наличии и под заказ</title>
+    <title>Урал Тур</title>
   @else
-    <title>@yield('title', 'Гидравлическое оборудование' )</title>
+    <title>@yield('title', 'Урал Тур' )</title>
   @endif
   <!-- @ yield('style') -->
   @vite(['resources/sass/main.scss'])
@@ -42,15 +42,13 @@
             <a href="/contacts">Контакты</a>
           </li>
         </ul>
-        <div class="phone">+7 955 212 11 22</div>
+        <a href="tel:+79123080608" class="phone-btn">+7 (912) 308-06-08</a>
       </div>
     </div>
   </header>
 
   <div class="content-wrapper">
-    <div class="container">
-      @yield('content')
-    </div>
+    @yield('content')
   </div>
 
   <footer class="footer">
