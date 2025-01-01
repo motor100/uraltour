@@ -70,6 +70,9 @@ p {
 .position-relative {
   position: relative;
 }
+.section {
+  margin: 0 0 100px 0;
+}
 .section-title {
   margin: 0 0 40px 0;
   font-family: 'montserrat-semibold';
@@ -116,7 +119,6 @@ p {
 // Main section
 .main-section {
   position: relative;
-  margin: 0 0 100px 0;
   padding: 60px 0 0 0;
   // background-image: url(../img/main-section-bg.png);
   // background-position: center;
@@ -292,41 +294,44 @@ p {
     color: $orangecolor;
   }
   .categories {
+    position: relative;
     display: grid;
     gap: 40px;
     grid-template-columns: repeat(4, 1fr);
     .categories-item {
       position: relative;
-      height: 0;
-      padding: 0 0 100% 0;
+      height: 300px;
       border-radius: 15px;
       overflow: hidden;
     }
     .categories-item__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
       height: 100%;
-      z-index: -1;
     }
     .categories-item__image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    // .grid-container {
-    //   display: grid;
-    //   gap: 20px;
-    // }
     .categories-item__title {
+      position: absolute;
+      top: 83px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      padding: 0 15px;
       font-family: 'montserrat-semibold';
       font-size: 28px;
       color: #fff;
       line-height: 1.1;
       text-align: center;
+      z-index: 1;
     }
     .categories-item__quantity {
+      position: absolute;
+      top: 165px;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
       width: max-content;
       padding: 15px 30px;
       border-radius: 10px;
@@ -334,6 +339,34 @@ p {
       font-family: 'montserrat-semibold';
       font-size: 18px;
       color: #fff;
+      z-index: 1;
+    }
+    .linear-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.30) 0%, rgba(0, 0, 0, 0.30) 100%);
+      z-index: 0;
+    }
+    .categories-top-right {
+      position: absolute;
+      top: -84px;
+      right: 0;
+      width: 278px;
+    }
+    .categories-bottom-right img {
+      width: 100%;
+    }
+    .categories-bottom-left {
+      position: absolute;
+      bottom: -84px;
+      left: 0;
+      width: 278px;
+    }
+    .categories-bottom-left img {
+      width: 100%;
     }
 
   }

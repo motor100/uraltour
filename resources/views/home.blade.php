@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="home-page">
-  <div class="main-section">
+  <div class="main-section section">
     <div class="container">
       <div class="main-title">Урал Тур</div>
       <div class="main-subtitle">Клуб путешественников</div>
@@ -90,61 +90,79 @@
   </div>
 </div>
 
-<div class="category-section">
+<div class="category-section section">
   <div class="container">
     <div class="section-title">Категории туров</div>
     <div class="categories">
       <div class="categories-item">
-        <!-- <div class="grid-container"> -->
-          <div class="categories-item__title">Национальные маршруты</div>
-          <div class="categories-item__quantity">56 туров</div>
-        <!-- </div> -->
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
         </div>
-        <!-- <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a> -->
+        <div class="categories-item__title">Национальные маршруты</div>
+        <div class="categories-item__quantity">56 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <div class="categories-item__title">Поездки по России</div>
+        <div class="categories-item__quantity">12 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
         </div>
-        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+        <div class="categories-item__title">Ближнее зарубежье</div>
+        <div class="categories-item__quantity">109 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
         </div>
-        <a href="/catalog/nacionalnye-marshruty">Национальные маршруты</a>
+        <div class="categories-item__title">Тур выходного дня</div>
+        <div class="categories-item__quantity">4 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <div class="categories-item__title">Детские</div>
+        <div class="categories-item__quantity">2 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
         </div>
-        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+        <div class="categories-item__title">По странам</div>
+        <div class="categories-item__quantity">1 туров</div>
+        <div class="linear-gradient"></div>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category1.jpg') }}" alt="">
+        </div>
+        <div class="categories-item__title">По городам</div>
+        <div class="categories-item__quantity">134 туров</div>
+        <div class="linear-gradient"></div>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
           <img src="{{ Storage::url('uploads/categories/category2.jpg') }}" alt="">
         </div>
-        <a href="/catalog/poezdki-po-rossii">Поездки по России</a>
+        <div class="categories-item__title">По городам</div>
+        <div class="categories-item__quantity">37 туров</div>
+        <div class="linear-gradient"></div>
       </div>
-      <div class="categories-item">
-        <div class="categories-item__image">
-          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
-        </div>
-        <a href="/catalog/tury-vyhodnogo-dnya">Туры выходного дня</a>
+      <div class="categories-top-right">
+        <img src="/img/categories-top-right.png" alt="">
+      </div>
+      <div class="categories-bottom-left">
+        <img src="/img/categories-bottom-left.png" alt="">
       </div>
     </div>
   </div>
