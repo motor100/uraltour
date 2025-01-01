@@ -24,10 +24,63 @@
       </div>
       <div class="selection">
         <div class="grid-container">
-          <div class="selection-item"></div>
-          <div class="selection-item"></div>
-          <div class="selection-item"></div>
-          <div class="selection-item"></div>
+          <div class="selection-item">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label label-blue">
+              <img src="/img/selection-label-tree.png" class="label-image" alt="">
+              <span class="label-text">Новогодние туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-blue-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+          </div>
+          <div class="selection-item">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection2.jpg" alt="">
+            </div>
+            <div class="label label-orange">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+          </div>
+          <div class="selection-item">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label label-orange">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+          </div>
+          <div class="selection-item">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label label-orange">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+          </div>
+          
         </div>
       </div>
     </div>

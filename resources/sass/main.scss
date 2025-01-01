@@ -202,11 +202,68 @@ p {
     grid-template-columns: repeat(4, 1fr);
   }
   .selection .selection-item {
+    position: relative;
     width: 300px;
     height: 360px;
+  }
+  .selection-item__image {
+    position: relative;
+    height: 100%;
     border-radius: 15px;
-    background-color: grey;
     overflow: hidden;
+  }
+  .selection-item__image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(8, 139, 212, 0.00) 45.42%, #088BD4 100%);
+  }
+  .selection-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .label {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    height: 44px;
+    padding: 8px 12px;
+  }
+  .label-blue {
+    background-color: $bluecolor;
+  }
+  .label-orange {
+    background-color: $orangecolor;
+  }
+  .label-text {
+    font-size: 18px;
+    color: #fff;
+  }
+  .label-element {
+    position: absolute;
+    top: 30px;
+    left: -10px;
+    width: 12px;
+    height: 52px;
+  }
+  .selection-item__title {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    font-family: 'montserrat-bold';
+    font-size: 18px;
+    color: #fff;
+  }
+  .selection-item__description {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
   }
   .main-section-bg {
     position: absolute;
