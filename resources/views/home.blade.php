@@ -323,6 +323,35 @@
   </div>
 </div>
 
+<div class="advantages-section section">
+  <div class="container">
+    <div class="section-title">Преимущества</div>
+    <div class="advantages">
+      <div class="advantages-item">
+        <div class="advantages-item__image">
+          <img src="/img/advantages-star.png" alt="">
+        </div>
+        <div class="advantages-item__title">20 лет на рынке туризма</div>
+        <div class="advantages-item__text">Более 300 разнообразных туров по России и странам СНГ</div>
+      </div>
+      <div class="advantages-item">
+        <div class="advantages-item__image">
+          <img src="/img/advantages-smile.png" alt="">
+        </div>
+        <div class="advantages-item__title">400 тыс довольных туристов</div>
+        <div class="advantages-item__text">Знаем как организовать идеальное путешествие. На связи со своими клиентами, даже во время отдыха</div>
+      </div>
+      <div class="advantages-item">
+        <div class="advantages-item__image">
+          <img src="/img/advantages-card.png" alt="">
+        </div>
+        <div class="advantages-item__title">Безопасные условия оплаты</div>
+        <div class="advantages-item__text">Оплата без комиссии посредникам Беспроцентная рассрочка</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <p>Товары</p>
   <div class="products">

@@ -546,6 +546,7 @@ p {
 
 // description section
 .description-section {
+  margin: 0 0 40px 0;
   .grid-container {
     display: grid;
     gap: 40px;
@@ -576,6 +577,31 @@ p {
   }
 }
 
+.advantages-section {
+  .advantages {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .advantages-item__image {
+    width: 86px;
+    margin: 0 auto 20px auto;
+  }
+  .advantages-item__image img {
+    width: 100%;
+  }
+  .advantages-item__title {
+    margin: 0 0 20px 0;
+    font-family: 'montserrat-medium';
+    font-size: 26px;
+    text-align: center;
+  }
+  .advantages-item__text {
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
 
 .products {
   display: grid;
