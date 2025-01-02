@@ -253,6 +253,43 @@
   </div>
 </div>
 
+<div class="description-section">
+  <div class="container">
+    <div class="grid-container">
+      <div class="description-item">
+        <div class="section-title">Немного о нас</div>
+        <div class="description-subtitle">УралТур</div>
+        <p class="description-text">Организованные туры по России. Экскурсии для взрослых и школьников. Тур выходного дня, автобусные туры. Выезд из Миасса, Чебаркуля, Златоуста. Путевки в санатории Урала и Башкирии. Речные круизы.</p>
+        <p class="description-text">Организованные туры по России. Экскурсии для взрослых и школьников. Тур выходного дня, автобусные туры. Выезд из Миасса, Чебаркуля, Златоуста. Путевки в санатории Урала и Башкирии. Речные круизы.</p>
+      </div>
+      <div class="description-item">
+        <div class="description-gallery">
+          <div class="description-gallery-item">
+            <img src="/img/temp-description-gallery1.jpg" alt="">
+          </div>
+          <div class="description-gallery-item">
+            <img src="/img/temp-description-gallery2.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="description-item">
+        <div class="description-gallery">
+          <div class="description-gallery-item">
+            <img src="/img/temp-description-gallery3.jpg" alt="">
+          </div>
+          <div class="description-gallery-item">
+            <img src="/img/temp-description-gallery4.jpg" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="description-item">
+        <div class="description-subtitle">Еще информация</div>
+        <p class="description-text">Организованные туры по России. Экскурсии для взрослых и школьников. Тур выходного дня, автобусные туры. Выезд из Миасса, Чебаркуля, Златоуста. Путевки в санатории Урала и Башкирии. Речные круизы.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <p>Товары</p>
   <div class="products">

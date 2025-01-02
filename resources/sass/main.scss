@@ -464,6 +464,38 @@ p {
   }
 }
 
+// description section
+.description-section {
+  .grid-container {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .description-subtitle {
+    margin: 0 0 15px 0;
+    font-family: 'montserrat-medium';
+    font-size: 28px;
+  }
+  .description-gallery {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .description-gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .description-text {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: $lightgreycolor;
+    line-height: 1.2;
+  }
+  .description-text:last-child {
+    margin-bottom: 0;
+  }
+}
+
 
 .products {
   display: grid;
