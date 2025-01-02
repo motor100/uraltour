@@ -1,6 +1,16 @@
 
+// Секция Отвечаем на вопросы аккордеон
+const faqSection = document.querySelector('.faq-section');
 
+if (faqSection) {
+  const questionsItems = faqSection.querySelectorAll('.questions-item');
 
+  questionsItems.forEach((item) => {
+    item.onclick = function() {
+      item.classList.toggle('active');
+    }
+  });
+}
 
 
 // Set cookie

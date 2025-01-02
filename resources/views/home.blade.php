@@ -253,6 +253,39 @@
   </div>
 </div>
 
+<div class="faq-section section">
+  <div class="container">
+    <div class="grid-container">
+      <div class="title">
+        <div class="section-title">Отвечаем<br>на вопросы</div>
+      </div>      
+      <div class="questions">
+        <div class="questions-item">
+          <div class="questions-item__title">Вопрос 1</div>
+          <div class="questions-item__content">Сервис понравился Сервис компании АЛЕАН понравился. Изначально выбрали другой отель, но потом выбор пал на другой отель, компания сделала нам возврат денежных средств в полном объеме. За что огромное спасибо. Сервис понравился</div>
+          <div class="circle">
+            <div class="arrow"></div>
+          </div>
+        </div>
+        <div class="questions-item active">
+          <div class="questions-item__title">Вопрос 2</div>
+          <div class="questions-item__content">Нейросеть генератор текста — уникальное решение для создания качественного контента без усилий. Наша платформа UltraText.ru использует передовые технологии искусственного интеллекта для генерации материала любой сложности. С нами каждая ваша идея воплотится в жизни быстро и легко, обеспечивая высокую точность и уникальность.</div>
+          <div class="circle">
+            <div class="arrow"></div>
+          </div>
+        </div>
+        <div class="questions-item active">
+          <div class="questions-item__title">Вопрос 3</div>
+          <div class="questions-item__content">Иначе говоря, вы получаете незаменимого помощника, который всегда под рукой. Искусственный интеллект для текста способен анализировать и понимать поставленную задачу, что позволяет ему генерировать уникальный, качественный контент. В частности, это отличное решение для предпринимателей, блогеров и маркетологов, стремящихся увеличить свой охват и улучшить контент.</div>
+          <div class="circle">
+            <div class="arrow"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="description-section">
   <div class="container">
     <div class="grid-container">
