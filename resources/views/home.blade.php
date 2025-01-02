@@ -352,16 +352,19 @@
   </div>
 </div>
 
-<div class="container">
-  <p>Товары</p>
-  <div class="products">
-    <div class="products-item"></div>
-    <div class="products-item"></div>
-    <div class="products-item"></div>
-    <div class="products-item"></div>
+<div class="callback-section">
+  <div class="container">
+    <div class="callback-form-wrapper">
+      <div class="callback-title">Оставьте заявку</div>
+      <form class="callback-form">
+        <div class="grid-container">
+          <input type="text" name="name" class="input-field" placeholder="Имя">
+          <input type="text" name="phone" class="input-field js-input-phone-mask" placeholder="Телефон">
+          <button type="button" class="callback-btn">Отправить</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-
-
 
 @endsection

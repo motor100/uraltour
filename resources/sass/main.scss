@@ -469,7 +469,7 @@ p {
   .grid-container {
     display: grid;
     grid-template-columns: repeat(12, [col-start] 1fr);
-    grid-gap: 0 24px;
+    gap: 0 24px;
   }
   .title {
     grid-column: col-start/span 5;
@@ -544,7 +544,7 @@ p {
   }
 }
 
-// description section
+// Description section
 .description-section {
   margin: 0 0 40px 0;
   .grid-container {
@@ -577,6 +577,7 @@ p {
   }
 }
 
+// Advantages section
 .advantages-section {
   .advantages {
     display: grid;
@@ -603,16 +604,126 @@ p {
   }
 }
 
-.products {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(4, 1fr);
-  .products-item {
-    height: 200px;
-    background-color: grey;
+// Callback section
+.callback-section {
+  .callback-form-wrapper {
+    padding: 60px;
+    border-radius: 20px;
+    background-color: $orangecolor;
+  }
+  .callback-title {
+    margin: 0 0 35px 0;
+    font-family: 'montserrat-semibold';
+    font-size: 42px;
+    color: #fff;
+    text-align: center;
+  }
+  .grid-container {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 270px 270px 280px;
+    justify-content: center;
+  }
+  .input-field {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: $orangecolor;
+    font-family: inherit;
+    font-size: 16px;
+    color: #fff;
+  }
+  .input-field::placeholder {
+    color: #fff;
+  }
+  .input-field.required {
+    border: 1px solid red;
+  }
+  .callback-btn {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    background-color: $textcolor;
+    font-family: 'montserrat-semibold';
+    font-size: 24px;
+    color: #fff;
   }
 }
 
+// footer
+.footer {
+  margin: 40px 0 0 0;
+  .grid-container {
+    display: grid;
+    margin: 0 0 20px 0;
+    grid-template-columns: repeat(12, [col-start] 1fr);
+    gap: 0 24px;
+  }
+  .footer-top {
+    padding: 0 0 30px 0;
+    border-bottom: 1px solid #D4D4D8;
+  }
+  .logo-wrapper {
+    grid-column: col-start/span 4;
+  }
+  .logo {
+    margin: 0 0 20px 0;
+  }
+  .underlogo-text {
+    font-size: 14px;
+    color: $lightgreycolor;
+  }
+  .club {
+    grid-column: col-start 5 / span 2;
+  }
+  .bottom-menu {
+    padding: 40px 0 0 0;
+  }
+  .menu-title {
+    margin: 0 0 30px 0;
+    font-family: 'montserrat-semibold';
+    font-size: 14px;
+    color: $orangecolor;
+  }
+  .menu-title {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: $orangecolor;
+  }
+  .menu-item {
+    margin: 0 0 15px 0;
+    cursor: pointer;
+  }
+  .menu-item,
+  .menu-item a {
+    font-size: 14px;
+    color: $lightgreycolor;
+  }
+  .booking {
+    grid-column: col-start 7 / span 3;
+  }
+  .help {
+    grid-column: col-start 10 / span 3;
+  }
+  .bottom-menu {
+    margin: 0;
+  }
+  .footer-bottom {
+    display: grid;
+    padding: 20px 0 40px 0;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 14px;
+    color: $lightgreycolor;
+  }
+  .developers {
+    text-align: right;
+  }
+  .developer a {
+    font-size: 14px;
+    color: $lightgreycolor;
+  }
+}
 
 
 // product
@@ -638,30 +749,7 @@ p {
   }
 }
 
-// footer
-.footer {
-  margin: 30px 0;
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(12, [col-start] 1fr);
-    grid-gap: 0 24px;
-  }
-  .logo {
-    grid-column: col-start/span 4;
-  }
-  .club {
-    grid-column: col-start 5 / span 2;
-  }
-  .booking {
-    grid-column: col-start 7 / span 3;
-  }
-  .help {
-    grid-column: col-start 10 / span 3;
-  }
-  .bottom-menu {
-    margin: 0;
-  }
-}
+
 
 
 // breadcrumbs
@@ -962,7 +1050,7 @@ p {
 .we-use-cookie {
   position: fixed;
   right: 25%;
-  bottom: 55px;
+  bottom: 0;
   display: none;
   z-index: 15;
   &.active {
@@ -970,16 +1058,16 @@ p {
   }
   .we-use-cookie-wrapper {
     display: flex;
-    max-width: 715px;
+    max-width: 1320px;
+    margin: 0 auto;
     padding: 34px;
     border-radius: 10px;
-    background-color: #484848;
+    background-color: #FFF4ED;
     align-items: center;
   }
   .we-use-cookie-text {
     padding: 0 10px 0 0;
     font-size: 14px;
-    color: #E8E8E8;
   }
   .we-use-cookie-close {
     display: block;

@@ -1,3 +1,5 @@
+import IMask from 'imask';
+
 
 // Секция Отвечаем на вопросы аккордеон
 const faqSection = document.querySelector('.faq-section');
@@ -11,6 +13,30 @@ if (faqSection) {
     }
   });
 }
+
+
+// Current year
+const now = new Date();
+const year = now.getFullYear();
+
+const currentYear = document.getElementById('current-year');
+currentYear.innerText = year;
+
+
+// Input phone mask
+function inputPhoneMask() {
+  const elementPhone = document.querySelectorAll('.js-input-phone-mask');
+
+  const maskOptionsPhone = {
+    mask: '+{7} (000) 000 00 00'
+  };
+
+  elementPhone.forEach((item) => {
+    const mask = IMask(item, maskOptionsPhone);
+  });
+}
+
+inputPhoneMask();
 
 
 // Set cookie

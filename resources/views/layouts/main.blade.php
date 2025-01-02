@@ -53,35 +53,76 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="grid-container">
-        <div class="logo">
-          <img src="/img/logo.png" alt="">
-        </div>
-        <div class="club">
-          <div class="bottom-menu">
-            <div class="menu-item">Контакты</div>
-            <div class="menu-item">Документы</div>
-            <div class="menu-item">Отзывы</div>
-            <div class="menu-item">Оставить отзыв</div>
+      <div class="footer-top">
+        <div class="grid-container">
+          <div class="logo-wrapper">
+            <div class="logo">
+              <img src="/img/logo.png" alt="">
+            </div>
+            <div class="underlogo-text">Клуб путешественников.<br>Организованные туры по России.<br>Экскурсии для взрослых и школьников.</div>
+          </div>
+          <div class="club">
+            <div class="bottom-menu">
+              <div class="menu-title">Клуб</div>
+              <div class="menu-item">
+                <a href="/contacts">Контакты</a>
+              </div>
+              <div class="menu-item">
+                <a href="/documents">Документы</a>
+              </div>
+              <div class="menu-item">
+                <a href="/testimonials">Отзывы</a>
+              </div>
+              <div class="menu-item">Оставить отзыв</div>
+            </div>
+          </div>
+          <div class="booking">
+            <div class="bottom-menu">
+              <div class="menu-title">Бронирование</div>
+              <div class="menu-item">
+                <a href="/booking">Забронировать</a>
+              </div>
+            </div>
+          </div>
+          <div class="help">
+            <div class="bottom-menu">
+              <div class="menu-title">Помощь</div>
+              <div class="menu-item">
+                <a href="/privacy-policy">Политика конфиденциальности</a>
+              </div>
+              <div class="menu-item">
+                <a href="/agreement">Согласие на обработку персональных данных</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="booking">
-          <ul class="bottom-menu">
-            <li class="menu-item">Забронировать онлайн</li>
-            <li class="menu-item">Спецпредложения</li>
-            <li class="menu-item">Способы оплаты</li>
-            <li class="menu-item">Забронировать онлайн</li>
-          </ul>
+        <div class="socials">
+          <a href="#" class="socials-link">
+            <img src="/img/vk.png" class="socials-image" alt="">
+          </a>
+          <a href="#" class="socials-link">
+            <img src="/img/ok.png" class="socials-image" alt="">
+          </a>
+          <a href="#" class="socials-link">
+            <img src="/img/tg.png" class="socials-image" alt="">
+          </a>
+          <a href="#" class="socials-link">
+            <img src="/img/ws.png" class="socials-image" alt="">
+          </a>
         </div>
-        <div class="help">
-          <ul class="bottom-menu">
-            <li class="menu-item">
-              <a href="/privacy-policy">Политика конфиденциальности</a>
-            </li>
-            <li class="menu-item">
-              <a href="/agreement">Согласие на обработку персональных данных</a>
-            </li>
-          </ul>
+      </div>
+      <div class="footer-bottom">
+        <div class="info">
+          <div class="copyright">© УРАЛ ТУР <span id="current-year"></span></div>
+          <div class="about-company">ИП Красняк Л.Н. ИНН 741807167621</div>
+        </div>
+        <div class="developers">
+          <div class="developer">
+            <a href="https://mybutton.ru" target="_blank">Разработчик Студия Button</a>
+          </div>
+          <div class="developer">
+            <a href="https://nhfuture.ru/" target="_blank">Дизайн Andrewwebnh</a>
+          </div>
         </div>
       </div>
     </div>
