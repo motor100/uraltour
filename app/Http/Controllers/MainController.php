@@ -24,9 +24,11 @@ class MainController extends Controller
     {
         if ($category) {
 
-            $products = Product::where('category_id', $category->id)->paginate();
+            $products = Product::where('category_id', $category->id)->paginate(8);
 
-            return view('category', compact('category', 'products'));
+            $regular_products = Product::where('category_id', $category->id)->limit(2)->get();
+
+            return view('category', compact('category', 'products', 'regular_products'));
         }
 
         return abort(404);
