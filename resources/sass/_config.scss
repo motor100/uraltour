@@ -6,8 +6,8 @@ $bluecolor: #088BD4; // Blue Color
 $darkcolor: #252C32; // Dark Color
 $greycolor: #868686; // Grey Color
 $lightgreycolor: #696969; // Light Grey Color
+$secondlightgreycolor: #616161; // // Second Light Grey Color
 
-$secondlightgreycolor: #D9D9D9; // #B9B9B9 // Second Light Grey Color
 $secondlightbluecolor: #E0F1EF; // Second Light Blue Color
 
 $fontsize: 16px; // Font Size
@@ -28,7 +28,7 @@ $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Fon
   }
 }
 
-// @include font('roboto-condensed-light', normal, 400, '../../public/fonts/roboto-condensed-light.woff2');
+@include font('montserrat-light', normal, 400, '../../public/fonts/Montserrat-Light.woff2');
 @include font('montserrat-regular', normal, 400, '../../public/fonts/Montserrat-Regular.woff2');
 @include font('montserrat-medium', normal, 400, '../../public/fonts/Montserrat-Medium.woff2');
 @include font('montserrat-semibold', normal, 400, '../../public/fonts/Montserrat-SemiBold.woff2');

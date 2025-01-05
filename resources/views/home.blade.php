@@ -9,7 +9,7 @@
     <div class="container">
       <div class="main-title">Урал Тур</div>
       <div class="main-subtitle">Клуб путешественников</div>
-      <div class="search-wrapper">
+      <div class="search">
         <form class="search-form" action="/search" method="get">
           <div class="grid-container">
             <input type="text" name="search_query" class="search-input" placeholder="Найти тур">
@@ -101,6 +101,7 @@
         <div class="categories-item__title">Национальные маршруты</div>
         <div class="categories-item__quantity">56 туров</div>
         <div class="linear-gradient"></div>
+        <a href="/catalog/nacionalnye-marshruty" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -109,14 +110,7 @@
         <div class="categories-item__title">Поездки по России</div>
         <div class="categories-item__quantity">12 туров</div>
         <div class="linear-gradient"></div>
-      </div>
-      <div class="categories-item">
-        <div class="categories-item__image">
-          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
-        </div>
-        <div class="categories-item__title">Ближнее зарубежье</div>
-        <div class="categories-item__quantity">109 туров</div>
-        <div class="linear-gradient"></div>
+        <a href="/catalog/poezdki-po-rossii" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -125,6 +119,16 @@
         <div class="categories-item__title">Тур выходного дня</div>
         <div class="categories-item__quantity">4 туров</div>
         <div class="linear-gradient"></div>
+        <a href="/catalog/tury-vyhodnogo-dnya" class="full-link"></a>
+      </div>
+      <div class="categories-item">
+        <div class="categories-item__image">
+          <img src="{{ Storage::url('uploads/categories/category3.jpg') }}" alt="">
+        </div>
+        <div class="categories-item__title">Ближнее зарубежье</div>
+        <div class="categories-item__quantity">109 туров</div>
+        <div class="linear-gradient"></div>
+        <a href="#" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -133,6 +137,7 @@
         <div class="categories-item__title">Детские</div>
         <div class="categories-item__quantity">2 туров</div>
         <div class="linear-gradient"></div>
+        <a href="#" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -141,6 +146,7 @@
         <div class="categories-item__title">По странам</div>
         <div class="categories-item__quantity">1 туров</div>
         <div class="linear-gradient"></div>
+        <a href="#" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -149,6 +155,7 @@
         <div class="categories-item__title">По городам</div>
         <div class="categories-item__quantity">134 туров</div>
         <div class="linear-gradient"></div>
+        <a href="#" class="full-link"></a>
       </div>
       <div class="categories-item">
         <div class="categories-item__image">
@@ -157,6 +164,7 @@
         <div class="categories-item__title">По городам</div>
         <div class="categories-item__quantity">37 туров</div>
         <div class="linear-gradient"></div>
+        <a href="#" class="full-link"></a>
       </div>
       <div class="categories-top-right">
         <img src="/img/categories-top-right.png" alt="">
@@ -260,21 +268,21 @@
         <div class="section-title">Отвечаем<br>на вопросы</div>
       </div>      
       <div class="questions">
-        <div class="questions-item">
+        <div class="questions-item active">
           <div class="questions-item__title">Вопрос 1</div>
           <div class="questions-item__content">Сервис понравился Сервис компании АЛЕАН понравился. Изначально выбрали другой отель, но потом выбор пал на другой отель, компания сделала нам возврат денежных средств в полном объеме. За что огромное спасибо. Сервис понравился</div>
           <div class="circle">
             <div class="arrow"></div>
           </div>
         </div>
-        <div class="questions-item active">
+        <div class="questions-item">
           <div class="questions-item__title">Вопрос 2</div>
           <div class="questions-item__content">Нейросеть генератор текста — уникальное решение для создания качественного контента без усилий. Наша платформа UltraText.ru использует передовые технологии искусственного интеллекта для генерации материала любой сложности. С нами каждая ваша идея воплотится в жизни быстро и легко, обеспечивая высокую точность и уникальность.</div>
           <div class="circle">
             <div class="arrow"></div>
           </div>
         </div>
-        <div class="questions-item active">
+        <div class="questions-item">
           <div class="questions-item__title">Вопрос 3</div>
           <div class="questions-item__content">Иначе говоря, вы получаете незаменимого помощника, который всегда под рукой. Искусственный интеллект для текста способен анализировать и понимать поставленную задачу, что позволяет ему генерировать уникальный, качественный контент. В частности, это отличное решение для предпринимателей, блогеров и маркетологов, стремящихся увеличить свой охват и улучшить контент.</div>
           <div class="circle">
