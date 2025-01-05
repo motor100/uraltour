@@ -97,7 +97,7 @@
                   <div class="content">
                     <div class="big-product__price">
                       <span class="value">3750</span>
-                      <span class="currency"> Р</span>
+                      <span class="currency">Р</span>
                     </div>
                     <div class="date">
                       <div class="date-text">Дата тура</div>
