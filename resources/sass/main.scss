@@ -86,7 +86,9 @@ p {
   font-size: 48px;
   line-height: 1.1;
 }
-
+.orange-color {
+  color: $orangecolor;
+}
 
 
 .header {
@@ -384,16 +386,30 @@ p {
   .testimonials {
     display: grid;
     margin: 0 0 20px 0;
-    gap: 20px 45px;
+    gap: 0 45px;
     grid-template-columns: repeat(3, 1fr);
   }
   .testimonials-item {
-    position: relative;
     height: 280px;
-    padding: 50px 40px 40px 40px;
-    border-radius: 15px;
-    background-color: #fff;
   }
+  .see-all {
+    text-align: right;
+  }
+  .see-all-link {
+    font-family: 'montserrat-medium';
+    font-size: 20px;
+    color: $orangecolor;
+    text-decoration: underline;
+  }
+}
+
+// Testimonials item карточка отзыва
+.testimonials-item {
+  position: relative;
+  margin: 0 0 20px 0;
+  padding: 50px 40px 40px 40px;
+  border-radius: 15px;
+  background-color: #fff;
   .testimonials-item__title {
     font-family: 'montserrat-medium';
     font-size: 20px;
@@ -408,14 +424,8 @@ p {
     right: 40px;
     color: $lightgreycolor;
   }
-  .see-all {
-    text-align: right;
-  }
-  .see-all-link {
-    font-family: 'montserrat-medium';
-    font-size: 20px;
-    color: $orangecolor;
-    text-decoration: underline;
+  .testimonials-item__text {
+    line-height: 1.4;
   }
 }
 
@@ -625,7 +635,7 @@ p {
     margin: 0 0 20px 0;
     gap: 16px;
     grid-template-columns: 270px 270px 280px;
-    justify-content: center;
+    // justify-content: center;
   }
   .input-field {
     width: 100%;
@@ -955,8 +965,9 @@ p {
     text-align: center;
     cursor: pointer;
   }
-  .grid-container {
+  .content-grid-container {
     display: grid;
+    margin: 0 0 60px 0;
     grid-template-columns: 112px 526px 1fr;
     gap: 10px;
   }
@@ -980,9 +991,128 @@ p {
     font-size: 32px;
     line-height: 1.1;
   }
+  .product-rating {
+    margin: 0 0 10px 0;
+  }
+  .product-rating img {
+    width: 120px;
+    margin: 0 12px 0 0;
+    vertical-align: top;
+  }
+  .rating-text {
+    color: $thirdlightbluecolor;
+  }
+  .testimonials-count {
+    font-family: 'montserrat-medium';
+    font-size: 18px;
+  }
   .product-price {
+    margin: 0 0 10px 0;
     font-family: 'montserrat-semibold';
     font-size: 28px;
+  }
+  .product-description-title {
+    margin: 0 0 15px 0;
+    font-family: 'montserrat-medium';
+    font-size: 24px;
+  }
+  .product-description {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+  .product-buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: start;
+  }
+  .product-content .product-buttons {
+    justify-content: start;
+  }
+  .product-btn {
+    width: 219px;
+    height: 50px;
+    padding: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 10px;
+    font-family: 'montserrat-semibold';
+    font-size: 18px;
+  }
+  .booking-tour-btn {
+    border-color: $orangecolor;
+    background-color: $orangecolor;
+    color: #fff;
+  }
+  .write-btn {
+    border-color: $textcolor;
+    background-color: #fff;
+    color: $textcolor;
+  }
+  .product-subtitle {
+    width: max-content;
+    margin: 0 0 20px 0;
+    padding: 12px 30px;
+    border: 1px solid #E5E9EB;
+    border-radius: 15px;
+    font-family: 'montserrat-medium';
+    font-size: 24px;
+  }
+  .product-description-item {
+    margin: 0 0 40px 0;
+    font-size: 20px;
+  }
+  .product-photos-grid-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .product-subtitle-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .product-photos-item {
+    height: 350px;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  .view-all {
+    font-family: 'montserrat-medium';
+    font-size: 24px;
+    color: $orangecolor;
+    text-decoration: underline;
+  }
+  .product-testimonials {
+    margin: 0 0 100px 0;
+    .testimonials {
+      margin: 0 0 30px 0;
+    }
+    .testimonials-item__image {
+      margin: 30px 0 0 0;
+    }
+    .testimonials-item__image .image {
+      display: inline-block;
+      width: 168px;
+      height: 168px;
+      margin: 0 10px 0 0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .product-buttons {
+      justify-content: center;
+    }
+    .load-more-btn {
+      border-color: $textcolor;
+      background-color: $textcolor;
+      color: #fff;
+    }
+    .write-btn {
+      border-color: $textcolor;
+      background-color: #fff;
+      color: $textcolor;
+    }
   }
 }
 

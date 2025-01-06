@@ -188,6 +188,7 @@
         <div class="testimonials-item__date">12.12.24</div>
         <div class="testimonials-item__text">Сервис компании АЛЕАН понравился. Изначально выбрали другой отель, но потом выбор пал на другой отель, компания сделала нам возврат денежных средств...</div>
       </div>
+      <!-- Сделать через @ include -->
       <div class="testimonials-item">
         <div class="testimonials-item__title">Морозов Алексей</div>
         <div class="testimonials-item__rating">
