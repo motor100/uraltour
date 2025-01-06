@@ -202,13 +202,56 @@
             </button>
           </div>
           <div class="agreement-text">
-            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-callback-modal" checked required onchange="document.getElementById('callback-btn').disabled = !this.checked;">
+            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-callback-modal" checked required onchange="document.getElementById('callback-submit-btn').disabled = !this.checked;">
             <label for="checkbox-read-callback-modal" class="custom-checkbox-label"></label>
             <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
           </div>
           <div class="agreement-text">
-            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-callback-modal" checked required>
+            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-callback-modal" checked required onchange="document.getElementById('callback-submit-btn').disabled = !this.checked;">
             <label for="checkbox-agree-callback-modal" class="custom-checkbox-label"></label>
+            <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="testimonial-modal" class="modal-window testimonial-modal">
+    <div class="modal-wrapper">
+      <div class="modal-area">
+        <div class="modal-close">
+          <div class="close"></div>
+        </div>
+        <div class="modal-title">Оставьте отзыв</div>
+        <form id="testimonial-modal-form" class="form">
+          <div class="grid-container">
+            <div class="form-group">
+              <label for="name-testimonial-modal" class="label">Имя <span class="accentcolor">*</span></label>
+              <input type="text" name="name" id="name-testimonial-modal" class="input-field js-name-testimonial-modal" required minlength="3" maxlength="20" placeholder="Имя">
+            </div>
+            <div class="form-group">
+              <div class="label">Оценка</div>
+              <img src="/img/temp-rating.png" class="rating" alt="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="text-testimonial-modal" class="label">Отзыв <span class="accentcolor">*</span></label>
+            <textarea type="text" name="name" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
+          </div>
+          <div class="form-group">
+            <img src="/img/paperclip.jpg" class="paperclip" alt="">
+            <span class="attach-photo">Прикрепить фото</span>
+          </div>
+
+          <button type="button" id="testimonial-submit-btn" class="modal-submit-btn">Отправить</button>
+          <div class="agreement-text">
+            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
+            <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>
+            <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
+          </div>
+          <div class="agreement-text">
+            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
+            <label for="checkbox-agree-testimonial-modal" class="custom-checkbox-label"></label>
             <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
           </div>
         </form>

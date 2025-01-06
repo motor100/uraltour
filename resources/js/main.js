@@ -42,13 +42,21 @@ inputPhoneMask();
 
 // Окна
 const modalWindows = document.querySelectorAll('.modal-window');
-const callbackFormBtns = document.querySelectorAll('.js-callback-form-btn');
+const callbackModalBtns = document.querySelectorAll('.js-callback-modal-btn');
 const callbackModal = document.querySelector('#callback-modal');
+const testimonialModalBtns = document.querySelectorAll('.js-testimonial-modal-btn');
+const testimonialModal = document.querySelector('#testimonial-modal');
 const modalCloseBtns = document.querySelectorAll('.modal-window .modal-close');
 
-callbackFormBtns.forEach((item) => {
+callbackModalBtns.forEach((item) => {
   item.onclick = function () {
     modalWindowOpen(callbackModal);
+  }
+});
+
+testimonialModalBtns.forEach((item) => {
+  item.onclick = function () {
+    modalWindowOpen(testimonialModal);
   }
 });
 
