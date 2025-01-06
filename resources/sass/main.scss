@@ -90,7 +90,7 @@ p {
   color: $orangecolor;
 }
 
-
+// Header
 .header {
   padding: 20px 0;
   .grid-container {
@@ -662,9 +662,17 @@ p {
     font-size: 24px;
     color: #fff;
   }
+  .agreement-text {
+    a {
+      color: $textcolor;
+    }
+    .custom-checkbox:checked+label::before {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
+  }
 }
 
-// footer
+// Footer
 .footer {
   margin: 40px 0 0 0;
   .grid-container {
@@ -953,7 +961,7 @@ p {
   }
 }
 
-// product
+// Product
 .product-page {
   .back {
     width: 130px;
@@ -1116,11 +1124,11 @@ p {
   }
 }
 
-// breadcrumbs
+// Breadcrumbs
 .breadcrumbs {
   margin: 40px 0 20px 0;
-  font-family: 'montserrat-light';
-  font-size: 16px;
+  // font-family: 'montserrat-light';
+  font-size: 14px;
   .parent,
   .separator,
   .active {
@@ -1137,7 +1145,7 @@ p {
   }
 }
 
-// pagination pager
+// Pagination pager
 .pager {
   display: flex;
   width: max-content;
@@ -1249,42 +1257,7 @@ p {
   }
 }
 
-/* agreement text галочка соглашения */
-.agreement-text {
-  margin: 5px 0;
-  font-size: 14px;
-  line-height: 1.6;
-  a {
-    font-size: 14px;
-    color: $textcolor;
-    text-decoration: underline;
-  }
-  .custom-checkbox {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-  }
-  .custom-checkbox+label:before {
-    content: '';
-    display: block;
-    float: left;
-    width: 13px;
-    height: 13px;
-    margin: 3px 10px 3px 0;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 80%;
-    background-color: #fff;
-  }
-  .custom-checkbox:checked+label::before {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-  }
-  .custom-checkbox-label {
-    display: block;
-  }
-}
-
-
+// Mobile menu
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -1384,13 +1357,13 @@ p {
   }
 }
 
-// modal
+// Modal
 .modal-window {
   display: none;
   position: fixed;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.8);
+  // background: rgba(0,0,0,.8);
   top: 0;
   left: 0;
   z-index: 100;
@@ -1401,7 +1374,7 @@ p {
     position: fixed;
     left: 0;
     right: 0;
-    top: 10px;
+    top: 100px;
     padding: 0 12px;
     opacity: 0;
     visibility: hidden;
@@ -1413,37 +1386,36 @@ p {
   }
   .modal-area {
     position: relative;
-    max-width: 650px;
+    max-width: 1320px;
     margin: 0 auto;
-    padding: 25px 90px;
-    border-radius: 5px;
+    padding: 60px;
+    border-radius: 30px;
     background-color: #fff;
     overflow: hidden;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   }
   .modal-close {
     position: absolute;
-    top: 35px;
-    right: 25px;
+    top: 73px;
+    right: 60px;
     cursor: pointer;
   }
   .close {
     position: relative;
-    width: 21px;
-    height: 21px;
+    width: 32px;
+    height: 32px;
     border-radius: 3px;
   }
   .close:before,
   .close:after { 
     content: "";
     position: absolute;
-    top: 0;
-    left: 9px;
+    top: -3px;
+    left: 15px;
     width: 2px;
-    height: 20px;
-    border-radius: 2px;
-    background-color: $greycolor;
-    transition: background-color .3s;
+    height: 40px;
+    background-color: $textcolor;
+    // transition: background-color .3s;
   }
   .close:before {
     transform: rotate(45deg);
@@ -1454,15 +1426,108 @@ p {
   .modal-title {
     margin: 0 0 20px 0;
     font-family: 'montserrat-medium';
-    font-size: 30px;
-    color: #000;
-    text-align: center;
-    text-transform: uppercase;
+    font-size: 40px;
+    // text-align: center;
+  }
+  .grid-container {
+    display: grid;
+    margin: 0 0 23px 0;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    // justify-content: space-between;
+    align-items: end;
+  }
+  .label {
+    display: block;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+  }
+  .input-field {
+    display: block;
+    width: 100%;
+    height: 70px;
+    padding: 22px 30px;
+    border: 1px solid #C8C8C8;
+    border-radius: 15px;
+    font-family: 'montserrat-medium';
+    font-size: 18px;
+    color: $textcolor;
+  }
+  .input-field::placeholder {
+    color: #C8C8C8;
   }
   .modal-submit-btn {
-    margin: 0 auto;
+    display: grid;
+    height: 70px;
+    padding: 0;
+    border: 1px solid $orangecolor;
+    border-radius: 10px;
+    background-color: #fff;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .modal-submit-btn__image {
+    width: 20px;
+    height: 22px;
+  }
+  .modal-submit-btn__text {
+    font-family: 'montserrat-semibold';
+    font-size: 18px;
+    color: $orangecolor;
+  }
+  .agreement-text {
+    a {
+      color: $orangecolor;
+    }
+    .custom-checkbox+label::before {
+      border: 1px solid $orangecolor;
+    }
+    .custom-checkbox:checked+label::before {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23E86423' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+    }
   }
 }
+
+/* agreement text галочка соглашения */
+.agreement-text {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  a {
+    font-size: 14px;
+    color: $orangecolor;
+    text-decoration: underline;
+  }
+  .custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  .custom-checkbox+label::before {
+    content: '';
+    display: block;
+    float: left;
+    width: 13px;
+    height: 13px;
+    margin: 3px 10px 3px 0;
+    border: 1px solid $orangecolor;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 80%;
+    background-color: #fff;
+  }
+  .custom-checkbox:checked+label::before {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23E86423' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  }
+  .custom-checkbox-label {
+    display: block;
+  }
+}
+
+
+
 
 /* we use cookie */
 .we-use-cookie {

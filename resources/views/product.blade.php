@@ -82,8 +82,8 @@
           🔸сопровождение, транспортная страховка.<br>
         </div>
         <div class="product-buttons">
-          <button class="booking-tour-btn product-btn">Заказать тур</button>
-          <button class="write-btn product-btn">Написать нам</button>
+          <button class="booking-tour-btn product-btn js-callback-form-btn">Заказать тур</button>
+          <button class="write-btn product-btn js-callback-form-btn">Написать нам</button>
         </div>
       </div>
     </div>

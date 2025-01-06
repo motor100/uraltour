@@ -26,7 +26,7 @@ $systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Fon
   }
 }
 
-@include font('montserrat-light', normal, 400, '../../public/fonts/Montserrat-Light.woff2');
+// @include font('montserrat-light', normal, 400, '../../public/fonts/Montserrat-Light.woff2');
 @include font('montserrat-regular', normal, 400, '../../public/fonts/Montserrat-Regular.woff2');
 @include font('montserrat-medium', normal, 400, '../../public/fonts/Montserrat-Medium.woff2');
 @include font('montserrat-semibold', normal, 400, '../../public/fonts/Montserrat-SemiBold.woff2');

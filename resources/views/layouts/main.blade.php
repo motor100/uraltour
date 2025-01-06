@@ -185,36 +185,32 @@
         <div class="modal-close">
           <div class="close"></div>
         </div>
-        <div class="modal-title">Оставить заявку</div>
-        <form id="callback-modal-form" class="form" method="post">
-          <div class="form-group">
-            <label for="name-callback-modal" class="label">Имя <span class="accentcolor">*</span></label>
-            <input type="text" name="name" id="name-callback-modal" class="input-field js-name-callback-modal" required minlength="3" maxlength="20">
+        <div class="modal-title">Оставьте заявку и мы с вами свяжемся</div>
+        <form id="callback-modal-form" class="form">
+          <div class="grid-container">
+            <div class="form-group">
+              <label for="name-callback-modal" class="label">Имя <span class="accentcolor">*</span></label>
+              <input type="text" name="name" id="name-callback-modal" class="input-field js-name-callback-modal" required minlength="3" maxlength="20" placeholder="Имя">
+            </div>
+            <div class="form-group">
+              <label for="phone-callback-modal" class="label">Телефон <span class="accentcolor">*</span></label>
+              <input type="text" name="phone" id="phone-callback-modal" class="input-field js-input-phone-mask" required size="18" placeholder="+7 (000) 000 00 00">
+            </div>
+            <button type="button" id="callback-submit-btn" class="modal-submit-btn">
+              <img src="/img/search-icon.png" class="modal-submit-btn__image" alt="">
+              <span class="modal-submit-btn__text">Отправить</span>
+            </button>
           </div>
-          <div class="form-group">
-            <label for="email-callback-modal" class="label">E-mail <span class="accentcolor">*</span></label>
-            <input type="email" name="email" id="email-callback-modal" class="input-field js-email-callback-modal" required minlength="3" maxlength="50">
-          </div>
-          <div class="form-group">
-            <label for="phone-callback-modal" class="label">Телефон <span class="accentcolor">*</span></label>
-            <input type="text" name="phone" id="phone-callback-modal" class="input-field js-phone-callback-modal js-input-phone-mask" required size="18">
-          </div>
-          <div class="form-group">
-            <label for="message-callback-modal" class="label">Сообщение</label>
-            <textarea name="message" id="message-callback-modal" class="input-field textarea" minlength="3" maxlength="100"></textarea>
-          </div>
-          <div class="checkbox-wrapper">
-            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-checkbox-callback-modal" id="checkbox-agree-callback-modal" checked required>
-            <label for="checkbox-agree-callback-modal" class="custom-checkbox-label"></label>
-            <span class="checkbox-text">Согласен на обработку персональных данных</span>
-          </div>
-          <div class="checkbox-wrapper mb25">
-            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-checkbox-callback-modal" id="checkbox-read-callback-modal" checked required>
+          <div class="agreement-text">
+            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-callback-modal" checked required onchange="document.getElementById('callback-btn').disabled = !this.checked;">
             <label for="checkbox-read-callback-modal" class="custom-checkbox-label"></label>
-            <span class="checkbox-text">Ознакомлен с <a href="/politika-konfidencialnosti" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
+            <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
           </div>
-
-          <button type="button" id="callback-submit-btn" class="primary-btn modal-submit-btn btn-415">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+          <div class="agreement-text">
+            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-callback-modal" checked required>
+            <label for="checkbox-agree-callback-modal" class="custom-checkbox-label"></label>
+            <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
+          </div>
         </form>
       </div>
     </div>

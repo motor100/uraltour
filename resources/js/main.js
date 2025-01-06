@@ -1,5 +1,6 @@
 import IMask from 'imask';
 
+const body = document.querySelector('body');
 
 // Секция Отвечаем на вопросы аккордеон
 const faqSection = document.querySelector('.faq-section');
@@ -37,6 +38,53 @@ function inputPhoneMask() {
 }
 
 inputPhoneMask();
+
+
+// Окна
+const modalWindows = document.querySelectorAll('.modal-window');
+const callbackFormBtns = document.querySelectorAll('.js-callback-form-btn');
+const callbackModal = document.querySelector('#callback-modal');
+const modalCloseBtns = document.querySelectorAll('.modal-window .modal-close');
+
+callbackFormBtns.forEach((item) => {
+  item.onclick = function () {
+    modalWindowOpen(callbackModal);
+  }
+});
+
+function modalWindowOpen(win) {
+  // Открытие окна
+  body.classList.add('overflow-hidden');
+  win.classList.add('active');
+  setTimeout(function(){
+    win.childNodes[1].classList.add('active');
+  }, 200);
+}
+
+for (let i=0; i < modalCloseBtns.length; i++) {
+  modalCloseBtns[i].onclick = function() {
+    modalWindowClose(modalWindows[i]);
+  }
+}
+
+for (let i = 0; i < modalWindows.length; i++) {
+  modalWindows[i].onclick = function(event) {
+    let classList = event.target.classList;
+    for (let j = 0; j < classList.length; j++) {
+      if (classList[j] == "modal" || classList[j] == "modal-wrapper" || classList[j] == "modal-window") {
+        modalWindowClose(modalWindows[i])
+      }
+    }
+  }
+}
+
+function modalWindowClose(win) {
+  body.classList.remove('overflow-hidden');
+  win.childNodes[1].classList.remove('active');
+  setTimeout(() => {
+    win.classList.remove('active');
+  }, 300);
+}
 
 
 // Set cookie
