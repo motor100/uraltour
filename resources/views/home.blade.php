@@ -9,6 +9,8 @@
     <div class="container">
       <div class="main-title">Урал Тур</div>
       <div class="main-subtitle">Клуб путешественников</div>
+      @include('search')
+      <!-- 
       <div class="search">
         <form class="search-form" action="/search" method="get">
           <div class="grid-container">
@@ -20,8 +22,9 @@
            </div>
           <img src="/img/search-lens.png" class="search-lens" alt="">
         </form>
-        
       </div>
+       -->
+      
       <div class="selection">
         <div class="grid-container">
           <div class="selection-item">

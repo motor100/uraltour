@@ -45,6 +45,25 @@ class MainController extends Controller
         return abort(404);
     }
 
+    public function poisk(Request $request): View
+    {
+        $validated = $request->validate([
+            'search_query' => 'nullable|min:3|max:40'
+        ]);
+
+        $search_query = htmlspecialchars($validated['search_query']);
+
+        $validated['search_query'] = htmlspecialchars($validated['search_query']);
+
+        $products = Product::where('title', 'like', "%{$validated['search_query']}%")
+                            // ->orWhere('text_html', 'like', "%{$validated['search_query']}%") // поиск по тексту
+                            ->paginate(40)
+                            ->onEachSide(1)
+                            ->withQueryString();
+
+        return view('poisk', compact('products', 'search_query'));
+    }
+
 
 
     public function privacy_policy(): View

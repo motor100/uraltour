@@ -19,6 +19,7 @@ Route::get('/catalog/{category}/{product}', [MainController::class, 'product']);
 
 Route::get('/contacts', [MainController::class, 'contacts']);
 
+Route::get('/poisk', [MainController::class, 'poisk']);
 
 
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);

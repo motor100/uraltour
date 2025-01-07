@@ -4,7 +4,11 @@
 
 @section('content')
 
-@include('search-section')
+<div class="search-section">
+  <div class="container">
+    @include('search')
+  </div>
+</div>
 
 <div class="breadcrumbs">
   <div class="container">
