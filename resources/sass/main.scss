@@ -753,6 +753,108 @@ p {
   background-size: cover;
   height: 230px;
   border-radius: 30px;
+  .search-form .search-close {
+    position: absolute;
+    top: 27px;
+    right: 260px;
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: all .3s;
+    z-index: 2;
+  }
+  .search-close.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .search-close::before,
+  .search-close::after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 2px;
+    width: 20px;
+    height: 2px;
+    background-color: $textcolor;
+  }
+  .search-close::before {
+    transform: rotate(45deg);
+  }
+  .search-close::after {
+    transform: rotate(-45deg);
+  }
+  .search-dropdown {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 81%;
+    // padding: 42px 0 0 0;
+    border-radius: 15px;
+    background-color: #fff;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s,visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
+    z-index: 1;
+  }
+  .search-dropdown.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .search-list {
+    // margin: 0;
+    padding: 0;
+  }
+  .search-list-item {
+    position: relative;
+    display: flex;
+    padding: 7px 22px;
+    background-color: #fff;
+    transition: background-color .2s;
+  }
+  .search-list-item:hover {
+    background-color: $greycolor;
+  }
+  .search-list-item__image {
+    width: 100px;
+    height: 68px;
+    margin: 0 12px 0 0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .search-list-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .search-list-item__title {
+    font-family: 'montserrat-medium';
+    font-size: 26px;
+    font-size: 18px;
+    transition: color .2s;
+  }
+  .search-list-item:hover .search-list-item__title {
+    color: $textcolor;
+  }
+  .search-see-all {
+    display: none;
+    margin: 7px 22px 15px 22px;
+    font-size: 14px;
+    color: #A0A8AE;
+    transition: color .3s;
+  }
+  .search-see-all:hover {
+    color: $textcolor;
+  }
+  .search-see-all-active {
+    display: block;
+  }
+  .no-product {
+    padding: 7px 22px;
+  }
 }
 
 // Category page

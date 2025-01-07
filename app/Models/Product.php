@@ -23,6 +23,15 @@ class Product extends Model
         'start_date',
         'price',
     ];
+
+    /**
+     * Получить категорю товара.
+     * Один к одному обратное соотношение
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
     
     /**
      * Поиск модели по slug

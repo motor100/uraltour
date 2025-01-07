@@ -94,6 +94,120 @@ function modalWindowClose(win) {
   }, 300);
 }
 
+// Поиск товаров
+// Search поиск товаров в хэдере
+let searchForm = document.querySelector('.search-form');
+let searchInput = document.querySelector('.search-input');
+let searchClose = document.querySelector('.search-close');
+let searchDropdown = document.querySelector('.search-dropdown');
+let searchResult = document.querySelector('.js-search-result');
+
+function searchDropdownClose() {
+  searchDropdown.classList.remove('active');
+  searchClose.classList.remove('active');
+  searchInput.classList.remove('search-input-dp');
+}
+
+function searchResetForm() {
+  searchForm.reset();
+  searchDropdown.classList.remove('active');
+  searchClose.classList.remove('active');
+  searchInput.classList.remove('search-input-active');
+  searchInput.classList.remove('search-input-dp');
+}
+
+searchInput.onfocus = function() {
+  searchInput.classList.add('search-input-active');
+}
+
+searchInput.onblur = function() {
+  searchInput.classList.remove('search-input-active');
+  searchDropdownClose();
+}
+
+searchClose.onclick = searchResetForm;
+
+searchInput.oninput = searchOnInput;
+
+function searchOnInput() {
+
+  // Ограничение по количеству символов > 3 и <=50
+  if (searchInput.value.length > 3 && searchInput.value.length <= 50) {
+
+    const searchSeeAll = document.querySelector('.search-see-all');
+
+    function searchDropdownRender(json) {
+      // Очистка результатов поиска
+      searchResult.innerHTML = '';
+      searchSeeAll.classList.remove('search-see-all-active');
+
+      // Если товаров 0, то не найдено
+      if (json.length == 0) {
+        let tmpEl = document.createElement('li');
+        tmpEl.className = "no-product";
+        tmpEl.innerHTML = 'Товаров не найдено';
+        searchResult.append(tmpEl);
+      }
+
+      // Вывод результатов поиска
+      if (json.length > 0) {
+
+        // Ограничение количества выводимых результатов
+        if (json.length > 5) {
+          json.length = 5; 
+        }
+
+        // Формирую html из массива данных
+        json.forEach((item) => {
+          let tmpEl = document.createElement('li');
+          tmpEl.className = "search-list-item";
+          let str = '<div class="search-list-item__image"><img src="' + item.storage_image + '" alt=""></div>';
+          str += '<div class="search-list-item__title">' + item.title + '</div>';
+          str += '<a href="/catalog/' + item.category.slug + '/' + item.slug + '" class="full-link search-list-item__link"></a>';
+          tmpEl.innerHTML = str;
+          searchResult.append(tmpEl);
+        });
+
+        searchSeeAll.classList.add('search-see-all-active');
+
+        // Добавляю клик на найденные элементы
+        let searchListItemLink = document.querySelectorAll('.search-list-item__link');
+
+        searchListItemLink.forEach((item) => {
+          item.onclick = searchResetForm;
+        });
+
+        // Добавляю клик на ссылку Показать все результаты
+        searchSeeAll.classList.add('search-see-all-active');
+        searchSeeAll.href = '/poisk?search_query=' + searchInput.value;
+        searchSeeAll.onclick = searchResetForm;
+      }
+
+      searchClose.classList.add('active');
+      searchInput.classList.add('search-input-dp');
+      searchDropdown.classList.add('active');
+    }
+
+    fetch('/ajax-product-search?search_query=' + searchInput.value, {
+      method: 'GET',
+      cache: 'no-cache',
+    })
+    .then((response) => response.json())
+    .then((json) => {
+      searchDropdownRender(json);        
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+  } else {
+    // Если менее 3 символов, то скрываю результаты поиска
+    searchDropdownClose();
+  }
+
+}
+
+
 
 // Set cookie
 function setCookie(name, value, days) {

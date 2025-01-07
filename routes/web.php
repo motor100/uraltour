@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\AjaxController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -26,6 +27,8 @@ Route::get('/agreement', [MainController::class, 'agreement']);
 
 Route::get('/sitemap.xml', [MainController::class, 'sitemap']);
 
+
+Route::get('/ajax-product-search', [AjaxController::class, 'product_search']);
 
 
 Route::get('/dashboard', function () {
