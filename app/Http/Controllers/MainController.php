@@ -10,16 +10,34 @@ use App\Models\Product;
 
 class MainController extends Controller
 {
+    /**
+     * Главная
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
     public function home(): View
     {
         return view('home');
     }
 
+    /**
+     * Каталог
+     * 
+     * @param
+     * @return Illuminate\Http\RedirectResponse
+     */
     public function catalog(): RedirectResponse
     {
         return redirect(route('home'));
     }
 
+    /**
+     * Категория каталога
+     * 
+     * @param App\Models\Category
+     * @return Illuminate\View\View
+     */
     public function category(Category $category = null): View
     {
         if ($category) {
@@ -34,6 +52,13 @@ class MainController extends Controller
         return abort(404);
     }
 
+    /**
+     * Карточка товара
+     * 
+     * @param App\Models\Category
+     * @param App\Models\Product
+     * @return mixed
+     */
     public function product(Category $category = null, Product $product = null): mixed
     {
         // Если есть модели Category и Product и товар из этой категории $product->category_id == $category->id
@@ -45,6 +70,12 @@ class MainController extends Controller
         return abort(404);
     }
 
+    /**
+     * Поиск
+     * 
+     * @param Illuminate\Http\Request
+     * @return Illuminate\View\View
+     */
     public function poisk(Request $request): View
     {
         $validated = $request->validate([
@@ -64,13 +95,34 @@ class MainController extends Controller
         return view('poisk', compact('products', 'search_query'));
     }
 
+    /**
+     * Контакты
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function contacts(): View
+    {
+        return view('contacts');
+    }
 
-
+    /**
+     * Политика конфиденциальности
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
     public function privacy_policy(): View
     {
         return view('privacy-policy');
     }
 
+    /**
+     * Пользовательское соглашение
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
     public function agreement(): View
     {
         return view('agreement');

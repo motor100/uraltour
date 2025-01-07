@@ -837,6 +837,15 @@ p {
   .help {
     grid-column: col-start 10 / span 3;
   }
+  .socials {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 8px;
+    justify-content: start;
+  }
+  .socials .socials-link {
+    display: block;
+  }
   .bottom-menu {
     margin: 0;
   }
@@ -1071,7 +1080,7 @@ p {
   }
 }
 
-// Product
+// Product page
 .product-page {
   .back {
     width: 130px;
@@ -1230,6 +1239,90 @@ p {
       border-color: $textcolor;
       background-color: #fff;
       color: $textcolor;
+    }
+  }
+}
+
+// Contacts page
+.contacts-page {
+  .section-title {
+    text-align: center;
+  }
+  .section-subtitle {
+    margin: 0 0 20px 0;
+    font-family: 'montserrat-medium';
+    font-size: 32px;
+    line-height: 1.1;
+  }
+  .info-section {
+    .section-subtitle {
+      text-align: center;
+    }
+    .grid-container {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: auto auto;
+      justify-content: center;
+      align-items: center;
+    }
+    .phone-image {
+      width: 62px;
+      height: 62px;
+    }
+    .phone-image img {
+      width: 100%;
+    }
+    .phone-text {
+      font-family: 'montserrat-semibold';
+      font-size: 28px;
+      line-height: 1.1;
+      color: $orangecolor;
+    }
+  }
+  .write-section {
+    .grid-container {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(4, auto);
+      justify-content: center;
+    }
+    .socials-link {
+      display: block;
+    }
+  }
+  .address-section {
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(12, [col-start] 1fr);
+      gap: 0 24px;
+    }
+    .address-wrapper {
+      grid-column: col-start/span 5;
+    }
+    .map {
+      grid-column: col-start 6/span 7;
+    }
+    .city {
+      margin: 0 0 20px 0;
+      font-family: 'montserrat-medium';
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    .phone,
+    .email,
+    .working-time {
+      font-size: 20px;
+    }
+    .email {
+      margin: 0 0 30px 0;
+    }
+    .address {
+      font-family: 'montserrat-medium';
+      font-size: 24px;
+    }
+    .map {
+      border-radius: 15px;
+      overflow: hidden;
     }
   }
 }
@@ -1428,6 +1521,7 @@ p {
 }
 
 // fixed bottom menu
+/*
 .fixed-bottom-menu {
   position: fixed;
   left: 0;
@@ -1466,6 +1560,7 @@ p {
     line-height: 1;
   }
 }
+*/
 
 // Modal
 .modal-window {
@@ -1686,7 +1781,6 @@ p {
   }
 }
 
-
 /* we use cookie */
 .we-use-cookie {
   position: fixed;
@@ -1758,7 +1852,6 @@ p {
     color: $textcolor;
   }
 }
-
 
 .container {
   width: 100%;
