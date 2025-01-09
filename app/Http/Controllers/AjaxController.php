@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 // use App\Models\Category;
 use App\Models\Product;
 
+
 class AjaxController extends Controller
 {
     /**
@@ -33,7 +34,7 @@ class AjaxController extends Controller
                             ->get();
 
         foreach($products as $product) {
-            $product->storage_image = str_replace('public/', '/storage/', $product->image);
+            $product->storage_image = \Illuminate\Support\Facades\Storage::url($product->image);
         }
 
         return response()->json($products);

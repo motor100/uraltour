@@ -108,7 +108,7 @@
                       <div class="date-value">3.01.2025</div>
                     </div>
                   </div>
-                  <a href="/catalog/nacionalnye-marshruty/perferendis-aliquam-quia-vero-saepe-qui-qui-cumque-necessitatibus-nisi" class="big-product__btn">Смотреть тур</a>
+                  <a href="/catalog/nacionalnye-marshruty/perferendis-aliquam-quia-vero-saepe-qui-qui-cumque-necessitatibus-nisi" class="big-product__btn primary-btn">Смотреть тур</a>
                 </div>
               </div>
             </div>

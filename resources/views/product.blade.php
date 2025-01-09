@@ -56,7 +56,7 @@
         <img src="/img/test-image-big.jpg" alt="">
       </div>
       <div class="product-content">
-        <div class="product-title">23.12 - Баден-Баден дневное купание</div>
+        <div class="product-title primary-title">23.12 - Баден-Баден дневное купание</div>
         <div class="product-rating">
           <div class="rating-text">Рейтинг</div>
           <img src="/img/temp-rating.png" alt="">
@@ -86,8 +86,8 @@
           🔸сопровождение, транспортная страховка.<br>
         </div>
         <div class="product-buttons">
-          <button class="booking-tour-btn product-btn js-callback-modal-btn">Заказать тур</button>
-          <button class="write-btn product-btn js-callback-modal-btn">Написать нам</button>
+          <button class="booking-tour-btn product-primary-btn primary-btn js-callback-modal-btn">Заказать тур</button>
+          <button class="write-btn product-secondary-btn js-callback-modal-btn">Написать нам</button>
         </div>
       </div>
     </div>
@@ -156,10 +156,10 @@
       </div>
     </div>
     <div class="product-testimonials product-description-item">
-      <div class="product-subtitle-wrapper">
+      <!-- <div class="product-subtitle-wrapper"> -->
         <div class="product-subtitle">Отзывы клиентов о туре</div>
-        <a href="#" class="view-all">смотреть все отзывы</a>
-      </div>
+        <!-- <a href="#" class="view-all">смотреть все отзывы</a> -->
+      <!-- </div> -->
       <div class="testimonials">
         <!-- Сделать через @ include -->
         <div class="testimonials-item">
@@ -185,8 +185,8 @@
         </div>
       </div>
       <div class="testimonials-buttons product-buttons">
-        <button class="load-more-btn product-btn">Загрузить еще</button>
-        <button class="write-btn product-btn js-testimonial-modal-btn">Написать отзыв</button>
+        <button class="load-more-btn primary-btn product-primary-btn">Загрузить еще</button>
+        <button class="write-btn product-secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
       </div>
 
     </div>

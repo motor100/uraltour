@@ -21,6 +21,8 @@ Route::get('/contacts', [MainController::class, 'contacts']);
 
 Route::get('/poisk', [MainController::class, 'poisk']);
 
+Route::get('/documents', [MainController::class, 'documents']);
+
 
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
 

@@ -25,11 +25,11 @@ class MainController extends Controller
      * Каталог
      * 
      * @param
-     * @return Illuminate\Http\RedirectResponse
+     * @return Illuminate\Http\View
      */
-    public function catalog(): RedirectResponse
+    public function catalog(): View
     {
-        return redirect(route('home'));
+        return view('catalog');
     }
 
     /**
@@ -104,6 +104,17 @@ class MainController extends Controller
     public function contacts(): View
     {
         return view('contacts');
+    }
+
+    /**
+     * Документы
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function documents(): View
+    {
+        return view('documents');
     }
 
     /**

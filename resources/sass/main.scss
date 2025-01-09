@@ -89,6 +89,22 @@ p {
 .orange-color {
   color: $orangecolor;
 }
+.primary-btn {
+  background-color: $textcolor;
+  font-family: 'montserrat-semibold';
+  font-size: 18px;
+  color: #fff;
+  transition: background-color .3s;
+}
+.primary-btn:hover {
+  background-color: $orangecolor;
+}
+.primary-title {
+  margin: 0 0 20px 0;
+  font-family: 'montserrat-medium';
+  font-size: 32px;
+  line-height: 1.1;
+}
 
 // Header
 .header {
@@ -186,11 +202,6 @@ p {
     left: 0;
     height: 44px;
     padding: 8px 12px;
-  }
-  .label-blue {
-    background-color: $bluecolor;
-  }
-  .label-orange {
     background-color: $orangecolor;
   }
   .label-text {
@@ -239,7 +250,8 @@ p {
 .search {
   padding: 40px;
   border-radius: 30px;
-  background-color: pink;
+  background-color: rgba(255, 255, 255, .8);
+  backdrop-filter: blur(5px);
   .search-form {
     position: relative;
   }
@@ -274,7 +286,7 @@ p {
     padding: 0;
     border: 1px solid #E86423;
     border-radius: 10px;
-    background-color: pink;
+    background-color: transparent;
     grid-template-columns: auto auto;
     align-items: center;
     justify-content: center;
@@ -892,20 +904,15 @@ p {
       font-size: 18px;
     }
     .checkbox-label {
-      color: #333;
-      cursor: pointer;
-      display: block;
-      font-size: 16px;
-      padding: 7px 0 1px 23px;
       position: relative;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
+      display: block;
+      color: $textcolor;    
+      font-size: 16px;
+      margin: 5px 0;
+      padding: 0 0 0 23px;
       user-select: none;
+      cursor: pointer;
     }
-    .checkbox-label:hover {
-      background-color: #fff7da;
-    }    
     .checkbox {
       height: 0;
       margin: 0 !important;
@@ -916,22 +923,25 @@ p {
     .custom-checkbox {
       position: absolute;
       left: 0;
-      top: 10px;
+      top: 4px;
       display: block;
       width: 16px;
       height: 16px;
       background-color: #fff;
-      border: 1px solid #afafaf;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #B0BABF;
       border-radius: 4px;
-      transition: all .25s cubic-bezier(.4,0,.23,1);
+      transition: border-color .3s cubic-bezier(.4,0,.23,1);
+    }
+    .checkbox-label:hover .custom-checkbox {
+      border-color: $textcolor;
     }
     .checkbox:checked+.custom-checkbox {
-      animation: shrink-bounce .2s cubic-bezier(.4,0,.23,1);
       background-color: #F9F9F9;
-      border: 1px solid #B0BABF;
+      border: 1px solid $textcolor;
     }
     .checkbox:checked+.custom-checkbox::after {
-      animation: checkbox-check 125ms cubic-bezier(.4,0,.23,1) .25s forwards;
       border-bottom: 2px solid $orangecolor;
       border-right: 2px solid $orangecolor;
       box-sizing: content-box;
@@ -956,6 +966,8 @@ p {
     }
     .big-product__image img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .big-product__content .grid-container {
       display: grid;
@@ -997,10 +1009,6 @@ p {
       display: block;
       width: 100%;
       padding: 11px 0;
-      // height: 50px;
-      border-radius: 10px;
-      background-color: $orangecolor;
-      font-family: 'montserrat-semibold';
       font-size: 18px;
       color: #fff;
       text-align: center;
@@ -1059,15 +1067,11 @@ p {
     // .big-product__rating {
     //   height: 16px;
     // }
-    .view-more-btn {
+    .product-btn {
       display: block;
       height: 50px;
       padding: 10px 0;
       border-radius: 10px;
-      background-color: $orangecolor;
-      font-family: 'montserrat-semibold';
-      font-size: 18px;
-      color: #fff;
       text-align: center;
     }
   
@@ -1112,12 +1116,6 @@ p {
   .product-content {
     padding: 0 0 0 15px;
   }
-  .product-title {
-    margin: 0 0 20px 0;
-    font-family: 'montserrat-medium';
-    font-size: 32px;
-    line-height: 1.1;
-  }
   .product-rating {
     margin: 0 0 10px 0;
   }
@@ -1156,25 +1154,26 @@ p {
   .product-content .product-buttons {
     justify-content: start;
   }
-  .product-btn {
+  .product-primary-btn {
     width: 219px;
     height: 50px;
     padding: 0;
-    border-width: 1px;
-    border-style: solid;
     border-radius: 10px;
+  }
+  .product-secondary-btn {
+    width: 219px;
+    height: 50px;
+    padding: 0;
+    border: 1px solid $textcolor;
+    border-radius: 10px;
+    background-color: #fff;
     font-family: 'montserrat-semibold';
     font-size: 18px;
+    color: $textcolor;
   }
   .booking-tour-btn {
-    border-color: $orangecolor;
-    background-color: $orangecolor;
+    border: none;
     color: #fff;
-  }
-  .write-btn {
-    border-color: $textcolor;
-    background-color: #fff;
-    color: $textcolor;
   }
   .product-subtitle {
     width: max-content;
@@ -1194,23 +1193,23 @@ p {
     gap: 20px;
     grid-template-columns: repeat(3, 1fr);
   }
-  .product-subtitle-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: space-between;
-    align-items: baseline;
-  }
+  // .product-subtitle-wrapper {
+  //   display: grid;
+  //   grid-template-columns: repeat(2, auto);
+  //   justify-content: space-between;
+  //   align-items: baseline;
+  // }
   .product-photos-item {
     height: 350px;
     border-radius: 30px;
     overflow: hidden;
   }
-  .view-all {
-    font-family: 'montserrat-medium';
-    font-size: 24px;
-    color: $orangecolor;
-    text-decoration: underline;
-  }
+  // .view-all {
+  //   font-family: 'montserrat-medium';
+  //   font-size: 24px;
+  //   color: $orangecolor;
+  //   text-decoration: underline;
+  // }
   .product-testimonials {
     margin: 0 0 100px 0;
     .testimonials {
@@ -1231,15 +1230,14 @@ p {
       justify-content: center;
     }
     .load-more-btn {
-      border-color: $textcolor;
-      background-color: $textcolor;
+      border: none;
       color: #fff;
     }
-    .write-btn {
-      border-color: $textcolor;
-      background-color: #fff;
-      color: $textcolor;
-    }
+    // .write-btn {
+    //   border: 1px solid $textcolor;
+    //   background-color: #fff;
+    //   color: $textcolor;
+    // }
   }
 }
 
@@ -1247,12 +1245,6 @@ p {
 .contacts-page {
   .section-title {
     text-align: center;
-  }
-  .section-subtitle {
-    margin: 0 0 20px 0;
-    font-family: 'montserrat-medium';
-    font-size: 32px;
-    line-height: 1.1;
   }
   .info-section {
     .section-subtitle {
@@ -1302,12 +1294,6 @@ p {
     .map {
       grid-column: col-start 6/span 7;
     }
-    .city {
-      margin: 0 0 20px 0;
-      font-family: 'montserrat-medium';
-      font-size: 32px;
-      line-height: 1.1;
-    }
     .phone,
     .email,
     .working-time {
@@ -1324,6 +1310,16 @@ p {
       border-radius: 15px;
       overflow: hidden;
     }
+  }
+}
+
+.documents-page {
+  min-height: 500px;
+  .document {
+    display: block;
+    margin: 10px 0;
+    font-size: 20px;
+    color: $textcolor
   }
 }
 
@@ -1739,7 +1735,6 @@ p {
     border: none;
     border-radius: 10px;
     background-color: $textcolor;
-    font-family: 'montserrat-semibold';
     font-size: 24px;
     color: #fff;
   }

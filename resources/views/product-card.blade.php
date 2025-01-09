@@ -15,7 +15,7 @@
           <img src="/img/temp-rating.png" alt="">
         </div>
       </div>
-      <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="view-more-btn">Смотреть тур</a>
+      <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="product-btn primary-btn">Смотреть тур</a>
     </div>
   </div>
   

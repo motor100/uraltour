@@ -33,7 +33,7 @@
             <a href="/">Главная</a>
           </li>
           <li class="menu-item">
-            <a href="/tours">Туры</a>
+            <a href="/catalog">Каталог</a>
           </li>
           <li class="menu-item">
             <a href="/testimonials">Отзывы</a>

@@ -26,7 +26,7 @@
   <div class="info-section section">
     <div class="container">
       <div class="section-title">Контактная информация</div>
-      <div class="section-subtitle">Отдел бронирования</div>
+      <div class="section-subtitle primary-title">Отдел бронирования</div>
       <div class="grid-container">
         <div class="phone-image">
           <img src="/img/circle-phone.png" alt="">
@@ -90,7 +90,7 @@
       <div class="section-title">Адрес нашего офиса</div>
       <div class="grid-container">
         <div class="address-wrapper">
-          <div class="city">Миасс</div>
+          <div class="city primary-title">Миасс</div>
           <div class="phone">Отдел бронирования: <strong class="orange-color">+7 (912) 308-06-08</strong></div>
           <div class="email">Email: <strong class="orange-color">info@mail.ru</strong></div>
           <div class="address">Миасс, пр-т Макеева, 24, Миасс</div>
