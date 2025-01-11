@@ -18,7 +18,19 @@ class MainController extends Controller
      */
     public function home(): View
     {
-        return view('home');
+        // Отзывы
+        $testimonials = \App\Models\Testimonial::whereNotNull('product_id')
+                                                ->whereNotNull('publicated_at')
+                                                ->orderBy('created_at', 'DESC')
+                                                ->limit(6)
+                                                ->get();
+
+        // Удаление галереи
+        foreach($testimonials as $testimonial) {
+            $testimonial->gallery = [];
+        }
+        
+        return view('home', compact('testimonials'));
     }
 
     /**
@@ -64,10 +76,27 @@ class MainController extends Controller
         // Если есть модели Category и Product и товар из этой категории $product->category_id == $category->id
         if ($category && $product && $product->category_id == $category->id) {
 
-            return view('product', compact('category', 'product'));
+            $testimonials = \App\Models\Testimonial::where('product_id', $product->id)
+                                                    ->whereNotNull('publicated_at')
+                                                    ->orderBy('created_at', 'DESC')
+                                                    ->limit(5)
+                                                    ->get();
+
+            return view('product', compact('category', 'product', 'testimonials'));
         }
 
         return abort(404);
+    }
+
+    /**
+     * Контакты
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function contacts(): View
+    {
+        return view('contacts');
     }
 
     /**
@@ -96,17 +125,6 @@ class MainController extends Controller
     }
 
     /**
-     * Контакты
-     * 
-     * @param
-     * @return Illuminate\View\View
-     */
-    public function contacts(): View
-    {
-        return view('contacts');
-    }
-
-    /**
      * Документы
      * 
      * @param
@@ -115,6 +133,22 @@ class MainController extends Controller
     public function documents(): View
     {
         return view('documents');
+    }
+
+    /**
+     * Отзывы
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function testimonials(): View
+    {
+        $testimonials = \App\Models\Testimonial::whereNotNull('product_id')
+                                                ->whereNotNull('publicated_at')
+                                                ->orderBy('created_at', 'DESC')
+                                                ->paginate(10);
+
+        return view('testimonials', compact('testimonials'));
     }
 
     /**

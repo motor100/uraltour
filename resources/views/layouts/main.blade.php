@@ -231,7 +231,33 @@
             </div>
             <div class="form-group">
               <div class="label">Оценка</div>
-              <img src="/img/temp-rating.png" class="rating" alt="">
+              <div class="stars">
+                <div class="star">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="star-path" d="M16 0.25L20.6723 10.9009L31.75 12.2819L23.56 20.2456L25.734 31.75L16 26.0209L6.26596 31.75L8.44 20.2456L0.25 12.2819L11.3277 10.9009L16 0.25Z"/>
+                  </svg>
+                </div>
+                <div class="star">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="star-path" d="M16 0.25L20.6723 10.9009L31.75 12.2819L23.56 20.2456L25.734 31.75L16 26.0209L6.26596 31.75L8.44 20.2456L0.25 12.2819L11.3277 10.9009L16 0.25Z"/>
+                  </svg>
+                </div>
+                <div class="star">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="star-path" d="M16 0.25L20.6723 10.9009L31.75 12.2819L23.56 20.2456L25.734 31.75L16 26.0209L6.26596 31.75L8.44 20.2456L0.25 12.2819L11.3277 10.9009L16 0.25Z"/>
+                  </svg>
+                </div>
+                <div class="star">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="star-path" d="M16 0.25L20.6723 10.9009L31.75 12.2819L23.56 20.2456L25.734 31.75L16 26.0209L6.26596 31.75L8.44 20.2456L0.25 12.2819L11.3277 10.9009L16 0.25Z"/>
+                  </svg>
+                </div>
+                <div class="star">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="star-path" d="M16 0.25L20.6723 10.9009L31.75 12.2819L23.56 20.2456L25.734 31.75L16 26.0209L6.26596 31.75L8.44 20.2456L0.25 12.2819L11.3277 10.9009L16 0.25Z"/>
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -242,6 +268,7 @@
             <img src="/img/paperclip.jpg" class="paperclip" alt="">
             <span class="attach-photo">Прикрепить фото</span>
           </div>
+          <input type="hidden" id="input-rating" name="rating" value="">
 
           <button type="button" id="testimonial-submit-btn" class="modal-submit-btn">Отправить</button>
           <div class="agreement-text">

@@ -208,6 +208,46 @@ function searchOnInput() {
 }
 
 
+// Звездный рейтинг в окне Оставить отзыв
+const stars = document.querySelectorAll('.testimonial-modal .stars .star');
+const inputRating = document.querySelector('.testimonial-modal #input-rating');
+inputRating.value = 0;
+
+stars.forEach((item, index) => {
+  item.onmouseover = function() {
+    addStarActive(index);
+  }
+  item.onmouseout = function() {
+    removeStarActive(index);
+  }
+  item.onclick = function() {
+    fixedStarActive(index);
+  }
+});
+
+
+function addStarActive(index) {
+  for (let j = 0; j <= index; j++) {
+    stars[j].classList.add('active');
+  }
+}
+
+function removeStarActive(index) {
+  for (let j = 0; j <= index; j++) {
+    stars[j].classList.remove('active');
+  }
+}
+
+function fixedStarActive(index) {
+  for (let i = 0; i < stars.length; i++) {
+    stars[i].classList.remove('click-active');
+  }
+  for (let j = 0; j <= index; j++) {
+    stars[j].classList.add('click-active');
+  }
+  inputRating.value = index + 1;
+}
+
 
 // Set cookie
 function setCookie(name, value, days) {

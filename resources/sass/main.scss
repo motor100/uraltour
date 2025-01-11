@@ -105,6 +105,17 @@ p {
   font-size: 32px;
   line-height: 1.1;
 }
+.secondary-btn {
+  width: 219px;
+  height: 50px;
+  padding: 0;
+  border: 1px solid $textcolor;
+  border-radius: 10px;
+  background-color: #fff;
+  font-family: 'montserrat-semibold';
+  font-size: 18px;
+  color: $textcolor;
+}
 
 // Header
 .header {
@@ -527,28 +538,66 @@ p {
 
 // Testimonials item карточка отзыва
 .testimonials-item {
-  position: relative;
+  // position: relative;
   margin: 0 0 20px 0;
-  padding: 50px 40px 40px 40px;
+  padding: 40px;
   border-radius: 15px;
   background-color: #fff;
   .testimonials-item__title {
     font-family: 'montserrat-medium';
     font-size: 20px;
     color: $darkcolor;
+    line-height: 1.2;
+  }
+  .flex-container {
+    display: flex;
+    margin: 0 0 30px 0;
+    align-items: center;
   }
   .testimonials-item__rating {
-    margin: 0 0 30px 0;
+    margin: 0 15px 0 0;
   }
   .testimonials-item__date {
-    position: absolute;
-    top: 50px;
-    right: 40px;
+    font-size: 12px;
     color: $lightgreycolor;
   }
   .testimonials-item__text {
     line-height: 1.4;
   }
+  .testimonials-item__gallery {
+    display: flex;
+    margin: 30px 0 0 0;
+    gap: 10px;
+  }
+  .testimonials-item__image {
+    width: 168px;
+    height: 168px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .testimonials-item__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Stars звездочки рейтинг отзывы
+.stars {
+  display: flex;
+  gap: 5px;
+  // .star {
+  //   width: 12px;
+  //   height: 24px;
+  // }
+  .star-path {
+    fill: grey;
+  }
+  .active .star-path {
+    fill: #F8C51B;
+  }
+
+  
 }
 
 // Booking section
@@ -1119,11 +1168,11 @@ p {
   .product-rating {
     margin: 0 0 10px 0;
   }
-  .product-rating img {
-    width: 120px;
-    margin: 0 12px 0 0;
-    vertical-align: top;
-  }
+  // .product-rating img {
+  //   width: 120px;
+  //   margin: 0 12px 0 0;
+  //   vertical-align: top;
+  // }
   .rating-text {
     color: $thirdlightbluecolor;
   }
@@ -1159,17 +1208,6 @@ p {
     height: 50px;
     padding: 0;
     border-radius: 10px;
-  }
-  .product-secondary-btn {
-    width: 219px;
-    height: 50px;
-    padding: 0;
-    border: 1px solid $textcolor;
-    border-radius: 10px;
-    background-color: #fff;
-    font-family: 'montserrat-semibold';
-    font-size: 18px;
-    color: $textcolor;
   }
   .booking-tour-btn {
     border: none;
@@ -1322,6 +1360,10 @@ p {
     color: $textcolor
   }
 }
+
+// .testimonials-page {
+
+// }
 
 // Breadcrumbs
 .breadcrumbs {
@@ -1713,9 +1755,23 @@ p {
     gap: 30px;
     grid-template-columns: repeat(2, 1fr);
   }
-  .rating {
-    width: 210px;
+  // .rating {
+  //   width: 210px;
+  // }
+  .star {
+    cursor: pointer;
+    transition: fill .2s;
   }
+  .star-path {
+    transition: fill .2s;
+  }
+  .star.active .star-path,
+  .star.click-active .star-path {
+    fill: #F8C51B;
+  }
+  // .star:hover .star-path {
+  //   fill: #F8C51B;
+  // }
   .textarea {
     height: 190px;
     margin: 0 0 20px 0;

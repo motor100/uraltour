@@ -87,7 +87,7 @@
         </div>
         <div class="product-buttons">
           <button class="booking-tour-btn product-primary-btn primary-btn js-callback-modal-btn">Заказать тур</button>
-          <button class="write-btn product-secondary-btn js-callback-modal-btn">Написать нам</button>
+          <button class="write-btn secondary-btn js-callback-modal-btn">Написать нам</button>
         </div>
       </div>
     </div>
@@ -155,41 +155,20 @@
         </div>
       </div>
     </div>
-    <div class="product-testimonials product-description-item">
-      <!-- <div class="product-subtitle-wrapper"> -->
+    @if(count($testimonials) > 0)
+      <div class="product-testimonials product-description-item">
         <div class="product-subtitle">Отзывы клиентов о туре</div>
-        <!-- <a href="#" class="view-all">смотреть все отзывы</a> -->
-      <!-- </div> -->
-      <div class="testimonials">
-        <!-- Сделать через @ include -->
-        <div class="testimonials-item">
-          <div class="testimonials-item__title">Морозов Алексей</div>
-          <div class="testimonials-item__rating">
-            <img src="/img/temp-rating.png" alt="">
-          </div>
-          <div class="testimonials-item__date">12.12.24</div>
-          <div class="testimonials-item__text">Сервис компании АЛЕАН понравился. Изначально выбрали другой отель, но потом выбор пал на другой отель, компания сделала нам возврат денежных средств...</div>
+        <div class="testimonials">
+          @foreach($testimonials as $testimonial)
+            @include('testimonial-card')            
+          @endforeach
         </div>
-        <div class="testimonials-item">
-          <div class="testimonials-item__title">Морозов Алексей</div>
-          <div class="testimonials-item__rating">
-            <img src="/img/temp-rating.png" alt="">
-          </div>
-          <div class="testimonials-item__date">12.12.24</div>
-          <div class="testimonials-item__text">Сервис компании АЛЕАН понравился. Изначально выбрали другой отель, но потом выбор пал на другой отель, компания сделала нам возврат денежных средств...</div>
-          <div class="testimonials-item__image">
-            <img src="/img/test-image-small.jpg" class="image" alt="">
-            <img src="/img/test-image-small.jpg" class="image" alt="">
-            <img src="/img/test-image-small.jpg" class="image" alt="">
-          </div>
+        <div class="testimonials-buttons product-buttons">
+          <button class="load-more-btn primary-btn product-primary-btn">Загрузить еще</button>
+          <button class="write-btn secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
         </div>
       </div>
-      <div class="testimonials-buttons product-buttons">
-        <button class="load-more-btn primary-btn product-primary-btn">Загрузить еще</button>
-        <button class="write-btn product-secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
-      </div>
-
-    </div>
+    @endif
   </div>
 
   @include('callback-section')

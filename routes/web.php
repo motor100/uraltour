@@ -23,6 +23,8 @@ Route::get('/poisk', [MainController::class, 'poisk']);
 
 Route::get('/documents', [MainController::class, 'documents']);
 
+Route::get('/testimonials', [MainController::class, 'testimonials']);
+
 
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
 
