@@ -21,17 +21,63 @@ class ProductFactory extends Factory
         $rand_number = random_int(2, 8);    
         $title = $this->faker->sentence($rand_number);
         $price = random_int(100, 10000);
-        
-        return [
-            'category_id' => random_int(1, 10),
-            'title' => $title,
-            'slug' => Str::slug($title),
-            'image' => 'public/uploads/products/product' . $rand_number . '.jpg',
-            'start_date' => $this->faker->dateTime(),
-            'price' => $price,
-            'created_at' => $this->faker->dateTime(),
-            'updated_at' => $this->faker->dateTime()
-        ];
+
+        if ($rand_number == 2) {
+            return [
+                'category_id' => random_int(1, 8),
+                'title' => '08-10.05 - 80 День Победы в Волгограде',
+                'slug' => '08-10-05-80-den-pobedy-v-volgograde-' . $rand_number . $price,
+                'image' => 'public/uploads/temp-products/08-10-05-80-den-pobedy-v-volgograde-1.jpg',
+                'start_date' => '2025-05-08 00:00:00',
+                'price' => 19700,
+                'created_at' => '2025-01-13 10:10:10',
+                'updated_at' => '2025-01-13 10:10:10'
+            ];
+        } elseif ($rand_number == 3) {
+            return [
+                'category_id' => random_int(1, 8),
+                'title' => 'Автобусный тур в Дагестан',
+                'slug' => 'avtobusnyj-tur-v-dagestan-' . $rand_number . $price,
+                'image' => 'public/uploads/temp-products/avtobusnyj-tur-v-dagestan-1.jpg',
+                'start_date' => '2025-07-05 00:00:00',
+                'price' => 66500,
+                'created_at' => '2025-01-13 20:10:10',
+                'updated_at' => '2025-01-13 20:10:10'
+            ];
+        } elseif ($rand_number == 4) {
+            return [
+                'category_id' => random_int(1, 8),
+                'title' => 'Озеро Байкал ЛЕТО',
+                'slug' => 'ozero-bajkal-leto-' . $rand_number . $price,
+                'image' => 'public/uploads/temp-products/ozero-bajkal-leto-1.jpg',
+                'start_date' => '2025-07-12 00:00:00',
+                'price' => 66500,
+                'created_at' => '2025-01-13 30:10:10',
+                'updated_at' => '2025-01-13 30:10:10'
+            ];
+        } elseif ($rand_number == 5) {
+            return [
+                'category_id' => random_int(1, 8),
+                'title' => 'Астрахань. Цветение лотоса',
+                'slug' => 'astrahan-cvetenie-lotosa-' . $rand_number . $price,
+                'image' => 'public/uploads/temp-products/astrahan-cvetenie-lotosa-1.jpg',
+                'start_date' => '2025-07-26 00:00:00',
+                'price' => 49200,
+                'created_at' => '2025-01-13 30:20:10',
+                'updated_at' => '2025-01-13 30:20:10'
+            ];
+        } else {
+            return [
+                'category_id' => random_int(1, 10),
+                'title' => $title,
+                'slug' => Str::slug($title),
+                'image' => 'public/uploads/products/product' . $rand_number . '.jpg',
+                'start_date' => $this->faker->dateTime(),
+                'price' => random_int(900, 200000),
+                'created_at' => $this->faker->dateTime(),
+                'updated_at' => $this->faker->dateTime()
+            ];
+        }
     }
 
 }

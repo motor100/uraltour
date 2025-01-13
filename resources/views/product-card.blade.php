@@ -1,22 +1,46 @@
 <div class="products-item">
   <div class="products-item__image">
-    <img src="{{ Storage::url($product->image) }}" alt="">
+    <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="products-item__link full-link">
+      <img src="{{ Storage::url($product->image) }}" alt="">
+    </a>
   </div>
   <div class="products-item__content">
     <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="products-item__title">{{ $product->title }}</a>
     <div class="product-item__description">БАДЕН - БАДЕН «Лесная сказка»! Купание 3 часа (+15 мин)</div>
-    <div class="products-grid-container">
-      <div class="price-wrapper">
-        <div class="products-item__price">
-          <span class="value">3750</span>
-          <span class="currency"> Р</span>
-        </div>
-        <div class="big-product__rating">
-          <img src="/img/temp-rating.png" alt="">
+      <div class="products-item__price">
+        <span class="value">{{ number_format($product->price, 0, '', ' ') }}</span>
+        <span class="currency">Р</span>
+      </div>
+      <div class="product-item__rating">
+        <div class="stars">
+          <div class="star active">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+            </svg>
+          </div>
+          <div class="star active">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+            </svg>
+          </div>
+          <div class="star active">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+            </svg>
+          </div>
+          <div class="star active">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+            </svg>
+          </div>
+          <div class="star">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+            </svg>
+          </div>
         </div>
       </div>
-      <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="product-btn primary-btn">Смотреть тур</a>
-    </div>
+    <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="product-btn primary-btn">Смотреть тур</a>
   </div>
   
 </div>

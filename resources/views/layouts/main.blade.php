@@ -14,7 +14,7 @@
   @else
     <title>@yield('title', 'Урал Тур' )</title>
   @endif
-  <!-- @ yield('style') -->
+  @yield('style')
   @vite(['resources/sass/main.scss'])
 </head>
 

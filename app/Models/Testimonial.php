@@ -25,8 +25,4 @@ class Testimonial extends Model
     {
         return $this->hasMany(TestimonialGallery::class);
     }
-
-    // public function scopeNoEagerLoads($query){
-    //     return $query->setEagerLoads([]);
-    // }
 }

@@ -2,6 +2,10 @@
 
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('/css/photoswipe.css') }}">
+@endsection
+
 @section('content')
 
 <div class="search-section">
@@ -18,7 +22,7 @@
     </div>
     <div class="separator">/</div>
     <div class="parent">
-      <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
+      <a href="/catalog/{{ $product->category->slug }}">{{ $product->category->title }}</a>
     </div>
     <div class="separator">/</div>
     <div class="active">{{ $product->title }}</div>
@@ -32,65 +36,72 @@
       <span class="back-text">Назад</span>
     </div>
     <div class="content-grid-container">
-      <div class="product-gallery">
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
+      @if(count($product->gallery) > 0)
+        <div class="product-gallery">
+          @foreach($product->gallery as $gallery)
+            <figure class="product-gallery-item">
+              <a href="{{ Storage::url($gallery->image) }}" data-pswp-width="600" data-pswp-height="600" target="_blank">
+                <img src="{{ Storage::url($gallery->image) }}" alt="">
+              </a>
+            </figure>
+          @endforeach
         </div>
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
-        </div>
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
-        </div>
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
-        </div>
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
-        </div>
-        <div class="product-gallery-item">
-          <img src="/img/test-image-small.jpg" alt="">
-        </div>
-      </div>
+      @endif
       <div class="product-image">
-        <img src="/img/test-image-big.jpg" alt="">
+        <img src="{{ Storage::url($product->image) }}" alt="">
       </div>
       <div class="product-content">
-        <div class="product-title primary-title">23.12 - Баден-Баден дневное купание</div>
+        <div class="product-title primary-title">{{ $product->title }}</div>
         <div class="product-rating">
           <div class="rating-text">Рейтинг</div>
-          <img src="/img/temp-rating.png" alt="">
+          <div class="stars">
+            <div class="star active">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+              </svg>
+            </div>
+            <div class="star active">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+              </svg>
+            </div>
+            <div class="star active">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+              </svg>
+            </div>
+            <div class="star active">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+              </svg>
+            </div>
+            <div class="star">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="star-path" d="M6 0L7.77994 4.05749L12 4.58359L8.88 7.61736L9.7082 12L6 9.81749L2.2918 12L3.12 7.61736L0 4.58359L4.22006 4.05749L6 0Z"/>
+              </svg>
+            </div>
+          </div>
           <span class="testimonials-count">12 отзывов</span>
         </div>
+        <div class="product-start-date">{{ $product->start_date->format('d.m.Y') }}</div>
         <div class="product-price">
-          <span class="product-price__value">1800</span>
+          <span class="product-price__value">{{ number_format($product->price, 0, '', ' ') }}</span>
           <span class="product-price__currency">P</span>
         </div>
-        <div class="product-description-title">Описание</div>
-        <div class="product-description">
-          БАДЕН - БАДЕН «Лесная сказка»! 💦 👙 👍 🌲<br>
-          купание 3 часа (+15 мин)<br>
-          📆 23 декабря (пн)<br>
-          💰 1800 руб. - пенсионеры,<br>
-          2400 руб. - дети до 12 лет и льготники (инв.),<br>
-          2600 руб. - взрослые<br>
-
-          ✅ В стоимость входит:<br>
-          🔸 проезд на туристическом автобусе;<br>
-          🔸купание в двух термальных бассейнах<br>
-          🔸БАНИ НАРОДОВ МИРА!<br>
-          🔸внутренний бассейн с джакузи;<br>
-          🔸шезлонги;<br>
-          🔸Комплекс саун, хамам,<br>
-          🔸соляная комната;<br>
-          🔸сопровождение, транспортная страховка.<br>
-        </div>
         <div class="product-buttons">
-          <button class="booking-tour-btn product-primary-btn primary-btn js-callback-modal-btn">Заказать тур</button>
+          <a href="tel:+79123080608" class="booking-tour-btn product-primary-btn primary-btn">Позвонить</a>
           <button class="write-btn secondary-btn js-callback-modal-btn">Написать нам</button>
         </div>
       </div>
     </div>
+
+    @if($product->description)
+      <div class="product-description product-description-item">
+        <div class="product-subtitle">Описание</div>
+        <div class="product-text">{!! nl2br($product->description->text_html) !!}</div>
+      </div>
+    @endif
+    
     <div class="product-plan product-description-item">
       <div class="product-subtitle">Программа тура</div>
       <div class="product-text">
@@ -175,4 +186,19 @@
 
 </div>
 
+@endsection
+
+@section('script')
+  <script type="module" src="{{ asset('/js/photoswipe-lightbox.esm.min.js') }}"></script>
+  <script type="module">
+    import PhotoSwipeLightbox from '/js/photoswipe-lightbox.esm.min.js';
+    // Photoswipe
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.product-gallery',
+      children: 'a',
+      pswpModule: () => import('/js/photoswipe.esm.js'),
+      loop: true
+    });
+    lightbox.init();
+  </script>
 @endsection

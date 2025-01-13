@@ -94,10 +94,11 @@
             <p>Не найдено</p>
           @endif
 
+          
           <div class="pagination-links">
             {{ $products->onEachSide(1)->links() }}
           </div>
-
+          
         </div>
       </div>
 

@@ -18,6 +18,9 @@ class MainController extends Controller
      */
     public function home(): View
     {
+        // Категории
+        $categories = \App\Models\Category::all();
+        
         // Отзывы
         $testimonials = \App\Models\Testimonial::whereNotNull('product_id')
                                                 ->whereNotNull('publicated_at')
@@ -30,7 +33,7 @@ class MainController extends Controller
             $testimonial->gallery = [];
         }
         
-        return view('home', compact('testimonials'));
+        return view('home', compact('categories', 'testimonials'));
     }
 
     /**
@@ -54,7 +57,7 @@ class MainController extends Controller
     {
         if ($category) {
 
-            $products = Product::where('category_id', $category->id)->paginate(8);
+            $products = Product::where('category_id', $category->id)->paginate(9);
 
             $regular_products = Product::where('category_id', $category->id)->limit(2)->get();
 
@@ -76,13 +79,14 @@ class MainController extends Controller
         // Если есть модели Category и Product и товар из этой категории $product->category_id == $category->id
         if ($category && $product && $product->category_id == $category->id) {
 
+            // Отзывы
             $testimonials = \App\Models\Testimonial::where('product_id', $product->id)
                                                     ->whereNotNull('publicated_at')
                                                     ->orderBy('created_at', 'DESC')
                                                     ->limit(5)
                                                     ->get();
 
-            return view('product', compact('category', 'product', 'testimonials'));
+            return view('product', compact('product', 'testimonials'));
         }
 
         return abort(404);
@@ -108,18 +112,19 @@ class MainController extends Controller
     public function poisk(Request $request): View
     {
         $validated = $request->validate([
-            'search_query' => 'nullable|min:3|max:40'
+            'search_query' => 'sometimes|string|min:3|max:100'
         ]);
 
-        $search_query = htmlspecialchars($validated['search_query']);
-
         $validated['search_query'] = htmlspecialchars($validated['search_query']);
+
+        $search_query = $validated['search_query'];
 
         $products = Product::where('title', 'like', "%{$validated['search_query']}%")
                             // ->orWhere('text_html', 'like', "%{$validated['search_query']}%") // поиск по тексту
                             ->paginate(40)
                             ->onEachSide(1)
                             ->withQueryString();
+                            // ->get();
 
         return view('poisk', compact('products', 'search_query'));
     }

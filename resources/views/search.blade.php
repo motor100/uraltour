@@ -1,5 +1,5 @@
 <div class="search">
-  <form class="search-form" action="/search" method="get">
+  <form class="search-form" action="/poisk" method="get">
     <div class="grid-container">
       <div class="search-input-wrapper">
         <input type="text" name="search_query" class="search-input" placeholder="Найти тур">
