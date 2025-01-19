@@ -28,7 +28,7 @@
             <img src="/img/logo.png" alt="">
           </a>
         </div>
-        <ul class="top-menu">
+        <ul class="top-menu hidden-mobile">
           <li class="menu-item">
             <a href="/">Главная</a>
           </li>
@@ -42,7 +42,7 @@
             <a href="/contacts">Контакты</a>
           </li>
         </ul>
-        <a href="tel:+79123080608" class="phone-btn">+7 (912) 308-06-08</a>
+        <a href="tel:+79123080608" class="phone-btn hidden-mobile">+7 (912) 308-06-08</a>
       </div>
     </div>
   </header>
@@ -294,7 +294,7 @@
   </div>
 
 
-  <div class="fixed-bottom-menu">
+  <div class="fixed-bottom-menu" style="display: none;">
     <div class="menu-wrapper">
       <div class="menu-item">
         <div class="menu-item__image">
@@ -327,7 +327,6 @@
       </div>
     </div>
   </div>
-
 
   @if(Auth::check())
     @if (Auth::user()->isAdmin())

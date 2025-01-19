@@ -123,17 +123,19 @@ p {
   .grid-container {
     display: grid;
     gap: 24px;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 100px 1fr 172px;
     align-items: center;
   }
+  .logo img {
+    width: 100%;
+  }
   .top-menu {
-    display: grid;
+    display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: center;
     gap: 30px;
-    grid-template-columns: auto auto auto auto;
     justify-content: center;
   }
   .menu-item a {
@@ -141,15 +143,15 @@ p {
     font-size: 24px;
   }
   .phone-btn {
-    display: block;
-    width: 172px;
+    display: flex;
+    width: 100%;
     height: 40px;
-    padding: 8px 0;
     border-radius: 5px;
     background-color: $orangecolor;
     font-family: 'montserrat-medium';
     color: #fff;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -814,13 +816,14 @@ p {
   }
   .grid-container {
     display: grid;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     gap: 16px;
     grid-template-columns: 270px 270px 280px;
-    // justify-content: center;
   }
   .input-field {
     width: 100%;
+    height: 52px;
+    margin: 0 0 10px 0;
     padding: 20px;
     border: 1px solid #fff;
     border-radius: 5px;
@@ -837,6 +840,9 @@ p {
   }
   .callback-btn {
     width: 100%;
+    height: 52px;
+    margin: 0 0 10px 0;
+    padding: 0;
     border: none;
     border-radius: 5px;
     background-color: $textcolor;
@@ -2012,9 +2018,27 @@ p {
 
 @media only screen and (max-width : 1400px) {
 
+  // callback section
+  .callback-section {
+    .callback-form-wrapper {
+      padding: 60px 130px;
+    }
+
+  }
 }
 
 @media only screen and (max-width : 1200px) {
+
+  // header
+  .header {
+    .menu-item a {
+      font-size: 22px;
+    }
+    .phone-btn {
+      font-size: 14px;
+    }
+  }
+
   // footer
   .footer {
     .logo {
@@ -2031,24 +2055,78 @@ p {
     }
   }
 
-  /* we use cookie */
+  // callback section
+  .callback-section {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .callback-form-wrapper {
+      padding: 40px 60px;
+    }
+    .callback-title {
+      font-size: 38px;
+    }
+    .input-field {
+      padding: 15px;
+    }
+    .callback-btn {
+      font-size: 22px;
+    }
+  }
+
+
+  // we use cookie
   .we-use-cookie {
     right: 20%;
-  }
-  .we-use-cookie .we-use-cookie-wrapper {
-    padding: 24px;
+    .we-use-cookie-wrapper {
+      padding: 24px;
+    }
   }
 }
 
 @media only screen and (max-width : 992px) {
 
-  /* we use cookie */
-  .we-use-cookie-wrapper {
-    margin: 0 0 0 12px;
+  // header
+  .header {
+    .grid-container {
+      gap: 15px;
+      grid-template-columns: 80px 1fr 150px;
+    }
+    .top-menu {
+      gap: 20px;
+    }
+    .menu-item a {
+      font-size: 18px;
+    }
+  }
+
+  // callback section
+  .callback-section {
+    .callback-title {
+      font-size: 34px;
+    }
+    .grid-container {
+      display: block;
+    }
+  }
+  
+
+  // we use cookie
+  .we-use-cookie {
+    .we-use-cookie-wrapper {
+      margin: 0 0 0 12px;
+    }
   }
 }
 
 @media only screen and (max-width : 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+  .hidden-desktop {
+    display: block !important;
+  }
+
   // footer
   .footer {
     .grid-container {
@@ -2077,20 +2155,26 @@ p {
     display: block;
   }
 
-  // .fixed-bottom-menu {
-  //   display: block;
-  // }
+  // callback section
+  .callback-section {
+    .callback-title {
+      margin: 0 0 25px 0;
+    }
+    .callback-form-wrapper {
+      padding: 30px 50px;
+    }
+  }
 
   /* we use cookie */
   .we-use-cookie {
     right: 20%;
-  }
-  .we-use-cookie .we-use-cookie-wrapper {
-    padding: 12px 15px;
-  }
-  .we-use-cookie .we-use-cookie-text {
-    margin: 0 0 10px 0;
-    font-size: 12px;
+    .we-use-cookie-wrapper {
+      padding: 12px 15px;
+    }
+    .we-use-cookie-text {
+      margin: 0 0 10px 0;
+      font-size: 12px;
+    }
   }
 }
 
