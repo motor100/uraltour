@@ -139,7 +139,7 @@ function searchOnInput() {
     function searchDropdownRender(json) {
       // Очистка результатов поиска
       searchResult.innerHTML = '';
-      searchSeeAll.classList.remove('search-see-all-active');
+      searchSeeAll.classList.remove('active');
 
       // Если товаров 0, то не найдено
       if (json.length == 0) {
@@ -153,8 +153,8 @@ function searchOnInput() {
       if (json.length > 0) {
 
         // Ограничение количества выводимых результатов
-        if (json.length > 5) {
-          json.length = 5; 
+        if (json.length > 3) {
+          json.length = 3; 
         }
 
         // Формирую html из массива данных
@@ -162,13 +162,16 @@ function searchOnInput() {
           let tmpEl = document.createElement('li');
           tmpEl.className = "search-list-item";
           let str = '<div class="search-list-item__image"><img src="' + item.storage_image + '" alt=""></div>';
+          str += '<div class="title-wrapper">';
           str += '<div class="search-list-item__title">' + item.title + '</div>';
+          str += '<div class="search-list-item__date">' + item.date + '</div>';
+          str += '</div>';
           str += '<a href="/catalog/' + item.category.slug + '/' + item.slug + '" class="full-link search-list-item__link"></a>';
           tmpEl.innerHTML = str;
           searchResult.append(tmpEl);
         });
 
-        searchSeeAll.classList.add('search-see-all-active');
+        searchSeeAll.classList.add('active');
 
         // Добавляю клик на найденные элементы
         let searchListItemLink = document.querySelectorAll('.search-list-item__link');
@@ -178,7 +181,7 @@ function searchOnInput() {
         });
 
         // Добавляю клик на ссылку Показать все результаты
-        searchSeeAll.classList.add('search-see-all-active');
+        searchSeeAll.classList.add('active');
         searchSeeAll.href = '/poisk?search_query=' + searchInput.value;
         searchSeeAll.onclick = searchResetForm;
       }

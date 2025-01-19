@@ -35,6 +35,7 @@ class AjaxController extends Controller
 
         foreach($products as $product) {
             $product->storage_image = \Illuminate\Support\Facades\Storage::url($product->image);
+            $product->date = $product->start_date->format("d.m.Y");
         }
 
         return response()->json($products);

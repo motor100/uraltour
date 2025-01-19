@@ -107,21 +107,25 @@ class MainController extends Controller
      * Поиск
      * 
      * @param Illuminate\Http\Request
-     * @return Illuminate\View\View
+     * @return mixed
      */
-    public function poisk(Request $request): View
+    public function poisk(Request $request): mixed
     {
-        $validated = $request->validate([
-            'search_query' => 'sometimes|string|min:3|max:100'
-        ]);
+        $search_query = $request->input('search_query');
 
-        $validated['search_query'] = htmlspecialchars($validated['search_query']);
+        if (mb_strlen($search_query) < 3 || mb_strlen($search_query) > 40) {
+            return redirect('/');
+        }
 
-        $search_query = $validated['search_query'];
+        $search_query = htmlspecialchars($search_query);
 
-        $products = Product::where('title', 'like', "%{$validated['search_query']}%")
+        if (!$search_query) {
+            return redirect('/');
+        }
+
+        $products = Product::where('title', 'like', "%{$search_query}%")
                             // ->orWhere('text_html', 'like', "%{$validated['search_query']}%") // поиск по тексту
-                            ->paginate(40)
+                            ->paginate(8)
                             ->onEachSide(1)
                             ->withQueryString();
                             // ->get();
