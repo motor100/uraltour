@@ -91,7 +91,7 @@
               <img src="{{ Storage::url($category->image) }}" alt="">
             </div>
             <div class="categories-item__title">{{ $category->title }}</div>
-            <div class="categories-item__quantity">56 туров</div>
+            <div class="categories-item__quantity">{{ $category->products->count() }} туров</div>
             <div class="linear-gradient"></div>
             <a href="/catalog/{{ $category->slug }}" class="full-link"></a>
           </div>
