@@ -178,19 +178,21 @@ p {
   .selection {
     margin: 50px 0 0 0;
   }
-  .selection .grid-container {
-    display: grid;
-    gap: 36px;
-    grid-template-columns: repeat(4, 1fr);
+  .selection .flex-container {
+    display: flex;
+    justify-content: space-between;
   }
   .selection .selection-item {
     position: relative;
-    width: 300px;
-    height: 360px;
+    width: 23%;
+    height: 0;
+    padding: 0 0 28% 0;
   }
   .selection-item__image {
-    position: relative;
+    position: absolute;
+    width: 100%;
     height: 100%;
+    object-fit: cover;
     border-radius: 15px;
     overflow: hidden;
   }
@@ -214,7 +216,7 @@ p {
     top: 30px;
     left: 0;
     height: 44px;
-    padding: 8px 12px;
+    padding: 9px 12px;
     background-color: $orangecolor;
   }
   .label-text {
@@ -227,6 +229,9 @@ p {
     left: -10px;
     width: 12px;
     height: 52px;
+  }
+  .label-element img {
+    width: 100%;
   }
   .selection-item__title {
     position: absolute;
@@ -268,14 +273,14 @@ p {
   .search-form {
     position: relative;
   }
-  .grid-container {
-    display: grid;
+  .flex-container {
+    display: flex;
     justify-content: space-between;
-    grid-template-columns: 1fr 200px;
     gap: 30px;
   }
   .search-input-wrapper {
     position: relative;
+    width: 100%;
   }
   .search-input {
     display: block;
@@ -443,9 +448,6 @@ p {
 
 // Category section
 .category-section {
-  .section-title {
-    color: $orangecolor;
-  }
   .categories {
     position: relative;
     display: grid;
@@ -532,12 +534,12 @@ p {
   .testimonials {
     display: grid;
     margin: 0 0 20px 0;
-    gap: 0 45px;
+    gap: 20px 45px;
     grid-template-columns: repeat(3, 1fr);
   }
-  .testimonials-item {
-    height: 280px;
-  }
+  // .testimonials-item {
+  //   height: 280px;
+  // }
   .see-all {
     text-align: right;
   }
@@ -551,8 +553,6 @@ p {
 
 // Testimonials item карточка отзыва
 .testimonials-item {
-  // position: relative;
-  margin: 0 0 20px 0;
   padding: 40px;
   border-radius: 15px;
   background-color: #fff;
@@ -575,7 +575,13 @@ p {
     color: $lightgreycolor;
   }
   .testimonials-item__text {
+    display: -webkit-box;
+    height: 135px;
     line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
   }
   .testimonials-item__gallery {
     display: flex;
@@ -621,7 +627,6 @@ p {
     border-radius: 30px;
     background-color: #fff;
   }
-  
   .easy-text {
     margin: 0 0 30px 0;
     font-size: 24px;
@@ -633,15 +638,19 @@ p {
     list-style: none;
   }
   .list-item {
+    display: flex;
     margin: 0 0 20px 0;
     font-size: 24px;
+    line-height: 1.4;
   }
   .list-item:last-child {
     margin-bottom: 0;
   }
   .step-number {
+    width: 84px;
     margin: 0 16px 0 0;
     font-family: 'montserrat-medium';
+    flex-shrink: 0;
   }
   .catalog-link {
     color: $orangecolor;
@@ -762,6 +771,11 @@ p {
     border-radius: 15px;
     overflow: hidden;
   }
+  .description-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .description-text {
     margin: 0 0 20px 0;
     font-size: 18px;
@@ -791,6 +805,7 @@ p {
     margin: 0 0 20px 0;
     font-family: 'montserrat-medium';
     font-size: 26px;
+    line-height: 1.3;
     text-align: center;
   }
   .advantages-item__text {
@@ -1573,6 +1588,63 @@ p {
   }
 }
 
+/* burger menu */
+.burger-menu-wrapper {
+  position: fixed;
+  top: 97px;
+  right: 15px;
+  display: none;
+  width: 46px;
+  height: 46px;
+  padding: 7px;
+  background-color: grey;
+  cursor: pointer;
+  z-index: 10003;
+  transition: background-color .5s;
+}
+.burger-menu-wrapper .burger-menu {
+  position: relative;
+  height: 100%;
+}
+.burger-menu-wrapper .burger-menu:before,
+.burger-menu-wrapper .burger-menu:after,
+.burger-menu-wrapper .span {
+  content: "";
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 3px;
+  background-color: grey;
+  transition: all .5s;
+  }
+.burger-menu-wrapper .burger-menu:before {
+  top: 6px;
+}
+.burger-menu-wrapper .span {
+  top: 15px;
+}
+.burger-menu-wrapper .burger-menu:after {
+  top: 24px;
+}
+.burger-menu-wrapper.menu-is-open {
+  background-color: red;
+}
+.burger-menu-wrapper.menu-is-open .burger-menu:before,
+.burger-menu-wrapper.menu-is-open .burger-menu:after {
+  top: 15px;
+}
+.burger-menu-wrapper.menu-is-open .burger-menu:before {
+  transform: rotate(-45deg);
+}
+.burger-menu-wrapper.menu-is-open .burger-menu:after {
+  transform: rotate(45deg);
+}
+.burger-menu-wrapper.menu-is-open .burger-menu span {
+  display: none;
+}
+
 // Mobile menu
 .mobile-menu {
   position: fixed;
@@ -1632,6 +1704,9 @@ p {
     color: $orangecolor;
   }
 }
+
+
+
 
 // fixed bottom menu
 .fixed-bottom-menu {
@@ -2018,7 +2093,82 @@ p {
 
 @media only screen and (max-width : 1400px) {
 
-  // callback section
+  .page-title,
+  .section-title {
+    font-size: 54px;
+  }
+
+  .section-title-small {
+    font-size: 46px;
+  }
+
+  // Main section
+  .main-section {
+    .main-title {
+      font-size: 84px;
+    }
+    .main-subtitle {
+      font-size: 26px;
+    }
+    .label-text {
+      font-size: 16px;
+    }
+  }
+
+  // Category section
+  .category-section {
+    .categories {
+      gap: 30px;
+    }
+    .categories .categories-item__title {
+      font-size: 26px;
+    }
+    .categories .categories-item__quantity {
+      padding: 10px 25px;
+    }
+  }
+
+  // Testimonials section
+  .testimonials-section {
+    .testimonials {
+      gap: 20px 35px;
+    }
+  }
+
+  // Testimonials item карточка отзыва
+  .testimonials-item {
+    padding: 35px;
+  }
+
+  // Booking section
+  .booking-section {
+    .content {
+      padding: 46px 415px 46px 51px;
+    }
+    .easy-text {
+      font-size: 22px;
+    }
+    .list-item {
+      font-size: 22px;
+    }
+    .step-number {
+      width: 76px;
+    }
+  }
+
+  // Advantages section
+  .advantages-section {
+    .advantages-item__title {
+      height: 63px;
+      font-size: 24px;
+    }
+    .advantages-item__text {
+      font-size: 19px;
+    }
+  }
+    
+
+  // Callback section
   .callback-section {
     .callback-form-wrapper {
       padding: 60px 130px;
@@ -2029,7 +2179,22 @@ p {
 
 @media only screen and (max-width : 1200px) {
 
-  // header
+  .section {
+    margin: 0 0 90px 0;
+  }
+
+  .page-title,
+  .section-title {
+    margin: 0 0 35px 0;
+    font-size: 48px;
+  }
+
+  .section-title-small {
+    margin: 0 0 45px 0;
+    font-size: 42px;
+  }
+
+  // Header
   .header {
     .menu-item a {
       font-size: 22px;
@@ -2039,23 +2204,153 @@ p {
     }
   }
 
-  // footer
-  .footer {
-    .logo {
-      grid-column: col-start/span 2;
+  // Main section
+  .main-section {
+    .main-title {
+      font-size: 80px;
     }
-    .club {
-      grid-column: col-start 3/span 2;
+    .main-subtitle {
+      font-size: 24px;
     }
-    .booking {
-      grid-column: col-start 5/span 4;
+    .label {
+      height: 36px;
+      padding: 5px 10px;
     }
-    .help {
-      grid-column: col-start 9/span 4;
+    .label-text {
+      font-size: 15px;
+    }
+    .label-element {
+      width: 10px;
+    }
+    .selection-item__title {
+      left: 15px;
+      font-size: 16px;
+    }
+    .selection-item__description {
+      left: 15px;
+      font-size: 14px;
     }
   }
 
-  // callback section
+  // Category section
+  .category-section {
+    .categories {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .categories-top-right,
+    .categories-bottom-left {
+      display: none;
+    }
+  }
+
+  // Testimonials section
+  .testimonials-section {
+    .testimonials {
+      gap: 20px;
+    }
+    .see-all-link {
+      font-size: 18px;
+    }
+  }
+
+  // Testimonials item карточка отзыва
+  .testimonials-item {
+    padding: 25px;
+    .flex-container {
+      margin: 0 0 20px 0;
+    }
+    .testimonials-item__title {
+      font-size: 18px;
+    }
+    .testimonials-item__text {
+      height: 126px;
+      font-size: 15px;
+    }
+  }
+
+  // Search
+  .search {
+    padding: 35px;
+    .flex-container {
+      gap: 20px;
+    }
+    .search-input {
+      height: 70px;
+    }
+    .search-submit-btn {
+      height: 70px;
+    }
+  }
+
+  // Booking section
+  .booking-section {
+    .content {
+      padding: 40px 415px 40px 40px;
+    }
+    .easy-text {
+      font-size: 20px;
+    }
+    .list-item {
+      margin: 0 0 15px 0;
+      font-size: 20px;
+    }
+  }
+
+  // Faq section
+  .faq-section {
+    .questions-item__title {
+      font-size: 20px;
+    }
+  }
+
+  // Description section
+  .description-section {
+    .grid-container {
+      gap: 30px;
+    }
+    .description-subtitle {
+      font-size: 24px;
+    }
+    .description-text {
+      margin: 0 0 15px 0;
+      font-size: 16px;
+    }
+    .description-gallery {
+      gap: 15px;
+    }
+  }
+
+  // Advantages section
+  .advantages-section {
+    .advantages-item__image {
+      width: 76px;
+    }
+    .advantages-item__title {
+      height: 58px;
+      font-size: 22px;
+    }
+    .advantages-item__text {
+      font-size: 18px;
+    }
+  }
+
+  // Footer
+  .footer {
+    // .logo {
+    //   grid-column: col-start/span 2;
+    // }
+    .club {
+      grid-column: col-start 6/span 2;
+    }
+    .booking {
+      grid-column: col-start 8/span 2;
+    }
+    .bottom-menu {
+      padding: 22px 0 0 0;
+    }
+  }
+
+  // Callback section
   .callback-section {
     .grid-container {
       grid-template-columns: repeat(3, 1fr);
@@ -2075,7 +2370,7 @@ p {
   }
 
 
-  // we use cookie
+  // We use cookie
   .we-use-cookie {
     right: 20%;
     .we-use-cookie-wrapper {
@@ -2086,7 +2381,21 @@ p {
 
 @media only screen and (max-width : 992px) {
 
-  // header
+  .section {
+    margin: 0 0 80px 0;
+  }
+
+  .page-title,
+  .section-title {
+    font-size: 46px;
+  }
+
+  .section-title-small {
+    margin: 0 0 40px 0;
+    font-size: 38px;
+  }
+
+  // Header
   .header {
     .grid-container {
       gap: 15px;
@@ -2100,7 +2409,7 @@ p {
     }
   }
 
-  // callback section
+  // Callback section
   .callback-section {
     .callback-title {
       font-size: 34px;
@@ -2111,7 +2420,7 @@ p {
   }
   
 
-  // we use cookie
+  // We use cookie
   .we-use-cookie {
     .we-use-cookie-wrapper {
       margin: 0 0 0 12px;
@@ -2127,7 +2436,11 @@ p {
     display: block !important;
   }
 
-  // footer
+  .section {
+    margin: 0 0 70px 0;
+  }
+
+  // Footer
   .footer {
     .grid-container {
       grid-template-columns: 100%;
@@ -2155,7 +2468,7 @@ p {
     display: block;
   }
 
-  // callback section
+  // Callback section
   .callback-section {
     .callback-title {
       margin: 0 0 25px 0;
@@ -2165,7 +2478,7 @@ p {
     }
   }
 
-  /* we use cookie */
+  /* We use cookie */
   .we-use-cookie {
     right: 20%;
     .we-use-cookie-wrapper {

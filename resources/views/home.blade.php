@@ -11,7 +11,7 @@
       <div class="main-subtitle">Клуб путешественников</div>
       @include('search')
       <div class="selection">
-        <div class="grid-container">
+        <div class="flex-container">
           <div class="selection-item">
             <div class="selection-item__image">
               <img src="/img/temp-selection1.jpg" alt="">
