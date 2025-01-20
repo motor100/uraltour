@@ -174,7 +174,7 @@
             </div>
           </div>
         </div>
-        <div class="description-item">
+        <div class="description-item start4">
           <div class="description-gallery">
             <div class="description-gallery-item">
               <img src="/img/temp-description-gallery3.jpg" alt="">

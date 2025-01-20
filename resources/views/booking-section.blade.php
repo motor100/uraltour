@@ -17,8 +17,11 @@
           <span class="step-text">Заполняем данные, ждём подтверждение и оплачиваем</span>
         </li>
       </ul>
-      <div class="booking-image">
-        <img src="/img/booking-image.jpg" alt="">
+      <div class="booking-image booking-image-desktop">
+        <img src="/img/booking-image-desktop.jpg" alt="">
+      </div>
+      <div class="booking-image booking-image-mobile">
+        <img src="/img/booking-image-mobile.jpg" alt="">
       </div>
     </div>
   </div>

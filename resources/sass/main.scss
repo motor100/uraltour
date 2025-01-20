@@ -22,6 +22,9 @@ button {
 button, button:focus, button:active {
   outline: none;
 }
+button:disabled {
+  background-color: $lightgreycolor !important;
+}
 img {
   border-style: none;
   vertical-align: middle;
@@ -661,11 +664,19 @@ p {
     top: 0;
     right: 0;
     height: 100%;
+    overflow: hidden;
   }
   .booking-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .booking-image-desktop {
+    border-radius: 15px 15px 15px 192px;
+  }
+  .booking-image-mobile {
+    display: none;
+    border-radius: 135px 30px 30px 30px;
   }
 }
 
@@ -1601,48 +1612,48 @@ p {
   cursor: pointer;
   z-index: 10003;
   transition: background-color .5s;
-}
-.burger-menu-wrapper .burger-menu {
-  position: relative;
-  height: 100%;
-}
-.burger-menu-wrapper .burger-menu:before,
-.burger-menu-wrapper .burger-menu:after,
-.burger-menu-wrapper .span {
-  content: "";
-  position: absolute;
-  left: 0;
-  display: block;
-  width: 100%;
-  height: 2px;
-  border-radius: 3px;
-  background-color: grey;
-  transition: all .5s;
+  .burger-menu {
+    position: relative;
+    height: 100%;
   }
-.burger-menu-wrapper .burger-menu:before {
-  top: 6px;
-}
-.burger-menu-wrapper .span {
-  top: 15px;
-}
-.burger-menu-wrapper .burger-menu:after {
-  top: 24px;
-}
-.burger-menu-wrapper.menu-is-open {
-  background-color: red;
-}
-.burger-menu-wrapper.menu-is-open .burger-menu:before,
-.burger-menu-wrapper.menu-is-open .burger-menu:after {
-  top: 15px;
-}
-.burger-menu-wrapper.menu-is-open .burger-menu:before {
-  transform: rotate(-45deg);
-}
-.burger-menu-wrapper.menu-is-open .burger-menu:after {
-  transform: rotate(45deg);
-}
-.burger-menu-wrapper.menu-is-open .burger-menu span {
-  display: none;
+  .burger-menu:before,
+  .burger-menu:after,
+  .span {
+    content: "";
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 3px;
+    background-color: grey;
+    transition: all .5s;
+  }
+  .burger-menu:before {
+    top: 6px;
+  }
+  .span {
+    top: 15px;
+  }
+  .burger-menu:after {
+    top: 24px;
+  }
+  &.menu-is-open {
+    background-color: red;
+  }
+  &.menu-is-open .burger-menu:before,
+  &.menu-is-open .burger-menu:after {
+    top: 15px;
+  }
+  &.menu-is-open .burger-menu:before {
+    transform: rotate(-45deg);
+  }
+  &.menu-is-open .burger-menu:after {
+    transform: rotate(45deg);
+  }
+  &.menu-is-open .burger-menu span {
+    display: none;
+  }
 }
 
 // Mobile menu
@@ -1704,9 +1715,6 @@ p {
     color: $orangecolor;
   }
 }
-
-
-
 
 // fixed bottom menu
 .fixed-bottom-menu {
@@ -2382,17 +2390,17 @@ p {
 @media only screen and (max-width : 992px) {
 
   .section {
-    margin: 0 0 80px 0;
+    margin: 0 0 60px 0;
   }
 
   .page-title,
   .section-title {
-    font-size: 46px;
+    font-size: 44px;
   }
 
   .section-title-small {
-    margin: 0 0 40px 0;
-    font-size: 38px;
+    margin: 0 0 35px 0;
+    font-size: 36px;
   }
 
   // Header
@@ -2405,7 +2413,150 @@ p {
       gap: 20px;
     }
     .menu-item a {
+      font-size: 17px;
+    }
+  }
+
+  // Main section
+  .main-section {
+    .main-title {
+      font-size: 72px;
+    }
+    .main-subtitle {
+      font-size: 22px;
+    }
+    .selection .flex-container {
+      flex-wrap: wrap;
+    }
+    .selection .selection-item {
+      width: 48%;
+      margin: 0 0 20px 0;
+    }
+
+  }
+
+  // Category section
+  .category-section {
+    .categories {
+      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Testimonials section
+  .testimonials-section {
+    .testimonials {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Booking section
+  .booking-section {
+    .content {
+      padding: 30px;
+    }
+    .easy-text {
+      margin: 0 0 20px 0;
       font-size: 18px;
+    }
+    .list {
+      margin: 0 0 30px 0;
+    }
+    .list-item {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+    .booking-image {
+      position: static;
+      width: 100%;
+    }
+    .booking-image-desktop {
+      display: none;
+    }
+    .booking-image-mobile {
+      display: block;
+    }
+  }
+
+  // Faq section
+  .faq-section {
+    .grid-container {
+      display: block;
+    }
+  }
+
+  // Description section
+  .description-section {
+    .grid-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .start4 {
+      grid-row-start: 4;
+    }
+  }
+
+  // Advantages section
+  .advantages-section {
+    .advantages-item__image {
+      width: 70px;
+    }
+    .advantages-item__title {
+      height: 52px;
+      font-size: 20px;
+    }
+    .advantages-item__text {
+      font-size: 16px;
+    }
+  }
+
+  // Callback section
+  .callback-section {
+    .callback-form-wrapper {
+      padding: 30px 50px;
+    }
+    .callback-title {
+      font-size: 32px;
+    }
+    .input-field {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  // Search
+  .search {
+    padding: 25px;
+    border-radius: 20px;
+    .search-input {
+      height: 60px;
+      padding: 18px 30px 18px 68px;
+      border-radius: 10px;
+    }
+    .search-lens {
+      left: 20px;
+      width: 27px;
+      height: 27px;
+    }
+    .search-submit-btn {
+      height: 60px;
+    }
+    .search-submit-btn__text {
+      font-size: 16px;
+    }
+  }
+
+  // Footer
+  .footer {
+    .grid-container {
+      gap: 0 17px;
+    }
+    .club {
+      grid-column: col-start 5/span 2;
+    }
+    .booking {
+      grid-column: col-start 7/span 3;
+    }
+    .help {
+      grid-column: col-start 10/span 3;
     }
   }
 
