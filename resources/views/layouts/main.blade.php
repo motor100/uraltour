@@ -262,7 +262,7 @@
           </div>
           <div class="form-group">
             <label for="text-testimonial-modal" class="label">Отзыв <span class="accentcolor">*</span></label>
-            <textarea type="text" name="name" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
+            <textarea name="name" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
           </div>
           <div class="form-group">
             <img src="/img/paperclip.jpg" class="paperclip" alt="">
@@ -292,7 +292,6 @@
       <button id="cookie_accept" class="we-use-cookie-close">Понятно</button>
     </div>
   </div>
-
 
   <div class="fixed-bottom-menu" style="display: none;">
     <div class="menu-wrapper">

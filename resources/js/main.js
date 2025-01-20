@@ -40,6 +40,44 @@ function inputPhoneMask() {
 inputPhoneMask();
 
 
+// Mobile menu
+const burgerMenuWrapper = document.querySelector('.burger-menu-wrapper');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+function openMobileMenu() {
+  body.classList.add('overflow-hidden');
+  mobileMenu.classList.add('active');
+  burgerMenuWrapper.classList.add('menu-is-open');
+}
+
+function closeMobileMenu() {
+  body.classList.remove('overflow-hidden');
+  burgerMenuWrapper.classList.remove('menu-is-open');
+  mobileMenu.classList.remove('active');
+}
+
+burgerMenuWrapper.onclick = function() {
+  if (burgerMenuWrapper.classList.contains('menu-is-open')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+const listParentClick = document.querySelectorAll('.mobile-menu li.menu-item a');
+
+for (let i=0; i < listParentClick.length; i++) {
+  listParentClick[i].onclick = function (event) {
+    event.preventDefault();
+    closeMobileMenu();
+    let hrefClick = this.href;
+    setTimeout(function() {
+      location.href = hrefClick
+    }, 500);
+  }
+}
+
+
 // Окна
 const modalWindows = document.querySelectorAll('.modal-window');
 const callbackModalBtns = document.querySelectorAll('.js-callback-modal-btn');

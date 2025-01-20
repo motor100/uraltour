@@ -6,7 +6,7 @@
       <ul class="list">
         <li class="list-item">
           <span class="step-number">Шаг 1: </span>
-          <span class="step-text"><a href="#" class="catalog-link">Выбираете тур</a>, даты и количество туристов</span>
+          <span class="step-text"><a href="/catalog" class="catalog-link">Выбираете тур</a>, даты и количество туристов</span>
         </li>
         <li class="list-item">
           <span class="step-number">Шаг 2: </span>

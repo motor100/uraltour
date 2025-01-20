@@ -878,10 +878,14 @@ p {
   }
   .agreement-text {
     a {
-      color: $textcolor;
+      color: #fff;
+    }
+    .custom-checkbox + label::before {
+      border: 1px solid #fff;
+      background-color: $orangecolor;
     }
     .custom-checkbox:checked+label::before {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23000' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
     }
   }
 }
@@ -1602,13 +1606,14 @@ p {
 /* burger menu */
 .burger-menu-wrapper {
   position: fixed;
-  top: 97px;
-  right: 15px;
+  top: 40px;
+  right: 20px;
   display: none;
-  width: 46px;
-  height: 46px;
+  width: 38px;
+  height: 38px;
   padding: 7px;
-  background-color: grey;
+  border-radius: 19px;
+  background-color: #FFE2CD;
   cursor: pointer;
   z-index: 10003;
   transition: background-color .5s;
@@ -1626,17 +1631,17 @@ p {
     width: 100%;
     height: 2px;
     border-radius: 3px;
-    background-color: grey;
+    background-color: #E86423;
     transition: all .5s;
   }
   .burger-menu:before {
-    top: 6px;
+    top: 4px;
   }
   .span {
-    top: 15px;
+    top: 11px;
   }
   .burger-menu:after {
-    top: 24px;
+    top: 18px;
   }
   &.menu-is-open {
     background-color: red;
@@ -2493,6 +2498,9 @@ p {
     .start4 {
       grid-row-start: 4;
     }
+    .description-subtitle {
+      font-size: 22px;
+    }
   }
 
   // Advantages section
@@ -2591,10 +2599,51 @@ p {
     margin: 0 0 70px 0;
   }
 
+  .page-title,
+  .section-title {
+    font-size: 42px;
+  }
+
+  .section-title-small {
+    margin: 0 0 30px 0;
+    font-size: 34px;
+  }
+
+  // Advantages section
+  .advantages-section {
+    .advantages {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .advantages-item__image {
+      margin: 0 auto 10px auto;
+    }
+    .advantages-item__title {
+      height: auto;
+      margin: 0 auto 10px auto;
+    }
+  }
+
+  // Description section
+  .description-section {
+    .grid-container {
+      gap: 20px;
+    }
+    .description-subtitle {
+      font-size: 20px;
+    }
+  }
+
+  // Testimonials section
+  .testimonials-section {
+    .see-all-link {
+      font-size: 16px;
+    }
+  }
+
   // Footer
   .footer {
     .grid-container {
-      grid-template-columns: 100%;
+      display: block;
     }
     .logo {
       grid-column: 1;
@@ -2608,6 +2657,35 @@ p {
     }
     .help {
       grid-column: 1;
+    }
+    .bottom-menu {
+      padding: 15px 0 0 0;
+    }
+    .logo-wrapper {
+      margin: 0 0 20px 0;
+    }
+    .footer-bottom {
+      display: block;
+      line-height: 2;
+    }
+    .info {
+      margin: 0 0 10px 0;
+    }
+    .developers {
+      text-align: left;
+    }
+  }
+
+  // Search
+  .search {
+    .flex-container {
+      display: block;
+    }
+    .search-input-wrapper {
+      margin: 0 0 10px 0;
+    }
+    .search-submit-btn {
+      width: 100%;
     }
   }
 
@@ -2623,6 +2701,7 @@ p {
   .callback-section {
     .callback-title {
       margin: 0 0 25px 0;
+      font-size: 32px;
     }
     .callback-form-wrapper {
       padding: 30px 50px;
@@ -2643,16 +2722,52 @@ p {
 }
 
 @media only screen and (max-width : 576px) {
-  
+  .page-title,
+  .section-title {
+    font-size: 40px;
+  }
+
+  .section-title-small {
+    font-size: 32px;
+  }
+
+  // Category section
+  .category-section {
+    .categories {
+      gap: 12px;
+    }
+  }
+
+  // Testimonial section
+  .testimonials-section {
+    .testimonials {
+      gap: 12px;
+    }
+  }
+
+  .booking-section {
+    .easy-text {
+      font-size: 16px;
+    }
+    .list-item {
+      font-size: 16px;
+    }
+  }
 }
 
 @media only screen and (max-width : 480px) {
+
+  .page-title,
+  .section-title {
+    font-size: 38px;
+  }
+
   /* we use cookie */
   .we-use-cookie {
     right: 30%;
-  }
-  .we-use-cookie .we-use-cookie-wrapper {
-    display: block;
+    .we-use-cookie-wrapper {
+      display: block;
+    }
   }
 }
 
