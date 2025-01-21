@@ -6,7 +6,7 @@
   </div>
   <div class="products-item__content">
     <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="products-item__title">{{ $product->title }}</a>
-    <div class="product-item__description">БАДЕН - БАДЕН «Лесная сказка»! Купание 3 часа (+15 мин)</div>
+    <div class="product-item__excerpt">{{ $product->excerpt }}</div>
       <div class="products-item__price">
         <span class="value">{{ number_format($product->price, 0, '', ' ') }}</span>
         <span class="currency">Р</span>

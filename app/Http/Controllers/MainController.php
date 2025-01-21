@@ -59,6 +59,10 @@ class MainController extends Controller
 
             $products = Product::where('category_id', $category->id)->paginate(9);
 
+            foreach($products as $product) {
+                $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+            }
+
             $regular_products = Product::where('category_id', $category->id)->limit(2)->get();
 
             return view('category', compact('category', 'products', 'regular_products'));
@@ -129,6 +133,10 @@ class MainController extends Controller
                             ->onEachSide(1)
                             ->withQueryString();
                             // ->get();
+
+        foreach($products as $product) {
+            $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+        }
 
         return view('poisk', compact('products', 'search_query'));
     }
