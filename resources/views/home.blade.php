@@ -2,6 +2,10 @@
 
 @extends('layouts.main')
 
+@section('style')
+  <link rel="stylesheet" href="{{ asset('/css/swiper-bundle.min.css') }}">
+@endsection
+
 @section('content')
 
 <div class="home-page">
@@ -10,7 +14,7 @@
       <div class="main-title">Урал Тур</div>
       <div class="main-subtitle">Клуб путешественников</div>
       @include('search')
-      <div class="selection">
+      <div class="selection hidden-mobile">
         <div class="flex-container">
           <div class="selection-item">
             <div class="selection-item__image">
@@ -72,7 +76,75 @@
             <div class="selection-item__description">Краткое описание</div>
             <a href="#" class="full-link"></a>
           </div>
-          
+        </div>
+      </div>
+      <div class="hand-swipe-right hidden-desktop">
+        <img src="/img/hand-swipe-right.png" alt="">
+      </div>
+    </div>
+    <div class="selection slider-wrapper hidden-desktop">
+      <div class="selection-slider swiper">
+        <div class="swiper-wrapper">
+          <div class="selection-item swiper-slide">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label">
+              <img src="/img/selection-label-tree.png" class="label-image" alt="">
+              <span class="label-text">Новогодние туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+            <a href="#" class="full-link"></a>
+          </div>
+          <div class="selection-item swiper-slide">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection2.jpg" alt="">
+            </div>
+            <div class="label">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+            <a href="#" class="full-link"></a>
+          </div>
+          <div class="selection-item swiper-slide">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+            <a href="#" class="full-link"></a>
+          </div>
+          <div class="selection-item swiper-slide">
+            <div class="selection-item__image">
+              <img src="/img/temp-selection1.jpg" alt="">
+            </div>
+            <div class="label">
+              <img src="/img/selection-label-fire.png" class="label-image" alt="">
+              <span class="label-text">Горячие туры</span>
+            </div>
+            <div class="label-element">
+              <img src="/img/selection-orange-element.png" alt="">
+            </div>
+            <div class="selection-item__title">Название</div>
+            <div class="selection-item__description">Краткое описание</div>
+            <a href="#" class="full-link"></a>
+          </div>
         </div>
       </div>
     </div>
@@ -109,15 +181,26 @@
   <div class="testimonials-section section">
     <div class="container">
       <div class="section-title">Читайте отзывы<br> наших клиентов</div>
-      <div class="testimonials">
+      <div class="testimonials hidden-mobile">
         @foreach($testimonials as $testimonial)
-          @include('testimonial-card')            
+          @include('testimonial-card')
         @endforeach
       </div>
+    </div>
+    <div class="testimonials-slider swiper hidden-desktop">
+      <div class="swiper-wrapper">
+        @foreach($testimonials as $testimonial)
+          <div class="swiper-slide">
+            @include('testimonial-card')
+          </div>
+        @endforeach
+      </div>
+    </div>
+    <div class="container">
       <div class="see-all">
         <a href="#" class="see-all-link">смотреть все отзывы</a>
       </div>
-    </div>
+    </div>    
   </div>
 
   @include('booking-section')
@@ -225,4 +308,8 @@
 
 </div>
 
+@endsection
+
+@section('script')
+<script src="{{ asset('/js/swiper-bundle.min.js') }}"></script>
 @endsection

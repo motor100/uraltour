@@ -2471,6 +2471,9 @@ p {
       margin: 0 0 10px 0;
       font-size: 18px;
     }
+    .step-number {
+      width: 60px;
+    }
     .booking-image {
       position: static;
       width: 100%;
@@ -2611,9 +2614,34 @@ p {
 
   // Main section
   .main-section {
+    padding: 40px 0 0 0;
+    .main-title {
+      font-size: 66px;
+    }
     .main-section-bg {
       height: 430px;
     }
+    .slider-wrapper {
+      margin-left: calc(50% - 516px / 2);
+    }
+    .hand-swipe-right {
+      width: 32px;
+      height: 32px;
+      margin: 100px 0 30px auto;
+    }
+    .hand-swipe-right img {
+      width: 100%;
+    }
+    .selection {
+      margin-top: 0;
+    }
+    .selection .selection-item {
+      width: 260px;
+      height: 335px;
+      margin-bottom: 0;
+      padding: 0;
+    }
+   
   }
 
   // Advantages section
@@ -2642,8 +2670,24 @@ p {
 
   // Testimonials section
   .testimonials-section {
+    .testimonials-slider {
+      margin: 0 0 20px 0;
+    }
+    .swiper-slide {
+      width: 80%;
+    }
+    .see-all {
+      text-align: center;
+    }
     .see-all-link {
       font-size: 16px;
+    }
+  }
+
+  // Faq section
+  .faq-section {
+    .questions-item {
+      padding: 25px;
     }
   }
 
@@ -2738,10 +2782,37 @@ p {
     font-size: 32px;
   }
 
+  .section {
+    margin: 0 0 60px 0;
+  }
+
+  // Main section
+  .main-section {
+    .main-title {
+      font-size: 60px;
+    }
+    .main-subtitle {
+      font-size: 18px;
+    }
+    .main-section-bg {
+      height: 410px;
+      border-radius: 15px;
+    }
+    .hand-swipe-right {
+      margin-top: 90px;
+    }
+    .slider-wrapper {
+      margin-left: 12px;
+    }
+  }
+
   // Category section
   .category-section {
     .categories {
       gap: 12px;
+    }
+    .categories .categories-item__title {
+      font-size: 22px;
     }
   }
 
@@ -2752,12 +2823,27 @@ p {
     }
   }
 
+  // Callback section
+  .callback-section {
+    .callback-form-wrapper {
+      padding: 20px 40px;
+    }
+    .callback-title {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+  }
+
+  // Booking section
   .booking-section {
     .easy-text {
       font-size: 16px;
     }
     .list-item {
       font-size: 16px;
+    }
+    .step-number {
+      width: 53px;
     }
   }
 }
@@ -2766,8 +2852,66 @@ p {
 
   .page-title,
   .section-title {
-    font-size: 38px;
+    font-size: 34px;
   }
+
+  .section-title-small {
+    font-size: 28px;
+  }
+
+  .section {
+    margin: 0 0 50px 0;
+  }
+
+  // Category section
+  .category-section {
+    .categories .categories-item {
+      height: 250px;
+    }
+    .categories .categories-item__title {
+      top: 63px;
+      font-size: 16px;
+    }
+    .categories .categories-item__quantity {
+      top: 135px;
+      font-size: 15px;
+    }
+  }
+
+  // Booking section
+  .booking-section {
+    .content {
+      padding: 30px 25px;
+    }
+  }
+
+  // Faq section
+  .faq-section {
+    .questions-item {
+      padding: 20px;
+    }
+    .circle {
+      top: 20px;
+    }
+    .active .questions-item__content {
+      max-height: 88px;
+      font-size: 15px;
+    }
+  }
+
+  // Callback section
+  .callback-section {
+    .callback-form-wrapper {
+      padding: 15px 20px 20px 20px;
+    }
+    .agreement-text {
+      font-size: 12px;
+    }
+    a {
+      font-size: 12px;
+    }
+  }
+    
 
   /* we use cookie */
   .we-use-cookie {
@@ -2779,5 +2923,50 @@ p {
 }
 
 @media only screen and (max-width : 360px) {
+
+  .section {
+    margin: 0 0 40px 0;
+  }
   
+  .page-title,
+  .section-title {
+    font-size: 30px;
+  }
+
+  .section-title-small {
+    font-size: 24px;
+  }
+
+  // Main section
+  .main-section {
+    .main-title {
+      font-size: 54px;
+    }
+    .selection .selection-item {
+      width: 220px;
+      height: 305px;
+    }
+    .main-section-bg {
+      height: 390px;
+    }
+    .hand-swipe-right {
+      margin-top: 70px;
+    }
+  }
+
+  // Category section
+  .category-section {
+    .categories {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .categories .categories-item {
+      height: 200px;
+    }
+    .categories .categories-item__title {
+      font-size: 18px;
+    }
+    .categories .categories-item__quantity {
+      top: 105px;
+    }
+  }
 }

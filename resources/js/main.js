@@ -2,6 +2,44 @@ import IMask from 'imask';
 
 const body = document.querySelector('body');
 
+
+// Слайдер на главной странице
+const homePage = document.querySelector('.home-page')
+
+if (homePage) {
+  const selectionSlider = new Swiper('.selection-slider', {
+    // modules: [Navigation],
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    /*
+    breakpoints: {
+      // mobile 320-991
+      320: {
+        spaceBetween: 15,
+      },
+    },
+    */
+  });
+
+  const testimonialsSlider = new Swiper('.testimonials-slider', {
+    // modules: [Navigation],
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 15,
+    /*
+    breakpoints: {
+      // mobile 320-991
+      320: {
+        spaceBetween: 15,
+      },
+    },
+    */
+  });
+}
+
+
+
 // Секция Отвечаем на вопросы аккордеон
 const faqSection = document.querySelector('.faq-section');
 
