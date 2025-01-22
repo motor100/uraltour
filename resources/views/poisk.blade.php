@@ -32,6 +32,12 @@
     <div class="content-wrapper">
       <div class="search-query">{{ $search_query }}</div>
 
+      <div class="sort">
+        <span class="sort-text">Сортировка</span>
+        <span class="expensive-first first" data-sort="desc">сначала дорогие</span>
+        <span class="cheap-first first" data-sort="asc">сначала дешевые</span>
+      </div>
+
       @if(count($products) > 0)
       <div class="products">
         @foreach($products as $product)

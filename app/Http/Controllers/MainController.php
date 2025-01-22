@@ -65,6 +65,10 @@ class MainController extends Controller
 
             $regular_products = Product::where('category_id', $category->id)->limit(2)->get();
 
+            foreach($regular_products as $product) {
+                $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+            }
+
             return view('category', compact('category', 'products', 'regular_products'));
         }
 

@@ -187,18 +187,25 @@
         @endforeach
       </div>
     </div>
-    <div class="testimonials-slider swiper hidden-desktop">
-      <div class="swiper-wrapper">
-        @foreach($testimonials as $testimonial)
-          <div class="swiper-slide">
-            @include('testimonial-card')
-          </div>
-        @endforeach
+    <div class="container">
+      <div class="hand-swipe-right hidden-desktop">
+        <img src="/img/hand-swipe-right.png" alt="">
+      </div>
+    </div>  
+    <div class="slider-wrapper">
+      <div class="testimonials-slider swiper hidden-desktop">
+        <div class="swiper-wrapper">
+          @foreach($testimonials as $testimonial)
+            <div class="swiper-slide">
+              @include('testimonial-card')
+            </div>
+          @endforeach
+        </div>
       </div>
     </div>
     <div class="container">
       <div class="see-all">
-        <a href="#" class="see-all-link">смотреть все отзывы</a>
+        <a href="/testimonials" class="see-all-link">смотреть все отзывы</a>
       </div>
     </div>    
   </div>

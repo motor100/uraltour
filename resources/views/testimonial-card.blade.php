@@ -33,7 +33,7 @@
     <div class="testimonials-item__date">{{ $testimonial->created_at->format('d.m.Y') }}</div>
   </div>
   <div class="testimonials-item__text">{{ $testimonial->text }}</div>
-  @if($testimonial->gallery)
+  @if(count($testimonial->gallery) > 0)
     <div class="testimonials-item__gallery">
       @foreach($testimonial->gallery as $gallery)
         @if($loop->index < 3)
