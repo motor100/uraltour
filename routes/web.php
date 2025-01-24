@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\MailerController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -34,6 +35,8 @@ Route::get('/sitemap.xml', [MainController::class, 'sitemap']);
 
 
 Route::get('/ajax-product-search', [AjaxController::class, 'product_search']);
+
+Route::post('/ajax-callback', MailerController::class);
 
 
 Route::get('/dashboard', function () {

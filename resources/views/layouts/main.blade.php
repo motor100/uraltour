@@ -241,13 +241,14 @@
           <div class="grid-container">
             <div class="form-group">
               <label for="name-callback-modal" class="label">Имя <span class="accentcolor">*</span></label>
-              <input type="text" name="name" id="name-callback-modal" class="input-field js-name-callback-modal" required minlength="3" maxlength="20" placeholder="Имя">
+              <input type="text" name="name" id="name-callback-modal" class="input-field js-name-callback" required minlength="3" maxlength="20" placeholder="Имя">
             </div>
             <div class="form-group">
               <label for="phone-callback-modal" class="label">Телефон <span class="accentcolor">*</span></label>
-              <input type="text" name="phone" id="phone-callback-modal" class="input-field js-input-phone-mask" required size="18" placeholder="+7 (000) 000 00 00">
+              <input type="text" name="phone" id="phone-callback-modal" class="input-field js-phone-callback js-input-phone-mask" required size="18" placeholder="+7 (000) 000 00 00">
             </div>
-            <button type="button" id="callback-submit-btn" class="modal-submit-btn">
+            @csrf
+            <button type="button" id="callback-modal-submit-btn" class="modal-submit-btn">
               <img src="/img/search-icon.png" class="modal-submit-btn__image" alt="">
               <span class="modal-submit-btn__text">Отправить</span>
             </button>

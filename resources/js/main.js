@@ -308,6 +308,71 @@ function searchOnInput() {
 }
 
 
+// Отправка формы ajax
+const callbackModalForm = document.querySelector('#callback-modal-form');
+const callbackModalSubmitBtn = document.querySelector('#callback-modal-submit-btn');
+const callbackForm = document.querySelector('#callback-form');
+const callbackSubmitBtn = document.querySelector('#callback-submit-btn');
+
+function ajaxCallback(form) {
+
+  const inputs = form.querySelectorAll('.input-field');
+  let arr = [];
+
+  const inputName = form.querySelector('.js-required-name');
+  if (inputName.value.length < 3 || inputName.value.length > 20) {
+    inputName.classList.add('required');
+    arr.push(false);
+  }
+
+  const inputPhone = form.querySelector('.js-required-phone');
+  if (inputPhone.value.length != 18) {
+    inputPhone.classList.add('required');
+    arr.push(false);
+  }
+
+  const inputCheckboxes = form.querySelectorAll('.js-required-checkbox');
+
+  inputCheckboxes.forEach((item) => {
+    if (!item.checked) {
+      arr.push(false);
+    }
+  });
+
+  if (arr.length == 0) {
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].classList.remove('required');
+    }
+
+    fetch('/ajax-callback', {
+      method: 'POST',
+      cache: 'no-cache',
+      body: new FormData(form)
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    alert("Спасибо. Мы свяжемся с вами.");
+
+    form.reset();
+
+  }
+
+  return false;
+}
+
+callbackModalSubmitBtn.onclick = () => {
+  ajaxCallback(callbackModalForm);
+}
+
+if (callbackSubmitBtn) {
+  callbackSubmitBtn.onclick = () => {
+    ajaxCallback(callbackForm);
+  }
+}
+
+
 // Звездный рейтинг в окне Оставить отзыв
 const stars = document.querySelectorAll('.testimonial-modal .stars .star');
 const inputRating = document.querySelector('.testimonial-modal #input-rating');

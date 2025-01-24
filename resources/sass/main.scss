@@ -868,9 +868,9 @@ p {
     color: #fff;
   }
   .input-field.required {
-    border: 1px solid red;
+    border: 1px solid #000;
   }
-  .callback-btn {
+  .callback-submit-btn {
     width: 100%;
     height: 52px;
     margin: 0 0 10px 0;
@@ -2554,7 +2554,7 @@ p {
     .input-field {
       padding: 15px;
     }
-    .callback-btn {
+    .callback-submit-btn {
       font-size: 22px;
     }
   }
