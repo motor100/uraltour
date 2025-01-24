@@ -1,4 +1,4 @@
-@section('title', 'Home')
+@section('title', 'Урал Тур')
 
 @extends('layouts.main')
 

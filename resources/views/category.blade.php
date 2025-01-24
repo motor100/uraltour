@@ -30,6 +30,8 @@
     <div class="products-section">
       <div class="container">
 
+        <div id="filter-menu-btn" class="filter-menu-btn hidden-desktop">Фильтры</div>
+
         <div class="sort">
           <span class="sort-text">Сортировка</span>
           <span class="expensive-first first" data-sort="desc">сначала дорогие</span>
@@ -84,6 +86,7 @@
                 <span class="custom-checkbox"></span>
               </label>
             </div>
+            <button class="submit-btn">Применить</button>
           </div>
           <div class="content">
 

@@ -98,16 +98,16 @@
         </div>
         <div class="socials">
           <a href="#" class="socials-link">
-            <img src="/img/vk.png" class="socials-image" alt="">
+            <img src="/img/vk.svg" class="socials-image" alt="">
           </a>
           <a href="#" class="socials-link">
-            <img src="/img/ok.png" class="socials-image" alt="">
+            <img src="/img/ok.svg" class="socials-image" alt="">
           </a>
           <a href="#" class="socials-link">
-            <img src="/img/tg.png" class="socials-image" alt="">
+            <img src="/img/tg.svg" class="socials-image" alt="">
           </a>
           <a href="#" class="socials-link">
-            <img src="/img/ws.png" class="socials-image" alt="">
+            <img src="/img/ws.svg" class="socials-image" alt="">
           </a>
         </div>
       </div>
@@ -135,48 +135,99 @@
   </div>
 
   <div class="mobile-menu">
-
-    <div class="lk-login header-btn">
-      <div class="lk-login__image header-btn__image">
-        <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.8127 23.9071C18.8127 26.2363 16.7525 28.1262 14.2099 28.1262H6.5391C3.99831 28.1262 1.93806 26.2363 1.93806 23.9071V21.0938C1.93806 19.0999 3.44963 17.4413 5.4758 17.0002C6.86006 18.0975 8.54735 18.7502 10.3745 18.7502C12.2034 18.7502 13.8907 18.0975 15.2732 17.0002C17.3012 17.4413 18.8127 19.0999 18.8127 21.0938V23.9071ZM3.81183 9.37422C3.81183 5.2322 6.75068 1.87556 10.3745 1.87556C14.0001 1.87556 16.9372 5.2322 16.9372 9.37422C16.9372 13.518 14.0001 16.8747 10.3745 16.8747C6.75068 16.8747 3.81183 13.518 3.81183 9.37422ZM16.8923 15.3308C18.0901 13.7063 18.8127 11.6335 18.8127 9.37422C18.8127 4.19939 15.0347 0 10.3745 0C5.71428 0 1.93806 4.19939 1.93806 9.37422C1.93806 11.6335 2.65888 13.7063 3.85845 15.3308C1.65475 16.0929 0.0625 18.1621 0.0625 20.6258V24.3751C0.0625 27.4807 2.58178 30 5.68739 30H15.0634C18.169 30 20.6883 27.4807 20.6883 24.3751V20.6258C20.6883 18.1621 19.0942 16.0929 16.8923 15.3308Z" fill="#868686"/>
-        </svg>
-      </div>
-      <div class="lk-login__text header-btn__text">Войти</div>
-      <a href="/lk" class="full-link"></a>
+    <div class="logo">
+      <img src="/img/logo.png" alt="">
     </div>
-
     <ul class="menu">
-      <li class="menu-item {{ Route::is('company') ? 'active' : '' }}">
-        <a href="/company">КОМПАНИЯ</a>
-      </li>
-      <li class="menu-item {{ Route::is('services') ? 'active' : '' }}">
-        <a href="/services">УСЛУГИ</a>
-      </li>
-      <li class="menu-item {{ Route::is('payment') ? 'active' : '' }}">
-        <a href="/payment">ОПЛАТА</a>
-      </li>
-      <li class="menu-item {{ Route::is('delivery') ? 'active' : '' }}">
-        <a href="/delivery">ДОСТАВКА</a>
-      </li>
-      <li class="menu-item {{ Route::is('warranty') ? 'active' : '' }}">
-        <a href="/warranty">ГАРАНТИЯ</a>
-      </li>
-      <li class="menu-item {{ Route::is('calculators') ? 'active' : '' }}">
-        <a href="/calculators">КАЛЬКУЛЯТОРЫ</a>
+      <li class="menu-item">
+        <a href="/">Главная</a>
       </li>
       <li class="menu-item">
-        <a href="/contacts {{ Route::is('contacts') ? 'active' : '' }}">КОНТАКТЫ</a>
+        <a href="/catalog">Каталог</a>
+      </li>
+      <li class="menu-item">
+        <a href="/testimonials">Отзывы</a>
+      </li>
+      <li class="menu-item">
+        <a href="/contacts">Контакты</a>
       </li>
     </ul>
+    <a href="tel:+79123080608" class="phone-btn">+7 (912) 308-06-08</a>
+    <div class="underlogo-text">Клуб путешественников.<br>Организованные туры по России.<br>Экскурсии для взрослых и школьников. </div>
+    <div class="socials">
+      <a href="#" class="socials-link">
+        <img src="/img/vk.svg" class="socials-image" alt="">
+      </a>
+      <a href="#" class="socials-link">
+        <img src="/img/ok.svg" class="socials-image" alt="">
+      </a>
+      <a href="#" class="socials-link">
+        <img src="/img/tg.svg" class="socials-image" alt="">
+      </a>
+      <a href="#" class="socials-link">
+        <img src="/img/ws.svg" class="socials-image" alt="">
+      </a>
+    </div>
+  </div>
 
-    <div class="secondary-btn callback-btn js-callback-btn">Оставить заявку</div>
-
-    <div class="info">
-      <div class="phone">+7 (982) 292-88-79</div>
-      <div class="phone">8 (800) 234-08-12</div>
-    </div>          
-
+  <div class="filter-menu">
+    <div class="filter-menu-close">
+      <div class="close"></div>
+    </div>
+    <div class="title-wrapper">
+      <div class="title">Фильтры</div>
+      <span class="clear-btn">Очистить</span>
+    </div>
+    <div class="horizontal-line"></div>
+    <div class="filter">
+      <div class="checkbox-group">
+        <div class="checkbox-group__title">Вид тура</div>
+          <label class="checkbox-label">
+            <span class="custom-checkbox-text">Вид 1</span>
+            <input type="checkbox" name="checkbox" class="checkbox">
+            <span class="custom-checkbox"></span>
+          </label>
+          <label class="checkbox-label">
+            <span class="custom-checkbox-text">Вид 2</span>
+            <input type="checkbox" name="checkbox" class="checkbox">
+            <span class="custom-checkbox"></span>
+          </label>
+          <label class="checkbox-label">
+            <span class="custom-checkbox-text">Вид 3</span>
+            <input type="checkbox" name="checkbox" class="checkbox">
+            <span class="custom-checkbox"></span>
+          </label>
+          <label class="checkbox-label">
+            <span class="custom-checkbox-text">Вид 4</span>
+            <input type="checkbox" name="checkbox" class="checkbox">
+            <span class="custom-checkbox"></span>
+          </label>
+      </div>
+      <div class="checkbox-group">
+        <div class="checkbox-group__title">Город</div>
+        <label class="checkbox-label">
+          <span class="custom-checkbox-text">Москва</span>
+          <input type="checkbox" name="checkbox" class="checkbox">
+          <span class="custom-checkbox"></span>
+        </label>
+        <label class="checkbox-label">
+          <span class="custom-checkbox-text">Екатеринбург</span>
+          <input type="checkbox" name="checkbox" class="checkbox">
+          <span class="custom-checkbox"></span>
+        </label>
+        <label class="checkbox-label">
+          <span class="custom-checkbox-text">Санкт-Петербург</span>
+          <input type="checkbox" name="checkbox" class="checkbox">
+          <span class="custom-checkbox"></span>
+        </label>
+        <label class="checkbox-label">
+          <span class="custom-checkbox-text">Казань</span>
+          <input type="checkbox" name="checkbox" class="checkbox">
+          <span class="custom-checkbox"></span>
+        </label>
+      </div>
+      <button class="submit-btn">Применить</button>
+    </div>
   </div>
 
   <div id="callback-modal" class="modal-window callback-modal">

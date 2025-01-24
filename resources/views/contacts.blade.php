@@ -1,4 +1,4 @@
-@section('title', 'Home')
+@section('title', 'Контакты')
 
 @extends('layouts.main')
 

@@ -39,7 +39,6 @@ if (homePage) {
 }
 
 
-
 // Секция Отвечаем на вопросы аккордеон
 const faqSection = document.querySelector('.faq-section');
 
@@ -114,6 +113,28 @@ for (let i=0; i < listParentClick.length; i++) {
     }, 500);
   }
 }
+
+
+// Filter menu
+const filterMenuBtn = document.querySelector('#filter-menu-btn');
+const filterMenu = document.querySelector('.filter-menu');
+const filterMenuClose = document.querySelector('.filter-menu-close');
+
+function openFilterMenu() {
+  body.classList.add('overflow-hidden');
+  filterMenu.classList.add('active');
+}
+
+function closeFilterMenu() {
+  body.classList.remove('overflow-hidden');
+  filterMenu.classList.remove('active');
+}
+
+if (filterMenuBtn) {
+  filterMenuBtn.onclick = openFilterMenu;
+}
+
+filterMenuClose.onclick = closeFilterMenu;
 
 
 // Окна
