@@ -2,13 +2,11 @@
   <div class="container">
     <div class="callback-form-wrapper">
       <div class="callback-title">Оставьте заявку</div>
-      <!-- <form id="callback-form" class="form"> -->
-      <form id="callback-form" class="form" action="/ajax-callback" method="post">
+      <form id="callback-form" class="form">
         <div class="grid-container">
           <input type="text" name="name" class="input-field js-required-name" placeholder="Имя">
           <input type="text" name="phone" class="input-field js-required-phone js-input-phone-mask" placeholder="Телефон">
-          <!-- <button type="button" id="callback-submit-btn" class="callback-submit-btn js-submit-btn">Отправить</button> -->
-          <button type="submit" class="callback-submit-btn">Отправить</button>
+          <button type="button" id="callback-submit-btn" class="callback-submit-btn js-submit-btn">Отправить</button>
         </div>
         @csrf
         <div class="agreement-text">
