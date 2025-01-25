@@ -88,12 +88,12 @@
   <div class="address-section section">
     <div class="container">
       <div class="section-title">Адрес нашего офиса</div>
-      <div class="grid-container">
+      <div class="flex-container">
         <div class="address-wrapper">
           <div class="city primary-title">Миасс</div>
           <div class="phone">Отдел бронирования: <strong class="orange-color">+7 (912) 308-06-08</strong></div>
           <div class="email">Email: <strong class="orange-color">info@mail.ru</strong></div>
-          <div class="address">Миасс, пр-т Макеева, 24, Миасс</div>
+          <div class="address">Миасс, пр. Макеева, 24</div>
           <div class="working-time">Режим работы: с 10:00 до 19:00</div>
         </div>
         <div class="map">

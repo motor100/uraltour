@@ -322,7 +322,7 @@
           </div>
           <input type="hidden" id="input-rating" name="rating" value="">
 
-          <button type="button" id="testimonial-submit-btn" class="modal-submit-btn">Отправить</button>
+          <button type="button" id="testimonial-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
           <div class="agreement-text">
             <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
             <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>

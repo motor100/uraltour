@@ -24,6 +24,8 @@
 <div class="testimonials-page">
   <div class="container">
     <div class="page-title">Читайте отзывы наших клиентов</div>
+
+      <button class="write-btn secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
     
       @if(count($testimonials) > 0)
         <div class="testimonials">
@@ -42,7 +44,6 @@
       {{ $testimonials->onEachSide(1)->links() }}
     </div>
 
-    <button class="write-btn secondary-btn">Написать отзыв</button>
   </div>
 </div>
 

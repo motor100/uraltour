@@ -1485,19 +1485,20 @@ p {
     }
     .socials-link {
       display: block;
+      width: 86px;
+      height: 86px;
+    }
+    .socials-link img {
+      width: 100%;
     }
   }
   .address-section {
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(12, [col-start] 1fr);
-      gap: 0 24px;
+    .flex-container {
+      display: flex;
+      gap: 24px;
     }
     .address-wrapper {
-      grid-column: col-start/span 5;
-    }
-    .map {
-      grid-column: col-start 6/span 7;
+      width: 41%;
     }
     .phone,
     .email,
@@ -1514,6 +1515,7 @@ p {
     .map {
       border-radius: 15px;
       overflow: hidden;
+      flex-grow: 1;
     }
   }
 }
@@ -1530,6 +1532,9 @@ p {
 
 // Tetimonials page страница отзывы
 .testimonials-page {
+  .write-btn {
+    margin: 0 0 30px 0;
+  }
   .testimonials-item {
     margin-bottom: 20px;
   }
@@ -1606,6 +1611,9 @@ p {
     font-family: 'montserrat-medium';
     color: $thirdlightbluecolor;
     line-height: 2.2;
+    @media only screen and (max-width : 480px) {
+      line-height: 1.9;
+    }
   }
   .pager-item.active .pager-item-link,
   .pager-item.active .pager-item-span {
@@ -1626,6 +1634,10 @@ p {
     border: 1px solid #D0D5DD;
     border-radius: 8px;
     background-color: #fff;
+    @media only screen and (max-width : 480px) {
+      width: 42px;
+      height: 28px;
+    }
   }
   .pager-item .arrow-right,
   .pager-item .arrow-left {
@@ -2115,9 +2127,7 @@ p {
     padding: 0;
     border: none;
     border-radius: 10px;
-    background-color: $textcolor;
     font-size: 24px;
-    color: #fff;
   }
 }
 
@@ -2569,6 +2579,19 @@ p {
     }
   }
 
+  // Contacts page
+  .contacts-page {
+    .section-title {
+      font-size: 38px;
+    }
+    .write-section {
+      .socials-link {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  }
+
   // Карточка товара
   .products-item {
     .products-item__content {
@@ -2612,6 +2635,10 @@ p {
   .section-title-small {
     margin: 0 0 35px 0;
     font-size: 36px;
+  }
+
+  .primary-title {
+    font-size: 28px;
   }
 
   // Header
@@ -2797,6 +2824,16 @@ p {
     }
   }
 
+  // Contacts section
+  .contacts-page {
+    .write-section {
+      .socials-link {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
   // We use cookie
   .we-use-cookie {
     .we-use-cookie-wrapper {
@@ -2829,6 +2866,10 @@ p {
 
   .primary-btn {
     font-size: 15px;
+  }
+
+  .primary-title {
+    font-size: 24px;
   }
 
   // Main section
@@ -2991,6 +3032,35 @@ p {
     }
     .products {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // Contacts page
+  .contacts-page {
+    .section-title {
+      font-size: 30px;
+    }
+    .info-section {
+      .phone-image {
+        width: 50px;
+        height: 50px;
+      }
+      .phone-text {
+        font-size: 24px;
+      }
+    }
+    .address-section {
+      .flex-container {
+        flex-direction: column;
+      }
+      .address-wrapper {
+        width: auto;
+      }
+      .phone,
+      .email,
+      .working-time {
+        font-size: 18px;
+      }
     }
   }
 
@@ -3212,6 +3282,13 @@ p {
     }
   }
 
+  // Contacts page
+  .contacts-page {
+    .section-title {
+      font-size: 26px;
+    }
+  }
+
   // Сортировка
   .sort {
     flex-direction: column;
@@ -3261,6 +3338,10 @@ p {
     font-size: 24px;
   }
 
+  .primary-title {
+    font-size: 20px;
+  }
+
   // Main section
   .main-section {
     .main-title {
@@ -3303,10 +3384,43 @@ p {
       font-size: 15px;
     }
   }
-
+  
+  // Category page
   .category-page {
     .products {
       grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  // Contacts page
+  .contacts-page {
+    .section-title {
+      font-size: 24px;
+    }
+    .info-section {
+      .phone-image {
+        width: 40px;
+        height: 40px;
+      }
+      .phone-text {
+        font-size: 20px;
+      }
+    }
+    .write-section {
+      .socials-link {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .address-section {
+      .phone,
+      .email {
+        margin: 0 0 20px 0;
+      }
+      .phone strong,
+      .email strong {
+        display: block;
+      }
     }
   }
 }
