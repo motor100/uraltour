@@ -63,7 +63,7 @@
           </div>
           <div class="club">
             <div class="bottom-menu">
-              <div class="menu-title">Клуб</div>
+              <div class="menu-title">О компании</div>
               <div class="menu-item">
                 <a href="/contacts">Контакты</a>
               </div>

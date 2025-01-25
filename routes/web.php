@@ -26,6 +26,8 @@ Route::get('/documents', [MainController::class, 'documents']);
 
 Route::get('/testimonials', [MainController::class, 'testimonials']);
 
+Route::get('/booking', [MainController::class, 'booking']);
+
 
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
 

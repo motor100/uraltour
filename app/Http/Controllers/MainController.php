@@ -173,6 +173,17 @@ class MainController extends Controller
     }
 
     /**
+     * Бронирование
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function booking(): View
+    {
+        return view('booking');
+    }
+
+    /**
      * Политика конфиденциальности
      * 
      * @param

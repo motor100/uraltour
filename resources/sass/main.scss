@@ -1544,6 +1544,49 @@ p {
   }
 }
 
+// Booking page
+.booking-page {
+  .flex-container {
+    display: flex;
+    margin: 0 0 20px 0;
+    gap: 30px;
+    justify-content: space-between;
+  }
+  .form-group {
+    width: 100%;
+  }
+  .label {
+    display: block;
+    margin: 0 0 10px 0;
+  }
+  .label .required-star {
+    color: #F65647;
+  }
+  .input-field {
+    display: block;
+    width: 100%;
+    height: 60px;
+    padding: 20px;
+    border: 1px solid #C8C8C8;
+    border-radius: 15px;
+    background-color: #F9F9F9;
+    font-family: 'montserrat-medium';
+    font-size: 16px;
+    color: $textcolor
+  }
+  .input-field::placeholder {
+    color: #C8C8C8;
+  }
+  .form-group-address {
+    width: 66%;
+  }
+  .form-group-phone {
+    width: 32%;
+  }
+}
+
+
+
 // Poisk page
 .poisk-page {
   .search-query {
