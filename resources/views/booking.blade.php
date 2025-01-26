@@ -63,11 +63,11 @@
         </div>
         <div class="form-group">
           <label for="" class="label">Серия паспорта<span class="required-star">*</span></label>
-          <input type="text" name="pass-series" class="input-field" placeholder="_ _ _ _">
+          <input type="text" name="pass-series" class="input-field" placeholder="0000">
         </div>
         <div class="form-group">
           <label for="" class="label">Номер паспорта<span class="required-star">*</span></label>
-          <input type="text" name="pass-nmber" class="input-field" placeholder="_ _ _ _ _ _">
+          <input type="text" name="pass-nmber" class="input-field" placeholder="000000">
         </div>
       </div>
       <div class="flex-container">
@@ -80,6 +80,17 @@
           <input type="text" name="phone" class="input-field" placeholder="+7 (000) 000 00 00">
         </div>
       </div>
+      <div class="agreement-text">
+        <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
+        <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>
+        <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
+      </div>
+      <div class="agreement-text">
+        <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-testimonial-modal" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
+        <label for="checkbox-agree-testimonial-modal" class="custom-checkbox-label"></label>
+        <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
+      </div>
+      <button id="booking-submit-btn" class="booking-submit-btn primary-btn">Отправить</button>
     </form>
 
   </div>
