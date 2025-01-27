@@ -276,7 +276,7 @@
         </div>
         <div class="modal-title">Оставьте отзыв</div>
         <form id="testimonial-modal-form" class="form">
-          <div class="grid-container">
+          <div class="flex-container">
             <div class="form-group">
               <label for="name-testimonial-modal" class="label">Имя <span class="accentcolor">*</span></label>
               <input type="text" name="name" id="name-testimonial-modal" class="input-field js-name-testimonial-modal" required minlength="3" maxlength="20" placeholder="Имя">

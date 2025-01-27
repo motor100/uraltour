@@ -2052,8 +2052,10 @@ p {
   }
   .modal-title {
     margin: 0 0 20px 0;
+    padding: 0 20px 0 0;
     font-family: 'montserrat-medium';
     font-size: 40px;
+    line-height: 1.1;
   }
   .label {
     display: block;
@@ -2107,13 +2109,12 @@ p {
     align-items: end;
   }
   .modal-submit-btn {
-    display: grid;
+    display: flex;
     height: 70px;
     padding: 0;
     border: 1px solid $orangecolor;
     border-radius: 10px;
     background-color: #fff;
-    grid-template-columns: auto auto;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -2137,15 +2138,11 @@ p {
   .modal-area {
     max-width: 758px;
   }
-  .grid-container {
-    display: grid;
+  .flex-container {
+    display: flex;
     margin: 0 0 30px 0;
     gap: 30px;
-    grid-template-columns: repeat(2, 1fr);
   }
-  // .rating {
-  //   width: 210px;
-  // }
   .star {
     cursor: pointer;
     transition: fill .2s;
@@ -2165,6 +2162,7 @@ p {
     margin: 0 0 20px 0;
   }
   .paperclip {
+    width: 70px;
     margin: 0 16px 0 0;
   }
   .attach-photo {
@@ -2674,6 +2672,20 @@ p {
     }
   }
 
+  // Modal window
+  .modal-window {
+    .modal-area {
+      padding: 50px;
+    }
+    .modal-close {
+      top: 63px;
+      right: 50px;
+    }
+    .modal-title {
+      font-size: 36px;
+    }
+  }
+
   // We use cookie
   .we-use-cookie {
     right: 20%;
@@ -2906,6 +2918,14 @@ p {
     }
     .form-group-phone {
       width: 100%;
+    }
+  }
+
+  // Callback modal
+  .callback-modal {
+    .grid-container {
+      gap: 20px;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 
@@ -3160,6 +3180,52 @@ p {
     }
   }
 
+  // Modal window
+  .modal-window {
+    .modal-area {
+      padding: 40px;
+    }
+    .modal-close {
+      top: 43px;
+      right: 30px;
+    }
+    .close {
+      width: 25px;
+      height: 25px;
+    }
+    .close::before,
+    .close::after {
+      left: 11px;
+      height: 30px;
+    }
+    .modal-title {
+      font-size: 32px;
+    }
+  }
+
+  // Testimonial modal
+  .testimonial-modal {
+    .modal-area {
+      padding: 40px 40px 30px 40px;
+    }
+    .flex-container {
+      margin: 0 0 20px 0;
+      gap: 20px;
+    }
+    .star svg {
+      width: 25px;
+      height: 25px;
+    }
+    .paperclip {
+      width: 50px;
+    }
+    .modal-submit-btn {
+      margin: 20px 0;
+      height: 55px;
+      font-size: 22px;
+    }
+  }    
+
   /* We use cookie */
   .we-use-cookie {
     right: 20%;
@@ -3278,6 +3344,24 @@ p {
       gap: 10px;
     }
   }
+
+  // Modal window
+  .modal-window {
+    .modal-title {
+      font-size: 28px;
+    }
+  }
+
+  // Testimonial modal
+  .testimonial-modal {
+    .star svg {
+      width: 20px;
+      height: 20px;
+    }
+    .textarea {
+      height: 170px;
+    }
+  }
 }
 
 @media only screen and (max-width : 480px) {
@@ -3392,8 +3476,54 @@ p {
   }
   
   // breadscrumbs
-  .breadcrumbs .home-icon {
-    display: none;
+  .breadcrumbs {
+    .home-icon {
+      display: none;
+    }
+  }
+
+  // Modal window
+  .modal-window {
+    .modal-wrapper {
+      padding: 0;
+    }
+    .modal-area {
+      padding: 30px;
+    }
+    .label {
+      margin: 0 0 5px 0;
+      font-size: 16px;
+    }
+    .input-field {
+      height: 60px;
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+  }
+
+  // Testimonial modal
+  .testimonial-modal {
+    .textarea {
+      height: 150px;
+    }
+    .paperclip {
+      width: 40px;
+    }
+    .attach-photo {
+      font-size: 16px;
+    }
+    .modal-submit-btn {
+      height: 50px;
+      font-size: 18px;
+    }
+  }
+
+  /* agreement text галочка соглашения */
+  .agreement-text {
+    font-size: 13px;
+    a {
+      font-size: 13px;
+    }
   }
 
   /* we use cookie */
@@ -3503,6 +3633,13 @@ p {
       .email strong {
         display: block;
       }
+    }
+  }
+
+  // Modal window
+  .modal-window {
+    .modal-area {
+      padding: 30px 20px;
     }
   }
 }
