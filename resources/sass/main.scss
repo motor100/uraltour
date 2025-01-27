@@ -551,6 +551,9 @@ p {
     gap: 20px 45px;
     grid-template-columns: repeat(3, 1fr);
   }
+  .testimonials-item {
+    margin-bottom: 0;
+  }
   .see-all {
     text-align: right;
   }
@@ -564,6 +567,7 @@ p {
 
 // Testimonials item карточка отзыва
 .testimonials-item {
+  margin-bottom: 20px;
   padding: 40px;
   border-radius: 15px;
   background-color: #fff;
@@ -893,6 +897,7 @@ p {
       background-color: $orangecolor;
     }
     .custom-checkbox:checked+label::before {
+      border: 1px solid #fff;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
     }
   }
@@ -1295,46 +1300,57 @@ p {
     display: flex;
     margin: 0 0 60px 0;
     grid-template-columns: 112px auto 1fr;
-    gap: 10px;
+    gap: 25px;
   }
   .product-image {
-    width: 526px;
-    height: 526px;
+    position: relative;
+    // width: 526px;
+    // height: 526px;
+    width: 40%;
+    height: 0;
+    padding: 0 0 40% 0;
     border-radius: 30px;
     overflow: hidden;
   }
   .product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
   .product-gallery {
-    // display: grid;
-    display: flex;
+    display: grid;
     width: 112px;
     height: 100%;
-    gap: 25px;
-    // grid-template-rows: repeat(4, 112px);
+    gap: 24px;
+    grid-template-rows: repeat(4, 1fr);
     // align-content: space-between;
-    flex-direction: column;
+    // flex-direction: column;
   }
   .product-gallery-item {
-    height: 112px;
+    position: relative;
+    // height: 112px;
     margin: 0;
     border-radius: 20px;
     overflow: hidden;
+    height: 0;
+    padding: 0 0 100% 0;
   }
-  // .product-gallery-item a {
-  //   display: block;
-  // }
+  .product-gallery-item a,
   .product-gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .product-content {
-    padding: 0 0 0 15px;
-  }
+  // .product-content {
+  //   padding: 0 0 0 15px;
+  // }
   .product-rating {
     margin: 0 0 10px 0;
   }
@@ -1376,10 +1392,9 @@ p {
     border-radius: 10px;
   }
   .booking-tour-btn {
-    display: block;
-    padding: 11px 0;
-    color: #fff;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .product-subtitle {
     width: max-content;
@@ -1396,7 +1411,7 @@ p {
   }
   .product-photos-grid-container {
     display: grid;
-    gap: 20px;
+    gap: 30px;
     grid-template-columns: repeat(3, 1fr);
   }
   // .product-subtitle-wrapper {
@@ -1406,16 +1421,20 @@ p {
   //   align-items: baseline;
   // }
   .product-photos-item {
-    height: 350px;
+    position: relative;
+    height: 0;
+    padding: 0 0 100% 0;
     border-radius: 30px;
     overflow: hidden;
   }
-  // .view-all {
-  //   font-family: 'montserrat-medium';
-  //   font-size: 24px;
-  //   color: $orangecolor;
-  //   text-decoration: underline;
-  // }
+  .product-photos-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .product-testimonials {
     margin: 0 0 100px 0;
     .testimonials {
@@ -1536,9 +1555,9 @@ p {
   .write-btn {
     margin: 0 0 30px 0;
   }
-  .testimonials-item {
-    margin-bottom: 20px;
-  }
+  // .testimonials-item {
+  //   margin-bottom: 20px;
+  // }
   .testimonials-item__text {
     display: block;
     height: auto;
@@ -1592,8 +1611,6 @@ p {
     font-size: 20px;
   }
 }
-
-
 
 // Poisk page
 .poisk-page {
@@ -2403,7 +2420,19 @@ p {
       font-size: 19px;
     }
   }
-    
+  
+  // Product page
+  .product-page {
+    .product-gallery {
+      width: 94px;
+    }
+    .product-subtitle {
+      font-size: 22px;
+    }
+    .product-description-item {
+      font-size: 18px;
+    }
+  }
 
   // Callback section
   .callback-section {
@@ -2432,6 +2461,10 @@ p {
   }
 
   .primary-btn {
+    font-size: 16px;
+  }
+
+  .secondary-btn {
     font-size: 16px;
   }
 
@@ -2649,6 +2682,23 @@ p {
     }
     .input-field {
       padding: 15px;
+    }
+  }
+
+  // Product page
+  .product-page {
+    .content-grid-container {
+      gap: 16px;
+    }
+    .product-gallery {
+      width: 82px;
+      gap: 16px;
+    }
+    .product-subtitle {
+      padding: 8px 26px;
+    }
+    .product-photos-grid-container {
+      gap: 20px;
     }
   }
 
@@ -2921,6 +2971,25 @@ p {
     }
   }
 
+  // Product page
+  .product-page {
+    .product-subtitle {
+      padding: 5px 20px;
+      font-size: 20px;
+    }
+    .content-grid-container {
+      flex-wrap: wrap;
+    }
+    .product-content {
+      width: 100%;
+    }
+    // Product page
+    .product-image {
+      width: 54%;
+      padding: 0 0 54% 0;
+    }
+  }
+
   // Callback modal
   .callback-modal {
     .grid-container {
@@ -3156,6 +3225,29 @@ p {
       .working-time {
         font-size: 18px;
       }
+    }
+  }
+
+  // Product page
+  .product-page {
+    .product-gallery {
+      width: 100%;
+      order: 2;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .product-image {
+      width: 100%;
+      padding: 0 0 100% 0;
+      order: 1;
+    }
+    .product-content {
+      width: 100%;
+      order: 3;
+    }
+    .product-photos-grid-container {
+      gap: 15px;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
@@ -3455,6 +3547,36 @@ p {
     }
   }
 
+  // Product page
+  .product-page {
+    .content-grid-container {
+      margin: 0 0 40px 0;
+      gap: 10px;
+    }
+    .product-gallery {
+      gap: 10px;
+    }
+    .product-gallery-item {
+      border-radius: 15px;
+    }
+    .product-title {
+      margin-top: 20px;
+    }
+    .product-buttons {
+      flex-direction: column;
+    }
+    .booking-tour-btn,
+    .write-btn {
+      width: 100%;
+    }
+    .product-subtitle {
+      font-size: 18px;
+    }
+    .product-description-item {
+      font-size: 16px;
+    }
+  }
+
   // Сортировка
   .sort {
     flex-direction: column;
@@ -3518,7 +3640,17 @@ p {
     }
   }
 
-  /* agreement text галочка соглашения */
+  // Callback modal
+  .callback-modal {
+    .modal-submit-btn {
+      height: 50px;
+    }
+    .modal-submit-btn__text {
+      font-size: 16px;
+    }
+  }
+
+  // agreement text галочка соглашения
   .agreement-text {
     font-size: 13px;
     a {
@@ -3640,6 +3772,9 @@ p {
   .modal-window {
     .modal-area {
       padding: 30px 20px;
+    }
+    .modal-title {
+      font-size: 24px;
     }
   }
 }

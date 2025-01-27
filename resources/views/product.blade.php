@@ -103,7 +103,7 @@
     @endif
     
     <div class="product-plan product-description-item">
-      <div class="product-subtitle">Программа тура</div>
+      <div class="product-subtitle">Программа</div>
       <div class="product-text">
         10.00 Выезд из Челябинска пр. Ленина 69  памятник  Горькому<br>
         11:00 - 14:00 - посещение комплекса термальных бассейнов Баден-Баден Лесная сказка (3 часа). Выезд в Челябинск.<br>
@@ -114,7 +114,7 @@
       <div class="product-note orange-color">* время ориентировочное и может изменяться в зависимости от подготовленности группы и погодных условий.</div>
     </div>
     <div class="product-include product-description-item">
-      <div class="product-subtitle">В стоимость тура включено:</div>
+      <div class="product-subtitle">В стоимость включено:</div>
       <div class="product-text">
         проезд на микроавтобусе / автобусе (туда и обратно), посещение комплекса термальных бассейнов по тарифу "3 часа"<br>
         При наборе группы менее 19 человек будет подан микроавтобус туристического класса.
@@ -139,7 +139,7 @@
       </div>
     </div>
     <div class="product-payment product-description-item">
-      <div class="product-subtitle">Оплата тура</div>
+      <div class="product-subtitle">Оплата</div>
       <div class="product-text">
         Однодневные туры оплачиваются в течении трех суток - 100%.<br>
         Многодневные туры - предоплата 30%-50% в течении трех суток<br>
@@ -147,7 +147,7 @@
       </div>
     </div>
     <div class="product-photos product-description-item">
-      <div class="product-subtitle">Фото тура</div>
+      <div class="product-subtitle">Фото</div>
       <div class="product-photos-grid-container">
         <div class="product-photos-item">
           <img src="/img/temp-product-photo.jpg" alt="">
@@ -168,7 +168,7 @@
     </div>
     @if(count($testimonials) > 0)
       <div class="product-testimonials product-description-item">
-        <div class="product-subtitle">Отзывы клиентов о туре</div>
+        <div class="product-subtitle">Отзывы клиентов</div>
         <div class="testimonials">
           @foreach($testimonials as $testimonial)
             @include('testimonial-card')            
