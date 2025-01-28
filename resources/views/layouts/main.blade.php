@@ -73,7 +73,9 @@
               <div class="menu-item">
                 <a href="/testimonials">Отзывы</a>
               </div>
-              <div class="menu-item">Оставить отзыв</div>
+              <div class="menu-item">
+                <a href="/testimonials#write-btn">Оставить отзыв</a>
+              </div>
             </div>
           </div>
           <div class="booking">
@@ -97,16 +99,16 @@
           </div>
         </div>
         <div class="socials">
-          <a href="#" class="socials-link">
+          <a href="https://vk.com/kpuraltur" class="socials-link" target="_blank">
             <img src="/img/vk.svg" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://ok.ru/group/53374070947988" class="socials-link" target="_blank">
             <img src="/img/ok.svg" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://t.me/+79123080608" class="socials-link" target="_blank">
             <img src="/img/tg.svg" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://wa.me/79123080608" class="socials-link" target="_blank">
             <img src="/img/ws.svg" class="socials-image" alt="">
           </a>
         </div>
@@ -155,16 +157,16 @@
     <a href="tel:+79123080608" class="phone-btn">+7 (912) 308-06-08</a>
     <div class="underlogo-text">Клуб путешественников.<br>Организованные туры по России.<br>Экскурсии для взрослых и школьников. </div>
     <div class="socials">
-      <a href="#" class="socials-link">
+      <a href="https://vk.com/kpuraltur" class="socials-link" target="_blank">
         <img src="/img/vk.svg" class="socials-image" alt="">
       </a>
-      <a href="#" class="socials-link">
+      <a href="https://ok.ru/group/53374070947988" class="socials-link" target="_blank">
         <img src="/img/ok.svg" class="socials-image" alt="">
       </a>
-      <a href="#" class="socials-link">
+      <a href="https://t.me/+79123080608" class="socials-link" target="_blank">
         <img src="/img/tg.svg" class="socials-image" alt="">
       </a>
-      <a href="#" class="socials-link">
+      <a href="https://wa.me/79123080608" class="socials-link" target="_blank">
         <img src="/img/ws.svg" class="socials-image" alt="">
       </a>
     </div>
@@ -341,7 +343,7 @@
   <div id="cookie_note" class="we-use-cookie">
     <div class="we-use-cookie-wrapper">
       <div class="we-use-cookie-text">Этот сайт использует cookie-файлы и другие технологии для улучшения его работы. Продолжая работу с сайтом, вы разрешаете использование cookie-файлов. Вы всегда можете отключить файлы cookie в настройках Вашего браузера.</div>
-      <button id="cookie_accept" class="we-use-cookie-close">Понятно</button>
+      <button id="cookie_accept" class="we-use-cookie-close">ОК</button>
     </div>
   </div>
 

@@ -166,20 +166,27 @@
         </div>
       </div>
     </div>
-    @if(count($testimonials) > 0)
-      <div class="product-testimonials product-description-item">
-        <div class="product-subtitle">Отзывы клиентов</div>
+    
+    <div class="product-testimonials product-description-item">
+      <div class="product-subtitle">Отзывы клиентов</div>
+      <button class="write-btn secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
+      @if(count($testimonials) > 0)
         <div class="testimonials">
           @foreach($testimonials as $testimonial)
             @include('testimonial-card')            
           @endforeach
         </div>
-        <div class="testimonials-buttons product-buttons">
-          <button class="load-more-btn primary-btn product-primary-btn">Загрузить еще</button>
-          <button class="write-btn secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
+
+        <div class="pagination-links">
+          {{ $testimonials->onEachSide(1)->links() }}
         </div>
-      </div>
-    @endif
+      @endif
+      <!-- <div class="testimonials-buttons product-buttons">
+        <button class="load-more-btn primary-btn product-primary-btn">Загрузить еще</button>
+        <button class="write-btn secondary-btn js-testimonial-modal-btn">Написать отзыв</button>
+      </div> -->
+    </div>
+    
   </div>
 
   @include('callback-section')

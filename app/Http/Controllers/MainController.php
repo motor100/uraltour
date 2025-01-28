@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
+// use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 use App\Models\Product;
 
@@ -91,8 +91,7 @@ class MainController extends Controller
             $testimonials = \App\Models\Testimonial::where('product_id', $product->id)
                                                     ->whereNotNull('publicated_at')
                                                     ->orderBy('created_at', 'DESC')
-                                                    ->limit(5)
-                                                    ->get();
+                                                    ->paginate(10);
 
             return view('product', compact('product', 'testimonials'));
         }

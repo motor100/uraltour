@@ -69,16 +69,16 @@
     <div class="container">
       <div class="section-title">Напишите нам</div>
       <div class="grid-container">
-          <a href="#" class="socials-link">
+          <a href="https://vk.com/kpuraltur" class="socials-link" target="_blank">
             <img src="/img/circle-vk.png" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://ok.ru/group/53374070947988" class="socials-link" target="_blank">
             <img src="/img/circle-ok.png" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://t.me/+79123080608" class="socials-link" target="_blank">
             <img src="/img/circle-tg.png" class="socials-image" alt="">
           </a>
-          <a href="#" class="socials-link">
+          <a href="https://wa.me/79123080608" class="socials-link" target="_blank">
             <img src="/img/circle-ws.png" class="socials-image" alt="">
           </a>
       </div>
@@ -106,7 +106,7 @@
   <div class="text-section">
     <div class="container">
       <p class="text">Услуги по реализации туристского бронирования на сайте www.xxxx.ru (бронирования тура онлайн) оказывает и сопровождает: Общество с ограниченной ответственностью «xxxxxx», ИНН xxxxxxxxxx, адрес регистрации xxxxxx, г. Миасс,.</p>
-      <p class="text">Ознакомиться с политикой конфиденциальности и защиты персональных данных вы можете по ссылке.</p>
+      <p class="text">Ознакомиться с <a href="/privacy-policy">политикой конфиденциальности</a> и <a href="/agreement">согласием на обработку персональных данных</a> вы можете по ссылке.</p>
     </div>
   </div>
 

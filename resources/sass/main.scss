@@ -270,10 +270,12 @@ p {
 
 // Search
 .search {
+  position: relative;
   padding: 40px;
   border-radius: 30px;
   background-color: rgba(255, 255, 255, .8);
   backdrop-filter: blur(5px);
+  z-index: 10;
   .search-form {
     position: relative;
   }
@@ -290,7 +292,7 @@ p {
     display: block;
     width: 100%;
     height: 80px;
-    padding: 24px 30px 24px 78px;
+    padding: 24px 70px 24px 78px;
     border: none;
     border-radius: 15px;
     background-color: #fff;
@@ -413,6 +415,7 @@ p {
     margin: 0 12px 0 0;
     border-radius: 5px;
     overflow: hidden;
+    flex-shrink: 0;
   }
   .search-list-item__image img {
     width: 100%;
@@ -604,12 +607,19 @@ p {
     gap: 10px;
   }
   .testimonials-item__image {
-    width: 168px;
-    height: 168px;
+    // width: 168px;
+    // height: 168px;
+    position: relative;
+    width: 13%;
+    height: 0;
+    padding: 0 0 13% 0;
     border-radius: 10px;
     overflow: hidden;
   }
   .testimonials-item__image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -951,6 +961,11 @@ p {
   .menu-item a {
     font-size: 14px;
     color: $lightgreycolor;
+    transition: color .3s;
+  }
+  .menu-item:hover,
+  .menu-item a:hover {
+    color: $orangecolor;
   }
   .booking {
     grid-column: col-start 7 / span 3;
@@ -967,6 +982,7 @@ p {
     grid-template-columns: repeat(2, 1fr);
     font-size: 14px;
     color: $lightgreycolor;
+    line-height: 2;
   }
   .developers {
     text-align: right;
@@ -974,6 +990,10 @@ p {
   .developer a {
     font-size: 14px;
     color: $lightgreycolor;
+    transition: color .3s;
+  }
+  .developer a:hover {
+    color: $orangecolor;
   }
 }
 
@@ -1286,6 +1306,7 @@ p {
 // Product page
 .product-page {
   .back {
+    display: flex;
     width: 130px;
     padding: 7px 0;
     margin: 30px 0 40px 0;
@@ -1294,6 +1315,11 @@ p {
     color: #fff;
     text-align: center;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  .back-image {
+    width: 24px;
   }
   .content-grid-container {
     // display: grid;
@@ -1376,10 +1402,10 @@ p {
     line-height: 1.4;
   }
   .product-buttons {
-    // display: grid;
-    // grid-template-columns: auto auto;
-    // gap: 10px;
-    // justify-content: start;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    justify-content: start;
     display: flex;
     gap: 10px;
   }
@@ -1437,31 +1463,28 @@ p {
   }
   .product-testimonials {
     margin: 0 0 100px 0;
+    .write-btn {
+      margin: 0 0 20px 0;
+    }
     .testimonials {
       margin: 0 0 30px 0;
     }
-    .testimonials-item__image {
-      margin: 30px 0 0 0;
+    .testimonials-item__text {
+      height: auto;
     }
-    .testimonials-item__image .image {
-      display: inline-block;
-      width: 168px;
-      height: 168px;
-      margin: 0 10px 0 0;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .product-buttons {
-      justify-content: center;
-    }
-    // .load-more-btn {
-    //   border: none;
-    //   color: #fff;
+    // .testimonials-item__image {
+    //   margin: 30px 0 0 0;
     // }
-    // .write-btn {
-    //   border: 1px solid $textcolor;
-    //   background-color: #fff;
-    //   color: $textcolor;
+    // .testimonials-item__image .image {
+    //   display: inline-block;
+    //   width: 168px;
+    //   height: 168px;
+    //   margin: 0 10px 0 0;
+    //   border-radius: 10px;
+    //   overflow: hidden;
+    // }
+    // .product-buttons {
+    //   justify-content: center;
     // }
   }
 }
@@ -1536,6 +1559,12 @@ p {
       border-radius: 15px;
       overflow: hidden;
       flex-grow: 1;
+    }
+  }
+  .text-section {
+    .text a {
+      color: $orangecolor;
+      text-decoration: underline;
     }
   }
 }
@@ -1841,18 +1870,18 @@ p {
   }
   .logo {
     width: 100px;
-    margin: 0 0 80px 0;
+    margin: 0 0 40px 0;
   }
   .logo img {
     width: 100%;
   }
   .menu {
-    margin: 0 0 60px 0;
+    margin: 0 0 40px 0;
     padding: 0;
     list-style: none;
   }
   .menu-item {
-    margin: 0 0 22px 0;
+    margin: 0 0 16px 0;
   }
   .menu-item a {
     font-size: 20px;
@@ -2069,7 +2098,7 @@ p {
   }
   .modal-title {
     margin: 0 0 20px 0;
-    padding: 0 20px 0 0;
+    padding: 0 40px 0 0;
     font-family: 'montserrat-medium';
     font-size: 40px;
     line-height: 1.1;
@@ -2279,31 +2308,22 @@ p {
 // page 404
 .page404 {
   text-align: center;
-  .page404-image {
-    width: 75px;
-    margin: 0 auto;
-  }
-  .page404-image img {
-    width: 100%;
-  }
-  .page404-title {
-    font-size: 200px;
-    color: $orangecolor;
-    line-height: 1.1;
-  }
-  .page404-subtitle {
-    margin: 0 0 20px 0;
-    font-size: 30px;
-    color: $orangecolor;
-    line-height: 1.1;
-  }
   .page404-text {
     font-size: 24px;
     line-height: 1.3;
   }
-  .page404-text a {
-    color: $textcolor;
+  .page404-btn {
+    display: flex;
+    width: 219px;
+    height: 50px;
+    margin: 40px auto;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
   }
+  // .page404-text a {
+  //   color: $textcolor;
+  // }
 }
 
 .container {
@@ -2418,6 +2438,19 @@ p {
     }
     .advantages-item__text {
       font-size: 19px;
+    }
+  }
+
+  // Search
+  .search {
+    .search-input {
+      height: 70px;
+    }
+    .search-submit-btn {
+      height: 70px;
+    }
+    .search-form .search-close {
+      top: 22px;
     }
   }
   
@@ -2545,10 +2578,10 @@ p {
     .testimonials-item .testimonials-item__gallery {
       margin: 20px 0 0 0;
     }
-    .testimonials-item__image {
-      width: 120px;
-      height: 120px;
-    }
+    // .testimonials-item__image {
+    //   width: 120px;
+    //   height: 120px;
+    // }
   }
 
   // Search
@@ -2557,11 +2590,12 @@ p {
     .flex-container {
       gap: 20px;
     }
-    .search-input {
-      height: 70px;
+    .search-list-item__image {
+      width: 67px;
+      height: 67px;
     }
-    .search-submit-btn {
-      height: 70px;
+    .search-list-item__title {
+      font-size: 16px;
     }
   }
 
@@ -2687,6 +2721,13 @@ p {
 
   // Product page
   .product-page {
+    .back {
+      width: 100px;
+      padding: 3px 0;
+    }
+    .back-text {
+      font-size: 15px;
+    }
     .content-grid-container {
       gap: 16px;
     }
@@ -2699,6 +2740,9 @@ p {
     }
     .product-photos-grid-container {
       gap: 20px;
+    }
+    .product-description-item {
+      margin: 0 0 30px 0;
     }
   }
 
@@ -2738,7 +2782,7 @@ p {
 
   // We use cookie
   .we-use-cookie {
-    right: 20%;
+    // right: 20%;
     .we-use-cookie-wrapper {
       padding: 24px;
     }
@@ -2898,6 +2942,7 @@ p {
       height: 60px;
       padding: 18px 30px 18px 68px;
       border-radius: 10px;
+      font-size: 16px;
     }
     .search-lens {
       left: 20px;
@@ -2909,6 +2954,24 @@ p {
     }
     .search-submit-btn__text {
       font-size: 16px;
+    }
+    .search-form .search-close {
+      top: 18px;
+    }
+    .search-list {
+      margin: 30px 30px 20px 30px;
+    }
+    .search-list-item__title {
+      display: -webkit-box;
+      height: 46px;
+      overflow: hidden;
+      line-height: 1.4;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .search-see-all {
+      margin: 20px 0 20px 30px;
     }
   }
 
@@ -3000,8 +3063,8 @@ p {
 
   // We use cookie
   .we-use-cookie {
-    .we-use-cookie-wrapper {
-      margin: 0 0 0 12px;
+    .we-use-cookie-close {
+      width: 100px;
     }
   }
 }
@@ -3105,9 +3168,13 @@ p {
     }
   }
 
-  // Testimonial item
+  // Testimonials item карточка отзыва
   .testimonials-item {
     padding: 20px;
+    .testimonials-item__image {
+      width: 18%;
+      padding: 0 0 18% 0;
+    }
   }
 
   // Faq section
@@ -3245,9 +3312,19 @@ p {
       width: 100%;
       order: 3;
     }
+    .product-description-item {
+      margin: 0 0 20px 0;
+    }
     .product-photos-grid-container {
       gap: 15px;
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  // 404 page
+  .page404 {
+    .page404-text {
+      font-size: 22px;
     }
   }
 
@@ -3318,9 +3395,9 @@ p {
     }
   }    
 
-  /* We use cookie */
+  // We use cookie
   .we-use-cookie {
-    right: 20%;
+    // right: 20%;
     .we-use-cookie-wrapper {
       padding: 12px 15px;
     }
@@ -3343,6 +3420,10 @@ p {
 
   .section {
     margin: 0 0 60px 0;
+  }
+
+  .secondary-btn {
+    font-size: 15px;
   }
 
   // Main section
@@ -3385,6 +3466,16 @@ p {
     }
   }
 
+  // Testimonials item карточка отзыва
+  .testimonials-item {
+    .flex-container {
+      margin: 0 0 10px 0;
+    }
+    .testimonials-item__gallery {
+      margin: 15px 0 0 0;
+    }
+  }
+
   // Callback section
   .callback-section {
     .callback-form-wrapper {
@@ -3393,6 +3484,20 @@ p {
     .callback-title {
       font-size: 28px;
       line-height: 1.2;
+    }
+  }
+
+  // Search
+  .search {
+    .search-list-item__title {
+      height: auto;
+      max-height: 46px;
+    }
+    .search-list-item__image {
+      display: none;
+    }
+    .search-list-item__date {
+      display: none;
     }
   }
 
@@ -3437,6 +3542,16 @@ p {
     }
   }
 
+  // Product page
+  .product-page {
+    .content-grid-container {
+      margin-bottom: 40px;
+    }
+    .product-buttons {
+      flex-direction: column;
+    }
+  }
+
   // Modal window
   .modal-window {
     .modal-title {
@@ -3469,6 +3584,10 @@ p {
 
   .section {
     margin: 0 0 50px 0;
+  }
+
+  .primary-title {
+    font-size: 22px;
   }
 
   // Category section
@@ -3512,12 +3631,12 @@ p {
     .callback-form-wrapper {
       padding: 15px 20px 20px 20px;
     }
-    .agreement-text {
-      font-size: 12px;
-    }
-    a {
-      font-size: 12px;
-    }
+    // .agreement-text {
+    //   font-size: 12px;
+    // }
+    // a {
+    //   font-size: 12px;
+    // }
   }
 
   // Category page
@@ -3549,6 +3668,15 @@ p {
 
   // Product page
   .product-page {
+    .back {
+      width: 90px;
+    }
+    .back-image {
+      width: 20px;
+    }
+    .back-text {
+      font-size: 14px;
+    }
     .content-grid-container {
       margin: 0 0 40px 0;
       gap: 10px;
@@ -3562,18 +3690,38 @@ p {
     .product-title {
       margin-top: 20px;
     }
-    .product-buttons {
-      flex-direction: column;
+    .product-price {
+      font-size: 24px;
     }
-    .booking-tour-btn,
-    .write-btn {
-      width: 100%;
-    }
+    // .product-buttons {
+    //   flex-direction: column;
+    // }
+    // .booking-tour-btn,
+    // .write-btn {
+    //   width: 100%;
+    // }
+    // .booking-tour-btn {
+    //   width: 100%;
+    // }
     .product-subtitle {
-      font-size: 18px;
+      font-size: 16px;
     }
     .product-description-item {
       font-size: 16px;
+    }
+  }
+
+  // Privacy policy page
+  .privacy-policy-page {
+    .page-title {
+      font-size: 26px;
+    }
+  }
+
+  // 404 page
+  .page404 {
+    .page404-text {
+      font-size: 18px;
     }
   }
 
@@ -3596,6 +3744,14 @@ p {
       font-size: 18px;
     }
   }
+
+  // Testimonials item карточка отзыва
+  .testimonials-item {
+    .testimonials-item__image {
+      width: 25%;
+      padding: 0 0 25% 0;
+    }
+  }
   
   // breadscrumbs
   .breadcrumbs {
@@ -3612,12 +3768,16 @@ p {
     .modal-area {
       padding: 30px;
     }
+    .modal-close {
+      top: 30px;
+      right: 20px;
+    }
     .label {
       margin: 0 0 5px 0;
       font-size: 16px;
     }
     .input-field {
-      height: 60px;
+      height: 55px;
       padding: 12px 20px;
       font-size: 16px;
     }
@@ -3626,7 +3786,11 @@ p {
   // Testimonial modal
   .testimonial-modal {
     .textarea {
-      height: 150px;
+      height: 130px;
+      margin: 0 0 15px 0;
+    }
+    .flex-container {
+      margin: 0 0 15px 0;
     }
     .paperclip {
       width: 40px;
@@ -3636,12 +3800,16 @@ p {
     }
     .modal-submit-btn {
       height: 50px;
+      margin: 15px 0;
       font-size: 18px;
     }
   }
 
   // Callback modal
   .callback-modal {
+    .modal-wrapper {
+      top: 10px;
+    }
     .modal-submit-btn {
       height: 50px;
     }
@@ -3652,17 +3820,25 @@ p {
 
   // agreement text галочка соглашения
   .agreement-text {
-    font-size: 13px;
+    font-size: 12px;
     a {
-      font-size: 13px;
+      font-size: 12px;
     }
   }
 
   /* we use cookie */
   .we-use-cookie {
-    right: 30%;
+    // right: 30%;
     .we-use-cookie-wrapper {
-      display: block;
+      flex-direction: column;
+    }
+    .we-use-cookie-text {
+      padding: 0;
+    }
+    .we-use-cookie-close {
+      width: 70px;
+      height: 30px;
+      font-size: 14px;
     }
   }
 }
@@ -3736,6 +3912,19 @@ p {
     }
   }
 
+  // Product page
+  .product-page {
+    .product-title {
+      margin-top: 18px;
+    }
+    .booking-tour-btn {
+      width: 100%;
+    }
+    .write-btn {
+      width: 100%;
+    }
+  }
+
   // Contacts page
   .contacts-page {
     .section-title {
@@ -3765,6 +3954,13 @@ p {
       .email strong {
         display: block;
       }
+    }
+  }
+
+  // Privacy policy page
+  .privacy-policy-page {
+    .page-title {
+      font-size: 22px;
     }
   }
 

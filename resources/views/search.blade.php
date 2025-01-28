@@ -2,7 +2,7 @@
   <form class="search-form" action="/poisk" method="get">
     <div class="flex-container">
       <div class="search-input-wrapper">
-        <input type="text" name="search_query" class="search-input" placeholder="Найти тур">
+        <input type="text" name="search_query" class="search-input" autocomplete="off" placeholder="Найти тур">
         <div class="search-close"></div>
         <div class="search-dropdown">
           <ul class="search-list js-search-result"></ul>
