@@ -1,0 +1,419 @@
+/* GENERAL DOCUMENT STYLES */
+::placeholder {
+  color: #7f7f7f !important;
+}
+
+// Перечеркнутый текст
+.line-through {
+  text-decoration: line-through !important;
+}
+
+/* button flex container */
+.dashboard-content .button-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.dashboard-content .button-wrapper-export-button {
+  justify-content: end;
+}
+
+/* form */
+.form-group .form-label {
+  font-weight: 600;
+}
+.form-group textarea {
+  resize: none;
+}
+
+/* Прикрепить файл */
+.inputfile {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+.custom-inputfile-label {
+  height: 38px;
+  padding: 7px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  color: #212529;
+  background-color: #e9ecef;
+}
+.custom-inputfile-label:hover {
+  background-color: #dde0e3;
+}
+.namefile {
+  margin-left: 10px;
+}
+.inputtext {
+  height: 300px;
+}
+.input-number {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.input-number::-webkit-inner-spin-button,
+.input-number::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.sort-input {
+  width: 100px;
+}
+.buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.label-text {
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+.red-text {
+  color: red;
+}
+.green-text {
+  color: green;
+}
+
+/* Имя и название */
+.title-link {
+  color: #212529;
+}
+.title-link:hover {
+  text-decoration: underline;
+}
+
+/* Таблица */
+.table-wrapper {
+  overflow-x: auto;
+}
+.table {
+  /* min-width: 743px; */
+  line-height: 1.2;
+}
+.table .number-column {
+  width: 45px;
+}
+.table .name-column {
+  /* width: 45%; */
+  width: 300px;
+}
+.table .title-column {
+  width: 400px;
+}
+.table .button-column {
+  width: 150px;
+}
+.table .button-group {
+  font-size: 0;
+  text-align: right;
+}
+.table .button-group .btn {
+  margin: 0 0 0 4px;
+}
+.table .button-group .btn:first-child {
+  margin: 0;
+}
+/* .table .table-button .form {
+  display: contents;
+} */
+/* .table .note-column {
+  width: 160px;
+} */
+.table .note .note-text {
+  height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* Страница События */
+/* .table .name-column {
+  width: 300px;
+} */
+
+/* Страница Просмотр события */
+.event-show .table .number-column {
+  width: 35px;
+}
+.event-show .table .place-column {
+  width: 81px;
+}
+.event-show .table .seat-column {
+  width: 67px;
+}
+.event-show .table .price-column {
+  width: 100px;
+}
+.event-show .table .credit-column {
+  width: 83px;
+}
+/* .event-show .table .note-column {
+  width: 28%;
+} */
+.event-show .table input {
+  width: 100%;
+}
+.event-show .table .readonly,
+.event-show .table .input-not-active {
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.event-show .table .sm-links {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Страница Календарь событий */
+.events-calendar a {
+  color: #212529;
+}
+.events-calendar .fc .fc-toolbar-title {
+  font-size: 1.35em !important;
+}
+.events-calendar .fc-event-time {
+  display: none !important;
+}
+
+/* Страница Клиенты clients */
+.clients .table .phone-column {
+  width: 155px;
+}
+.clients .table .birthdate-column {
+  width: 98px;
+}
+.search-clear {
+  height: 38px;
+  user-select: none;
+}
+
+/* Текущие уведомления */
+.current-notifications .notification-item {
+  position: relative;
+  padding: 10px 0;
+}
+.current-notifications .notification-item__text {
+  padding: 0 0 20px 0;
+}
+.current-notifications .notification-item.border-bottom {
+  border-bottom: 1px solid #e5e7eb;
+}
+.current-notifications .notification-item.disabled {
+  color: #D3D3D3;
+}
+.current-notifications .notification-item.disabled .notification-item__link {
+  color: #D3D3D3;
+}
+.current-notifications  .notification-item .read-button {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.current-notifications  .notification-item .read-button:hover {
+  color: #777;
+}
+
+/* Страница Создать уведомление */
+/* .notifications-create .name-text {
+  height: 38px;
+} */
+.name-text {
+  height: 38px;
+}
+
+/* Выпадающий поиск */
+.dropdown-search {
+  position: relative;
+}
+.dropdown-search .autocomplete-dropdown {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-radius: .25rem;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s, visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
+}
+.dropdown-search .autocomplete-dropdown.active {
+  padding: 10px 0;
+  opacity: 1;
+  visibility: visible;
+}
+.dropdown-search .autocomplete-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.dropdown-search .autocomplete-list-item {
+  margin: .7rem .775rem;
+  cursor: pointer;
+}
+.dropdown-search .autocomplete-list-item:first-child {
+  margin-top: 0;
+}
+.dropdown-search .autocomplete-list-item:hover {
+  color: #777;
+}
+.dropdown-search .search-message {
+  margin: 0 .775rem;
+  font-size: 14px;
+}
+.dropdown-search .search-message .search-message__link {
+  color: #212529;
+}
+.dropdown-search .search-message .search-message__link:hover {
+  color: #777;
+}
+.dropdown-search .search-message .add-btn {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+.dropdown-search .search-message .add-btn:hover {
+  color: #777;
+}
+
+/* Страница Клиенты */
+.fa-whatsapp {
+  font-size: 20px;
+  color: #25D366;
+}
+.fa-viber {
+  font-size: 19px;
+  color: #7360f2;
+}
+.fa-telegram-plane {
+  font-size: 20px;
+  color: #2AABEE;
+}
+
+// Страница Стастистика менеджеров
+.form-select {
+  width: 200px;
+}
+
+@media only screen and (max-width : 1400px) {
+  .table .name-column {
+    width: 285px;
+  }
+  .event-show .table .name-column {
+    width: 265px;
+  }
+}
+
+@media only screen and (max-width : 1200px) {
+  html {
+    font-size: 15px;
+  }
+
+  .aside {
+    width: 220px;
+  }
+  .content-wrapper {
+    margin-left: 220px;
+  }
+  .table > :not(caption) > * > * {
+    padding: 5px;
+  }
+  .table .number-column {
+    width: 39px;
+  }
+  .table .name-column {
+    width: 22%;
+  }
+  .table .note .note-text {
+    height: 36px;
+  }
+  .table .inn-column {
+    width: 150px;
+  }
+  .table .button-column {
+    width: 138px;
+  }
+  .table .button-group {
+    width: 138px;
+    display: flex;
+  }
+  .title-link,
+  .title-text {
+    display: block;
+    height: 36px;
+    overflow: hidden;
+  }
+
+  .companies .table .name-column {
+    width: auto;
+  }
+  .events-archive .table .name-column {
+    width: auto;
+  }
+  .users .table .name-column {
+    width: auto;
+  }
+
+}
+
+@media only screen and (max-width : 992px) {
+  .aside {
+    width: 0;
+  }
+  .content-wrapper {
+    margin-left: 0;
+  }
+  .content-header .nav-item .burger {
+    display: block;
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .content {
+    padding: 30px 12px;
+  }
+
+  .clients .table,
+  .companies .table,
+  .event-show .table {
+    min-width: 743px;
+  }
+
+  .table .title-column {
+    width: 350px;
+  }
+
+  .events .table .title-column {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  .events .table {
+    min-width: 453px;
+  }
+
+  .fc .fc-toolbar {
+    display: block;
+  }
+  .fc .fc-toolbar .fc-toolbar-title {
+    margin: 0 0 10px 0;
+  }
+
+  .users .table {
+    min-width: 456px;
+  }
+
+  .users .table .role-column {
+    width: 150px;
+  }
+}
