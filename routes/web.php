@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\MailerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -52,6 +53,19 @@ Route::post('/ajax-callback', MailerController::class);
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'home'])->name('dashboard');
+
+    // Products
+    Route::get('/dashboard/products', [ProductController::class, 'index'])->name('dashboard.products');
+
+    Route::get('/dashboard/products/create', [ProductController::class, 'create'])->name('dashboard.products-create');
+
+    Route::post('/dashboard/products/store', [ProductController::class, 'store'])->name('dashboard.products-store');
+
+    Route::get('/dashboard/products/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.products-edit');
+
+    Route::post('/dashboard/products/{id}/update', [ProductController::class, 'update'])->name('dashboard.products-update');
+
+    Route::get('/dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('dashboard.products-destroy');
 
 });
 

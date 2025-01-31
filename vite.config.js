@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/sass/dashboard.scss',
                 'resources/js/main.js',
                 'resources/js/dashboard.js',
+                'resources/js/editor.js',
             ],
             refresh: true,
         }),

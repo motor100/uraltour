@@ -382,23 +382,21 @@
   </div>
 
   @if(Auth::check())
-    @if (Auth::user()->isAdmin())
-      <div class="top-line-is-login">
-        <div class="container-fluid">
-          <div class="text-wrapper">
-            <div class="top-line__text dashboard">
-              <a href="/admin">Панель управления</a>
-            </div>
-            <div class="top-line__text logout">
-              <form class="form" action="{{ route('admin.logout') }}" method="POST">
-                @csrf
-                <button class="logout-btn" type="submit">Выйти</button>
-              </form>
-            </div>
+    <div class="top-line-is-login">
+      <div class="container-fluid">
+        <div class="text-wrapper">
+          <div class="top-line__text dashboard">
+            <a href="/admin">Панель управления</a>
+          </div>
+          <div class="top-line__text logout">
+            <form class="form" action="{{ route('logout') }}" method="POST">
+              @csrf
+              <button class="logout-btn" type="submit">Выйти</button>
+            </form>
           </div>
         </div>
       </div>
-    @endif
+    </div>
   @endif
 
   @yield('script')

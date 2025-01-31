@@ -117,9 +117,9 @@
 .table .button-group .btn:first-child {
   margin: 0;
 }
-/* .table .table-button .form {
+.table .button-group .form {
   display: contents;
-} */
+}
 /* .table .note-column {
   width: 160px;
 } */
@@ -129,42 +129,19 @@
   text-overflow: ellipsis;
 }
 
-
-/* Страница События */
-/* .table .name-column {
-  width: 300px;
-} */
-
-/* Страница Просмотр события */
-.event-show .table .number-column {
-  width: 35px;
+/* image preview */
+.image-preview img {
+  display: inline-block;
+  margin: 0 0 10px 0;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 }
-.event-show .table .place-column {
-  width: 81px;
-}
-.event-show .table .seat-column {
-  width: 67px;
-}
-.event-show .table .price-column {
-  width: 100px;
-}
-.event-show .table .credit-column {
-  width: 83px;
-}
-/* .event-show .table .note-column {
-  width: 28%;
-} */
-.event-show .table input {
-  width: 100%;
-}
-.event-show .table .readonly,
-.event-show .table .input-not-active {
-  border: 1px solid transparent;
-  background-color: transparent;
-}
-.event-show .table .sm-links {
-  font-size: 12px;
-  line-height: 1.5;
+.gallery-delete {
+  width: 120px;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* Страница Календарь событий */
@@ -297,7 +274,7 @@
 
 // Страница Стастистика менеджеров
 .form-select {
-  width: 200px;
+  width: 300px;
 }
 
 @media only screen and (max-width : 1400px) {

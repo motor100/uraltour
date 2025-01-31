@@ -28,18 +28,12 @@
         <div class="aside-nav">
 
           <div class="nav-item">
-            <a href="/dashboard/clients" class="item-link">
-              <i class="nav-icon fas fa-users"></i>
-              <span>Клиенты</span>
-            </a>
-          </div>
-          <div class="nav-item">
-            <a href="/dashboard/events" class="item-link">
+            <a href="/dashboard/products" class="item-link">
               <i class="nav-icon fas fa-car-side"></i>
-              <span>События</span>
+              <span>Товары</span>
             </a>
           </div>
-          <div class="nav-item">
+          <!-- <div class="nav-item">
             <a href="/dashboard/notifications" class="item-link">
               <i class="nav-icon fas fa-bell"></i>
               <span>Уведомления</span>
@@ -68,22 +62,22 @@
               <i class="nav-icon fas fa-heart"></i>
               <span>Пожелания</span>
             </a>
-          </div>   
+          </div>    -->
 
           @role('administrator')
-            <div class="nav-item">
+            <!-- <div class="nav-item">
               <a href="/dashboard/events-archive" class="item-link">
                 <i class="nav-icon fas fa-archive"></i>
                 <span>Архив событий</span>
               </a>
-            </div>
+            </div> -->
             <div class="nav-item">
               <a href="/dashboard/users" class="item-link">
                 <i class="nav-icon nav-icon fas fa-user"></i>
                 <span>Пользователи</span>
               </a>
             </div>
-            <div class="nav-item">
+            <!-- <div class="nav-item">
               <a href="/dashboard/export-all" class="item-link">
                 <i class="nav-icon nav-icon fas fa-download"></i>
                 <span>Экспорт</span>
@@ -94,7 +88,7 @@
                 <i class="nav-icon nav-icon fas fa-chart-pie"></i>
                 <span>Статистика по менеджерам</span>
               </a>
-            </div>
+            </div> -->
           @endrole
           
         </div>
@@ -172,6 +166,6 @@
 
   @yield('script')
   <script src="{{ asset('/adminpanel/js/template.js') }}"></script>
-  @vite(['resources/js/dashboard.js'])
+  @vite(['resources/js/dashboard.js', 'resources/js/editor.js'])
 </body>
 </html>

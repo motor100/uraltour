@@ -30,44 +30,44 @@ phoneElements.forEach((item) => {
   let mask = IMask(item, maskOptionsPhone);
 });
 
-// Input birthdate mask
-let birthdateElement = document.querySelector('#birthdate');
 
-if (birthdateElement) {
-  let maskOptionsBirthdate = {
-    mask: '00.00.0000'
-  };
-  let mask = IMask(birthdateElement, maskOptionsBirthdate);
-}
+// Выбор файла Изображение
+const inputMainFile = document.querySelector('#input-main-file');
+const mainFileText = document.querySelector('.main-file-text');
 
-// Input series and passport mask
-let passElement = document.querySelector('#pass');
-
-if (passElement) {
-  let maskOptionsPass = {
-    mask: '0000 000000'
-  };
-  let mask = IMask(passElement, maskOptionsPass);
-}
-
-// Input years old mask
-let yearsoldElement = document.querySelector('#years_old');
-
-if (yearsoldElement) {
-  let maskOptionsYearsold = {
-    mask: '00'
-  };
-  let mask = IMask(yearsoldElement, maskOptionsYearsold);
-}
-
-// Input number only
-const inputDigitsOnly = document.querySelectorAll('.digits-only');
-
-inputDigitsOnly.forEach((item) => {
-  item.oninput = function() {
-    this.value = this.value.replace(/[^0-9\.]/g, '');
+if (inputMainFile) {
+  inputMainFile.onchange = function() {
+    mainFileText.innerHTML = this.files[0].name;
   }
-});
+}
+
+
+// Выбор файлов Галерея
+const inputGalleryFile = document.querySelector('#input-gallery-file');
+const galleryFileText = document.querySelector('.gallery-file-text');
+
+if (inputGalleryFile) {
+  inputGalleryFile.onchange = function() {
+    let filesName = '';
+    for (let i = 0; i < this.files.length; i++) {
+      filesName += this.files[i].name + ' ';
+    }
+    galleryFileText.innerHTML = filesName;
+  }
+}
+
+// Удаление всех файлов из галереи
+const galleryDelete = document.querySelector('.gallery-delete');
+const galleryImagePreview = document.querySelector('.gallery-image-preview');
+const inputDeleteGallery = document.querySelector('[name="delete_gallery"]');
+
+if (galleryDelete) {
+  galleryDelete.onclick = function() {
+    galleryDelete.classList.add('hidden');
+    galleryImagePreview.innerHTML = '';
+    inputDeleteGallery.value = 1;
+  }
+}
 
 
 // Сurrent notifications read and delete

@@ -83,7 +83,10 @@
           </div>
           <span class="testimonials-count">12 отзывов</span>
         </div>
-        <div class="product-start-date">{{ $product->start_date->format('d.m.Y') }}</div>
+        @if($product->start_date)
+          <div class="product-start-date">{{ $product->start_date->format('d.m.Y') }}</div>
+        @endif
+        
         <div class="product-price">
           <span class="product-price__value">{{ number_format($product->price, 0, '', ' ') }}</span>
           <span class="product-price__currency">P</span>

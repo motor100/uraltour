@@ -87,14 +87,12 @@
   overflow-x: auto;
 }
 .table {
-  /* min-width: 743px; */
   line-height: 1.2;
 }
 .table .number-column {
   width: 45px;
 }
 .table .name-column {
-  /* width: 45%; */
   width: 400px;
 }
 .table .title-column {
@@ -104,7 +102,7 @@
   width: 150px;
 }
 .table .button-group {
-  font-size: 0;
+  font-size: 100px;
   text-align: right;
 }
 .table .button-group .btn {
@@ -113,9 +111,9 @@
 .table .button-group .btn:first-child {
   margin: 0;
 }
-/* .table .table-button .form {
+.table .button-group .form {
   display: contents;
-} */
+}
 /* .table .note-column {
   width: 160px;
 } */
