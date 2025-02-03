@@ -20,7 +20,7 @@
 
       <div class="aside-header">
         <div class="logo">
-          <span>{{ config('app.name') }}</span>
+          <a href="{{ route('home') }}">{{ config('app.name') }}</a>
         </div>
       </div>
 
@@ -33,12 +33,13 @@
               <span>Товары</span>
             </a>
           </div>
-          <!-- <div class="nav-item">
-            <a href="/dashboard/notifications" class="item-link">
+          <div class="nav-item">
+            <a href="/dashboard/testimonials" class="item-link">
               <i class="nav-icon fas fa-bell"></i>
-              <span>Уведомления</span>
+              <span>Отзывы</span>
             </a>
           </div>
+          <!-- 
           <div class="nav-item">
             <a href="/dashboard/companies" class="item-link">
               <i class="nav-icon fas fa-briefcase"></i>
@@ -113,6 +114,17 @@
         </div>
 
         <div class="header-nav display-flex flexdirection-row alignitems-center">
+
+          <div class="nav-item">
+            <a href="{{ route('dashboard.testimonials') }}" class="header-item">
+              <i class="far fa-comments"></i>
+              @if(isset($testimonials_count))
+                @if($testimonials_count > 0)
+                  <span id="testimonials-counter" class="tp-badge tp-badge-warning">{{ $testimonials_count }}</span>
+                @endif
+              @endif
+            </a>
+          </div>
 
           <div class="nav-item">
             <a href="{{ route('dashboard') }}" class="header-item display-block pos-relative">

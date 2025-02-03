@@ -144,138 +144,50 @@
   cursor: pointer;
 }
 
-/* Страница Календарь событий */
-.events-calendar a {
-  color: #212529;
-}
-.events-calendar .fc .fc-toolbar-title {
-  font-size: 1.35em !important;
-}
-.events-calendar .fc-event-time {
-  display: none !important;
-}
-
-/* Страница Клиенты clients */
-.clients .table .phone-column {
-  width: 155px;
-}
-.clients .table .birthdate-column {
-  width: 98px;
-}
-.search-clear {
-  height: 38px;
-  user-select: none;
-}
-
-/* Текущие уведомления */
-.current-notifications .notification-item {
+/* Отзывы */
+.testimonials-wrapper .item {
   position: relative;
-  padding: 10px 0;
-}
-.current-notifications .notification-item__text {
-  padding: 0 0 20px 0;
-}
-.current-notifications .notification-item.border-bottom {
-  border-bottom: 1px solid #e5e7eb;
-}
-.current-notifications .notification-item.disabled {
-  color: #D3D3D3;
-}
-.current-notifications .notification-item.disabled .notification-item__link {
-  color: #D3D3D3;
-}
-.current-notifications  .notification-item .read-button {
-  position: absolute;
-  right: 0;
-  bottom: 10px;
-  font-size: 14px;
-  cursor: pointer;
-}
-.current-notifications  .notification-item .read-button:hover {
-  color: #777;
-}
-
-/* Страница Создать уведомление */
-/* .notifications-create .name-text {
-  height: 38px;
-} */
-.name-text {
-  height: 38px;
-}
-
-/* Выпадающий поиск */
-.dropdown-search {
-  position: relative;
-}
-.dropdown-search .autocomplete-dropdown {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
+  margin-bottom: 16px;
+  padding: 12px;
   background-color: #fff;
+  border: 1px solid #ced4da;
   border-radius: .25rem;
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity cubic-bezier(0.215, 0.61, 0.355, 1) .3s, visibility cubic-bezier(0.215, 0.61, 0.355, 1) .3s;
 }
-.dropdown-search .autocomplete-dropdown.active {
-  padding: 10px 0;
-  opacity: 1;
-  visibility: visible;
+.testimonials-wrapper .item-text {
+  padding: 0 0 1rem 0;
 }
-.dropdown-search .autocomplete-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.testimonials-wrapper .publicate-btn {
+  display: block;
 }
-.dropdown-search .autocomplete-list-item {
-  margin: .7rem .775rem;
-  cursor: pointer;
+.testimonials-wrapper .rm-testimonial-form {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
 }
-.dropdown-search .autocomplete-list-item:first-child {
-  margin-top: 0;
+.archive .title {
+  font-weight: bold;
 }
-.dropdown-search .autocomplete-list-item:hover {
-  color: #777;
+.archive .delete-btn {
+  color: red;
 }
-.dropdown-search .search-message {
-  margin: 0 .775rem;
-  font-size: 14px;
-}
-.dropdown-search .search-message .search-message__link {
-  color: #212529;
-}
-.dropdown-search .search-message .search-message__link:hover {
-  color: #777;
-}
-.dropdown-search .search-message .add-btn {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-}
-.dropdown-search .search-message .add-btn:hover {
-  color: #777;
+.archive .list-btn {
+  margin: 0 0 0 10px;
 }
 
-/* Страница Клиенты */
-.fa-whatsapp {
-  font-size: 20px;
-  color: #25D366;
-}
-.fa-viber {
-  font-size: 19px;
-  color: #7360f2;
-}
-.fa-telegram-plane {
-  font-size: 20px;
-  color: #2AABEE;
+
+// Stars звездочки рейтинг отзывы
+.stars {
+  display: flex;
+  gap: 5px;
+  .star-path {
+    fill: grey;
+  }
+  .active .star-path {
+    fill: #F8C51B;
+  }
 }
 
-// Страница Стастистика менеджеров
-.form-select {
-  width: 300px;
-}
+
 
 @media only screen and (max-width : 1400px) {
   .table .name-column {

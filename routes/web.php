@@ -8,6 +8,7 @@ use App\Http\Controllers\MailerController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\TestimonialController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -15,7 +16,7 @@ use App\Http\Controllers\Admin\ProductController;
 
 Route::get('/', [MainController::class, 'home'])->name('home');
 
-Route::get('/catalog', [MainController::class, 'catalog']);
+Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
 
 Route::get('/catalog/{category}', [MainController::class, 'category']);
 
@@ -66,6 +67,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/products/{id}/update', [ProductController::class, 'update'])->name('dashboard.products-update');
 
     Route::get('/dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('dashboard.products-destroy');
+
+    // testimonials
+    Route::get('/dashboard/testimonials', [TestimonialController::class, 'index'])->name('dashboard.testimonials');
+
+    // Route::get('/dashboard/testimonials/create', [ProductController::class, 'create'])->name('dashboard.testimonials-create');
+
+    // Route::post('/dashboard/testimonials/store', [ProductController::class, 'store'])->name('dashboard.testimonials-store');
+
+    // Route::get('/dashboard/testimonials/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.testimonials-edit');
+
+    Route::post('/dashboard/testimonials/{id}/update', [TestimonialController::class, 'update'])->name('dashboard.testimonials-update');
+
+    Route::get('/dashboard/testimonials/{id}/destroy', [TestimonialController::class, 'destroy'])->name('dashboard.testimonials-destroy');
 
 });
 

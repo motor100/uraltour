@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Testimonial extends Model
 {
@@ -16,6 +17,7 @@ class Testimonial extends Model
         'name',
         'text',
         'rating',
+        'publicated_at',
     ];
 
     /**
@@ -24,5 +26,13 @@ class Testimonial extends Model
     public function gallery(): HasMany
     {
         return $this->hasMany(TestimonialGallery::class);
+    }
+
+    /**
+     * Получить товар, которому принадлежит отзыв
+     */
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class);
     }
 }

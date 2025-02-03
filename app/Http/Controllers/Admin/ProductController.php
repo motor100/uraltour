@@ -137,7 +137,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      * 
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\View\View
      */
     public function edit(string $id): View
@@ -270,7 +270,7 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      * 
-     * @param  int  $id
+     * @param int $id
      * @return Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id): RedirectResponse

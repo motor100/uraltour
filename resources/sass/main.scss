@@ -630,18 +630,12 @@ p {
 .stars {
   display: flex;
   gap: 5px;
-  // .star {
-  //   width: 12px;
-  //   height: 24px;
-  // }
   .star-path {
     fill: grey;
   }
   .active .star-path {
     fill: #F8C51B;
   }
-
-  
 }
 
 // Booking section

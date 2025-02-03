@@ -112,8 +112,8 @@ ul {
 }
 .tp-badge {
   position: absolute;
-  right: 1px;
-  top: 9px;
+  top: 0;
+  right: 1px;  
   padding: 1px 4px;
   border-radius: 4px;
   font-size: 10px;
@@ -162,6 +162,9 @@ ul {
 .aside .aside-header .logo {
   padding: 10px 16px;
 }
+.aside .aside-header .logo a {
+  color: var(--tp-white);
+}
 .aside .aside-content {
   padding: 30px 8px;
 }
@@ -209,6 +212,7 @@ ul {
   border-bottom: 1px solid var(--tp-gray-300);
 }
 .content-header .nav-item {
+  position: relative;
   margin: 0 10px 0 0;
   transition: color .3s;
 }
