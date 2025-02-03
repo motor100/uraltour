@@ -277,7 +277,7 @@
           <div class="close"></div>
         </div>
         <div class="modal-title">Оставьте отзыв</div>
-        <form id="testimonial-modal-form" class="form">
+        <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post">
           <div class="flex-container">
             <div class="form-group">
               <label for="name-testimonial-modal" class="label">Имя <span class="accentcolor">*</span></label>
@@ -318,9 +318,12 @@
             <label for="text-testimonial-modal" class="label">Отзыв <span class="accentcolor">*</span></label>
             <textarea name="name" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
           </div>
-          <div class="form-group">
-            <img src="/img/paperclip.jpg" class="paperclip" alt="">
-            <span class="attach-photo">Прикрепить фото</span>
+          <div class="form-group input-file-flex-container">
+            <input type="file" name="input-gallery-file[]" id="input-gallery-file" class="inputfile" accept="image/jpeg,image/png" multiple>
+            <label for="input-gallery-file" class="custom-inputfile-label">
+              <img src="/img/paperclip.jpg" class="paperclip" alt="">
+            </label>
+            <div class="attach-photo gallery-file-text">Прикрепить фото</div>
           </div>
           <input type="hidden" id="input-rating" name="rating" value="">
 

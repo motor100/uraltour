@@ -81,13 +81,13 @@
         </div>
       </div>
       <div class="agreement-text">
-        <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
-        <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>
+        <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-bf" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
+        <label for="checkbox-read-bf" class="custom-checkbox-label"></label>
         <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
       </div>
       <div class="agreement-text">
-        <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-testimonial-modal" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
-        <label for="checkbox-agree-testimonial-modal" class="custom-checkbox-label"></label>
+        <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-bf" checked required onchange="document.getElementById('booking-submit-btn').disabled = !this.checked;">
+        <label for="checkbox-agree-bf" class="custom-checkbox-label"></label>
         <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
       </div>
       <button id="booking-submit-btn" class="booking-submit-btn primary-btn">Отправить</button>

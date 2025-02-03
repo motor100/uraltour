@@ -191,6 +191,22 @@ function modalWindowClose(win) {
   }, 300);
 }
 
+
+// Выбор файлов Галерея
+const inputGalleryFile = document.querySelector('#input-gallery-file');
+const galleryFileText = document.querySelector('.gallery-file-text');
+
+if (inputGalleryFile) {
+  inputGalleryFile.onchange = function() {
+    let filesName = '';
+    for (let i = 0; i < this.files.length; i++) {
+      filesName += this.files[i].name + ' ';
+    }
+    galleryFileText.innerHTML = filesName;
+  }
+}
+
+
 // Поиск товаров
 // Search поиск товаров в хэдере
 let searchForm = document.querySelector('.search-form');

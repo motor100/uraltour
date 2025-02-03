@@ -114,7 +114,7 @@ class ProductController extends Controller
             foreach($validated['gallery'] as $gl) {
                 $gallery_item = [];
                 $gallery_item["product_id"] = $product->id;
-                $gallery_item["image"] = ;
+                $gallery_item["image"] = "";
                 $gallery_item["created_at"] = now();
                 $gallery_item["updated_at"] = now();
                 $gallery_array[] = $gallery_item;
@@ -198,8 +198,8 @@ class ProductController extends Controller
         $html = (new \App\Services\JsonToHtml($validated['text_json']))->render();
 
         if (isset($validated['input-main-file'])) {
-            if (Storage::disk('public')->exists('/uploads/products/' . $product->image)) {
-                Storage::disk('public')->delete('/uploads/products/' . $product->image);
+            if (Storage::disk('public')->exists($product->image)) {
+                Storage::disk('public')->delete($product->image);
             }
             $image = (new \App\Services\ProductImage($validated))->update($product);
         } else {
@@ -219,8 +219,8 @@ class ProductController extends Controller
         if ($validated['delete_gallery']) {
             // Удаление файлов gallery images 
             foreach($product->gallery as $gl) {
-                if (Storage::disk('public')->exists('/uploads/products/' . $gl->image)) {
-                    Storage::disk('public')->delete('/uploads/products/' . $gl->image);
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
                 }
                 $gl->delete();
             }
@@ -230,8 +230,8 @@ class ProductController extends Controller
         if(isset($validated['input-gallery-file'])) {
             $old_gallery = ProductGallery::where('product_id', $id)->get();
             foreach($old_gallery as $gl) {
-                if (Storage::disk('public')->exists('/uploads/products/' . $gl->image)) {
-                    Storage::disk('public')->delete('/uploads/products/' . $gl->image);
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
                 }
             }
 
@@ -245,7 +245,7 @@ class ProductController extends Controller
             foreach($gallery as $gl) {
                 $gallery_item = [];
                 $gallery_item["product_id"] = $id;
-                $gallery_item["image"] = ;
+                $gallery_item["image"] = "";
                 $gallery_item["created_at"] = now();
                 $gallery_item["updated_at"] = now();
                 $gallery_array[] = $gallery_item;
@@ -278,15 +278,15 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         // Удаление файла product image
-        if (Storage::disk('public')->exists('/uploads/products/' . $product->image)) {
-            Storage::disk('public')->delete('/uploads/products/' . $product->image);
+        if (Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
         }
 
         // Удаление файлов gallery images
         if ($product->gallery) {
             foreach ($product->gallery as $gl) {
-                if (Storage::disk('public')->exists('/uploads/products/' . $gl->image)) {
-                    Storage::disk('public')->delete('/uploads/products/' . $gl->image);
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
                 }
             }
         }

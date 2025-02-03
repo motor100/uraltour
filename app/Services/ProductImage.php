@@ -34,8 +34,8 @@ class ProductImage
      */
     public function update($product): mixed
     {
-        if (Storage::exists($product->image)) {
-            Storage::delete($product->image);
+        if (Storage::disk('public')->exists($product->image)) {
+            Storage::disk('public')->delete($product->image);
         }
 
         return Storage::disk('public')->putFile('/uploads/products', $this->validated["input-main-file"]);
