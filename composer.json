@@ -11,6 +11,7 @@
     "require": {
         "php": "^8.2",
         "codex-team/editor.js": "dev-master",
+        "intervention/image": "^3.11",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",
         "phpmailer/phpmailer": "^6.9"

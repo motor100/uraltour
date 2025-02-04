@@ -277,7 +277,7 @@
           <div class="close"></div>
         </div>
         <div class="modal-title">Оставьте отзыв</div>
-        <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post">
+        <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post" action="/ajaxaddtestimonial">
           <div class="flex-container">
             <div class="form-group">
               <label for="name-testimonial-modal" class="label">Имя <span class="accentcolor">*</span></label>
@@ -316,18 +316,22 @@
           </div>
           <div class="form-group">
             <label for="text-testimonial-modal" class="label">Отзыв <span class="accentcolor">*</span></label>
-            <textarea name="name" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
+            <textarea name="text" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
           </div>
           <div class="form-group input-file-flex-container">
             <input type="file" name="input-gallery-file[]" id="input-gallery-file" class="inputfile" accept="image/jpeg,image/png" multiple>
             <label for="input-gallery-file" class="custom-inputfile-label">
               <img src="/img/paperclip.jpg" class="paperclip" alt="">
             </label>
-            <div class="attach-photo gallery-file-text">Прикрепить фото</div>
+            <div class="attach-photo gallery-file-text">Прикрепить фото (не более 3)</div>
           </div>
+          <input type="hidden" id="product-id" name="product-id" value="{{ isset($product) ? $product->id : 0 }}">
           <input type="hidden" id="input-rating" name="rating" value="">
+          <input type="hidden" id="recaptcha" name="recaptcha" value="">
+          @csrf
 
-          <button type="button" id="testimonial-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
+          <!-- <button type="submit" id="testimonial-submit-btn" class="modal-submit-btn primary-btn" data-sitekey="{{ config('google.client_key') }}" data-callback="onSubmit"  data-action="submitContact">Отправить</button> -->
+          <button type="submit" id="testimonial-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
           <div class="agreement-text">
             <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
             <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>
@@ -404,6 +408,22 @@
 
   @yield('script')
   @vite(['resources/js/main.js'])
+
+  <script src="https://www.google.com/recaptcha/api.js?render={{ config('google.client_key') }}"></script>
+  <script>
+    function updateCaptcha() {
+      grecaptcha.execute("{{ config('google.client_key') }}", {action: 'ajaxaddtestimonial'}).then(function(token) {
+        if(token){
+            document.getElementById('recaptcha').value = token;
+        }
+      });
+    }
+
+    grecaptcha.ready(function() {
+      updateCaptcha();
+      setInterval(updateCaptcha, 110000)
+    });
+  </script>
 
 </body>
 </html>

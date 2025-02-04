@@ -44,6 +44,8 @@ Route::get('/ajax-product-search', [AjaxController::class, 'product_search']);
 
 Route::post('/ajax-callback', MailerController::class);
 
+Route::post('/ajaxaddtestimonial', [AjaxController::class, 'add_testimonial']);
+
 
 
 // Route::get('/dashboard', function () {

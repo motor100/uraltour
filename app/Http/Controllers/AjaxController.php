@@ -40,4 +40,63 @@ class AjaxController extends Controller
 
         return response()->json($products);
     }
+
+    public function add_testimonial(Request $request): JsonResponse
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'name' => 'required|min:3|max:50',
+            'text' => 'required|min:3|max:1000',
+            'rating' => 'required|min:0|max:5',
+            'recaptcha' => 'required',
+            'product-id' => 'required',
+            'input-gallery-file' => 'nullable|max:3',
+            'input-gallery-file.*' => [
+                \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
+                                                    ->min(10)
+                                                    ->max(3000)
+            ],
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['error' => 'valiadator fails']);
+        }
+
+        $validated = $validator->validated();
+        
+        // Google Captcha
+        /*
+        $g_response = (new \App\Services\GoogleCaptcha($validated))->get();
+
+        if (!$g_response) {
+            return response()->json(['error' => 'google captcha error']);
+        }
+        */
+
+        
+        $testimonial = \App\Models\Testimonial::create([
+            'product_id' => $validated["product-id"] ? $validated["product-id"] : NULL,
+            'name' => $validated["name"],
+            'text' => $validated["text"],
+            'rating' => $validated["rating"],
+            'publicated_at' => NULL
+        ]);
+
+        if (array_key_exists("input-gallery-file", $validated)) {
+            $gallery = $validated["input-gallery-file"];
+
+            $insert_array = [];
+
+            foreach($gallery as $file) {
+                $tmp["testimonial_id"] = $testimonial->id;
+                $tmp["image"] = (new \App\Services\TestimonialImage($file))->create();
+                $tmp["created_at"] = now();
+                $tmp["updated_at"] = now();
+                $insert_array[] = $tmp;
+            }
+
+            \App\Models\TestimonialGallery::insert($insert_array);
+        }
+
+        return response()->json(['success' => 'thank you']);
+    }
 }
