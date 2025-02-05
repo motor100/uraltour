@@ -61,14 +61,14 @@
       <div class="image-preview gallery-image-preview">
         @if($product->gallery->count() > 0)
           @foreach($product->gallery as $gl)
-            <img src="{{ Storage::url($product->image) }}" alt="">
+            <img src="{{ Storage::url($gl->image) }}" alt="">
           @endforeach
           <div class="gallery-delete">Удалить галерею</div>
         @endif
       </div>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text">Галерея</div>
+      <div class="label-text">Галерея (не более 4)</div>
       <input type="file" name="input-gallery-file[]" id="input-gallery-file" class="inputfile" accept="image/jpeg,image/png" multiple value="">
       <label for="input-gallery-file" class="custom-inputfile-label">Выберите файлы</label>
       <span class="namefile gallery-file-text">Файлы не выбраны</span>
@@ -77,7 +77,7 @@
       <label for="start_date">Дата</label>
       <input type="text" class="form-control datepicker" name="start_date" min="0" step="1" value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
     </div>
-    <div class="form-group mb-3">
+    <div class="form-group mb-5">
       <label for="price" class="label-text">Стоимость</label>
       <input type="number" class="form-control input-number" name="price" min="1" max="500000" step="1" required value="{{ $product->price }}">
     </div>

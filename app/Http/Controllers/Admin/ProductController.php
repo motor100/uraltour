@@ -114,7 +114,7 @@ class ProductController extends Controller
             foreach($validated['gallery'] as $gl) {
                 $gallery_item = [];
                 $gallery_item["product_id"] = $product->id;
-                $gallery_item["image"] = "";
+                $gallery_item["image"] = (new \App\Services\ProductGallery($gl))->create();
                 $gallery_item["created_at"] = now();
                 $gallery_item["updated_at"] = now();
                 $gallery_array[] = $gallery_item;
@@ -245,7 +245,7 @@ class ProductController extends Controller
             foreach($gallery as $gl) {
                 $gallery_item = [];
                 $gallery_item["product_id"] = $id;
-                $gallery_item["image"] = "";
+                $gallery_item["image"] = (new \App\Services\ProductGallery($gl))->create();
                 $gallery_item["created_at"] = now();
                 $gallery_item["updated_at"] = now();
                 $gallery_array[] = $gallery_item;

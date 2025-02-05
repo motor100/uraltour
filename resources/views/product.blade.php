@@ -116,6 +116,7 @@
       </div>
       <div class="product-note orange-color">* время ориентировочное и может изменяться в зависимости от подготовленности группы и погодных условий.</div>
     </div>
+
     <div class="product-include product-description-item">
       <div class="product-subtitle">В стоимость включено:</div>
       <div class="product-text">
@@ -123,6 +124,8 @@
         При наборе группы менее 19 человек будет подан микроавтобус туристического класса.
       </div>
     </div>
+
+
     <div class="product-recommend product-description-item">
       <div class="product-subtitle">Рекомендации</div>
       <div class="product-text">
@@ -141,6 +144,8 @@
         Купальные принадлежности. Сланцы. Полотенца. Шампунь, гель для душа, мочалку;
       </div>
     </div>
+
+    
     <div class="product-payment product-description-item">
       <div class="product-subtitle">Оплата</div>
       <div class="product-text">
@@ -149,6 +154,7 @@
         За 14 дней до отправления оплачивается полностью.
       </div>
     </div>
+
     <div class="product-photos product-description-item">
       <div class="product-subtitle">Фото</div>
       <div class="product-photos-grid-container">
