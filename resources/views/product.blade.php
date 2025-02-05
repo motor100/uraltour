@@ -118,7 +118,7 @@
     </div>
 
     <div class="product-include product-description-item">
-      <div class="product-subtitle">В стоимость включено:</div>
+      <div class="product-subtitle">В стоимость включено</div>
       <div class="product-text">
         проезд на микроавтобусе / автобусе (туда и обратно), посещение комплекса термальных бассейнов по тарифу "3 часа"<br>
         При наборе группы менее 19 человек будет подан микроавтобус туристического класса.

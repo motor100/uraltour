@@ -277,7 +277,6 @@
           <div class="close"></div>
         </div>
         <div class="modal-title">Оставьте отзыв</div>
-        <!-- <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post" action="/ajaxaddtestimonial"> -->
         <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post">
           <div class="flex-container">
             <div class="form-group">
@@ -331,7 +330,6 @@
           <input type="hidden" id="recaptcha" name="recaptcha" value="">
           @csrf
 
-          <!-- <button type="submit" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button> -->
           <div class="agreement-text">
           <button type="button" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
           <div class="agreement-text">

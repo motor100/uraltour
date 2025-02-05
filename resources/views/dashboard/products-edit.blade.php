@@ -33,6 +33,15 @@
       <div id="editorjs"></div>
     </div>
     <div class="form-group mb-3">
+      <div class="label-text mb-1">Категория</div>
+      <select name="recommendation" class="form-select mt-1">
+        <option value="" selected="selected" disabled></option>
+        @foreach($recommendations as $rc)
+          <option value="{{ $rc->id }}">{{ $rc->title }}</option>
+        @endforeach
+      </select>
+    </div>
+    <div class="form-group mb-3">
       <div class="label-text">Категория</div>
       <select name="category" id="category" class="form-select mt-1">
         @foreach($categories as $category)

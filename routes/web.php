@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\RecommendationController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -70,18 +71,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/products/{id}/destroy', [ProductController::class, 'destroy'])->name('dashboard.products-destroy');
 
-    // testimonials
+    // Testimonials
     Route::get('/dashboard/testimonials', [TestimonialController::class, 'index'])->name('dashboard.testimonials');
-
-    // Route::get('/dashboard/testimonials/create', [ProductController::class, 'create'])->name('dashboard.testimonials-create');
-
-    // Route::post('/dashboard/testimonials/store', [ProductController::class, 'store'])->name('dashboard.testimonials-store');
-
-    // Route::get('/dashboard/testimonials/{id}/edit', [ProductController::class, 'edit'])->name('dashboard.testimonials-edit');
 
     Route::post('/dashboard/testimonials/{id}/update', [TestimonialController::class, 'update'])->name('dashboard.testimonials-update');
 
     Route::get('/dashboard/testimonials/{id}/destroy', [TestimonialController::class, 'destroy'])->name('dashboard.testimonials-destroy');
+
+    // Recommendations
+    Route::get('/dashboard/recommendations', [RecommendationController::class, 'index'])->name('dashboard.recommendations');
+
+    Route::get('/dashboard/recommendations/create', [RecommendationController::class, 'create'])->name('dashboard.recommendations-create');
+
+    Route::post('/dashboard/recommendations/store', [RecommendationController::class, 'store'])->name('dashboard.recommendations-store');
+
+    Route::get('/dashboard/recommendations/{id}', [RecommendationController::class, 'show'])->name('dashboard.recommendations-show');
+
+    Route::get('/dashboard/recommendations/{id}/edit', [RecommendationController::class, 'edit'])->name('dashboard.recommendations-edit');
+
+    Route::post('/dashboard/recommendations/{id}/update', [RecommendationController::class, 'update'])->name('dashboard.recommendations-update');
+
+    Route::get('/dashboard/recommendations/{id}/destroy', [RecommendationController::class, 'destroy'])->name('dashboard.recommendations-destroy');
 
 });
 

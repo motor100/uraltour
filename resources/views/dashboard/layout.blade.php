@@ -39,13 +39,13 @@
               <span>Отзывы</span>
             </a>
           </div>
-          <!-- 
           <div class="nav-item">
-            <a href="/dashboard/companies" class="item-link">
-              <i class="nav-icon fas fa-briefcase"></i>
-              <span>Компании</span>
+            <a href="/dashboard/recommendations" class="item-link">
+              <i class="nav-icon fas fa-check-square"></i>
+              <span>Рекомендации</span>
             </a>
           </div>
+          <!-- 
           <div class="nav-item">
             <a href="/dashboard/client-contracts" class="item-link">
               <i class="nav-icon fas fa-file"></i>

@@ -48,9 +48,13 @@ class ProductController extends Controller
      */
     public function create(): View
     {
+        // Категории
         $categories = Category::all();
 
-        return view('dashboard.products-create', compact('categories'));
+        // Рекомендации
+        $recommendations = \App\Models\Recommendation::all();
+
+        return view('dashboard.products-create', compact('categories', 'recommendations'));
     }
 
     /**
@@ -65,6 +69,7 @@ class ProductController extends Controller
             'title' => 'required|min:2|max:250',
             'text_json' => 'required|min:2|max:65535',
             'category' => 'required',
+            
             'input-main-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
