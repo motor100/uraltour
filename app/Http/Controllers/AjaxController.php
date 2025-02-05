@@ -64,14 +64,11 @@ class AjaxController extends Controller
         $validated = $validator->validated();
         
         // Google Captcha
-        /*
         $g_response = (new \App\Services\GoogleCaptcha($validated))->get();
 
         if (!$g_response) {
             return response()->json(['error' => 'google captcha error']);
         }
-        */
-
         
         $testimonial = \App\Models\Testimonial::create([
             'product_id' => $validated["product-id"] ? $validated["product-id"] : NULL,

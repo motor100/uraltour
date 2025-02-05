@@ -392,6 +392,7 @@ if (callbackSubmitBtn) {
 // Звездный рейтинг в окне Оставить отзыв
 const stars = document.querySelectorAll('.testimonial-modal .stars .star');
 const inputRating = document.querySelector('.testimonial-modal #input-rating');
+
 inputRating.value = 0;
 
 stars.forEach((item, index) => {
@@ -427,6 +428,75 @@ function fixedStarActive(index) {
     stars[j].classList.add('click-active');
   }
   inputRating.value = index + 1;
+}
+
+
+// Отправка отзывов ajax
+const testimonialModalForm = document.querySelector('#testimonial-modal-form');
+const testimonialModalSubmitBtn = document.querySelector('#testimonial-modal-submit-btn');
+
+function ajaxTestimonial(form) {
+
+  const inputs = form.querySelectorAll('.input-field');
+  let arr = [];
+
+  const inputName = form.querySelector('.js-required-name');
+  if (inputName.value.length < 3 || inputName.value.length > 20) {
+    inputName.classList.add('required');
+    arr.push(false);
+  }
+
+  const inputText = form.querySelector('.js-required-text');
+  if (inputText.value.length < 3 || inputText.value.length > 1000) {
+    inputText.classList.add('required');
+    arr.push(false);
+  }
+
+  const inputCheckboxes = form.querySelectorAll('.js-required-checkbox');
+
+  inputCheckboxes.forEach((item) => {
+    if (!item.checked) {
+      arr.push(false);
+    }
+  });
+
+  if (arr.length == 0) {
+    for (let i = 0; i < inputs.length; i++) {
+      inputs[i].classList.remove('required');
+    }
+
+    fetch('/ajaxaddtestimonial', {
+      method: 'POST',
+      cache: 'no-cache',
+      body: new FormData(form)
+    })
+    .then((response) => response.json())
+    .then((json) => {
+      if (json.error) {
+        alert("Ошибка. Попробуйте еще раз.");
+      } else {
+        alert("Спасибо за отзыв.");
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    form.reset();
+
+    form.querySelector('.gallery-file-text').innerText = 'Прикрепить фото (не более 3)';
+
+    stars.forEach((item) => {
+      item.classList.remove('active');
+      item.classList.remove('click-active');
+    });
+  }
+
+  return false;
+}
+
+testimonialModalSubmitBtn.onclick = () => {
+  ajaxTestimonial(testimonialModalForm);
 }
 
 

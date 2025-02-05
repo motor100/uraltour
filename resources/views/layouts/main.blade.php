@@ -277,11 +277,12 @@
           <div class="close"></div>
         </div>
         <div class="modal-title">Оставьте отзыв</div>
-        <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post" action="/ajaxaddtestimonial">
+        <!-- <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post" action="/ajaxaddtestimonial"> -->
+        <form id="testimonial-modal-form" class="form" enctype="multipart/form-data" method="post">
           <div class="flex-container">
             <div class="form-group">
               <label for="name-testimonial-modal" class="label">Имя <span class="accentcolor">*</span></label>
-              <input type="text" name="name" id="name-testimonial-modal" class="input-field js-name-testimonial-modal" required minlength="3" maxlength="20" placeholder="Имя">
+              <input type="text" name="name" id="name-testimonial-modal" class="input-field js-required-name" required minlength="3" maxlength="20" placeholder="Имя">
             </div>
             <div class="form-group">
               <div class="label">Оценка</div>
@@ -316,7 +317,7 @@
           </div>
           <div class="form-group">
             <label for="text-testimonial-modal" class="label">Отзыв <span class="accentcolor">*</span></label>
-            <textarea name="text" id="text-testimonial-modal" class="input-field textarea js-text-testimonial-modal" required minlength="3" maxlength="200" placeholder="Отзыв"></textarea>
+            <textarea name="text" id="text-testimonial-modal" class="input-field textarea js-required-text" required minlength="3" maxlength="1000" placeholder="Отзыв"></textarea>
           </div>
           <div class="form-group input-file-flex-container">
             <input type="file" name="input-gallery-file[]" id="input-gallery-file" class="inputfile" accept="image/jpeg,image/png" multiple>
@@ -326,19 +327,20 @@
             <div class="attach-photo gallery-file-text">Прикрепить фото (не более 3)</div>
           </div>
           <input type="hidden" id="product-id" name="product-id" value="{{ isset($product) ? $product->id : 0 }}">
-          <input type="hidden" id="input-rating" name="rating" value="">
+          <input type="hidden" id="input-rating" name="rating" value="0">
           <input type="hidden" id="recaptcha" name="recaptcha" value="">
           @csrf
 
-          <!-- <button type="submit" id="testimonial-submit-btn" class="modal-submit-btn primary-btn" data-sitekey="{{ config('google.client_key') }}" data-callback="onSubmit"  data-action="submitContact">Отправить</button> -->
-          <button type="submit" id="testimonial-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
+          <!-- <button type="submit" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button> -->
           <div class="agreement-text">
-            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
+          <button type="button" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
+          <div class="agreement-text">
+            <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-modal-submit-btn').disabled = !this.checked;">
             <label for="checkbox-read-testimonial-modal" class="custom-checkbox-label"></label>
             <span class="checkbox-text">Ознакомлен с <a href="/privacy-policy" class="privacy-policy-link" target="_blank">политикой конфиденциальности</a></span>
           </div>
           <div class="agreement-text">
-            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-testimonial-modal" checked required onchange="document.getElementById('testimonial-submit-btn').disabled = !this.checked;">
+            <input type="checkbox" name="checkbox-agree" class="custom-checkbox js-required-checkbox" id="checkbox-agree-testimonial-modal" checked required onchange="document.getElementById('testimonial-modal-submit-btn').disabled = !this.checked;">
             <label for="checkbox-agree-testimonial-modal" class="custom-checkbox-label"></label>
             <span class="checkbox-text">Согласен на <a href="/agreement" class="agreement-link" target="_blank">обработку персональных данных</a></span>
           </div>
@@ -413,8 +415,8 @@
   <script>
     function updateCaptcha() {
       grecaptcha.execute("{{ config('google.client_key') }}", {action: 'ajaxaddtestimonial'}).then(function(token) {
-        if(token){
-            document.getElementById('recaptcha').value = token;
+        if (token) {
+          document.getElementById('recaptcha').value = token;
         }
       });
     }

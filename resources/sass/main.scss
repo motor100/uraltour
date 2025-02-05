@@ -2115,10 +2115,14 @@ p {
     font-family: 'montserrat-medium';
     font-size: 18px;
     color: $textcolor;
+    &.required {
+      border: 1px solid red;
+    }
   }
   .input-field::placeholder {
     color: #C8C8C8;
   }
+
   .agreement-text {
     a {
       color: $orangecolor;
