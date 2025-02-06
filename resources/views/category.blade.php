@@ -27,7 +27,7 @@
   </div>
 
   @if(count($products) > 0)
-    <div class="products-section">
+    <div class="{{ count($regular_products) > 0 ? 'products-section' : 'products-section section' }}">
       <div class="container">
 
         <div id="filter-menu-btn" class="filter-menu-btn hidden-desktop">Фильтры</div>
