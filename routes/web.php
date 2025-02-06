@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\RecommendationController;
+use App\Http\Controllers\Admin\PaymentController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -92,6 +93,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/recommendations/{id}/update', [RecommendationController::class, 'update'])->name('dashboard.recommendations-update');
 
     Route::get('/dashboard/recommendations/{id}/destroy', [RecommendationController::class, 'destroy'])->name('dashboard.recommendations-destroy');
+
+    // Payments
+    Route::get('/dashboard/payments', [PaymentController::class, 'index'])->name('dashboard.payments');
+
+    Route::get('/dashboard/payments/create', [PaymentController::class, 'create'])->name('dashboard.payments-create');
+
+    Route::post('/dashboard/payments/store', [PaymentController::class, 'store'])->name('dashboard.payments-store');
+
+    Route::get('/dashboard/payments/{id}', [PaymentController::class, 'show'])->name('dashboard.payments-show');
+
+    Route::get('/dashboard/payments/{id}/edit', [PaymentController::class, 'edit'])->name('dashboard.payments-edit');
+
+    Route::post('/dashboard/payments/{id}/update', [PaymentController::class, 'update'])->name('dashboard.payments-update');
+
+    Route::get('/dashboard/payments/{id}/destroy', [PaymentController::class, 'destroy'])->name('dashboard.payments-destroy');
 
 });
 

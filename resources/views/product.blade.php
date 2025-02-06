@@ -130,19 +130,16 @@
     @if($product->description->recommendation)
       <div class="product-recommendation product-description-item">
         <div class="product-subtitle">Рекомендации</div>
-        <div class="product-text">{!! $product->description->recommendation->text_html !!}
-        </div>
+        <div class="product-text">{!! $product->description->recommendation->text_html !!}</div>
       </div>
     @endif
     
+    @if($product->description->payment)
     <div class="product-payment product-description-item">
       <div class="product-subtitle">Оплата</div>
-      <div class="product-text">
-        Однодневные туры оплачиваются в течении трех суток - 100%.<br>
-        Многодневные туры - предоплата 30%-50% в течении трех суток<br>
-        За 14 дней до отправления оплачивается полностью.
-      </div>
+      <div class="product-text">{!! $product->description->payment->text_html !!}</div>
     </div>
+    @endif
 
     <div class="product-photos product-description-item">
       <div class="product-subtitle">Фото</div>

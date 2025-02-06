@@ -45,6 +45,12 @@
               <span>Рекомендации</span>
             </a>
           </div>
+          <div class="nav-item">
+            <a href="/dashboard/payments" class="item-link">
+              <i class="nav-icon fas fa-credit-card"></i>
+              <span>Оплата</span>
+            </a>
+          </div>
           <!-- 
           <div class="nav-item">
             <a href="/dashboard/client-contracts" class="item-link">

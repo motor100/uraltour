@@ -50,6 +50,23 @@
       </select>
     </div>
     <div class="form-group mb-3">
+      <div class="label-text mb-1">Оплата</div>
+      <select name="payment" class="form-select mt-1">
+        <option value="" selected="selected"></option>
+        @foreach($payments as $pm)
+          @if($product->description->payment)
+            @if($pm->id == $product->description->payment->id)
+              <option value="{{ $pm->id }}" selected>{{ $pm->title }}</option>
+            @else
+              <option value="{{ $pm->id }}">{{ $pm->title }}</option>
+            @endif
+          @else
+            <option value="{{ $pm->id }}">{{ $pm->title }}</option>
+          @endif
+        @endforeach
+      </select>
+    </div>
+    <div class="form-group mb-3">
       <div class="label-text">Категория</div>
       <select name="category" id="category" class="form-select mt-1">
         @foreach($categories as $category)

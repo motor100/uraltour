@@ -26,6 +26,15 @@ class ProductDescription extends Model
     {
         return $this->belongsTo(Recommendation::class, 'recommendation_id');
     }
+
+    /**
+     * Получить оплату товара.
+     * Один ко многим обратное
+     */
+    public function payment(): BelongsTo
+    {
+        return $this->belongsTo(Payment::class, 'payment_id');
+    }
     
     /**
      * The attributes that are mass assignable.
@@ -37,5 +46,6 @@ class ProductDescription extends Model
         'text_json',
         'text_html',
         'recommendation_id',
+        'payment_id',
     ];
 }

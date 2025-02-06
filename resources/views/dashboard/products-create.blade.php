@@ -39,6 +39,15 @@
       </select>
     </div>
     <div class="form-group mb-3">
+      <div class="label-text mb-1">Оплата</div>
+      <select name="payment" class="form-select mt-1">
+        <option value="" selected="selected"></option>
+        @foreach($payments as $pm)
+          <option value="{{ $pm->id }}">{{ $pm->title }}</option>
+        @endforeach
+      </select>
+    </div>
+    <div class="form-group mb-3">
       <div class="label-text mb-1">Категория</div>
       <select name="category" id="category" class="form-select mt-1">
         <option value="" selected="selected" disabled></option>

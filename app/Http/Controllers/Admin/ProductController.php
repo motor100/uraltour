@@ -54,7 +54,10 @@ class ProductController extends Controller
         // Рекомендации
         $recommendations = \App\Models\Recommendation::all();
 
-        return view('dashboard.products-create', compact('categories', 'recommendations'));
+        // Оплата
+        $payments = \App\Models\Payment::all();
+
+        return view('dashboard.products-create', compact('categories', 'recommendations', 'payments'));
     }
 
     /**
@@ -69,6 +72,7 @@ class ProductController extends Controller
             'title' => 'required|min:2|max:250',
             'text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
+            'payment' => 'nullable',
             'category' => 'required',
             'regular' => 'nullable',
             'input-main-file' => [
@@ -112,6 +116,7 @@ class ProductController extends Controller
             'text_json' => $validated['text_json'],
             'text_html' => $html,
             'recommendation_id' => isset($validated['recommendation']) ? $validated['recommendation'] : NULL,
+            'payment_id' => isset($validated['payment']) ? $validated['payment'] : NULL,
         ];
 
         ProductDescription::create($description_array);
@@ -164,7 +169,10 @@ class ProductController extends Controller
         // Рекомендации
         $recommendations = \App\Models\Recommendation::all();
 
-        return view('dashboard.products-edit', compact('product', 'categories', 'recommendations', 'current_category', 'to_editorjs'));
+        // Оплата
+        $payments = \App\Models\Payment::all();
+
+        return view('dashboard.products-edit', compact('product', 'categories', 'recommendations', 'payments', 'current_category', 'to_editorjs'));
     }
 
     /**
@@ -182,6 +190,7 @@ class ProductController extends Controller
             'regular' => 'nullable',
             'text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
+            'payment' => 'nullable',
             'input-main-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
@@ -225,6 +234,7 @@ class ProductController extends Controller
             'text_json' => $validated['text_json'],
             'text_html' => $html,
             'recommendation_id' => isset($validated['recommendation']) ? $validated['recommendation'] : NULL,
+            'payment_id' => isset($validated['payment']) ? $validated['payment'] : NULL,
         ];
 
         ProductDescription::where('product_id', $product->id)->update($description_array);
