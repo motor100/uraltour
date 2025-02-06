@@ -69,7 +69,7 @@ class ProductController extends Controller
             'title' => 'required|min:2|max:250',
             'text_json' => 'required|min:2|max:65535',
             'category' => 'required',
-            
+            'regular' => 'nullable',
             'input-main-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
@@ -100,6 +100,7 @@ class ProductController extends Controller
             'category_id' => $validated['category'],
             'image' => (new \App\Services\ProductImage($validated))->create(),
             'price' => $validated['price'],
+            'regular' => isset($validated['regular']) ? 1 : 0,
         ];
 
         $product = Product::create($product_array);
@@ -173,6 +174,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:2|max:250',
             'category' => 'required',
+            'regular' => 'nullable',
             'text_json' => 'required|min:2|max:65535',
             'input-main-file' => [
                                 'nullable',
@@ -265,6 +267,7 @@ class ProductController extends Controller
             'category_id' => $validated['category'],
             'image' => $image,
             'price' => $validated['price'],
+            'regular' => isset($validated['regular']) ? 1 : 0,
         ];
 
         $product->update($product_array);

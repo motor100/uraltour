@@ -48,6 +48,10 @@
       </select>
     </div>
     <div class="form-group mb-3">
+      <input type="checkbox" id="regular" name="regular" class="form-check-input">
+      <label class="form-check-label" for="regular">Регулярный</label>
+    </div>
+    <div class="form-group mb-3">
       <div class="label-text mb-1">Изображение</div>
       <input type="file" name="input-main-file" id="input-main-file" class="inputfile" accept="image/jpeg,image/png">
       <label for="input-main-file" class="custom-inputfile-label">Выберите файл</label>
