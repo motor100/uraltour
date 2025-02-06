@@ -32,7 +32,7 @@
     <div class="form-group mb-3">
       <div class="label-text mb-1">Рекомендация</div>
       <select name="recommendation" class="form-select mt-1">
-        <option value="" selected="selected" disabled></option>
+        <option value="" selected="selected"></option>
         @foreach($recommendations as $rc)
           <option value="{{ $rc->id }}">{{ $rc->title }}</option>
         @endforeach

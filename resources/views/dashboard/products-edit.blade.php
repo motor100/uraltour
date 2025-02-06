@@ -33,12 +33,20 @@
       <div id="editorjs"></div>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Рекомендации</div>
+      <div class="label-text mb-1">Рекомендация</div>
       <select name="recommendation" class="form-select mt-1">
-        <option value="" selected="selected" disabled></option>
-        @ foreach($recommendations as $rc)
-          <option value="{{-- $ rc->id --}}">{{-- $ rc->title --}}</option>
-        @ endforeach
+        <option value="" selected="selected"></option>
+        @foreach($recommendations as $rc)
+          @if($product->description->recommendation)
+            @if($rc->id == $product->description->recommendation->id)
+              <option value="{{ $rc->id }}" selected>{{ $rc->title }}</option>
+            @else
+              <option value="{{ $rc->id }}">{{ $rc->title }}</option>
+            @endif
+          @else
+            <option value="{{ $rc->id }}">{{ $rc->title }}</option>
+          @endif
+        @endforeach
       </select>
     </div>
     <div class="form-group mb-3">

@@ -117,6 +117,7 @@
       <div class="product-note orange-color">* время ориентировочное и может изменяться в зависимости от подготовленности группы и погодных условий.</div>
     </div>
 
+    <!-- 
     <div class="product-include product-description-item">
       <div class="product-subtitle">В стоимость включено</div>
       <div class="product-text">
@@ -124,27 +125,15 @@
         При наборе группы менее 19 человек будет подан микроавтобус туристического класса.
       </div>
     </div>
+     -->
 
-
-    <div class="product-recommend product-description-item">
-      <div class="product-subtitle">Рекомендации</div>
-      <div class="product-text">
-        Рекомендуем взять с собой:<br> 
-        паспорт или документ, удостоверяющий личность;<br> 
-        свидетельство о рождении детей;<br>
-        для льготной категории - удостоверение;<br>
-        удобную сумку или рюкзак;<br>
-        горячий чай в термосе или другие напитки, воду, сок и т.п.<br>
-        На санитарной остановке будет возможность перекуса (чай,кофе)<br>
-        подушечку под голову в автобус;<br>
-        наличные деньги. Мелочь для посещения санитарных зон, в некоторых местах посещение платное;<br>
-        влажные салфетки, туалетная бумага;<br>
-        заряженный телефон, (если есть)- зарядное устройство;<br>
-        Для посещения комплекса:<br>  
-        Купальные принадлежности. Сланцы. Полотенца. Шампунь, гель для душа, мочалку;
+    @if($product->description->recommendation)
+      <div class="product-recommendation product-description-item">
+        <div class="product-subtitle">Рекомендации</div>
+        <div class="product-text">{!! $product->description->recommendation->text_html !!}
+        </div>
       </div>
-    </div>
-
+    @endif
     
     <div class="product-payment product-description-item">
       <div class="product-subtitle">Оплата</div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class ProductDescription extends Model
 {
@@ -16,6 +17,15 @@ class ProductDescription extends Model
      * @var string
      */
     protected $table = 'products_descriptions';
+
+    /**
+     * Получить рекомендацию товара.
+     * Один ко многим обратное
+     */
+    public function recommendation(): BelongsTo
+    {
+        return $this->belongsTo(Recommendation::class, 'recommendation_id');
+    }
     
     /**
      * The attributes that are mass assignable.
@@ -26,5 +36,6 @@ class ProductDescription extends Model
         'product_id',
         'text_json',
         'text_html',
+        'recommendation_id',
     ];
 }

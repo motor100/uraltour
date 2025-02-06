@@ -68,6 +68,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:2|max:250',
             'text_json' => 'required|min:2|max:65535',
+            'recommendation' => 'nullable',
             'category' => 'required',
             'regular' => 'nullable',
             'input-main-file' => [
@@ -110,6 +111,7 @@ class ProductController extends Controller
             'product_id' => $product->id,
             'text_json' => $validated['text_json'],
             'text_html' => $html,
+            'recommendation_id' => isset($validated['recommendation']) ? $validated['recommendation'] : NULL,
         ];
 
         ProductDescription::create($description_array);
@@ -159,7 +161,10 @@ class ProductController extends Controller
         // Передача данных в редактор Editor JS
         $to_editorjs = $product->description->text_json;
 
-        return view('dashboard.products-edit', compact('product', 'categories', 'current_category', 'to_editorjs'));
+        // Рекомендации
+        $recommendations = \App\Models\Recommendation::all();
+
+        return view('dashboard.products-edit', compact('product', 'categories', 'recommendations', 'current_category', 'to_editorjs'));
     }
 
     /**
@@ -176,6 +181,7 @@ class ProductController extends Controller
             'category' => 'required',
             'regular' => 'nullable',
             'text_json' => 'required|min:2|max:65535',
+            'recommendation' => 'nullable',
             'input-main-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
@@ -218,6 +224,7 @@ class ProductController extends Controller
             'product_id' => $product->id,
             'text_json' => $validated['text_json'],
             'text_html' => $html,
+            'recommendation_id' => isset($validated['recommendation']) ? $validated['recommendation'] : NULL,
         ];
 
         ProductDescription::where('product_id', $product->id)->update($description_array);
