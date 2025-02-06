@@ -70,6 +70,34 @@ if (galleryDelete) {
 }
 
 
+// Выбор файлов Фото
+const inputPhotoFile = document.querySelector('#input-photo-file');
+const photoFileText = document.querySelector('.photo-file-text');
+
+if (inputPhotoFile) {
+  inputPhotoFile.onchange = function() {
+    let filesName = '';
+    for (let i = 0; i < this.files.length; i++) {
+      filesName += this.files[i].name + ' ';
+    }
+    photoFileText.innerHTML = filesName;
+  }
+}
+
+// Удаление всех файлов из Фото
+const photoDelete = document.querySelector('.photo-delete');
+const photoImagePreview = document.querySelector('.photo-image-preview');
+const inputDeletePhoto = document.querySelector('[name="delete_photo"]');
+
+if (photoDelete) {
+  photoDelete.onclick = function() {
+    photoDelete.classList.add('hidden');
+    photoImagePreview.innerHTML = '';
+    inputDeletePhoto.value = 1;
+  }
+}
+
+
 // Сurrent notifications read and delete
 let currentNotifications = document.querySelector('.current-notifications');
 

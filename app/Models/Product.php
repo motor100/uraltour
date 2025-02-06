@@ -56,6 +56,15 @@ class Product extends Model
     }
 
     /**
+     * Получить фото товара.
+     * Один ко многим
+     */
+    public function photos(): hasMany
+    {
+        return $this->hasMany(ProductPhoto::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

@@ -111,6 +111,22 @@
       <label for="input-gallery-file" class="custom-inputfile-label">Выберите файлы</label>
       <span class="namefile gallery-file-text">Файлы не выбраны</span>
     </div>
+    <div class="form-group">
+      <div class="image-preview photo-image-preview">
+        @if($product->photos->count() > 0)
+          @foreach($product->photos as $gl)
+            <img src="{{ Storage::url($gl->image) }}" alt="">
+          @endforeach
+          <div class="photo-delete">Удалить фото</div>
+        @endif
+      </div>
+    </div>
+    <div class="form-group mb-3">
+      <div class="label-text mb-1">Фото (не более 6)</div>
+      <input type="file" name="input-photo-file[]" id="input-photo-file" class="inputfile" accept="image/jpeg,image/png" multiple>
+      <label for="input-photo-file" class="custom-inputfile-label">Выберите файлы</label>
+      <span class="namefile photo-file-text">Файлы не выбраны</span>
+    </div>
     <div class="form-group mb-3">
       <label for="start_date">Дата</label>
       <input type="text" class="form-control datepicker" name="start_date" min="0" step="1" value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
@@ -121,6 +137,7 @@
     </div>
 
     <input type="hidden" name="delete_gallery" value="">
+    <input type="hidden" name="delete_photo" value="">
     <input type="hidden" name="text_json" id="save-data-input" value="">
 
     @csrf

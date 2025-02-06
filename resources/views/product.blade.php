@@ -141,26 +141,18 @@
     </div>
     @endif
 
-    <div class="product-photos product-description-item">
-      <div class="product-subtitle">Фото</div>
-      <div class="product-photos-grid-container">
-        <div class="product-photos-item">
-          <img src="/img/temp-product-photo.jpg" alt="">
-        </div>
-        <div class="product-photos-item">
-          <img src="/img/temp-product-photo.jpg" alt="">
-        </div>
-        <div class="product-photos-item">
-          <img src="/img/temp-product-photo.jpg" alt="">
-        </div>
-        <div class="product-photos-item">
-          <img src="/img/temp-product-photo.jpg" alt="">
-        </div>
-        <div class="product-photos-item">
-          <img src="/img/temp-product-photo.jpg" alt="">
+    @if(count($product->photos) > 0)
+      <div class="product-photos product-description-item">
+        <div class="product-subtitle">Фото</div>
+        <div class="product-photos-grid-container">
+          @foreach($product->photos as $photo)
+            <div class="product-photos-item">
+              <img src="{{ Storage::url($photo->image) }}" alt="">
+            </div>
+          @endforeach
         </div>
       </div>
-    </div>
+    @endif
     
     <div class="product-testimonials product-description-item">
       <div class="product-subtitle">Отзывы клиентов</div>

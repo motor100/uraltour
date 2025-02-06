@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductGallery;
+use App\Models\ProductPhoto;
 use App\Models\ProductDescription;
 use \App\Models\Category;
 use Illuminate\Http\RedirectResponse;
@@ -76,7 +77,7 @@ class ProductController extends Controller
             'category' => 'required',
             'regular' => 'nullable',
             'input-main-file' => [
-                                'nullable',
+                                'required',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
                                                                     ->max(3000)
@@ -87,7 +88,13 @@ class ProductController extends Controller
                                                                     ->min(10)
                                                                     ->max(3000)
                                 ],
-            'start_date' => 'nullable',
+            'input-photo-file' => 'nullable|max:6',
+            'input-photo-file.*' => [
+                                \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
+                                                                    ->min(10)
+                                                                    ->max(3000)
+                                ],
+            'start_date' => 'required_without:regular',
             'price' => 'required|integer|min:1|max:500000',
         ]);
 
@@ -104,6 +111,7 @@ class ProductController extends Controller
             'slug' => $slug,
             'category_id' => $validated['category'],
             'image' => (new \App\Services\ProductImage($validated))->create(),
+            'start_date' => isset($validated['start_date']) ? $validated['start_date'] : NULL,
             'price' => $validated['price'],
             'regular' => isset($validated['regular']) ? 1 : 0,
         ];
@@ -122,9 +130,9 @@ class ProductController extends Controller
         ProductDescription::create($description_array);
 
         // Галерея
-        if(array_key_exists('gallery', $validated)) {
+        if(array_key_exists('input-gallery-file', $validated)) {
             $gallery_array = [];
-            foreach($validated['gallery'] as $gl) {
+            foreach($validated['input-gallery-file'] as $gl) {
                 $gallery_item = [];
                 $gallery_item["product_id"] = $product->id;
                 $gallery_item["image"] = (new \App\Services\ProductGallery($gl))->create();
@@ -134,6 +142,21 @@ class ProductController extends Controller
             }
 
             ProductGallery::insert($gallery_array);
+        }
+
+        // Фото
+        if(array_key_exists('input-photo-file', $validated)) {
+            $photo_array = [];
+            foreach($validated['input-photo-file'] as $gl) {
+                $photo_item = [];
+                $photo_item["product_id"] = $product->id;
+                $photo_item["image"] = (new \App\Services\ProductPhoto($gl))->create();
+                $photo_item["created_at"] = now();
+                $photo_item["updated_at"] = now();
+                $photo_array[] = $photo_item;
+            }
+
+            ProductPhoto::insert($photo_array);
         }
 
         return redirect()->route('dashboard.products');
@@ -203,9 +226,16 @@ class ProductController extends Controller
                                                                     ->min(10)
                                                                     ->max(3000)
                                 ],
+            'input-photo-file' => 'nullable|max:6',
+            'input-photo-file.*' => [
+                                \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
+                                                                    ->min(10)
+                                                                    ->max(3000)
+                                ],
             'price' => 'required|integer|min:1|max:500000',
-            'start_date' => 'nullable',
+            'start_date' => 'required_without:regular',
             'delete_gallery' => 'nullable',
+            'delete_photo' => 'nullable',
         ]);
 
         $product = Product::findOrFail($id);
@@ -278,11 +308,51 @@ class ProductController extends Controller
             ProductGallery::insert($gallery_array);
         }
 
+        // Удаление старых фото
+        if ($validated['delete_photo']) {
+            // Удаление файлов photo images 
+            foreach($product->photos as $gl) {
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
+                }
+                $gl->delete();
+            }
+        }
+
+        // Вставка новых моделей фото
+        if(isset($validated['input-photo-file'])) {
+            $old_photo = ProductPhoto::where('product_id', $id)->get();
+            foreach($old_photo as $gl) {
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
+                }
+            }
+
+            ProductPhoto::where('product_id', $id)->delete();
+
+            // Вставка новых записей фото
+            $photo_array = [];
+
+            $photo = $validated['input-photo-file'];
+
+            foreach($photo as $gl) {
+                $photo_item = [];
+                $photo_item["product_id"] = $id;
+                $photo_item["image"] = (new \App\Services\ProductPhoto($gl))->create();
+                $photo_item["created_at"] = now();
+                $photo_item["updated_at"] = now();
+                $photo_array[] = $photo_item;
+            }
+
+            ProductPhoto::insert($photo_array);
+        }
+
         $product_array = [
             'title' => $validated['title'],
             'slug' => $slug,
             'category_id' => $validated['category'],
             'image' => $image,
+            'start_date' => isset($validated['start_date']) ? $validated['start_date'] : NULL,
             'price' => $validated['price'],
             'regular' => isset($validated['regular']) ? 1 : 0,
         ];
@@ -316,11 +386,23 @@ class ProductController extends Controller
             }
         }
 
+        // Удаление файлов photo images
+        if ($product->photo) {
+            foreach ($product->photo as $gl) {
+                if (Storage::disk('public')->exists($gl->image)) {
+                    Storage::disk('public')->delete($gl->image);
+                }
+            }
+        }
+
         // Удаление модели описания
         ProductDescription::where('product_id', $id)->delete();
 
         // Удаление модели галереи
         ProductGallery::where('product_id', $id)->delete();
+
+        // Удаление модели фото
+        ProductPhoto::where('product_id', $id)->delete();
 
         // Удаление модели Product
         $product->delete();

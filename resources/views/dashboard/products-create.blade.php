@@ -73,6 +73,12 @@
       <span class="namefile gallery-file-text">Файлы не выбраны</span>
     </div>
     <div class="form-group mb-3">
+      <div class="label-text mb-1">Фото (не более 6)</div>
+      <input type="file" name="input-photo-file[]" id="input-photo-file" class="inputfile" accept="image/jpeg,image/png" multiple>
+      <label for="input-photo-file" class="custom-inputfile-label">Выберите файлы</label>
+      <span class="namefile photo-file-text">Файлы не выбраны</span>
+    </div>
+    <div class="form-group mb-3">
       <label for="start_date">Дата</label>
       <input type="text" class="form-control datepicker" name="start_date"min="0" step="1" minlength="8" maxlength="15" required value="{{ old('start_date') }}">
     </div>
