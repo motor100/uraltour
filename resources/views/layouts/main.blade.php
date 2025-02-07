@@ -228,7 +228,7 @@
           <span class="custom-checkbox"></span>
         </label>
       </div>
-      <button class="submit-btn">Применить</button>
+      <button class="submit-btn primary-btn">Применить</button>
     </div>
   </div>
 
