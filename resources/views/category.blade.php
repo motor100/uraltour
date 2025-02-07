@@ -34,8 +34,8 @@
 
         <div class="sort">
           <span class="sort-text">Сортировка</span>
-          <span class="expensive-first first" data-sort="desc">сначала дорогие</span>
-          <span class="cheap-first first" data-sort="asc">сначала дешевые</span>
+          <a href="{{ url()->current() }}?sort=desc" class="expensive-first first {{ request()->sort == 'desc' ? 'active' : '' }}" data-sort="desc">сначала дорогие</a>
+          <a href="{{ url()->current() }}?sort=asc" class="cheap-first first {{ request()->sort == 'asc' ? 'active' : '' }}" data-sort="asc">сначала дешевые</a>
         </div>
 
         <div class="grid-container">
@@ -153,7 +153,7 @@
             </div>
 
             <div class="pagination-links">
-              {{ $products->onEachSide(1)->links() }}
+              {{ $products->links() }}
             </div>
 
           </div>

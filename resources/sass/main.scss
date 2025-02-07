@@ -1292,9 +1292,10 @@ p {
     color: #9AA6AC;
   }
   .first {
-    cursor: pointer;
+    color: $textcolor;
     transition: color .3s;
   }
+  .first.active,
   .first:hover {
     color: $orangecolor;
   }

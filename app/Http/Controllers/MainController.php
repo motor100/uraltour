@@ -50,15 +50,23 @@ class MainController extends Controller
     /**
      * Категория каталога
      * 
+     * @param \Illuminate\Http\Request $request;
      * @param App\Models\Category
      * @return Illuminate\View\View
      */
-    public function category(Category $category = null): View
+    public function category(Request $request, Category $category = null): View
     {
         if ($category) {
 
-            $products = Product::where('category_id', $category->id)->paginate(9);
+            $products = Product::where('category_id', $category->id);
 
+            // Сортировка по цене по параметру sort
+            $products = (new \App\Services\ProductSort($request, $products))->sort();
+
+            // Пагинация с параметрами сортировки
+            $products = $products->paginate(9)->withQueryString()->onEachSide(1);
+
+            // Добавление краткого описания
             foreach($products as $product) {
                 $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
             }
