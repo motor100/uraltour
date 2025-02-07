@@ -58,13 +58,14 @@
               <span>Архив</span>
             </a>
           </div>
-          <!-- 
+          
           <div class="nav-item">
-            <a href="/dashboard/company-contracts" class="item-link">
-              <i class="nav-icon fas fa-file"></i>
-              <span>Договоры с<br> компаниями</span>
+            <a href="/dashboard/selections" class="item-link">
+              <i class="nav-icon fas fa-list"></i>
+              <span>Подборки</span>
             </a>
           </div>
+          <!-- 
           <div class="nav-item">
             <a href="/dashboard/wishes" class="item-link">
               <i class="nav-icon fas fa-heart"></i>

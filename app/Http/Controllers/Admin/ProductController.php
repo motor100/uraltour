@@ -20,7 +20,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      * 
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\View\View
      */
     public function index(Request $request): View
@@ -64,8 +64,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      * 
-     * @param  \Illuminate\Http\Request $request
-     * @return Illuminate\Http\RedirectResponse
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request): RedirectResponse
     {
@@ -173,7 +173,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      * 
-     * @param int $id
+     * @param string $id
      * @return \Illuminate\View\View
      */
     public function edit(string $id): View
@@ -201,9 +201,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      * 
-     * @param  \Illuminate\Http\Request $request
-     * @param  int  $id
-     * @return Illuminate\Http\RedirectResponse
+     * @param \Illuminate\Http\Request $request
+     * @param string $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, string $id): RedirectResponse
     {
@@ -242,7 +242,7 @@ class ProductController extends Controller
 
         $slug = Str::slug($validated['title']);
 
-        if($slug != $product->slug) {
+        if ($slug != $product->slug) {
             // Проверка на уникальный slug
             $slug = (new \App\Services\Slug(Product::query(), $slug))->check();            
         }
@@ -365,8 +365,8 @@ class ProductController extends Controller
     /**
      * Soft delete
      * 
-     * @param int $id
-     * @return Illuminate\Http\RedirectResponse
+     * @param string $id
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(string $id): RedirectResponse
     {

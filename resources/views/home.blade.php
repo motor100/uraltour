@@ -16,66 +16,23 @@
       @include('search')
       <div class="selection hidden-mobile">
         <div class="flex-container">
-          <div class="selection-item">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
+          @foreach($selections as $selection)
+            <div class="selection-item">
+              <div class="selection-item__image">
+                <img src="{{ Storage::url($selection->image) }}" alt="">
+              </div>
+              <div class="label">
+                <img src="/img/selection-label-tree.png" class="label-image" alt="">
+                <span class="label-text">{{ $selection->title }}</span>
+              </div>
+              <div class="label-element">
+                <img src="/img/selection-orange-element.png" alt="">
+              </div>
+              <!-- <div class="selection-item__title">Название</div> -->
+              <div class="selection-item__excerpt">{{ $selection->excerpt }}</div>
+              <a href="/selections/{{ $selection->slug }}" class="full-link"></a>
             </div>
-            <div class="label">
-              <img src="/img/selection-label-tree.png" class="label-image" alt="">
-              <span class="label-text">Новогодние туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection2.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
+          @endforeach
         </div>
       </div>
       <div class="hand-swipe-right hidden-desktop">
@@ -85,66 +42,23 @@
     <div class="selection slider-wrapper hidden-desktop">
       <div class="selection-slider swiper">
         <div class="swiper-wrapper">
-          <div class="selection-item swiper-slide">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
+          @foreach($selections as $selection)
+            <div class="selection-item swiper-slide">
+              <div class="selection-item__image">
+                <img src="{{ Storage::url($selection->image) }}" alt="">
+              </div>
+              <div class="label">
+                <img src="/img/selection-label-tree.png" class="label-image" alt="">
+                <span class="label-text">{{ $selection->title }}</span>
+              </div>
+              <div class="label-element">
+                <img src="/img/selection-orange-element.png" alt="">
+              </div>
+              <!-- <div class="selection-item__title">Название</div> -->
+              <div class="selection-item__excerpt">{{ $selection->excerpt }}</div>
+              <a href="/selections/{{ $selection->slug }}" class="full-link"></a>
             </div>
-            <div class="label">
-              <img src="/img/selection-label-tree.png" class="label-image" alt="">
-              <span class="label-text">Новогодние туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item swiper-slide">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection2.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item swiper-slide">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
-          <div class="selection-item swiper-slide">
-            <div class="selection-item__image">
-              <img src="/img/temp-selection1.jpg" alt="">
-            </div>
-            <div class="label">
-              <img src="/img/selection-label-fire.png" class="label-image" alt="">
-              <span class="label-text">Горячие туры</span>
-            </div>
-            <div class="label-element">
-              <img src="/img/selection-orange-element.png" alt="">
-            </div>
-            <div class="selection-item__title">Название</div>
-            <div class="selection-item__description">Краткое описание</div>
-            <a href="#" class="full-link"></a>
-          </div>
+          @endforeach
         </div>
       </div>
     </div>

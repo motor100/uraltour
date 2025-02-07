@@ -18,6 +18,9 @@ class MainController extends Controller
      */
     public function home(): View
     {
+        // Подборки
+        $selections = \App\Models\Selection::all();
+        
         // Категории
         $categories = \App\Models\Category::all();
         
@@ -28,12 +31,12 @@ class MainController extends Controller
                                                 ->limit(6)
                                                 ->get();
 
-        // Удаление галереи
+        // Удаление галереи из отзывов
         foreach($testimonials as $testimonial) {
             $testimonial->gallery = [];
         }
         
-        return view('home', compact('categories', 'testimonials'));
+        return view('home', compact('selections', 'categories', 'testimonials'));
     }
 
     /**
@@ -212,5 +215,15 @@ class MainController extends Controller
     public function agreement(): View
     {
         return view('agreement');
+    }
+
+
+    public function selection($slug)
+    {
+        $selection = \App\Models\Selection::where('slug', $slug)->first();
+
+        // $products = Product::where('category_id', $category->id);
+        
+        return view('selection', compact('selection'));
     }
 }

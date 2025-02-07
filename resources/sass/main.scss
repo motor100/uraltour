@@ -237,17 +237,18 @@ p {
   .label-element img {
     width: 100%;
   }
-  .selection-item__title {
+  // .selection-item__title {
+  //   position: absolute;
+  //   bottom: 40px;
+  //   left: 20px;
+  //   font-family: 'montserrat-bold';
+  //   font-size: 18px;
+  //   color: #fff;
+  // }
+  .selection-item__excerpt {
     position: absolute;
+    // bottom: 20px;
     bottom: 40px;
-    left: 20px;
-    font-family: 'montserrat-bold';
-    font-size: 18px;
-    color: #fff;
-  }
-  .selection-item__description {
-    position: absolute;
-    bottom: 20px;
     left: 20px;
     color: #fff;
   }
@@ -2580,11 +2581,11 @@ p {
     .label-element {
       width: 10px;
     }
-    .selection-item__title {
-      left: 15px;
-      font-size: 16px;
-    }
-    .selection-item__description {
+    // .selection-item__title {
+    //   left: 15px;
+    //   font-size: 16px;
+    // }
+    .selection-item__excerpt {
       left: 15px;
       font-size: 14px;
     }
