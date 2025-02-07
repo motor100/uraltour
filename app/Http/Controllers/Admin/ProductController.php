@@ -363,7 +363,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Soft delete
      * 
      * @param int $id
      * @return Illuminate\Http\RedirectResponse
@@ -372,6 +372,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
+        /*
         // Удаление файла product image
         if (Storage::disk('public')->exists($product->image)) {
             Storage::disk('public')->delete($product->image);
@@ -403,6 +404,7 @@ class ProductController extends Controller
 
         // Удаление модели фото
         ProductPhoto::where('product_id', $id)->delete();
+        */
 
         // Удаление модели Product
         $product->delete();

@@ -51,13 +51,14 @@
               <span>Оплата</span>
             </a>
           </div>
-          <!-- 
+          
           <div class="nav-item">
-            <a href="/dashboard/client-contracts" class="item-link">
-              <i class="nav-icon fas fa-file"></i>
-              <span>Договоры с<br> клиентами</span>
+            <a href="/dashboard/products-archive" class="item-link">
+              <i class="nav-icon fas fa-archive"></i>
+              <span>Архив</span>
             </a>
           </div>
+          <!-- 
           <div class="nav-item">
             <a href="/dashboard/company-contracts" class="item-link">
               <i class="nav-icon fas fa-file"></i>

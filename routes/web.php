@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\RecommendationController;
 use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\ProductArchiveController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -108,6 +109,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/dashboard/payments/{id}/update', [PaymentController::class, 'update'])->name('dashboard.payments-update');
 
     Route::get('/dashboard/payments/{id}/destroy', [PaymentController::class, 'destroy'])->name('dashboard.payments-destroy');
+
+    // Products archive
+    Route::get('/dashboard/products-archive', [ProductArchiveController::class, 'index'])->name('dashboard.products-archive');
+
+    Route::get('/dashboard/products-archive/{id}', [ProductArchiveController::class, 'show'])->name('dashboard.products-archive-show');
+
+    Route::get('/dashboard/products-archive/{id}/restore', [ProductArchiveController::class, 'restore'])->name('dashboard.products-archive-restore');
 
 });
 
