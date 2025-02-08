@@ -90,7 +90,7 @@
               </svg>
             </div>
           </div>
-          <div class="testimonials-count product-info__value">12 отзывов</div>
+          <!-- <div class="testimonials-count product-info__value">12 отзывов</div> -->
         </div>
         @if($product->start_date)
           <div class="product-start-date product-info">
