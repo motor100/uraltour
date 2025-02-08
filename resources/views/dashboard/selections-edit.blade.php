@@ -46,6 +46,10 @@
       <div class="label-text">Товары</div>
     </div>
 
+    <div id="app">
+      <add-product-component></add-product-component>
+    </div>
+
     @csrf
     <button type="submit" class="btn btn-primary">Обновить</button>
   </form>
@@ -56,4 +60,8 @@
   const menuItem = 5;
 </script>
 
+@endsection
+
+@section('script')
+  @vite(['resources/js/app.js'])
 @endsection

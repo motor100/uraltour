@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
     plugins: [
+        vue(),
         laravel({
             input: [
                 'resources/css/app.css',
@@ -12,6 +14,7 @@ export default defineConfig({
                 'resources/js/main.js',
                 'resources/js/dashboard.js',
                 'resources/js/editor.js',
+                'resources/js/app.js',
             ],
             refresh: true,
         }),

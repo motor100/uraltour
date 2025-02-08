@@ -175,7 +175,6 @@
   margin: 0 0 0 10px;
 }
 
-
 // Stars звездочки рейтинг отзывы
 .stars {
   display: flex;
@@ -188,6 +187,23 @@
   }
 }
 
+// Поиск товаров
+.search-dropdown {
+  background-color: #fff;
+  // padding: 0 13px;
+  .dropdown {
+    padding: 5px 0;
+  }
+  .dropdown-item {
+    margin: 5px 0;
+    padding: 3px 13px;
+    cursor: pointer;
+    transition: background-color .2s;
+  }
+  .dropdown-item:hover {
+    background-color: lightgrey;
+  }
+}
 
 
 @media only screen and (max-width : 1400px) {
