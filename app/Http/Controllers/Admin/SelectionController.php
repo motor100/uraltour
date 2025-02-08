@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Selection;
+use App\Models\ProductSelection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -81,6 +82,7 @@ class SelectionController extends Controller
                                                                     ->min(10)
                                                                     ->max(3000)
                                 ],
+            'products' => 'required'
         ]);
 
         $selection = Selection::findOrFail($id);
@@ -109,6 +111,20 @@ class SelectionController extends Controller
         $selection->description = $validated['description'];
 
         $selection->save();
+
+        // Удаляю все товары из этой подборки
+        ProductSelection::where('selection_id', $id)->delete();
+
+        // Вставляю новые товары
+        $insert_array = [];
+
+        foreach ($validated['products'] as $key => $value) {
+            $tmp['product_id'] = intval($key);
+            $tmp['selection_id'] = intval($id);
+            $insert_array[] = $tmp;
+        }
+
+        ProductSelection::insert($insert_array);
 
         return redirect()->back();
     }

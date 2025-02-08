@@ -46,13 +46,47 @@
       <div class="label-text">Товары</div>
     </div>
 
+    @if(count($selection->products) > 0)
+      <table class="table table-striped">
+        @foreach($selection->products as $product)
+          <tr>
+            <td>
+              <input type="text" name="products[{{ $product->id }}]" class="input-product" readonly value="{{ $product->title }}">
+            </td>
+          </tr>
+        @endforeach
+      </table>
+    @endif
+
+    <!-- 
+    <div class="form-group mb-1 position-relative">
+      <label for="product-search" class="form-label">Поиск</label>
+      <input type="text" id="product-search" name="product-search" class="form-control">
+      <div class="search-close active"></div>
+      <div class="search-dropdown">
+        <div class="dropdown">
+          <div class="dropdown-item">Волгоград</div>
+          <div class="dropdown-item">Дагестан</div>
+          <div class="dropdown-item">Байкал</div>
+          <div class="dropdown-item">Дагестан</div>
+          <div class="dropdown-item">Байкал</div>
+        </div>
+        <div class="dropdown-message">Результатов более 5</div>
+      </div>
+    </div>
+     -->
+
     <div id="app">
       <add-product-component></add-product-component>
     </div>
 
+    <div class="height100"></div>
+
     @csrf
     <button type="submit" class="btn btn-primary">Обновить</button>
   </form>
+
+  <div class="height100"></div>
 
 </div>
 

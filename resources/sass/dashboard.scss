@@ -308,20 +308,73 @@
 
 // Поиск товаров
 .search-dropdown {
+  position: absolute;
+  top: 74px;
+  left: 0;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
   background-color: #fff;
   // padding: 0 13px;
-  .dropdown {
-    padding: 5px 0;
-  }
+  // .dropdown {
+  //   padding: 5px 0;
+  // }
   .dropdown-item {
-    margin: 5px 0;
-    padding: 3px 13px;
+    // margin: 5px 0;
+    padding: 5px 13px;
     cursor: pointer;
     transition: background-color .2s;
   }
   .dropdown-item:hover {
     background-color: lightgrey;
   }
+  .search-message,
+  .search-not-found {
+    padding: 5px 13px;
+    font-size: 13px;
+  }
+}
+.input-product {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  margin: 10px 0;
+  background-color: transparent;
+}
+.search-close {
+  position: absolute;
+  top: 41px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: all .3s;
+  z-index: 2;
+}
+.search-close::before,
+.search-close::after {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  width: 16px;
+  height: 2px;
+  background-color: $textcolor;
+  transition: background-color .2s;
+}
+.search-close::before {
+  transform: rotate(45deg);
+}
+.search-close::after {
+  transform: rotate(-45deg);
+}
+.search-close:hover::before,
+.search-close:hover::after {
+  background-color: $orangecolor;
+}
+.height100 {
+  height: 100px;
 }
 
 
