@@ -187,6 +187,125 @@
   }
 }
 
+// Pagination pager
+.pager {
+  display: flex;
+  width: max-content;
+  margin: 0 auto 50px auto;
+  padding: 22px 0 0 0;
+  border-top: 1px solid #D5DADD;
+  list-style: none;
+  justify-content: center;
+  .pager-item {
+    height: 36px;
+    margin: 0 12px;
+    // padding: 0 8px;
+    text-align: center;
+    transition: all .3s;
+    @media only screen and (max-width : 480px) {
+      min-width: 28px;
+      height: 28px;
+      margin: 0 3px;
+      padding: 1px 6px;
+      font-size: 14px;
+    }
+  }
+  .pager-item-previous {
+    margin-left: 0;
+  }
+  .pager-item-next {
+    margin-right: 0;
+  }
+  .pager-item-link,
+  .pager-item-span {
+    display: block;
+    font-family: 'montserrat-medium';
+    color: $thirdlightbluecolor;
+    line-height: 2.2;
+    @media only screen and (max-width : 480px) {
+      line-height: 1.9;
+    }
+  }
+  .pager-item.active .pager-item-link,
+  .pager-item.active .pager-item-span {
+    color: $textcolor;
+  }
+  .pager-item:hover .pager-item-link,
+  .pager-item:hover .pager-item-span {
+    color: $orangecolor;
+  }
+  .pager-item-nav {
+    position: relative;
+    padding: 0;
+  }
+  .pager-item-nav .pager-item-link {
+    position: relative;
+    width: 48px;
+    height: 36px;
+    border: 1px solid #D0D5DD;
+    border-radius: 8px;
+    background-color: #fff;
+    @media only screen and (max-width : 480px) {
+      width: 42px;
+      height: 28px;
+    }
+  }
+  .pager-item .arrow-right,
+  .pager-item .arrow-left {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: auto;
+  }
+  .pager-item-nav:hover .arrow-right::before,
+  .pager-item-nav:hover .arrow-right::after,
+  .pager-item-nav:hover .arrow-left::before,
+  .pager-item-nav:hover .arrow-left::after {
+    background-color: $orangecolor;
+  }
+  .pager-item .arrow-right::before,
+  .pager-item .arrow-right::after,
+  .pager-item .arrow-left::before,
+  .pager-item .arrow-left::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: $textcolor;
+    transition: background-color .3s;
+  }
+  .pager-item .arrow-right::before,
+  .pager-item .arrow-right::after {
+    right: 4px;
+  }
+  .pager-item .arrow-right::before {
+    top: 6px;
+    transform: rotate(45deg);
+  }
+  .pager-item .arrow-right::after {
+    top: 12px;
+    transform: rotate(-45deg);
+  }
+  .pager-item .arrow-left::before,
+  .pager-item .arrow-left::after {
+    left: 4px;
+  }
+  .pager-item .arrow-left::before {
+    top: 6px;
+    transform: rotate(-45deg);
+  }
+  .pager-item .arrow-left::after {
+    top: 12px;
+    transform: rotate(45deg);
+  }
+}
+
 // Поиск товаров
 .search-dropdown {
   background-color: #fff;

@@ -39,11 +39,8 @@ class ProductRating
             // Округление, тип float
             $rating = round($rating / $count);
 
-            // Преобразование к типу integer
-            $rating = intval($rating);
-
-            // Обновление рейтинга модель Product
-            $this->testimonial->product->rating = $rating;
+            // Преобразование к типу integer и обновление рейтинга модель Product
+            $this->testimonial->product->rating = intval($rating);
 
             $this->testimonial->product->save();
         }
