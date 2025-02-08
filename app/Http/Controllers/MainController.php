@@ -106,7 +106,9 @@ class MainController extends Controller
                                                     ->orderBy('created_at', 'DESC')
                                                     ->paginate(10);
 
-            return view('product', compact('product', 'testimonials'));
+            $product_categories = Category::limit(4)->get();
+
+            return view('product', compact('product', 'product_categories', 'testimonials'));
         }
 
         return abort(404);

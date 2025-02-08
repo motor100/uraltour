@@ -54,12 +54,11 @@
         <div class="product-title primary-title">{{ $product->title }}</div>
         <div class="product-category product-info">
           <div class="product-info__text">Категории</div>
-          <div class="category-item">
-            <a href="#" class="category-item__link product-info__value">Национальные маршруты</a>
-          </div>
-          <div class="category-item">
-            <a href="#" class="category-item__link product-info__value">Поездки по России</a>
-          </div>
+          @foreach($product_categories as $catetory)
+            <div class="category-item">
+              <a href="/catalog/{{-- $catetory->slug --}}" class="category-item__link product-info__value">{{ $catetory->title }}</a>
+            </div>
+          @endforeach
         </div>
         <div class="product-rating product-info">
           <div class="rating-text product-info__text">Рейтинг</div>
