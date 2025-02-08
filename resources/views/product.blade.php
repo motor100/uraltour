@@ -52,8 +52,17 @@
       </div>
       <div class="product-content">
         <div class="product-title primary-title">{{ $product->title }}</div>
-        <div class="product-rating">
-          <div class="rating-text">Рейтинг</div>
+        <div class="product-category product-info">
+          <div class="product-info__text">Категории</div>
+          <div class="category-item">
+            <a href="#" class="category-item__link product-info__value">Национальные маршруты</a>
+          </div>
+          <div class="category-item">
+            <a href="#" class="category-item__link product-info__value">Поездки по России</a>
+          </div>
+        </div>
+        <div class="product-rating product-info">
+          <div class="rating-text product-info__text">Рейтинг</div>
           <div class="stars">
             <div class="{{ $product->rating >= 1 ? 'star active' : 'star' }}">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -81,10 +90,13 @@
               </svg>
             </div>
           </div>
-          <span class="testimonials-count">12 отзывов</span>
+          <div class="testimonials-count product-info__value">12 отзывов</div>
         </div>
         @if($product->start_date)
-          <div class="product-start-date">{{ $product->start_date->format('d.m.Y') }}</div>
+          <div class="product-start-date product-info">
+            <div class="product-info__text">Дата</div>
+            <div class="product-start-date product-info__value">{{ $product->start_date->format('d.m.Y') }}</div>
+          </div>
         @endif
         
         <div class="product-price">

@@ -330,7 +330,6 @@
           <input type="hidden" id="recaptcha" name="recaptcha" value="">
           @csrf
 
-          <div class="agreement-text">
           <button type="button" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
           <div class="agreement-text">
             <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-modal-submit-btn').disabled = !this.checked;">
