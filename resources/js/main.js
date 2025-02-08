@@ -500,6 +500,31 @@ testimonialModalSubmitBtn.onclick = () => {
 }
 
 
+// To top
+const toTop = document.getElementById("to-top");
+
+if (toTop) {
+
+  toTop.onclick = () => {
+    scroll(0, 0);
+  }
+
+  // Показать to-top при скролле
+  window.onscroll = () => {
+    
+    let scrToTop = window.scrollY || document.documentElement.scrollTop;
+    
+    if (scrToTop > 600) {
+      toTop.classList.add('active');
+    } else {
+      toTop.classList.remove('active');
+    }
+
+  }
+
+}
+
+
 // Set cookie
 function setCookie(name, value, days) {
   let expires = "";

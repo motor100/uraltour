@@ -47,4 +47,8 @@
   </div>
 </div>
 
+<div id="to-top" class="to-top hidden-mobile">
+  <div class="circle"></div>
+</div>
+
 @endsection

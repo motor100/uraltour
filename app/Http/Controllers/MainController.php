@@ -66,8 +66,8 @@ class MainController extends Controller
             // Сортировка по цене по параметру sort
             $products = (new \App\Services\ProductSort($request, $products))->sort();
 
-            // Пагинация с параметрами сортировки
-            $products = $products->paginate(9)->withQueryString()->onEachSide(1);
+            // Пагинация с параметрами
+            $products = $products->paginate(12)->withQueryString()->onEachSide(1);
 
             // Добавление краткого описания
             foreach($products as $product) {

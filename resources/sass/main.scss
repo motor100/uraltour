@@ -114,12 +114,19 @@ p {
   width: 219px;
   height: 50px;
   padding: 0;
-  border: 1px solid $textcolor;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $textcolor;
   border-radius: 10px;
   background-color: #fff;
   font-family: 'montserrat-semibold';
   font-size: 18px;
   color: $textcolor;
+  transition: border-color .3s, color .3s;
+}
+.secondary-btn:hover {
+  border-color: $orangecolor;
+  color: $orangecolor;
 }
 .grecaptcha-badge { 
   visibility: hidden !important;
@@ -2040,6 +2047,48 @@ p {
   }
 }
 
+// To top
+.to-top {
+  position: fixed;
+  left: 153px;
+  bottom: 80px;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 5;
+  cursor: pointer;
+  transition: visibility .5s, opacity .5s;
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  .circle {
+    position: relative;
+    width: 65px;
+    height: 65px;
+    background-color: $orangecolor;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  .circle:before,
+  .circle:after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+  }
+  .circle:before {
+    left: 12px;
+    transform: rotate(-45deg);
+  }
+  .circle:after {
+    left: 28px;
+    transform: rotate(45deg);
+  }
+}
+
 // Modal
 .modal-window {
   display: none;
@@ -2836,6 +2885,11 @@ p {
     .product-btn {
       height: 45px;
     }
+  }
+
+  // To top
+  .to-top {
+    display: none;
   }
 
   // Modal window

@@ -1,4 +1,4 @@
-@section('title', $search_query)
+@section('title', 'Поиск')
 
 @extends('layouts.main')
 
@@ -20,8 +20,6 @@
     <div class="parent">
       <span>Поиск</span>
     </div>
-    <div class="separator">/</div>
-    <div class="active">{{ $search_query }}</div>
   </div>
 </div>
 
