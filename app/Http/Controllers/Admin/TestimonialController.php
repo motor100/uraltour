@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use App\Models\Testimonial;
+use App\Services\ProductRating;
 use Illuminate\Support\Facades\Storage;
 
 class TestimonialController extends Controller
@@ -75,6 +76,11 @@ class TestimonialController extends Controller
             'text' => $validated["text"],
             'publicated_at' => now(),
         ]);
+
+        // Обновление рейтинга для товара
+        $rating = new ProductRating($testimonial);
+
+        $rating->set();
 
         return redirect()->route('dashboard.testimonials');
     }

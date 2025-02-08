@@ -27,6 +27,7 @@ class Product extends Model
         'image',
         'start_date',
         'price',
+        'rating',
         'regular',
     ];
 

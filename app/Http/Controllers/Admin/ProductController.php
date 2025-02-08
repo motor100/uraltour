@@ -113,6 +113,7 @@ class ProductController extends Controller
             'image' => (new \App\Services\ProductImage($validated))->create(),
             'start_date' => isset($validated['start_date']) ? $validated['start_date'] : NULL,
             'price' => $validated['price'],
+            'rating' => 5, // Рейтинг по умолчанию
             'regular' => isset($validated['regular']) ? 1 : 0,
         ];
 
