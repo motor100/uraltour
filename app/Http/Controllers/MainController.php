@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-// use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Selection;
 
 class MainController extends Controller
 {
@@ -86,6 +87,32 @@ class MainController extends Controller
         }
 
         return abort(404);
+    }
+
+    /**
+     * Подборки
+     * 
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function selections(): RedirectResponse
+    {
+        return redirect()->route('home');
+    }
+
+    /**
+     * Подборка
+     * 
+     * @param App\Models\Selection
+     * @return Illuminate\View\View
+     */
+    public function selection(Selection $selection): View
+    {
+        // Добавление краткого описания
+        foreach($selection->products as $product) {
+            $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+        }
+        
+        return view('selection', compact('selection'));
     }
 
     /**
@@ -217,15 +244,5 @@ class MainController extends Controller
     public function agreement(): View
     {
         return view('agreement');
-    }
-
-
-    public function selection($slug)
-    {
-        $selection = \App\Models\Selection::where('slug', $slug)->first();
-
-        // $products = Product::where('category_id', $category->id);
-        
-        return view('selection', compact('selection'));
-    }
+    }    
 }

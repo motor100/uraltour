@@ -48,33 +48,34 @@
 
     @if(count($selection->products) > 0)
       <table class="table table-striped">
-        @foreach($selection->products as $product)
+        <thead>
           <tr>
-            <td>
-              <input type="text" name="products[{{ $product->id }}]" class="input-product" readonly value="{{ $product->title }}">
-            </td>
+            <th class="number-column">№</th>
+            <th>Название</th>
+            <th class="button-column"></th>
           </tr>
-        @endforeach
+        </thead>
+        <tbody>
+          @foreach($selection->products as $product)
+            <tr>
+              <th>{{ $loop->index + 1 }}</th>
+              <td>
+                <input type="text" name="products[{{ $product->id }}]" class="input-product" readonly value="{{ $product->title }}">
+              </td>
+              <td class="button-group">
+                <form class="form" action="{{ route('dashboard.selection-product-destroy', $product->id) }}" method="get">
+                  <input type="hidden" name="selection_id" value="{{ $selection->id }}">
+                  @csrf
+                  <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
+              </td>
+            </tr>
+          @endforeach
+        </tbody>
       </table>
     @endif
-
-    <!-- 
-    <div class="form-group mb-1 position-relative">
-      <label for="product-search" class="form-label">Поиск</label>
-      <input type="text" id="product-search" name="product-search" class="form-control">
-      <div class="search-close active"></div>
-      <div class="search-dropdown">
-        <div class="dropdown">
-          <div class="dropdown-item">Волгоград</div>
-          <div class="dropdown-item">Дагестан</div>
-          <div class="dropdown-item">Байкал</div>
-          <div class="dropdown-item">Дагестан</div>
-          <div class="dropdown-item">Байкал</div>
-        </div>
-        <div class="dropdown-message">Результатов более 5</div>
-      </div>
-    </div>
-     -->
 
     <div id="app">
       <add-product-component></add-product-component>

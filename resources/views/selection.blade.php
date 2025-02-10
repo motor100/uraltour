@@ -26,10 +26,9 @@
     <div class="page-title">{{ $selection->title }}</div>
   </div>
 
-  @if(count($selection->products) > 0)
-    <div class="products-section">
-      <div class="container">
-
+  <div class="products-section">
+    <div class="container">
+      @if(count($selection->products) > 0)
         <div id="filter-menu-btn" class="filter-menu-btn hidden-desktop">Фильтры</div>
 
         <div class="sort">
@@ -98,10 +97,11 @@
 
           </div>
         </div>
-        
-      </div>
+      @else
+        <p class="no-product">Товаров не найдено</p>
+      @endif
     </div>
-  @endif
+  </div>
 
 </div>
 @endsection

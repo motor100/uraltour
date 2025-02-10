@@ -1,11 +1,19 @@
 <template>
-  
-
-  <table class="table table-striped">
+  <table
+    v-if=products.length
+    class="table table-striped">
+    <thead>
+      <tr>
+        <th class="number-column">№</th>
+        <th>Название</th>
+        <th class="button-column"></th>
+      </tr>
+    </thead>
     <tbody>
       <tr
-        v-for="item in products"
+        v-for="item, index in products"
       >
+        <th>{{ index + 1 }}</th>
         <td>
           <input
             type="text"
@@ -14,10 +22,19 @@
             v-bind:value=item.title
           >
         </td>
+        <td class="button-group">
+          <button
+            v-on:click="removeProduct"
+            v-bind:data-id=index
+            type="button" class="btn btn-danger">
+            <i
+              v-bind:data-id=index
+              class="fas fa-trash"></i>
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
-
 
   <div class="form-group mb-1 position-relative">
     <label for="product-search" class="form-label">Поиск</label>
@@ -27,14 +44,14 @@
       type="text"
       id="product-search"
       name="product-search"
-      class="form-control">
+      class="form-control"
+      autocomplete="off">
     <div
       v-if="close"
       v-on:click="searchClose"
       class="search-close">
     </div>
     <div
-
       class="search-dropdown">
       <div class="dropdown">
         <div
@@ -60,12 +77,10 @@
 
 <script>
 export default {
-  name: "AddProductComponent",
-  
+  name: "AddProductComponent",  
 
   data() {
     return {
-      // search: false,
       close: false, // крестик очистки строки поиска и результатов
       searchInput: '', // строка поиска
       searchResults: [], // результаты поиска
@@ -76,13 +91,8 @@ export default {
   },
 
   methods: {
-    // Добавление строки поиска
-    // addSearchInput() {
-    //   this.search = true;
-    // },
 
     addProduct(event) {
-      // this.search = false;
       this.searchInput = '';
       this.searchResults = [];
       this.searchMessage = false;
@@ -92,12 +102,25 @@ export default {
     },
 
     searchClose() {
-      // this.search = false;
       this.searchInput = '';
       this.searchResults = [];
       this.searchMessage = false;
       this.close = false;
       this.searchNotFound = false;
+    },
+
+    removeProduct(event) {
+
+      let resultArray = new Array();
+
+      // Создание нового массива
+      for (let i = 0; i < this.products.length; i++) {
+        if (i != event.target.getAttribute('data-id')){
+          // Добавление значения в новый массив
+          resultArray.push(this.products[i]);
+        }
+      }
+      this.products = resultArray;
     },
 
     // Метод отправки запроса через axios
@@ -107,7 +130,7 @@ export default {
       } else {
         this.close = false;
       }
-      if (this.searchInput.length > 3 && this.searchInput.length < 40) {
+      if (this.searchInput.length > 3 && this.searchInput.length < 100) {
         axios
           .get(`/ajax-product-search?search_query=${this.searchInput}`)
           .then(response => {
@@ -123,18 +146,11 @@ export default {
             } else {
               this.searchNotFound = true;
             }
-
-            // this.cnts = response.data;
-            // this.pagination = [];
-            // this.addClickDelBtn();
-            // console.log(response);
           })
           .catch(error => {
             console.log(error)
           });
       }
-      // this.addClickDelBtn();
-      
     },
   },
   

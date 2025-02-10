@@ -36,9 +36,9 @@ Route::get('/testimonials', [MainController::class, 'testimonials']);
 
 Route::get('/booking', [MainController::class, 'booking']);
 
-// Route::get('/selections', [MainController::class, 'selections']);
+Route::get('/selections', [MainController::class, 'selections']);
 
-Route::get('/selections/{slug}', [MainController::class, 'selection']);
+Route::get('/selections/{selection}', [MainController::class, 'selection']);
 
 
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
@@ -125,17 +125,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Selections
     Route::get('/dashboard/selections', [SelectionController::class, 'index'])->name('dashboard.selections');
 
-    // Route::get('/dashboard/payments/create', [PaymentController::class, 'create'])->name('dashboard.payments-create');
-
-    // Route::post('/dashboard/payments/store', [PaymentController::class, 'store'])->name('dashboard.payments-store');
-
-    // Route::get('/dashboard/payments/{id}', [PaymentController::class, 'show'])->name('dashboard.payments-show');
-
     Route::get('/dashboard/selections/{id}/edit', [SelectionController::class, 'edit'])->name('dashboard.selections-edit');
 
     Route::post('/dashboard/selections/{id}/update', [SelectionController::class, 'update'])->name('dashboard.selections-update');
 
-    // Route::get('/dashboard/payments/{id}/destroy', [PaymentController::class, 'destroy'])->name('dashboard.payments-destroy');
+    // Selection product удаление товара из подборки
+    Route::get('/dashboard/selection-product/{id}/destroy', [AdminController::class, 'selection_product_destroy'])->name('dashboard.selection-product-destroy');
 
 });
 

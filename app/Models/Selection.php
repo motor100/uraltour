@@ -24,4 +24,12 @@ class Selection extends Model
     {
         return $this->belongsToMany(Product::class);
     }
+
+    /**
+     * Поиск модели по slug
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

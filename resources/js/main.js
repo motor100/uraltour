@@ -244,8 +244,8 @@ searchInput.oninput = searchOnInput;
 
 function searchOnInput() {
 
-  // Ограничение по количеству символов > 3 и <=50
-  if (searchInput.value.length > 3 && searchInput.value.length <= 50) {
+  // Ограничение по количеству символов > 3 и <=100
+  if (searchInput.value.length > 3 && searchInput.value.length <= 100) {
 
     const searchSeeAll = document.querySelector('.search-see-all');
 
