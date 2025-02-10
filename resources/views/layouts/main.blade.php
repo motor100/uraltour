@@ -348,42 +348,8 @@
 
   <div id="cookie_note" class="we-use-cookie">
     <div class="we-use-cookie-wrapper">
-      <div class="we-use-cookie-text">Этот сайт использует cookie-файлы и другие технологии для улучшения его работы. Продолжая работу с сайтом, вы разрешаете использование cookie-файлов. Вы всегда можете отключить файлы cookie в настройках Вашего браузера.</div>
+      <div class="we-use-cookie-text">Мы <a href="/privacy-policy">используем cookie</a> (файлы с данными о прошлых посещениях сайта) для персонализации сервисов и удобства пользователей</div>
       <button id="cookie_accept" class="we-use-cookie-close">ОК</button>
-    </div>
-  </div>
-
-  <div class="fixed-bottom-menu" style="display: none;">
-    <div class="menu-wrapper">
-      <div class="menu-item">
-        <div class="menu-item__image">
-          <img src="/img/fixed-bottom-menu-bus.svg" alt="">
-        </div>
-        <div class="menu-item__title">Туры</div>
-        <a href="/catalog" class="full-link"></a>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item__image">
-          <img src="/img/fixed-bottom-menu-cards.svg" alt="">
-        </div>
-        <div class="menu-item__title">Подборки</div>
-        <a href="#" class="full-link"></a>
-      </div>
-      <div class="menu-item">
-        <div class="menu-item__image">
-          <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
-        </div>
-        <div class="menu-item__title">Акции</div>
-        <a href="#" class="full-link"></a>
-      </div>
-      <div class="vertikal-line"></div>
-      <div class="menu-item">
-        <div class="menu-item__image">
-          <img src="/img/fixed-bottom-menu-fire.svg" alt="">
-        </div>
-        <div class="menu-item__title">Горящие туры</div>
-        <a href="#" class="full-link"></a>
-      </div>
     </div>
   </div>
 

@@ -229,8 +229,42 @@
 
 </div>
 
+<div class="fixed-bottom-menu">
+  <div class="menu-wrapper">
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/img/fixed-bottom-menu-bus.svg" alt="">
+      </div>
+      <div class="menu-item__title">Туры</div>
+      <a href="/catalog" class="full-link"></a>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/img/fixed-bottom-menu-cards.svg" alt="">
+      </div>
+      <div class="menu-item__title">Подборки</div>
+      <a href="#" class="full-link"></a>
+    </div>
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
+      </div>
+      <div class="menu-item__title">Акции</div>
+      <a href="#" class="full-link"></a>
+    </div>
+    <div class="vertikal-line"></div>
+    <div class="menu-item">
+      <div class="menu-item__image">
+        <img src="/img/fixed-bottom-menu-fire.svg" alt="">
+      </div>
+      <div class="menu-item__title">Горящие туры</div>
+      <a href="#" class="full-link"></a>
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @section('script')
-<script src="{{ asset('/js/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('/js/swiper-bundle.min.js') }}"></script>
 @endsection

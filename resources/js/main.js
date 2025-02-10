@@ -500,6 +500,46 @@ testimonialModalSubmitBtn.onclick = () => {
 }
 
 
+// Закреп нижнего меню на главной странице
+const fixedBottomMenu = document.querySelector('.fixed-bottom-menu');
+
+if (fixedBottomMenu) {
+  // Показать to-top при скролле
+  window.onscroll = () => {
+    
+    let scrToTop = window.scrollY || document.documentElement.scrollTop;
+    
+    if (scrToTop > 1000) {
+      fixedBottomMenu.classList.add('active');
+    } else {
+      fixedBottomMenu.classList.remove('active');
+    }
+
+  }
+}
+
+
+// Закреп кнопок в карточке товара
+const productPage = document.querySelector('.product-page');
+
+if (productPage) {
+
+  const productButtons = document.querySelector('.product-buttons');
+
+  window.onscroll = () => {
+    
+    let scrToTop = window.scrollY || document.documentElement.scrollTop;
+    
+    if (scrToTop > 1400) {
+      productButtons.classList.add('active');
+    } else {
+      productButtons.classList.remove('active');
+    }
+
+  }
+}
+
+
 // To top
 const toTop = document.getElementById("to-top");
 
@@ -521,7 +561,6 @@ if (toTop) {
     }
 
   }
-
 }
 
 

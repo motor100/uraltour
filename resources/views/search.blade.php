@@ -10,7 +10,7 @@
         </div>
         <img src="/img/search-lens.png" class="search-lens" alt="">
       </div>
-      <button class="search-submit-btn">
+      <button class="search-submit-btn hidden-mobile">
         <img src="/img/search-icon.png" class="search-submit-btn__image" alt="">
         <span class="search-submit-btn__text">Найти тур</span>
       </button>
