@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<div class="poisk-page category-page">
+<div class="poisk-page category-page sp-page">
   <div class="container">
     <div class="page-title">Результаты поиска</div>
 
@@ -32,16 +32,16 @@
 
       <div class="sort">
         <span class="sort-text">Сортировка</span>
-        <span class="expensive-first first" data-sort="desc">сначала дорогие</span>
-        <span class="cheap-first first" data-sort="asc">сначала дешевые</span>
+        <a href="{{ url()->query('/poisk', ['search_query' => $search_query, 'sort' => 'desc']) }}" class="expensive-first first {{ request()->sort == 'desc' ? 'active' : '' }}" data-sort="desc">сначала дорогие</a>
+        <a href="{{ url()->query('/poisk', ['search_query' => $search_query, 'sort' => 'asc']) }}" class="cheap-first first {{ request()->sort == 'asc' ? 'active' : '' }}" data-sort="asc">сначала дешевые</a>
       </div>
 
       @if(count($products) > 0)
-      <div class="products">
-        @foreach($products as $product)
-          @include('product-card')
-        @endforeach
-      </div>
+        <div class="products sp-products">
+          @foreach($products as $product)
+            @include('product-card')
+          @endforeach
+        </div>
       @else
         <p class="no-product">Товаров не найдено</p>
       @endif

@@ -1582,6 +1582,7 @@ p {
   }
 }
 
+// Documents page
 .documents-page {
   min-height: 500px;
   .document {
@@ -1660,8 +1661,12 @@ p {
     margin: 0 0 55px 0;
     font-size: 28px;
   }
-  .products {
-    grid-template-columns: repeat(4, 1fr);
+}
+
+// Страница Поиск и Подборки
+.sp-page {
+  .sp-products {
+    grid-template-columns: repeat(4,1fr);
   }
 }
 
@@ -2884,6 +2889,13 @@ p {
     }
     .product-btn {
       height: 45px;
+    }
+  }
+
+  // Страница Поиск и Подборки
+  .sp-page {
+    .sp-products {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

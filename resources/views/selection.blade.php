@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="selection-page category-page">
+<div class="selection-page category-page sp-page">
   <div class="container">
     <div class="page-title">{{ $selection->title }}</div>
   </div>
@@ -37,66 +37,13 @@
           <a href="{{ url()->current() }}?sort=asc" class="cheap-first first {{ request()->sort == 'asc' ? 'active' : '' }}" data-sort="asc">сначала дешевые</a>
         </div>
 
-        <div class="grid-container">
-          <div class="filter">
-            <div class="checkbox-group">
-              <div class="checkbox-group__title">Вид тура</div>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 1</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 2</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 3</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 4</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
-                  <span class="custom-checkbox"></span>
-                </label>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-group__title">Город</div>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Москва</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Екатеринбург</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Санкт-Петербург</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Казань</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
-                <span class="custom-checkbox"></span>
-              </label>
-            </div>
-            <button class="submit-btn primary-btn">Применить</button>
-          </div>
-          <div class="content">
-
-            <div class="products">
-              @foreach($selection->products as $product)
-                @include('product-card')
-              @endforeach
-            </div>
-
-          </div>
+        <div class="products sp-products">
+          @foreach($selection->products as $product)
+            @include('product-card')
+          @endforeach
         </div>
+
+        <div class="selection-description">{{ $selection->description }}</div>
       @else
         <p class="no-product">Товаров не найдено</p>
       @endif

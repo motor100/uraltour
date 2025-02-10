@@ -102,14 +102,28 @@ class MainController extends Controller
     /**
      * Подборка
      * 
+     * @param \Illuminate\Http\Request $request;
      * @param App\Models\Selection
      * @return Illuminate\View\View
      */
-    public function selection(Selection $selection): View
+    public function selection(Request $request, Selection $selection): View
     {
         // Добавление краткого описания
         foreach($selection->products as $product) {
             $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+        }
+
+        // Сортировка коллекции
+        if ($request->has('sort')) {
+            if ($request->sort == "desc") {
+                $selection->products = $selection->products->sortByDesc('price');
+            } elseif ($request->sort == "asc") {
+                $selection->products = $selection->products->sortBy('price');
+            } else {
+                $selection->products = $selection->products->sortBy('title');
+            }
+        } else {
+            $selection->products = $selection->products->sortBy('title');
         }
         
         return view('selection', compact('selection'));
@@ -172,12 +186,18 @@ class MainController extends Controller
             return redirect('/');
         }
 
-        $products = Product::where('title', 'like', "%{$search_query}%")
+        $products = Product::where('title', 'like', "%{$search_query}%");
                             // ->orWhere('text_html', 'like', "%{$validated['search_query']}%") // поиск по тексту
-                            ->paginate(8)
-                            ->onEachSide(1)
-                            ->withQueryString();
+                            // ->paginate(8)
+                            // ->onEachSide(1)
+                            // ->withQueryString();
                             // ->get();
+
+        // Сортировка по цене по параметру sort
+        $products = (new \App\Services\ProductSort($request, $products))->sort();
+
+        // Пагинация с параметрами
+        $products = $products->paginate(8)->withQueryString()->onEachSide(1);
 
         foreach($products as $product) {
             $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
