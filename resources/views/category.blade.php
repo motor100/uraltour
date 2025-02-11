@@ -34,32 +34,32 @@
 
         <div class="sort">
           <span class="sort-text">Сортировка</span>
-          <a href="{{ url()->current() }}?sort=desc" class="expensive-first first {{ request()->sort == 'desc' ? 'active' : '' }}" data-sort="desc">сначала дорогие</a>
-          <a href="{{ url()->current() }}?sort=asc" class="cheap-first first {{ request()->sort == 'asc' ? 'active' : '' }}" data-sort="asc">сначала дешевые</a>
+          <a href="{{ request()->fullUrlWithQuery(['sort' => 'desc']) }}" class="expensive-first first {{ request()->sort == 'desc' ? 'active' : '' }}" data-sort="desc">сначала дорогие</a>
+          <a href="{{ request()->fullUrlWithQuery(['sort' => 'asc']) }}" class="cheap-first first {{ request()->sort == 'asc' ? 'active' : '' }}" data-sort="asc">сначала дешевые</a>
         </div>
 
         <div class="grid-container">
-          <div class="filter">
+          <form class="filter" name="filter" action="{{ url()->current() }}" method="get">
             <div class="checkbox-group">
               <div class="checkbox-group__title">Вид тура</div>
                 <label class="checkbox-label">
                   <span class="custom-checkbox-text">Вид 1</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
+                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-1" @checked(is_array(request()->vid) && in_array('vid-1', request()->vid))>
                   <span class="custom-checkbox"></span>
                 </label>
                 <label class="checkbox-label">
                   <span class="custom-checkbox-text">Вид 2</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
+                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-2" @checked(is_array(request()->vid) && in_array('vid-2', request()->vid))>
                   <span class="custom-checkbox"></span>
                 </label>
                 <label class="checkbox-label">
                   <span class="custom-checkbox-text">Вид 3</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
+                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-3" @checked(is_array(request()->vid) && in_array('vid-3', request()->vid))>
                   <span class="custom-checkbox"></span>
                 </label>
                 <label class="checkbox-label">
                   <span class="custom-checkbox-text">Вид 4</span>
-                  <input type="checkbox" name="checkbox" class="checkbox">
+                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-4" @checked(is_array(request()->vid) && in_array('vid-4', request()->vid))>
                   <span class="custom-checkbox"></span>
                 </label>
             </div>
@@ -67,29 +67,48 @@
               <div class="checkbox-group__title">Город</div>
               <label class="checkbox-label">
                 <span class="custom-checkbox-text">Москва</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
+                <input type="checkbox" name="gorod[]" class="checkbox" value="moskva" @checked(is_array(request()->gorod) && in_array('moskva', request()->gorod))>
                 <span class="custom-checkbox"></span>
               </label>
               <label class="checkbox-label">
                 <span class="custom-checkbox-text">Екатеринбург</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
+                <input type="checkbox" name="gorod[]" class="checkbox" value="ekaterinburg" @checked(is_array(request()->gorod) && in_array('ekaterinburg', request()->gorod))>
                 <span class="custom-checkbox"></span>
               </label>
               <label class="checkbox-label">
                 <span class="custom-checkbox-text">Санкт-Петербург</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
+                <input type="checkbox" name="gorod[]" class="checkbox" value="sankt-peterburg" @checked(is_array(request()->gorod) && in_array('sankt-peterburg', request()->gorod))>
                 <span class="custom-checkbox"></span>
               </label>
               <label class="checkbox-label">
                 <span class="custom-checkbox-text">Казань</span>
-                <input type="checkbox" name="checkbox" class="checkbox">
+                <input type="checkbox" name="gorod[]" class="checkbox" value="kazan" @checked(is_array(request()->gorod) && in_array('kazan', request()->gorod))>
                 <span class="custom-checkbox"></span>
               </label>
             </div>
-            <button class="submit-btn primary-btn">Применить</button>
-          </div>
+            <div class="checkbox-group">
+              <div class="checkbox-group__title">Сложность</div>
+              <label class="checkbox-label">
+                <span class="custom-checkbox-text">Легкая</span>
+                <input type="checkbox" name="slozhnost[]" class="checkbox" value="legkaya" @checked(is_array(request()->slozhnost) && in_array('legkaya', request()->slozhnost))>
+                <span class="custom-checkbox"></span>
+              </label>
+              <label class="checkbox-label">
+                <span class="custom-checkbox-text">Средняя</span>
+                <input type="checkbox" name="slozhnost[]" class="checkbox" value="srednyaya" @checked(is_array(request()->slozhnost) && in_array('srednyaya', request()->slozhnost))>
+                <span class="custom-checkbox"></span>
+              </label>
+              <label class="checkbox-label">
+                <span class="custom-checkbox-text">Сложная</span>
+                <input type="checkbox" name="slozhnost[]" class="checkbox" value="slozhnaya" @checked(is_array(request()->slozhnost) && in_array('slozhnaya', request()->slozhnost))>
+                <span class="custom-checkbox"></span>
+              </label>
+            </div>
+            <button type="submit" class="submit-btn primary-btn">Применить</button>
+          </form>
           <div class="content">
 
+            <!-- 
             <div class="big-product products-item">
               <div class="big-product__image">
                 <img src="/img/temp-big-product.jpg" alt="">
@@ -145,7 +164,7 @@
                 </div>
               </div>
             </div>
-
+             -->
             <div class="products">
               @foreach($products as $product)
                 @include('product-card')

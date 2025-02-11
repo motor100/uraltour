@@ -22,7 +22,7 @@ Route::get('/', [MainController::class, 'home'])->name('home');
 
 Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
 
-Route::get('/catalog/{category}', [MainController::class, 'category']);
+Route::get('/catalog/{category}', [MainController::class, 'category'])->name('category');
 
 Route::get('/catalog/{category}/{product}', [MainController::class, 'product']);
 
