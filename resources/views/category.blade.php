@@ -775,7 +775,9 @@
   @include('callback-section')
 
   <div id="to-top" class="to-top hidden-mobile">
-    <div class="circle"></div>
+    <div class="circle">
+      <img src="/img/arrow-up.svg" alt="">
+    </div>
   </div>
 
 </div>

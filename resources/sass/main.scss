@@ -1998,7 +1998,7 @@ p {
 // To top
 .to-top {
   position: fixed;
-  left: 153px;
+  right: 153px;
   bottom: 80px;
   display: block;
   visibility: hidden;
@@ -2014,26 +2014,12 @@ p {
     position: relative;
     width: 65px;
     height: 65px;
-    background-color: $orangecolor;
     border-radius: 50%;
+    overflow: hidden;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
-  .circle:before,
-  .circle:after {
-    content: '';
-    position: absolute;
-    top: 30px;
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-  }
-  .circle:before {
-    left: 12px;
-    transform: rotate(-45deg);
-  }
-  .circle:after {
-    left: 28px;
-    transform: rotate(45deg);
+  .circle img {
+    width: 100%;
   }
 }
 
