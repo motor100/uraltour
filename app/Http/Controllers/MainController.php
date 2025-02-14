@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Response;
 use Illuminate\Http\RedirectResponse;
 use App\Models\Category;
 use App\Models\Product;
@@ -264,5 +265,21 @@ class MainController extends Controller
     public function agreement(): View
     {
         return view('agreement');
-    }    
+    }
+
+    /**
+     * Sitemap карта сайта
+     * 
+     * return Illuminate\Http\Response
+     */
+    public function sitemap(): Response
+    {
+        $products = Product::whereNull('deleted_at')
+                            ->with('category')
+                            ->get();
+
+        return response()
+                ->view('sitemap', compact('products'))
+                ->header('Content-Type', 'text/xml');
+    }
 }

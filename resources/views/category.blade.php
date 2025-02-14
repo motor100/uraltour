@@ -39,7 +39,7 @@
         </div>
 
         <div class="grid-container">
-          <form class="filter" name="filter" action="{{ url()->current() }}" method="get">
+          <form class="filter" action="{{ url()->current() }}" method="get">
             <div class="checkbox-group">
               <div class="checkbox-group__title">Вид тура</div>
                 <label class="checkbox-label">
