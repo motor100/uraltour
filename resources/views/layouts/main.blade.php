@@ -178,7 +178,7 @@
     </div>
     <div class="title-wrapper">
       <div class="title">Фильтры</div>
-      <span class="clear-btn">Очистить</span>
+      <a href="{{ url()->current() }}" class="clear-btn">Очистить</a>
     </div>
     <div class="horizontal-line"></div>
     <div class="filter">
@@ -446,8 +446,6 @@
       }
     })()
   </script>
-
-
 
 </body>
 </html>
