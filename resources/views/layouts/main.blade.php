@@ -358,7 +358,7 @@
       <div class="container-fluid">
         <div class="text-wrapper">
           <div class="top-line__text dashboard">
-            <a href="/admin">Панель управления</a>
+            <a href="/login">Панель управления</a>
           </div>
           <div class="top-line__text logout">
             <form class="form" action="{{ route('logout') }}" method="POST">

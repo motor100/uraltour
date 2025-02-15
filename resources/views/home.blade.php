@@ -14,6 +14,7 @@
       <div class="main-title">Урал Тур</div>
       <div class="main-subtitle">Клуб путешественников</div>
       @include('search')
+      <div id="selection"></div>
       <div class="selection hidden-mobile">
         <div class="flex-container">
           @foreach($selections as $selection)
@@ -243,22 +244,21 @@
         <img src="/img/fixed-bottom-menu-cards.svg" alt="">
       </div>
       <div class="menu-item__title">Подборки</div>
-      <a href="#" class="full-link"></a>
+      <a href="/#selection" class="full-link"></a>
     </div>
-    <div class="menu-item">
+    <div class="menu-item hidden-mobile">
       <div class="menu-item__image">
         <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
       </div>
-      <div class="menu-item__title">Акции</div>
-      <a href="#" class="full-link"></a>
+      <div class="menu-item__title">Написать</div>
+      <a href="#" class="full-link js-callback-modal-btn"></a>
     </div>
-    <div class="vertikal-line"></div>
-    <div class="menu-item">
+    <div class="menu-item hidden-desktop">
       <div class="menu-item__image">
-        <img src="/img/fixed-bottom-menu-fire.svg" alt="">
+        <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
       </div>
-      <div class="menu-item__title">Горящие туры</div>
-      <a href="#" class="full-link"></a>
+      <div class="menu-item__title">Позвонить</div>
+      <a href="tel:+79123080608" class="full-link"></a>
     </div>
   </div>
 </div>

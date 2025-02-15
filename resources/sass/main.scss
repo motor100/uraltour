@@ -1981,7 +1981,7 @@ p {
   right: 0;
   bottom: 80px;
   display: none;
-  width: 680px;
+  width: 450px;
   margin: 0 auto;
   padding: 25px 50px;
   border-radius: 30px;
@@ -2007,11 +2007,7 @@ p {
     width: 100%;
   }
   .menu-item .menu-item__title {
-    font-size: 12px;
-  }
-  .vertikal-line {
-    width: 1px;
-    background-color: #C8C8C8;
+    font-size: 14px;
   }
 }
 
@@ -2326,7 +2322,7 @@ p {
   }
 }
 
-// we use cookie
+// We use cookie
 .we-use-cookie {
   position: fixed;
   left: 0;
@@ -2842,7 +2838,7 @@ p {
   // Fixed bottom menu
   .fixed-bottom-menu {
     bottom: 70px;
-    width: 560px;
+    width: 380px;
     padding: 20px 40px;
     .menu-item .menu-item__image {
       width: 46px;
@@ -3162,7 +3158,7 @@ p {
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    width: 480px;
+    width: 320px;
     padding: 15px 30px;
   }
 }
@@ -3526,7 +3522,6 @@ p {
   // Fixed bottom menu
   .fixed-bottom-menu {
     bottom: 60px;
-    width: 460px;
   }
 }
 
@@ -3706,6 +3701,9 @@ p {
   // Fixed bottom menu
   .fixed-bottom-menu {
     bottom: 80px;
+    .menu-item .menu-item__title {
+      font-size: 13px;
+    }
   }
 }
 
@@ -3950,21 +3948,28 @@ p {
     }
   }
 
-  // we use cookie
+  // We use cookie
   .we-use-cookie {
+    padding: 0;
     .we-use-cookie-text {
-      padding: 0;
+      padding-right: 5px;
     }
     .we-use-cookie-close {
-      width: 70px;
+      width: 60px;
       height: 30px;
-      font-size: 14px;
     }
   }
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    display: none;
+    bottom: 90px;
+    width: 300px;
+    padding: 12px 25px;
+    border-radius: 20px;
+    .menu-item .menu-item__image {
+      width: 40px;
+      margin-bottom: 2px;
+    }
   }
 }
 
@@ -4000,7 +4005,7 @@ p {
       height: 390px;
     }
     .hand-swipe-right {
-      margin-top: 70px;
+      margin-top: 180px;
     }
   }
 
