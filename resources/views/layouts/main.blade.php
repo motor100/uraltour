@@ -249,8 +249,7 @@
               <label for="phone-callback-modal" class="label">Телефон <span class="accentcolor">*</span></label>
               <input type="text" name="phone" id="phone-callback-modal" class="input-field js-required-phone js-input-phone-mask" required size="18" placeholder="+7 (000) 000 00 00">
             </div>
-            @csrf
-            <button type="button" id="callback-modal-submit-btn" class="modal-submit-btn">
+              <button type="button" id="callback-modal-submit-btn" class="modal-submit-btn">
               <img src="/img/search-icon.png" class="modal-submit-btn__image" alt="">
               <span class="modal-submit-btn__text">Отправить</span>
             </button>
@@ -328,8 +327,6 @@
           <input type="hidden" id="product-id" name="product-id" value="{{ isset($product) ? $product->id : 0 }}">
           <input type="hidden" id="input-rating" name="rating" value="0">
           <input type="hidden" id="recaptcha" name="recaptcha" value="">
-          @csrf
-
           <button type="button" id="testimonial-modal-submit-btn" class="modal-submit-btn primary-btn">Отправить</button>
           <div class="agreement-text">
             <input type="checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" id="checkbox-read-testimonial-modal" checked required onchange="document.getElementById('testimonial-modal-submit-btn').disabled = !this.checked;">

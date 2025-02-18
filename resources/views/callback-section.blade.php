@@ -8,7 +8,6 @@
           <input type="text" name="phone" class="input-field js-required-phone js-input-phone-mask" placeholder="Телефон">
           <button type="button" id="callback-submit-btn" class="callback-submit-btn js-submit-btn">Отправить</button>
         </div>
-        @csrf
         <div class="agreement-text">
           <input type="checkbox" id="pk-checkbox" name="checkbox-read" class="custom-checkbox js-required-checkbox" checked required onchange="document.getElementById('callback-btn').disabled = !this.checked;">
           <label for="pk-checkbox" class="custom-checkbox-label"></label>
