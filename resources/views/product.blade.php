@@ -102,7 +102,7 @@
           <span class="product-price__value">{{ number_format($product->price, 0, '', ' ') }}</span>
           <span class="product-price__currency">P</span>
         </div>
-        <div class="product-buttons">
+        <div id="fixed-bottom-nav" class="product-buttons">
           <a href="tel:+79123080608" class="booking-tour-btn product-primary-btn primary-btn">Позвонить</a>
           <button class="write-btn secondary-btn js-callback-modal-btn">Написать нам</button>
         </div>

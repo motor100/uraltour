@@ -1013,6 +1013,7 @@ p {
 // Search section
 .search-section {
   position: relative;
+  height: 230px;
   padding: 35px 0;
   background-image: url(../img/search-section-bg.jpg);
   background-position: center;
@@ -1401,7 +1402,7 @@ p {
   }
   .product-buttons.active {
     position: fixed;
-    bottom: 80px;
+    bottom: 40px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -1411,6 +1412,9 @@ p {
     border-radius: 20px;
     box-shadow: 0px 210px 59px 0px rgba(0, 0, 0, 0.00), 0px 134px 54px 0px rgba(0, 0, 0, 0.01), 0px 76px 45px 0px rgba(0, 0, 0, 0.03), 0px 34px 34px 0px rgba(0, 0, 0, 0.04), 0px 8px 18px 0px rgba(0, 0, 0, 0.05), 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
     z-index: 10;
+  }
+  .product-buttons.with-cookie {
+    bottom: 80px;
   }
   .product-primary-btn {
     width: 219px;
@@ -1784,7 +1788,7 @@ p {
   border-radius: 19px;
   background-color: #FFE2CD;
   cursor: pointer;
-  z-index: 10;
+  z-index: 21;
   transition: background-color .5s;
   .burger-menu {
     position: relative;
@@ -1979,7 +1983,7 @@ p {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 80px;
+  bottom: 40px;
   display: none;
   width: 450px;
   margin: 0 auto;
@@ -1991,13 +1995,16 @@ p {
   &.active {
     display: block;
   }
+  &.with-cookie {
+    bottom: 80px;
+  }
   .menu-wrapper {
     display: flex;
     justify-content: space-between;
   }
   .menu-item {
     position: relative;
-    text-align: center;
+    width: 75px;
   }
   .menu-item .menu-item__image {
     width: 56px;
@@ -2008,6 +2015,7 @@ p {
   }
   .menu-item .menu-item__title {
     font-size: 14px;
+    text-align: center;
   }
 }
 
@@ -2450,6 +2458,11 @@ p {
     }
   }
 
+  // Search section
+  .search-section {
+    height: 220px;
+  }
+
   // Category section
   .category-section {
     .categories {
@@ -2598,6 +2611,11 @@ p {
       left: 15px;
       font-size: 14px;
     }
+  }
+
+  // Search section
+  .search-section {
+    height: 210px;
   }
 
   // Category section
@@ -2794,8 +2812,10 @@ p {
       gap: 16px;
     }
     .product-buttons.active {
-      bottom: 70px;
       padding: 30px;
+    }
+    .product-buttons.with-cookie {
+      bottom: 70px;
     }
     .product-subtitle {
       padding: 8px 26px;
@@ -2837,9 +2857,12 @@ p {
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    bottom: 70px;
+
     width: 380px;
     padding: 20px 40px;
+    &.with-cookie {
+      bottom: 70px;
+    }
     .menu-item .menu-item__image {
       width: 46px;
     }
@@ -2922,6 +2945,11 @@ p {
       margin: 0 0 20px 0;
     }
 
+  }
+
+  // Search section
+  .search-section {
+    height: 180px;
   }
 
   // Category section
@@ -3216,6 +3244,11 @@ p {
     }
   }
 
+  // Search section
+  .search-section {
+    height: 130px;
+  }
+
   // Search
   .search {
     padding: 0;
@@ -3411,7 +3444,7 @@ p {
       width: 100%;
       order: 3;
     }
-    .product-buttons.active {
+    .product-buttons.with-cookie {
       bottom: 75px;
     }
     .product-description-item {
@@ -3521,7 +3554,9 @@ p {
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    bottom: 60px;
+    &.with-cookie {
+      bottom: 60px;
+    }
   }
 }
 
@@ -3671,12 +3706,16 @@ p {
       flex-direction: column;
     }
     .product-buttons.active {
-      position: static;
-      margin: 0;
-      padding: 0;
-      border-radius: 0;
-      background-color: transparent;
-      box-shadow: none;
+      width: 220px;
+      padding: 15px;
+      &.with-cookie {
+        bottom: 90px;
+      }
+    }
+    .booking-tour-btn,
+    .write-btn {
+      width: 190px;
+      height: 40px;
     }
   }
 
@@ -3700,7 +3739,15 @@ p {
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    bottom: 80px;
+    &.with-cookie {
+      bottom: 80px;
+    }
+    .menu-item {
+      width: 75px;
+    }
+    .menu-item .menu-item__image {
+      margin-bottom: 2px;
+    }
     .menu-item .menu-item__title {
       font-size: 13px;
     }
@@ -3892,6 +3939,9 @@ p {
       top: 30px;
       right: 20px;
     }
+    .modal-title {
+      font-size: 24px;
+    }
     .label {
       margin: 0 0 5px 0;
       font-size: 16px;
@@ -3962,10 +4012,12 @@ p {
 
   // Fixed bottom menu
   .fixed-bottom-menu {
-    bottom: 90px;
     width: 300px;
     padding: 12px 25px;
     border-radius: 20px;
+    &.with-cookie {
+      bottom: 90px;
+    }
     .menu-item .menu-item__image {
       width: 40px;
       margin-bottom: 2px;

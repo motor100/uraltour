@@ -230,7 +230,7 @@
 
 </div>
 
-<div class="fixed-bottom-menu">
+<div id="fixed-bottom-nav" class="fixed-bottom-menu">
   <div class="menu-wrapper">
     <div class="menu-item">
       <div class="menu-item__image">
@@ -248,14 +248,14 @@
     </div>
     <div class="menu-item hidden-mobile">
       <div class="menu-item__image">
-        <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
+        <img src="/img/fixed-bottom-menu-letter.svg" alt="">
       </div>
       <div class="menu-item__title">Написать</div>
       <a href="#" class="full-link js-callback-modal-btn"></a>
     </div>
     <div class="menu-item hidden-desktop">
       <div class="menu-item__image">
-        <img src="/img/fixed-bottom-menu-confetti.svg" alt="">
+        <img src="/img/fixed-bottom-menu-phone.svg" alt="">
       </div>
       <div class="menu-item__title">Позвонить</div>
       <a href="tel:+79123080608" class="full-link"></a>

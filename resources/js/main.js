@@ -565,6 +565,8 @@ if (toTop) {
 
 
 // Set cookie
+// Запись в куки в обход функционала Laravel
+// Через request->cookie() не работает
 function setCookie(name, value, days) {
   let expires = "";
   if (days) {
@@ -583,16 +585,26 @@ function getCookie(name) {
 function checkCookies() {
   let cookieNote = document.querySelector('#cookie_note');
   let cookieBtnAccept = cookieNote.querySelector('#cookie_accept');
+  // Нижнее меню
+  let fixedBottomNav = document.querySelector('#fixed-bottom-nav');
 
   // Если куки we-use-cookie нет или она просрочена, то показываем уведомление
   if (!getCookie('we-use-cookie')) {
     cookieNote.classList.add('active');
+    // Нижнее меню
+    if (fixedBottomNav) {
+      fixedBottomNav.classList.add('with-cookie');
+    }
   }
 
   // При клике на кнопку устанавливаем куку we-use-cookie на один год
   cookieBtnAccept.addEventListener('click', function () {
     setCookie('we-use-cookie', 'true', 365);
     cookieNote.classList.remove('active');
+    // Нижнее меню
+    if (fixedBottomNav) {
+      fixedBottomNav.classList.remove('with-cookie');
+    }
   });
 }
 
