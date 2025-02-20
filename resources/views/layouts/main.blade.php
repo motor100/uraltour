@@ -95,6 +95,9 @@
               <div class="menu-item">
                 <a href="/agreement">Согласие на обработку персональных данных</a>
               </div>
+              <div class="menu-item">
+                <a href="/money-back">Условия оплаты и возврата денежных средств</a>
+              </div>
             </div>
           </div>
         </div>
@@ -117,6 +120,7 @@
         <div class="info">
           <div class="copyright">© УРАЛ ТУР <span id="current-year"></span></div>
           <div class="about-company">ИП Красняк Л.Н. ИНН 741807167621</div>
+          <div class="about-company">ОГРН 321745600031896</div>
         </div>
         <div class="developers">
           <div class="developer">

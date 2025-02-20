@@ -5,15 +5,16 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ProductGallerySeeder extends Seeder
+class ProductCategorySeeder extends Seeder
 {
     /**
      * Seed the application's database.
      */
     public function run(): void
     {
-        \App\Models\ProductGallery::factory()
-                                    ->count(50)
+        \App\Models\ProductCategory::factory()
+                                    ->count(101)
+                                    ->sequence(fn ($sequence) => ['product_id' => $sequence->index + 1])
                                     ->create();
     }
 }

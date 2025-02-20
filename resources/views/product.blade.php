@@ -22,7 +22,7 @@
     </div>
     <div class="separator">/</div>
     <div class="parent">
-      <a href="/catalog/{{ $product->category->slug }}">{{ $product->category->title }}</a>
+      <a href="/catalog/{{ $category->slug }}">{{ $category->title }}</a>
     </div>
     <div class="separator">/</div>
     <div class="active">{{ $product->title }}</div>
@@ -54,9 +54,9 @@
         <div class="product-title primary-title">{{ $product->title }}</div>
         <div class="product-category product-info">
           <div class="product-info__text">Категории</div>
-          @foreach($product_categories as $catetory)
+          @foreach($product->categories as $category)
             <div class="category-item">
-              <a href="/catalog/{{-- $catetory->slug --}}" class="category-item__link product-info__value">{{ $catetory->title }}</a>
+              <a href="/catalog/{{ $category->slug }}" class="category-item__link product-info__value">{{ $category->title }}</a>
             </div>
           @endforeach
         </div>
@@ -89,7 +89,6 @@
               </svg>
             </div>
           </div>
-          <!-- <div class="testimonials-count product-info__value">12 отзывов</div> -->
         </div>
         @if($product->start_date)
           <div class="product-start-date product-info">

@@ -9,6 +9,7 @@ use App\Models\ProductGallery;
 use App\Models\ProductPhoto;
 use App\Models\ProductDescription;
 use \App\Models\Category;
+use App\Models\ProductCategory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -74,7 +75,7 @@ class ProductController extends Controller
             'text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
             'payment' => 'nullable',
-            'category' => 'required',
+            'categories' => 'required',
             'regular' => 'nullable',
             'input-main-file' => [
                                 'required',
@@ -109,7 +110,6 @@ class ProductController extends Controller
         $product_array = [
             'title' => $validated['title'],
             'slug' => $slug,
-            'category_id' => $validated['category'],
             'image' => (new \App\Services\ProductImage($validated))->create(),
             'start_date' => isset($validated['start_date']) ? $validated['start_date'] : NULL,
             'price' => $validated['price'],
@@ -118,6 +118,20 @@ class ProductController extends Controller
         ];
 
         $product = Product::create($product_array);
+
+        // Категории
+        $categories_array = [];
+
+        foreach ($validated['categories'] as $key => $value) {
+            $tmp = [
+                'product_id' => $product->id,
+                'category_id' => $key
+            ];
+
+            $categories_array[] = $tmp;
+        }
+
+        ProductCategory::insert($categories_array);
 
         // Описание
         $description_array = [
@@ -210,7 +224,7 @@ class ProductController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|min:2|max:250',
-            'category' => 'required',
+            'categories' => 'required',
             'regular' => 'nullable',
             'text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
@@ -237,6 +251,7 @@ class ProductController extends Controller
             'start_date' => 'required_without:regular',
             'delete_gallery' => 'nullable',
             'delete_photo' => 'nullable',
+            'delete_category_id' => 'nullable',
         ]);
 
         $product = Product::findOrFail($id);
@@ -258,6 +273,23 @@ class ProductController extends Controller
         } else {
             $image = $product->image;
         }
+
+        // Удаление старых категорий
+        ProductCategory::where('product_id', $product->id)->delete();
+
+        // Вставка новых моделей категорий
+        $categories_array = [];
+
+        foreach ($validated['categories'] as $key => $value) {
+            $tmp = [
+                'product_id' => $product->id,
+                'category_id' => $key
+            ];
+
+            $categories_array[] = $tmp;
+        }
+
+        ProductCategory::insert($categories_array);
 
         // Обновление описания
         $description_array = [
@@ -348,10 +380,10 @@ class ProductController extends Controller
             ProductPhoto::insert($photo_array);
         }
 
+        // Обновление модели товара
         $product_array = [
             'title' => $validated['title'],
             'slug' => $slug,
-            'category_id' => $validated['category'],
             'image' => $image,
             'start_date' => isset($validated['start_date']) ? $validated['start_date'] : NULL,
             'price' => $validated['price'],

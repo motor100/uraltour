@@ -46,39 +46,8 @@
       <div class="label-text">Товары</div>
     </div>
 
-    @if(count($selection->products) > 0)
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th class="number-column">№</th>
-            <th>Название</th>
-            <th class="button-column"></th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($selection->products as $product)
-            <tr>
-              <th>{{ $loop->index + 1 }}</th>
-              <td>
-                <input type="text" name="products[{{ $product->id }}]" class="input-product" readonly value="{{ $product->title }}">
-              </td>
-              <td class="button-group">
-                <form class="form" action="{{ route('dashboard.selection-product-destroy', $product->id) }}" method="get">
-                  <input type="hidden" name="selection_id" value="{{ $selection->id }}">
-                  @csrf
-                  <button type="submit" class="btn btn-danger">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </form>
-              </td>
-            </tr>
-          @endforeach
-        </tbody>
-      </table>
-    @endif
-
     <div id="app">
-      <add-product-component></add-product-component>
+      <add-product-component :ps='@json($selection->products)'></add-product-component>
     </div>
 
     <div class="height100"></div>

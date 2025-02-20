@@ -65,39 +65,14 @@
               <span>Подборки</span>
             </a>
           </div>
-          <!-- 
-          <div class="nav-item">
-            <a href="/dashboard/wishes" class="item-link">
-              <i class="nav-icon fas fa-heart"></i>
-              <span>Пожелания</span>
-            </a>
-          </div>    -->
 
           @role('administrator')
-            <!-- <div class="nav-item">
-              <a href="/dashboard/events-archive" class="item-link">
-                <i class="nav-icon fas fa-archive"></i>
-                <span>Архив событий</span>
-              </a>
-            </div> -->
             <div class="nav-item">
               <a href="/dashboard/users" class="item-link">
                 <i class="nav-icon nav-icon fas fa-user"></i>
                 <span>Пользователи</span>
               </a>
             </div>
-            <!-- <div class="nav-item">
-              <a href="/dashboard/export-all" class="item-link">
-                <i class="nav-icon nav-icon fas fa-download"></i>
-                <span>Экспорт</span>
-              </a>
-            </div>
-            <div class="nav-item">
-              <a href="/dashboard/managers-statistics" class="item-link">
-                <i class="nav-icon nav-icon fas fa-chart-pie"></i>
-                <span>Статистика по менеджерам</span>
-              </a>
-            </div> -->
           @endrole
           
         </div>

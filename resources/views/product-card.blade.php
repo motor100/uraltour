@@ -1,11 +1,11 @@
 <div class="products-item">
   <div class="products-item__image">
-    <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="products-item__link full-link">
+    <a href="/catalog/{{ $product->categories[0]->slug }}/{{ $product->slug }}" class="products-item__link full-link">
       <img src="{{ Storage::url($product->image) }}" alt="">
     </a>
   </div>
   <div class="products-item__content">
-    <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="products-item__title">{{ $product->title }}</a>
+    <a href="/catalog/{{ $product->categories[0]->slug }}/{{ $product->slug }}" class="products-item__title">{{ $product->title }}</a>
     <div class="products-item__excerpt">{{ $product->excerpt }}</div>
       <div class="products-item__price">
         <span class="value">{{ number_format($product->price, 0, '', ' ') }}</span>
@@ -40,7 +40,7 @@
           </div>
         </div>
       </div>
-    <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="product-btn primary-btn">Смотреть тур</a>
+    <a href="/catalog/{{ $product->categories[0]->slug }}/{{ $product->slug }}" class="product-btn primary-btn">Смотреть тур</a>
   </div>
   
 </div>

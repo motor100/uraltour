@@ -279,7 +279,7 @@ function searchOnInput() {
           str += '<div class="search-list-item__title">' + item.title + '</div>';
           str += '<div class="search-list-item__date">' + item.date + '</div>';
           str += '</div>';
-          str += '<a href="/catalog/' + item.category.slug + '/' + item.slug + '" class="full-link search-list-item__link"></a>';
+          str += '<a href="/catalog/' + item.categories[0].slug + '/' + item.slug + '" class="full-link search-list-item__link"></a>';
           tmpEl.innerHTML = str;
           searchResult.append(tmpEl);
         });

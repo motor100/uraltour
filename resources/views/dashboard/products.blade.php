@@ -29,7 +29,7 @@
           <th>{{ $loop->index + 1 }}</th>
           <td>{{ $product->title }}</td>
           <td class="button-group">
-            <a href="/catalog/{{ $product->category->slug }}/{{ $product->slug }}" class="btn btn-success" target="_blank">
+            <a href="/catalog/{{ $product->categories[0]->slug }}/{{ $product->slug }}" class="btn btn-success" target="_blank">
               <i class="fas fa-eye"></i>
             </a>
             <a href="{{ route('dashboard.products-edit', $product->id) }}" class="btn btn-primary">

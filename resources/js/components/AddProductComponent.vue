@@ -1,4 +1,42 @@
 <template>
+
+  <table
+    v-if=prds.length
+    class="table table-striped">
+    <thead>
+      <tr>
+        <th class="number-column">№</th>
+        <th>Название</th>
+        <th class="button-column"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="item, index in prds"
+      >
+        <th>{{ index + 1 }}</th>
+        <td>
+          <input
+            type="text"
+            v-bind:name="'products[' + item.id + ']'"
+            class="input-product"
+            v-bind:value=item.title
+          >
+        </td>
+        <td class="button-group">
+          <button
+            v-on:click="removePrd"
+            v-bind:data-id=index
+            type="button" class="btn btn-danger">
+            <i
+              v-bind:data-id=index
+              class="fas fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
   <table
     v-if=products.length
     class="table table-striped">
@@ -24,7 +62,7 @@
         </td>
         <td class="button-group">
           <button
-            v-on:click="removeProduct"
+            v-on:click="removePrduct"
             v-bind:data-id=index
             type="button" class="btn btn-danger">
             <i
@@ -77,10 +115,14 @@
 
 <script>
 export default {
-  name: "AddProductComponent",  
+  name: "AddProductComponent",
+  props: {
+    ps: Object
+  },
 
   data() {
     return {
+      prds: this.ps,
       close: false, // крестик очистки строки поиска и результатов
       searchInput: '', // строка поиска
       searchResults: [], // результаты поиска
@@ -121,6 +163,21 @@ export default {
         }
       }
       this.products = resultArray;
+    },
+
+    removePrd(event) {
+
+      let resultArray = new Array();
+
+      // Создание нового массива
+      for (let i = 0; i < this.prds.length; i++) {
+        if (i != event.target.getAttribute('data-id')){
+          // Добавление значения в новый массив
+          resultArray.push(this.prds[i]);
+        }
+      }
+      this.prds = resultArray;
+
     },
 
     // Метод отправки запроса через axios

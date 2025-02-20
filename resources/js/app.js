@@ -18,8 +18,19 @@ import { createApp } from 'vue/dist/vue.esm-bundler.js'
 
 import AddProductComponent from './components/AddProductComponent.vue';
 
+import AddCategoryComponent from './components/AddCategoryComponent.vue';
+
+import ListCategoryComponent from './components/ListCategoryComponent.vue';
+
 // Регистрация компонента глобально
 const app = createApp({});
 
 app.component('AddProductComponent', AddProductComponent);
 app.mount('#app');
+
+app.component('AddCategoryComponent', AddCategoryComponent);
+app.mount('#app1');
+
+app.component('ListCategoryComponent', ListCategoryComponent);
+app.component('AddCategoryComponent', AddCategoryComponent);
+app.mount('#app2');

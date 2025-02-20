@@ -14,10 +14,7 @@ use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ProductArchiveController;
 use App\Http\Controllers\Admin\SelectionController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+// Main routes
 Route::get('/', [MainController::class, 'home'])->name('home');
 
 Route::get('/catalog', [MainController::class, 'catalog'])->name('catalog');
@@ -40,27 +37,22 @@ Route::get('/selections', [MainController::class, 'selections']);
 
 Route::get('/selections/{selection}', [MainController::class, 'selection']);
 
-
 Route::get('/privacy-policy', [MainController::class, 'privacy_policy']);
 
 Route::get('/agreement', [MainController::class, 'agreement']);
 
+Route::get('/money-back', [MainController::class, 'money_back']);
+
 Route::get('/sitemap.xml', [MainController::class, 'sitemap']);
 
-
+// Ajax
 Route::get('/ajax-product-search', [AjaxController::class, 'product_search']);
 
 Route::post('/ajax-callback', MailerController::class);
 
 Route::post('/ajaxaddtestimonial', [AjaxController::class, 'add_testimonial']);
 
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-
+// Dashboard admin
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'home'])->name('dashboard');
@@ -134,7 +126,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
-
+// Profile
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -168,7 +160,5 @@ Route::middleware(['auth', 'role:administrator'])->group(function() {
     Route::post('/dashboard/users/password', [UserController::class, 'password'])->name('users-password');
     
 });
-
-
 
 require __DIR__.'/auth.php';

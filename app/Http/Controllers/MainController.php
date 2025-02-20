@@ -63,25 +63,31 @@ class MainController extends Controller
     {
         if ($category) {
 
-            $products = Product::where('category_id', $category->id);
+            // Товары из этой категории
+            // Метод products(), а не свойство products
+            // Метод products() возвращает Illuminate\Database\Eloquent\BelongsToMany
+            // Свойство products возвращает коллекцию Illuminate\Database\Eloquent\Collection
+            $products1 = $category->products();
 
-            // Сортировка по цене по параметру sort
-            $products = (new \App\Services\ProductSort($request, $products))->sort();
+            // Сортировка по цене по параметру sort Illuminate\Database\Eloquent\BelongsToMany
+            $products = (new \App\Services\ProductSort($request))->sort_belonstomany($products1);
 
             // Пагинация с параметрами
             $products = $products->paginate(12)->withQueryString()->onEachSide(1);
 
-            // Добавление краткого описания
+            // Добавление краткого описания и текущей категории
             foreach($products as $product) {
                 $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+                $product->categories[0] = $category;
             }
 
-            $regular_products = Product::where('category_id', $category->id)
-                                        ->where('regular', '1')
-                                        ->get();
+            // Регулярные туры
+            $regular_products = $products1->where('regular', '1')->get();
 
+            // Добавление краткого описания и текущей категории
             foreach($regular_products as $product) {
                 $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+                $product->categories[0] = $category;
             }
 
             return view('category', compact('category', 'products', 'regular_products'));
@@ -107,27 +113,22 @@ class MainController extends Controller
      * @param App\Models\Selection
      * @return Illuminate\View\View
      */
-    public function selection(Request $request, Selection $selection): View
+    public function selection(Request $request, Selection $selection = null): View
     {
-        // Добавление краткого описания
-        foreach($selection->products as $product) {
-            $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+        if ($selection) {
+        
+            // Добавление краткого описания
+            foreach($selection->products as $product) {
+                $product->excerpt = (new \App\Services\Excerpt($product->description->text_html, 65))->create();
+            }
+
+            // Сортировка по цене по параметру sort Illuminate\Database\Eloquent\Collection
+            $seelction = (new \App\Services\ProductSort($request))->sort_collection($selection->products);
+            
+            return view('selection', compact('selection'));
         }
 
-        // Сортировка коллекции
-        if ($request->has('sort')) {
-            if ($request->sort == "desc") {
-                $selection->products = $selection->products->sortByDesc('price');
-            } elseif ($request->sort == "asc") {
-                $selection->products = $selection->products->sortBy('price');
-            } else {
-                $selection->products = $selection->products->sortBy('title');
-            }
-        } else {
-            $selection->products = $selection->products->sortBy('title');
-        }
-        
-        return view('selection', compact('selection'));
+        return abort(404);
     }
 
     /**
@@ -139,18 +140,24 @@ class MainController extends Controller
      */
     public function product(Category $category = null, Product $product = null): mixed
     {
-        // Если есть модели Category и Product и товар из этой категории $product->category_id == $category->id
-        if ($category && $product && $product->category_id == $category->id) {
+        // Если есть модели Category и Product
+        if ($category && $product) {
 
-            // Отзывы
-            $testimonials = \App\Models\Testimonial::where('product_id', $product->id)
-                                                    ->whereNotNull('publicated_at')
-                                                    ->orderBy('created_at', 'DESC')
-                                                    ->paginate(10);
+            // Если товар из этой категории
+            $product_category = \App\Models\ProductCategory::where('product_id', $product->id)
+                                                            ->where('category_id', $category->id)
+                                                            ->first();
+            if ($product_category) {
+                // Отзывы
+                $testimonials = \App\Models\Testimonial::where('product_id', $product->id)
+                                                        ->whereNotNull('publicated_at')
+                                                        ->orderBy('created_at', 'DESC')
+                                                        ->paginate(10);
 
-            $product_categories = Category::limit(4)->get();
+                return view('product', compact('category', 'product', 'testimonials'));
+            }
 
-            return view('product', compact('product', 'product_categories', 'testimonials'));
+            return abort(404);
         }
 
         return abort(404);
@@ -187,15 +194,12 @@ class MainController extends Controller
             return redirect('/');
         }
 
+        // Метод Product::where() возвращает Illuminate\Database\Eloquent\Builder
         $products = Product::where('title', 'like', "%{$search_query}%");
                             // ->orWhere('text_html', 'like', "%{$validated['search_query']}%") // поиск по тексту
-                            // ->paginate(8)
-                            // ->onEachSide(1)
-                            // ->withQueryString();
-                            // ->get();
 
-        // Сортировка по цене по параметру sort
-        $products = (new \App\Services\ProductSort($request, $products))->sort();
+        // Сортировка по цене по параметру sort Illuminate\Database\Eloquent\Builder
+        $products = (new \App\Services\ProductSort($request))->sort_builder($products);
 
         // Пагинация с параметрами
         $products = $products->paginate(8)->withQueryString()->onEachSide(1);
@@ -265,6 +269,17 @@ class MainController extends Controller
     public function agreement(): View
     {
         return view('agreement');
+    }
+
+    /**
+     * Условия возврата денежных средств
+     * 
+     * @param
+     * @return Illuminate\View\View
+     */
+    public function money_back(): View
+    {
+        return view('money-back');
     }
 
     /**

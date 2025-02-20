@@ -91,14 +91,12 @@
   overflow-x: auto;
 }
 .table {
-  /* min-width: 743px; */
   line-height: 1.2;
 }
 .table .number-column {
   width: 45px;
 }
 .table .name-column {
-  /* width: 45%; */
   width: 300px;
 }
 .table .title-column {
@@ -120,9 +118,6 @@
 .table .button-group .form {
   display: contents;
 }
-/* .table .note-column {
-  width: 160px;
-} */
 .table .note .note-text {
   height: 38px;
   overflow: hidden;
@@ -315,12 +310,7 @@
   border-radius: 6px;
   overflow: hidden;
   background-color: #fff;
-  // padding: 0 13px;
-  // .dropdown {
-  //   padding: 5px 0;
-  // }
   .dropdown-item {
-    // margin: 5px 0;
     padding: 5px 13px;
     cursor: pointer;
     transition: background-color .2s;
@@ -334,12 +324,12 @@
     font-size: 13px;
   }
 }
-.input-product {
+.input-product,
+.input-category {
   display: block;
   width: 100%;
   border: none;
   padding: 0;
-  // margin: 10px 0;
   background-color: transparent;
 }
 .search-close {

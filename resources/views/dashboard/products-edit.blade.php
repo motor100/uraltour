@@ -66,18 +66,16 @@
         @endforeach
       </select>
     </div>
+
     <div class="form-group mb-3">
-      <div class="label-text">Категория</div>
-      <select name="category" id="category" class="form-select mt-1">
-        @foreach($categories as $category)
-          @if($category->id == $current_category->id)
-            <option value="{{ $category->id }}" selected>{{ $category->title }}</option>
-          @else
-            <option value="{{ $category->id }}">{{ $category->title }}</option>
-          @endif
-        @endforeach
-      </select>
+      <div class="label-text mb-1">Категории</div>
     </div>
+
+    <div id="app2">
+      <list-category-component :categories='@json($product->categories)'></list-category-component>
+      <add-category-component :categories='@json($categories)'></add-category-component>
+    </div>
+
     <div class="form-group mb-3">
       <input type="checkbox" id="regular" name="regular" class="form-check-input" {{ $product->regular ? 'checked' : '' }}>
       <label class="form-check-label" for="regular">Регулярный</label>
@@ -153,5 +151,6 @@
 @endsection
 
 @section('script')
+  @vite(['resources/js/app.js'])
   <script src="{{ asset('/adminpanel/js/air-datepicker.js') }}"></script>
 @endsection

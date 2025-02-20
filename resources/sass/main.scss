@@ -379,7 +379,7 @@ p {
   }
   .search-dropdown {
     position: absolute;
-    top: 65px;
+    top: 85px;
     left: 0;
     width: 100%;
     border-radius: 15px;
@@ -2520,6 +2520,9 @@ p {
     .search-input {
       height: 70px;
     }
+    .search-dropdown {
+      top: 75px;
+    }
     .search-submit-btn {
       height: 70px;
     }
@@ -3068,6 +3071,10 @@ p {
     }
     .search-form .search-close {
       top: 18px;
+    }
+    .search-dropdown {
+      top: 65px;
+      border-radius: 10px;
     }
     .search-list {
       margin: 20px 30px 20px 30px;
