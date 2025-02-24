@@ -45,10 +45,13 @@
     </div>
 
   </div>
-</div>
 
-<div id="to-top" class="to-top hidden-mobile">
-  <div class="circle"></div>
+  <div id="to-top" class="to-top hidden-mobile">
+    <div class="circle">
+      <img src="/img/arrow-up.svg" alt="">
+    </div>
+  </div>
+
 </div>
 
 @endsection

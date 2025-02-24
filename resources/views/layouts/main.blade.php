@@ -12,7 +12,7 @@
   @if(Route::is('home'))
     <title>Урал Тур</title>
   @else
-    <title>@yield('title', 'Урал Тур' )</title>
+    <title>@yield('title', 'Урал Тур')</title>
   @endif
   @yield('style')
   @vite(['resources/sass/main.scss'])
@@ -253,7 +253,8 @@
               <label for="phone-callback-modal" class="label">Телефон <span class="accentcolor">*</span></label>
               <input type="text" name="phone" id="phone-callback-modal" class="input-field js-required-phone js-input-phone-mask" required size="18" placeholder="+7 (000) 000 00 00">
             </div>
-              <button type="button" id="callback-modal-submit-btn" class="modal-submit-btn">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button type="button" id="callback-modal-submit-btn" class="modal-submit-btn">
               <img src="/img/search-icon.png" class="modal-submit-btn__image" alt="">
               <span class="modal-submit-btn__text">Отправить</span>
             </button>
@@ -328,6 +329,7 @@
             </label>
             <div class="attach-photo gallery-file-text">Прикрепить фото (не более 3)</div>
           </div>
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
           <input type="hidden" id="product-id" name="product-id" value="{{ isset($product) ? $product->id : 0 }}">
           <input type="hidden" id="input-rating" name="rating" value="0">
           <input type="hidden" id="recaptcha" name="recaptcha" value="">
