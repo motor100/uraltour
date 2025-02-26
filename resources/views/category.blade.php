@@ -217,8 +217,10 @@
 
   @if(count($products) == 0 && count($regular_products) == 0)
     <div class="category-is-empty-section section">
-      <div class="category-is-empty-text">В этой категории нет товаров</div>
-      <a href="/catalog" class="category-is-empty-btn primary-btn">В каталог</a>
+      <div class="container">
+        <div class="category-is-empty-text">В этой категории нет товаров</div>
+        <a href="/catalog" class="category-is-empty-btn primary-btn">В каталог</a>
+      </div>
     </div>
   @endif
 
