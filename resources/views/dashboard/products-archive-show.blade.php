@@ -42,6 +42,10 @@
     </div>
   </div>
 
+  <form action="{{ route('dashboard.products-archive-destroy', $product->id) }}" class="form" method="get">
+    <input type="submit" class="product-delete" value="Удалить товар">
+  </form>
+
 </div>
 
 <script>

@@ -114,6 +114,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard/products-archive/{id}/restore', [ProductArchiveController::class, 'restore'])->name('dashboard.products-archive-restore');
 
+    Route::get('/dashboard/products-archive/{id}/destroy', [ProductArchiveController::class, 'destroy'])->name('dashboard.products-archive-destroy');
+
     // Selections
     Route::get('/dashboard/selections', [SelectionController::class, 'index'])->name('dashboard.selections');
 

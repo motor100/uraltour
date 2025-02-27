@@ -133,8 +133,13 @@
   object-fit: contain;
 }
 .gallery-delete,
-.photo-delete {
+.photo-delete,
+.product-delete {
+  display: block;
   width: 140px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
   font-size: 14px;
   text-decoration: underline;
   cursor: pointer;
