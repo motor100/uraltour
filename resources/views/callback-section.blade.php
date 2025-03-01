@@ -18,6 +18,7 @@
           <label for="cb-checkbox" class="custom-checkbox-label"></label>
           <span>Согласен на <a href="/agreement">обработку персональных данных</a></span>
         </div>
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
       </form>
     </div>
   </div>

@@ -22,7 +22,7 @@
 
   <form class="form" id="save-data-form" action="{{ route('dashboard.products-update', $product->id) }}" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-      <label for="title" class="label-text">Название</label>
+      <label for="title" class="label-text">Название*</label>
       <input type="text" class="form-control" name="title" id="title" maxlength="200" required value="{{ $product->title }}">
     </div>
     <div class="form-group mb-3">
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Категории</div>
+      <div class="label-text mb-1">Категории*</div>
     </div>
 
     <div id="app2">
@@ -126,11 +126,11 @@
       <span class="namefile photo-file-text">Файлы не выбраны</span>
     </div>
     <div class="form-group mb-3">
-      <label for="start_date">Дата</label>
-      <input type="text" class="form-control datepicker" name="start_date" min="0" step="1" value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
+      <label for="start_date">Дата*</label>
+      <input type="text" class="form-control datepicker" name="start_date" min="0" step="1" required value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
     </div>
     <div class="form-group mb-5">
-      <label for="price" class="label-text">Стоимость</label>
+      <label for="price" class="label-text">Стоимость*</label>
       <input type="number" class="form-control input-number" name="price" min="1" max="500000" step="1" required value="{{ $product->price }}">
     </div>
 

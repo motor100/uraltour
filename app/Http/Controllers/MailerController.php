@@ -44,7 +44,7 @@ class MailerController extends Controller
                 $mail->FromName = config('mail.from.name');
 
                 // Кому
-                $mail->addAddress(config('mail.from.address'));
+                $mail->addAddress(config('mail.to.address'));
 
                 // Тема письма
                 $mail->Subject = 'Сообщение с сайта uraltourmiass.ru';

@@ -22,11 +22,14 @@
 
   <form id="save-data-form" class="form" action="{{ route('dashboard.products-store') }}" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-      <label for="title">Название</label>
+      <label for="title">Название*</label>
       <input type="text" class="form-control" name="title" id="title" minlength="2" maxlength="250" required value="{{ old('title') }}">
     </div>
     <div class="form-group mb-3">
       <div class="label-text mb-1">Описание</div>
+      @if(old('text_json'))
+        <div id="to-editorjs" style="display: none;">{{ old('text_json') }}</div>
+      @endif
       <div id="editorjs"></div>
     </div>
     <div class="form-group mb-3">
@@ -49,7 +52,7 @@
     </div>
 
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Категории</div>
+      <div class="label-text mb-1">Категории*</div>
     </div>
 
     <div id="app1">
@@ -61,7 +64,7 @@
       <label class="form-check-label" for="regular">Регулярный</label>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Изображение</div>
+      <div class="label-text mb-1">Изображение*</div>
       <input type="file" name="input-main-file" id="input-main-file" class="inputfile" accept="image/jpeg,image/png">
       <label for="input-main-file" class="custom-inputfile-label">Выберите файл</label>
       <span class="namefile main-file-text">Файл не выбран</span>
@@ -79,11 +82,11 @@
       <span class="namefile photo-file-text">Файлы не выбраны</span>
     </div>
     <div class="form-group mb-3">
-      <label for="start_date">Дата</label>
+      <label for="start_date">Дата*</label>
       <input type="text" class="form-control datepicker" name="start_date"min="0" step="1" minlength="8" maxlength="15" required value="{{ old('start_date') }}">
     </div>
     <div class="form-group mb-5">
-      <label for="price">Стоимость</label>
+      <label for="price">Стоимость*</label>
       <input type="number" class="form-control input-price input-number" name="price" min="0" max="500000" step="1" required value="{{ old('price') }}">
     </div>
 
