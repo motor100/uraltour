@@ -1484,6 +1484,7 @@ p {
     }
     .grid-container {
       display: grid;
+      margin: 0 0 20px 0;
       gap: 16px;
       grid-template-columns: auto auto;
       justify-content: center;
@@ -1500,6 +1501,8 @@ p {
       font-family: 'montserrat-semibold';
       font-size: 28px;
       line-height: 1.1;
+    }
+    .phone-text .phone {
       color: $orangecolor;
     }
   }
@@ -1533,7 +1536,7 @@ p {
       font-size: 20px;
     }
     .email {
-      margin: 0 0 30px 0;
+      margin: 0 0 20px 0;
     }
     .address {
       font-family: 'montserrat-medium';
@@ -2782,6 +2785,13 @@ p {
         height: 70px;
       }
     }
+    .address-section {
+      .phone,
+      .email,
+      .working-time {
+        font-size: 18px;
+      }
+    }
   }
 
   // Booking page
@@ -2915,7 +2925,7 @@ p {
   }
 
   .primary-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   // Header
@@ -3135,6 +3145,19 @@ p {
       .socials-link {
         width: 60px;
         height: 60px;
+      }
+    }
+    .address-section {
+      .phone,
+      .email,
+      .working-time {
+        font-size: 16px;
+      }
+      .phone strong {
+        display: block;
+      }
+      .address {
+        font-size: 19px;
       }
     }
   }

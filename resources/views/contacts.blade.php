@@ -31,7 +31,19 @@
         <div class="phone-image">
           <img src="/img/circle-phone.png" alt="">
         </div>
-        <div class="phone-text">+7 (912) 308-06-08</div>
+        <div class="phone-text">
+          <span class="phone">+7 (912) 308-06-08</span>
+          <span class="name">Лидия Красняк</span>
+        </div>
+      </div>
+      <div class="grid-container">
+        <div class="phone-image">
+          <img src="/img/circle-phone.png" alt="">
+        </div>
+        <div class="phone-text">
+          <span class="phone">+7 (919) 112-15-16</span>
+          <span class="name">Наталья Ерохина</span>
+        </div>
       </div>
     </div>
   </div>
@@ -92,9 +104,10 @@
         <div class="address-wrapper">
           <div class="city primary-title">Миасс</div>
           <div class="phone">Отдел бронирования: <strong class="orange-color">+7 (912) 308-06-08</strong></div>
-          <div class="email">Email: <strong class="orange-color">info@mail.ru</strong></div>
+          <div class="email">Email: <strong class="orange-color">9123080608@mail.ru</strong></div>
           <div class="address">Миасс, пр. Макеева, 24</div>
-          <div class="working-time">Режим работы: с 10:00 до 19:00</div>
+          <div class="working-time">Режим работы: с 11:00 до 19:00</div>
+          <div class="working-time">сб, вс - офис работает в удаленом режиме</div>
         </div>
         <div class="map">
           <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A51ce0fdf89710633e643f496ffebb3db403aa88ca6f055ab2d157db830815ab2&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
@@ -105,7 +118,7 @@
 
   <div class="text-section">
     <div class="container">
-      <p class="text">Услуги по реализации туристского бронирования на сайте www.xxxx.ru (бронирования тура онлайн) оказывает и сопровождает: Общество с ограниченной ответственностью «xxxxxx», ИНН xxxxxxxxxx, адрес регистрации xxxxxx, г. Миасс,.</p>
+      <p class="text">Услуги по реализации туристского бронирования на сайте www.uraltourmiass.ru (бронирования тура онлайн) оказывает и сопровождает: Индивидуальный предприниматель Красняк Лидия Николаевна, ИНН 741807167621, адрес регистрации 456320, Челябинская область,  г. Миасс, Макеева пр-т, д. 24, к. 44</p>
       <p class="text">Ознакомиться с <a href="/privacy-policy">политикой конфиденциальности</a> и <a href="/agreement">согласием на обработку персональных данных</a> вы можете по ссылке.</p>
     </div>
   </div>
