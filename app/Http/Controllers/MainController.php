@@ -59,7 +59,7 @@ class MainController extends Controller
      * @param App\Models\Category
      * @return Illuminate\View\View
      */
-    public function category(Request $request, Category $category = null): View
+    public function category(Request $request, Category $category): View
     {
         if ($category) {
 
@@ -113,7 +113,7 @@ class MainController extends Controller
      * @param App\Models\Selection
      * @return Illuminate\View\View
      */
-    public function selection(Request $request, Selection $selection = null): View
+    public function selection(Request $request, Selection $selection): View
     {
         if ($selection) {
         
@@ -123,8 +123,8 @@ class MainController extends Controller
             }
 
             // Сортировка по цене по параметру sort Illuminate\Database\Eloquent\Collection
-            $seelction = (new \App\Services\ProductSort($request))->sort_collection($selection->products);
-            
+            $selection->products = (new \App\Services\ProductSort($request))->sort_collection($selection->products);
+
             return view('selection', compact('selection'));
         }
 
@@ -138,7 +138,7 @@ class MainController extends Controller
      * @param App\Models\Product
      * @return mixed
      */
-    public function product(Category $category = null, Product $product = null): mixed
+    public function product(Category $category, Product $product): mixed
     {
         // Если есть модели Category и Product
         if ($category && $product) {
