@@ -1482,19 +1482,24 @@ p {
     .section-subtitle {
       text-align: center;
     }
-    .grid-container {
-      display: grid;
+    .flex-container {
+      display: flex;
       margin: 0 0 20px 0;
       gap: 16px;
-      grid-template-columns: auto auto;
       justify-content: center;
       align-items: center;
     }
-    .phone-image {
+    .social-image {
+      display: flex;
+    }
+    .social-image .social-image__link {
+      display: block;
       width: 62px;
       height: 62px;
+      margin: 0 5px;
+      flex-shrink: 0;
     }
-    .phone-image img {
+    .social-image img {
       width: 100%;
     }
     .phone-text {
@@ -2792,6 +2797,15 @@ p {
         font-size: 18px;
       }
     }
+    .info-section {
+      .social-image .social-image__link {
+        width: 50px;
+        height: 50px;
+      }
+      .phone-text {
+        font-size: 26px;
+      }
+    }
   }
 
   // Booking page
@@ -3160,6 +3174,15 @@ p {
         font-size: 19px;
       }
     }
+    .info-section {
+      .social-image .social-image__link {
+        width: 45px;
+        height: 45px;
+      }
+      .phone-text {
+        font-size: 24px;
+      }
+    }
   }
 
   // Booking page
@@ -3434,12 +3457,12 @@ p {
       font-size: 30px;
     }
     .info-section {
-      .phone-image {
-        width: 50px;
-        height: 50px;
+      .social-image .social-image__link {
+        width: 40px;
+        height: 40px;
       }
       .phone-text {
-        font-size: 24px;
+        font-size: 22px;
       }
     }
     .address-section {
@@ -3749,6 +3772,19 @@ p {
     }
   }
 
+  // Contacts page
+  .contacts-page {
+    .info-section {
+      .social-image .social-image__link {
+        width: 35px;
+        height: 35px;
+      }
+      .phone-text {
+        font-size: 18px;
+      }
+    }
+  }
+
   // Modal window
   .modal-window {
     .modal-title {
@@ -3863,6 +3899,23 @@ p {
   .contacts-page {
     .section-title {
       font-size: 26px;
+    }
+    .info-section {
+      .flex-container {
+        display: block;
+      }
+      .social-image {
+        width: 80px;
+        margin: 0 auto 10px auto;
+      }
+      .social-image .social-image__link {
+        width: 30px;
+        height: 30px;
+      }
+      .phone-text {
+        font-size: 16px;
+        text-align: center;
+      }
     }
   }
 
@@ -4143,12 +4196,11 @@ p {
       font-size: 24px;
     }
     .info-section {
-      .phone-image {
-        width: 40px;
-        height: 40px;
+      .social-image {
+        margin-bottom: 5px;
       }
       .phone-text {
-        font-size: 20px;
+        font-size: 15px;
       }
     }
     .write-section {

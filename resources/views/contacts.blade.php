@@ -27,18 +27,28 @@
     <div class="container">
       <div class="section-title">Контактная информация</div>
       <div class="section-subtitle primary-title">Отдел бронирования</div>
-      <div class="grid-container">
-        <div class="phone-image">
-          <img src="/img/circle-phone.png" alt="">
+      <div class="flex-container">
+        <div class="social-image">
+          <a href="https://wa.me/79123080608" class="social-image__link" target="_blank">
+            <img src="/img/contacts-circle-ws.png" alt="">
+          </a>
+          <a href="https://t.me/+79123080608" class="social-image__link" target="_blank">
+            <img src="/img/contacts-circle-tg.png" alt="">
+          </a>
         </div>
         <div class="phone-text">
           <span class="phone">+7 (912) 308-06-08</span>
           <span class="name">Лидия Красняк</span>
         </div>
       </div>
-      <div class="grid-container">
-        <div class="phone-image">
-          <img src="/img/circle-phone.png" alt="">
+      <div class="flex-container">
+        <div class="social-image">
+          <a href="https://wa.me/79191121516" class="social-image__link">
+            <img src="/img/contacts-circle-ws.png" alt="" target="_blank">
+          </a>
+          <a href="https://t.me/+79191121516" class="social-image__link">
+            <img src="/img/contacts-circle-tg.png" alt="" target="_blank">
+          </a>
         </div>
         <div class="phone-text">
           <span class="phone">+7 (919) 112-15-16</span>
