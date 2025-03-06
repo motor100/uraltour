@@ -38,8 +38,7 @@
               <a href="{{ route('users-edit', $value->id) }}" class="btn btn-primary">
                 <i class="fas fa-pen"></i>
               </a>
-              <!-- <button type="button" class="btn btn-danger del-btn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-route="{{ route('users-destroy', $value->id) }}"> -->
-              <button type="button" class="btn btn-danger del-btn">
+              <button type="button" class="btn btn-danger del-btn" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" data-route="{{ route('users-destroy', $value->id) }}">
                 <i class="fas fa-trash"></i>
               </button>
             </td>
@@ -54,7 +53,7 @@
 @include('dashboard.modal')
 
 <script>
-  const menuItem = 8;
+  const menuItem = 7;
 </script>
 
 @endsection

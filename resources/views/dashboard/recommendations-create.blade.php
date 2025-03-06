@@ -18,11 +18,11 @@
 
   <form id="save-data-form" class="form" action="{{ route('dashboard.recommendations-store') }}" method="post">
     <div class="form-group mb-3">
-      <label for="title">Название</label>
+      <label for="title" class="form-label">Название</label>
       <input type="text" class="form-control" name="title" id="title" minlength="2" maxlength="250" required value="{{ old('title') }}">
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Описание</div>
+      <div class="label-text">Описание</div>
       <div id="editorjs"></div>
     </div>
 
@@ -38,4 +38,8 @@
   const menuItem = 2;
 </script>
 
+@endsection
+
+@section('script')
+  @vite(['resources/js/editor.js'])
 @endsection

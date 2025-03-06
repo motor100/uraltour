@@ -49,7 +49,7 @@
 </div>
 
 <script>
-  const menuItem = 8;
+  const menuItem = 7;
 </script>
 
 @endsection

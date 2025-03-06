@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\RecommendationController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ProductArchiveController;
 use App\Http\Controllers\Admin\SelectionController;
+use App\Http\Controllers\Admin\DocumentController;
 
 // Main routes
 Route::get('/', [MainController::class, 'home'])->name('home');
@@ -122,6 +123,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/selections/{id}/edit', [SelectionController::class, 'edit'])->name('dashboard.selections-edit');
 
     Route::post('/dashboard/selections/{id}/update', [SelectionController::class, 'update'])->name('dashboard.selections-update');
+
+    // Documents
+    Route::get('/dashboard/documents', [DocumentController::class, 'index'])->name('dashboard.documents');
+
+    Route::get('/dashboard/documents/create', [DocumentController::class, 'create'])->name('dashboard.documents-create');
+
+    Route::post('/dashboard/documents/store', [DocumentController::class, 'store'])->name('dashboard.documents-store');
+
+    Route::get('/dashboard/documents/{id}', [DocumentController::class, 'show'])->name('dashboard.documents-show');
+
+    Route::get('/dashboard/documents/{id}/edit', [DocumentController::class, 'edit'])->name('dashboard.documents-edit');
+
+    Route::post('/dashboard/documents/{id}/update', [DocumentController::class, 'update'])->name('dashboard.documents-update');
+
+    Route::get('/dashboard/documents/{id}/destroy', [DocumentController::class, 'destroy'])->name('dashboard.documents-destroy');
 
     // Selection product удаление товара из подборки
     Route::get('/dashboard/selection-product/{id}/destroy', [AdminController::class, 'selection_product_destroy'])->name('dashboard.selection-product-destroy');

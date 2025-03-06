@@ -18,15 +18,15 @@
 
   <form class="form" action="{{ route('dashboard.selections-update', $selection->id) }}" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-      <label for="title" class="label-text">Название</label>
+      <label for="title" class="form-label">Название</label>
       <input type="text" class="form-control" name="title" id="title"minlength="10" maxlength="100" required value="{{ $selection->title }}">
     </div>
     <div class="form-group mb-3">
-      <label for="title" class="label-text">Краткое описание</label>
+      <label for="title" class="form-label">Краткое описание</label>
       <input type="text" name="excerpt" id="excerpt" class="form-control" minlength="10" maxlength="100" required value="{{ $selection->excerpt }}">
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Полное описание</div>
+      <div class="label-text">Полное описание</div>
       <textarea name="description" id="description" class="form-control" rows="3" minlength="10" maxlength="1000" required>{{ $selection->description }}</textarea>
     </div>
     <div class="form-group">

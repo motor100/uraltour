@@ -24,9 +24,9 @@
 <div class="documents-page">
   <div class="container">
     <div class="page-title">Документы</div>
-    <a href="#" class="document" target="_blank">Лицензия</a>
-    <a href="#" class="document" target="_blank">Свидетельство</a>
-    <a href="#" class="document" target="_blank">Документ</a>
+    @foreach($documents as $document)
+      <a href="{{ Storage::url($document->file) }}" class="document" target="_blank">{{ $document->title }}</a>
+    @endforeach
   </div>
 </div>
 

@@ -118,9 +118,10 @@
       </div>
       <div class="footer-bottom">
         <div class="info">
-          <div class="copyright">© УРАЛ ТУР <span id="current-year"></span></div>
+          <div class="copyright">© УРАЛ ТУР 2017 - <span id="current-year"></span></div>
           <div class="about-company">ИП Красняк Л.Н. ИНН 741807167621</div>
           <div class="about-company">ОГРН 321745600031896</div>
+          <div class="about-company">Реестровый номер РТА 0011798</div>
         </div>
         <div class="developers">
           <div class="developer">

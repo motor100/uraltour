@@ -405,41 +405,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
 
-        /*
-        // Удаление файла product image
-        if (Storage::disk('public')->exists($product->image)) {
-            Storage::disk('public')->delete($product->image);
-        }
-
-        // Удаление файлов gallery images
-        if ($product->gallery) {
-            foreach ($product->gallery as $gl) {
-                if (Storage::disk('public')->exists($gl->image)) {
-                    Storage::disk('public')->delete($gl->image);
-                }
-            }
-        }
-
-        // Удаление файлов photo images
-        if ($product->photo) {
-            foreach ($product->photo as $gl) {
-                if (Storage::disk('public')->exists($gl->image)) {
-                    Storage::disk('public')->delete($gl->image);
-                }
-            }
-        }
-
-        // Удаление модели описания
-        ProductDescription::where('product_id', $id)->delete();
-
-        // Удаление модели галереи
-        ProductGallery::where('product_id', $id)->delete();
-
-        // Удаление модели фото
-        ProductPhoto::where('product_id', $id)->delete();
-        */
-
-        // Удаление модели Product
+        // Soft delete модели Product
         $product->delete();
 
         return redirect()->back();

@@ -219,7 +219,9 @@ class MainController extends Controller
      */
     public function documents(): View
     {
-        return view('documents');
+        $documents = \App\Models\Document::all();
+        
+        return view('documents' , compact('documents'));
     }
 
     /**

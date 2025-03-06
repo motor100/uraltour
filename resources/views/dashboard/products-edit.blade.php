@@ -22,18 +22,18 @@
 
   <form class="form" id="save-data-form" action="{{ route('dashboard.products-update', $product->id) }}" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-      <label for="title" class="label-text">Название*</label>
+      <label for="title" class="form-label">Название*</label>
       <input type="text" class="form-control" name="title" id="title" maxlength="200" required value="{{ $product->title }}">
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Описание</div>
+      <div class="label-text">Описание</div>
       @if(isset($to_editorjs))
         <div id="to-editorjs" style="display: none;">{{ $to_editorjs }}</div>
       @endif
       <div id="editorjs"></div>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Рекомендация</div>
+      <div class="label-text">Рекомендация</div>
       <select name="recommendation" class="form-select mt-1">
         <option value="" selected="selected"></option>
         @foreach($recommendations as $rc)
@@ -50,7 +50,7 @@
       </select>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Оплата</div>
+      <div class="label-text">Оплата</div>
       <select name="payment" class="form-select mt-1">
         <option value="" selected="selected"></option>
         @foreach($payments as $pm)
@@ -68,7 +68,7 @@
     </div>
 
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Категории*</div>
+      <div class="label-text">Категории*</div>
     </div>
 
     <div id="app2">
@@ -120,7 +120,7 @@
       </div>
     </div>
     <div class="form-group mb-3">
-      <div class="label-text mb-1">Фото (не более 6)</div>
+      <div class="label-text">Фото (не более 6)</div>
       <input type="file" name="input-photo-file[]" id="input-photo-file" class="inputfile" accept="image/jpeg,image/png" multiple>
       <label for="input-photo-file" class="custom-inputfile-label">Выберите файлы</label>
       <span class="namefile photo-file-text">Файлы не выбраны</span>
@@ -151,6 +151,6 @@
 @endsection
 
 @section('script')
-  @vite(['resources/js/app.js'])
+  @vite(['resources/js/app.js', 'resources/js/editor.js'])
   <script src="{{ asset('/adminpanel/js/air-datepicker.js') }}"></script>
 @endsection

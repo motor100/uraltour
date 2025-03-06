@@ -66,6 +66,13 @@
             </a>
           </div>
 
+          <div class="nav-item">
+            <a href="/dashboard/documents" class="item-link">
+              <i class="nav-icon fas fa-file-pdf"></i>
+              <span>Документы</span>
+            </a>
+          </div>
+
           @role('administrator')
             <div class="nav-item">
               <a href="/dashboard/users" class="item-link">
@@ -161,6 +168,6 @@
 
   @yield('script')
   <script src="{{ asset('/adminpanel/js/template.js') }}"></script>
-  @vite(['resources/js/dashboard.js', 'resources/js/editor.js'])
+  @vite(['resources/js/dashboard.js'])
 </body>
 </html>

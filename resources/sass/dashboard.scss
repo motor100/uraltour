@@ -19,6 +19,7 @@
 
 /* form */
 .form-group .form-label {
+  display: block;
   font-weight: 600;
 }
 .form-group textarea {
@@ -69,7 +70,7 @@
 }
 .label-text {
   margin-bottom: .5rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 .red-text {
   color: red;
