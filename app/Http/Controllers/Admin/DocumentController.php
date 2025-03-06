@@ -11,6 +11,102 @@ use Illuminate\Support\Facades\Storage;
 
 class DocumentController extends Controller
 {
+    /*
+    public function index()
+    {
+        \App\Models\Category::truncate();
+
+        $categories_array = [
+            [
+                'title' => 'Событийные туры',
+                'slug' => 'sobytijnye-tury',
+                'image' => 'public/uploads/categories/category1.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Урал',
+                'slug' => 'ural',
+                'image' => 'public/uploads/categories/category2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Туры по России',
+                'slug' => 'tury-po-rossii',
+                'image' => 'public/uploads/categories/category3.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Ближнее зарубежье',
+                'slug' => 'blizhnee-zarubezhe',
+                'image' => 'public/uploads/categories/category1.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Экскурсии',
+                'slug' => 'ehkskursii',
+                'image' => 'public/uploads/categories/category2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Активный отдых, сплавы',
+                'slug' => 'aktivnyj-otdyh-splavy',
+                'image' => 'public/uploads/categories/category3.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Термы, spa',
+                'slug' => 'termy-spa',
+                'image' => 'public/uploads/categories/category1.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Театры, концерты',
+                'slug' => 'teatry-koncerty',
+                'image' => 'public/uploads/categories/category2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Национальные маршруты',
+                'slug' => 'nacionalnye-marshruty',
+                'image' => 'public/uploads/categories/category3.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Пляжный отдых',
+                'slug' => 'plyazhnyj-otdyh',
+                'image' => 'public/uploads/categories/category1.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Джип-туры',
+                'slug' => 'dzhip-tury',
+                'image' => 'public/uploads/categories/category2.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+            [
+                'title' => 'Для школьников',
+                'slug' => 'dlya-shkolnikov',
+                'image' => 'public/uploads/categories/category3.jpg',
+                'created_at' => now(),
+                'updated_at' => now()
+            ],
+        ];
+
+        return \App\Models\Category::insert($categories_array);
+    }
+    */    
+    
     /**
      * Display a listing of the resource.
      * 

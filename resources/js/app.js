@@ -32,5 +32,4 @@ app.component('AddCategoryComponent', AddCategoryComponent);
 app.mount('#app1');
 
 app.component('ListCategoryComponent', ListCategoryComponent);
-app.component('AddCategoryComponent', AddCategoryComponent);
 app.mount('#app2');

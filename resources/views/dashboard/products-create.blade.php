@@ -83,11 +83,11 @@
     </div>
     <div class="form-group mb-3">
       <label for="start_date">Дата*</label>
-      <input type="text" class="form-control datepicker" name="start_date"min="0" step="1" minlength="8" maxlength="15" required value="{{ old('start_date') }}">
+      <input type="text" class="form-control datepicker" id="start_date" name="start_date" min="0" step="1" minlength="8" maxlength="15" required value="{{ old('start_date') }}">
     </div>
     <div class="form-group mb-5">
       <label for="price">Стоимость*</label>
-      <input type="number" class="form-control input-price input-number" name="price" min="0" max="500000" step="1" required value="{{ old('price') }}">
+      <input type="number" class="form-control input-price input-number" id="price" name="price" min="0" max="500000" step="1" required value="{{ old('price') }}">
     </div>
 
     <input type="hidden" name="text_json" id="save-data-input" value="">

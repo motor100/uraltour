@@ -127,11 +127,11 @@
     </div>
     <div class="form-group mb-3">
       <label for="start_date">Дата*</label>
-      <input type="text" class="form-control datepicker" name="start_date" min="0" step="1" required value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
+      <input type="text" class="form-control datepicker" id="start_date" name="start_date" min="0" step="1" required value="{{ $product->start_date ? $product->start_date->format('d.m.Y') : '' }}">
     </div>
     <div class="form-group mb-5">
       <label for="price" class="label-text">Стоимость*</label>
-      <input type="number" class="form-control input-number" name="price" min="1" max="500000" step="1" required value="{{ $product->price }}">
+      <input type="number" class="form-control input-number" id="price" name="price" min="1" max="500000" step="1" required value="{{ $product->price }}">
     </div>
 
     <input type="hidden" name="delete_gallery" value="">

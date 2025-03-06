@@ -36,13 +36,13 @@
     </tbody>
   </table>
 
-  <select name="category" id="category" class="form-select mb-3">
+  <select name="category" id="category" class="form-select mb-3"
+    v-on:change=addCategory>
     <option value="" selected disabled></option>
     <option 
       v-for="category in ctrs"
       v-bind:key="category"
-      v-bind:value=category.id
-      v-on:click=addCategory>
+      v-bind:value=category.id>
       {{ category.title }}
     </option>
   </select>
@@ -65,10 +65,18 @@ export default {
 
   methods: {
 
+    addCategory1(event) {
+      const select = event.target;
+      const value = select.value;
+      const desc = select.options[select.selectedIndex].text;
+      console.log(desc);
+    },
+
     addCategory(event) {
-      this.cats.push({'id': event.target.value, 'title': event.target.innerText});
-      
-      // Удаление из массива категорий 
+      const select = event.target;
+      this.cats.push({'id': select.value, 'title': select.options[select.selectedIndex].text});
+
+      // Удаление из массива категорий
       let resultArray = new Array();
 
       // Создание нового массива this.ctrs
@@ -81,21 +89,6 @@ export default {
       this.ctrs = resultArray;
 
       document.getElementById('category').selectedIndex = 0;
-     
-    },
-
-    removeProduct(event) {
-
-      let resultArray = new Array();
-
-      // Создание нового массива
-      for (let i = 0; i < this.products.length; i++) {
-        if (i != event.target.getAttribute('data-id')){
-          // Добавление значения в новый массив
-          resultArray.push(this.products[i]);
-        }
-      }
-      this.products = resultArray;
     },
 
     removeCats(event) {
