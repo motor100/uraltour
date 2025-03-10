@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
 
 class ProductImage
 {
@@ -23,7 +25,11 @@ class ProductImage
      */
     public function create(): mixed
     {
-        return Storage::disk('public')->putFile('/uploads/products', $this->validated["input-main-file"]);
+        $filename = Storage::disk('public')->putFile('/uploads/products', $this->validated["input-main-file"]);
+
+        $this->cover($filename);
+        
+        return $filename;
     }
     
     /**
@@ -38,6 +44,36 @@ class ProductImage
             Storage::disk('public')->delete($product->image);
         }
 
-        return Storage::disk('public')->putFile('/uploads/products', $this->validated["input-main-file"]);
+        $filename = Storage::disk('public')->putFile('/uploads/products', $this->validated["input-main-file"]);
+
+        $this->cover($filename);
+
+        return $filename;
+    }
+
+    /**
+     * Изменение размера изображения
+     * 
+     * @param string $filename
+     * @return void
+     */
+    public function cover($filename): void
+    {
+        // Create image manager with desired driver
+        $manager = new ImageManager(new Driver());
+
+        // Path to file
+        $path = Storage::disk('public')->path($filename);
+
+        // Read image from file system
+        $image = $manager->read($path);
+
+        // Cover image proportionally to 520px width and 520px height
+        $image->cover(width: 520, height: 520);
+
+        // Save modified image in new format 
+        $image->toJpeg()->save($path);
+
+        return;
     }
 }

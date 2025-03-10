@@ -81,19 +81,19 @@ class ProductController extends Controller
                                 'required',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'input-gallery-file' => 'nullable|max:4',
             'input-gallery-file.*' => [
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'input-photo-file' => 'nullable|max:6',
             'input-photo-file.*' => [
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'start_date' => 'required_without:regular',
             'price' => 'required|integer|min:1|max:500000',
@@ -233,19 +233,19 @@ class ProductController extends Controller
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'input-gallery-file' => 'nullable|max:4',
             'input-gallery-file.*' => [
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'input-photo-file' => 'nullable|max:6',
             'input-photo-file.*' => [
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
-                                                                    ->max(3000)
+                                                                    ->max(20000)
                                 ],
             'price' => 'required|integer|min:1|max:500000',
             'start_date' => 'required_without:regular',
