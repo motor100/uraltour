@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Selection extends Model
 {
@@ -23,6 +24,15 @@ class Selection extends Model
     public function products(): BelongsToMany
     {
         return $this->belongsToMany(Product::class);
+    }
+
+    /**
+     * Получить описание подборки.
+     * Один к одному
+     */
+    public function description(): HasOne
+    {
+        return $this->hasOne(SelectionDescription::class);
     }
 
     /**

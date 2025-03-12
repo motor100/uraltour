@@ -16,19 +16,24 @@
     </div>
   @endif
 
-  <form class="form" action="{{ route('dashboard.selections-update', $selection->id) }}" method="post" enctype="multipart/form-data">
+  <form class="form" id="save-data-form" action="{{ route('dashboard.selections-update', $selection->id) }}" method="post" enctype="multipart/form-data">
     <div class="form-group mb-3">
-      <label for="title" class="form-label">Название</label>
-      <input type="text" class="form-control" name="title" id="title"minlength="10" maxlength="100" required value="{{ $selection->title }}">
+      <label for="title" class="form-label">Название*</label>
+      <input type="text" class="form-control" name="title" id="title" minlength="5" maxlength="100" required value="{{ $selection->title }}">
     </div>
     <div class="form-group mb-3">
-      <label for="title" class="form-label">Краткое описание</label>
-      <input type="text" name="excerpt" id="excerpt" class="form-control" minlength="10" maxlength="100" required value="{{ $selection->excerpt }}">
+      <label for="title" class="form-label">Краткое описание*</label>
+      <input type="text" name="excerpt" id="excerpt" class="form-control" minlength="5" maxlength="100" required value="{{ $selection->excerpt }}">
     </div>
+
     <div class="form-group mb-3">
-      <div class="label-text">Полное описание</div>
-      <textarea name="description" id="description" class="form-control" rows="3" minlength="10" maxlength="1000" required>{{ $selection->description }}</textarea>
+      <div class="label-text">Полное описание*</div>
+      @if(isset($to_editorjs))
+        <div id="to-editorjs" style="display: none;">{{ $to_editorjs }}</div>
+      @endif
+      <div id="editorjs"></div>
     </div>
+
     <div class="form-group">
       @if($selection->image)
         <div class="image-preview">
@@ -52,6 +57,8 @@
 
     <div class="height100"></div>
 
+    <input type="hidden" name="text_json" id="save-data-input" value="">
+
     @csrf
     <button type="submit" class="btn btn-primary">Обновить</button>
   </form>
@@ -67,5 +74,5 @@
 @endsection
 
 @section('script')
-  @vite(['resources/js/app.js'])
+  @vite(['resources/js/app.js', 'resources/js/editor.js'])
 @endsection

@@ -17,7 +17,7 @@
       <a href="{{ route('home') }}">Главная</a>
     </div>
     <div class="separator">/</div>
-    <div class="active">{{ $selection->title }}</div>
+    <div class="active">{{ mb_strtolower($selection->title) }}</div>
   </div>
 </div>
 

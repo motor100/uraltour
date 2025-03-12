@@ -29,7 +29,6 @@
               <div class="label-element">
                 <img src="/img/selection-orange-element.png" alt="">
               </div>
-              <!-- <div class="selection-item__title">Название</div> -->
               <div class="selection-item__excerpt">{{ $selection->excerpt }}</div>
               <a href="/selections/{{ $selection->slug }}" class="full-link"></a>
             </div>
@@ -55,7 +54,6 @@
               <div class="label-element">
                 <img src="/img/selection-orange-element.png" alt="">
               </div>
-              <!-- <div class="selection-item__title">Название</div> -->
               <div class="selection-item__excerpt">{{ $selection->excerpt }}</div>
               <a href="/selections/{{ $selection->slug }}" class="full-link"></a>
             </div>

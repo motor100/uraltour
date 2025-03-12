@@ -230,9 +230,14 @@ p {
     position: absolute;
     top: 30px;
     left: 0;
+    width: 100%;
     height: 44px;
     padding: 9px 12px;
     background-color: $orangecolor;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #fff;
   }
   .label-text {
     font-size: 18px;
@@ -250,9 +255,17 @@ p {
   }
   .selection-item__excerpt {
     position: absolute;
-    bottom: 40px;
-    left: 20px;
+    bottom: 25px;
+    left: 0;
+    display: -webkit-box;
+    height: 42px;
+    padding: 0 12px;
     color: #fff;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
   .main-section-bg {
     position: absolute;
@@ -2462,7 +2475,7 @@ p {
       font-size: 26px;
     }
     .label-text {
-      font-size: 16px;
+      font-size: 15px;
     }
   }
 
@@ -2613,13 +2626,14 @@ p {
       padding: 5px 10px;
     }
     .label-text {
-      font-size: 15px;
+      font-size: 14px;
     }
     .label-element {
       width: 10px;
     }
     .selection-item__excerpt {
-      left: 15px;
+      height: 37px;
+      padding: 0 10px;
       font-size: 14px;
     }
   }
@@ -3294,6 +3308,9 @@ p {
       height: 335px;
       margin-bottom: 0;
       padding: 0;
+    }
+    .label-text {
+      font-size: 13px;
     }
   }
 

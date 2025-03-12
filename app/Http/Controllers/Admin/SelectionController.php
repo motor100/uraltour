@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Selection;
 use App\Models\ProductSelection;
+use App\Models\SelectionDescription;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
@@ -60,7 +61,10 @@ class SelectionController extends Controller
     {
         $selection = Selection::findOrFail($id);
 
-        return view('dashboard.selections-edit', compact('selection'));
+        // Передача данных в редактор Editor JS
+        $to_editorjs = $selection->description->text_json;
+
+        return view('dashboard.selections-edit', compact('selection', 'to_editorjs'));
     }
 
     /**
@@ -75,14 +79,14 @@ class SelectionController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:2|max:100',
             'excerpt' => 'required|min:2|max:100',
-            'description' => 'required|min:2|max:1000',
+            'text_json' => 'required|min:2|max:65535',
             'input-main-file' => [
                                 'nullable',
                                 \Illuminate\Validation\Rules\File::types(['jpg', 'png'])
                                                                     ->min(10)
                                                                     ->max(3000)
                                 ],
-            'products' => 'required'
+            'products' => 'nullable'
         ]);
 
         $selection = Selection::findOrFail($id);
@@ -103,12 +107,22 @@ class SelectionController extends Controller
             $image = $selection->image;
         }
 
+        $html = (new \App\Services\JsonToHtml($validated['text_json']))->render();
+
         // Обновление описания
+        $description_array = [
+            'selection_id' => $selection->id,
+            'text_json' => $validated['text_json'],
+            'text_html' => $html,
+        ];
+
+        SelectionDescription::where('selection_id', $selection->id)->update($description_array);
+
+        // Обновление модели
         $selection->title = $validated['title'];
         $selection->slug = $slug;
         $selection->image = $image;
         $selection->excerpt = $validated['excerpt'];
-        $selection->description = $validated['description'];
 
         $selection->save();
 
@@ -116,15 +130,17 @@ class SelectionController extends Controller
         ProductSelection::where('selection_id', $id)->delete();
 
         // Вставляю новые товары
-        $insert_array = [];
+        if (isset($validated['products'])) {
+            $insert_array = [];
 
-        foreach ($validated['products'] as $key => $value) {
-            $tmp['product_id'] = intval($key);
-            $tmp['selection_id'] = intval($id);
-            $insert_array[] = $tmp;
+            foreach ($validated['products'] as $key => $value) {
+                $tmp['product_id'] = intval($key);
+                $tmp['selection_id'] = intval($id);
+                $insert_array[] = $tmp;
+            }
+
+            ProductSelection::insert($insert_array);
         }
-
-        ProductSelection::insert($insert_array);
 
         return redirect()->back();
     }
