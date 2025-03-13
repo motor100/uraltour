@@ -68,6 +68,15 @@ class Product extends Model
     }
 
     /**
+     * Свойства для товара
+     * Многие ко многим
+     */
+    public function products_attributes(): BelongsToMany
+    {
+        return $this->belongsToMany(AttributeValue::class, 'products_attributes');
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>

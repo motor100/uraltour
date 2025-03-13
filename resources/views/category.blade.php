@@ -39,6 +39,7 @@
         </div>
 
         <div class="grid-container">
+          <!-- 
           <form class="filter" action="{{ url()->current() }}" method="get">
             <div class="checkbox-group">
               <div class="checkbox-group__title">Вид тура</div>
@@ -121,6 +122,40 @@
               <span class="clear-btn__text">Очистить</span>
             </a>
           </form>
+           -->
+
+          <form class="filter" action="{{ url()->current() }}" method="get">
+            @foreach($attributes as $attribute)
+              <div class="checkbox-group">
+                <div class="checkbox-group__title">{{ $attribute['title'] }}</div>
+                @foreach($attribute['values'] as $value)
+                  <label class="checkbox-label">
+                    <span class="custom-checkbox-text">{{ $value->title }}</span>
+                    <input type="checkbox" name="{{ $attribute['slug'] }}[]" class="checkbox" value="{{ $value->slug }}" @checked(is_array(request()->input($attribute['slug'])) && in_array($value->slug, request()->input($attribute['slug'])))>
+                    <span class="custom-checkbox"></span>
+                  </label>
+                @endforeach
+              </div>
+            @endforeach
+
+            <button type="submit" class="submit-btn primary-btn">Применить</button>
+            <a href="{{ url()->current() }}" class="secondary-btn clear-btn">
+              <svg class="clear-btn__svg" width="23" height="23" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_285_758)">
+                <path d="M15 9L9 15" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 9L15 15" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke-linecap="round" stroke-linejoin="round"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_285_758">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+              </svg>
+              <span class="clear-btn__text">Очистить</span>
+            </a>
+          </form>
+
           <div class="content">
 
             <!-- 

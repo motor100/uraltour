@@ -90,7 +90,38 @@ class MainController extends Controller
                 $product->categories[0] = $category;
             }
 
-            return view('category', compact('category', 'products', 'regular_products'));
+            $attributes = [];
+
+            // $products2 = $products1->get();
+            // dd($category->products);
+            foreach($category->products as $product) {
+                // if ($product->products_attributes) {
+                // dd($product->products_attributes);
+                    foreach($product->products_attributes as $att) {
+                        if(isset($attributes[$att->attribute_id])) {
+                            
+                            $inc = false;
+                            foreach($attributes[$att->attribute_id]['values'] as $v) {
+                                if ($v->id == $att->id) {
+                                    $inc = true;
+                                }
+                            }
+
+                            if(!$inc) {
+                                $attributes[$att->attribute_id]['values'][] = $att;
+                            }
+                            
+                        } else {
+                            $attributes[$att->attribute_id]['title'] = $att->attribute->title;
+                            $attributes[$att->attribute_id]['slug'] = $att->attribute->slug;
+                            $attributes[$att->attribute_id]['values'][] = $att;
+                        }
+                    }
+                // }
+
+            }
+
+            return view('category', compact('category', 'products', 'regular_products', 'attributes'));
         }
 
         return abort(404);
