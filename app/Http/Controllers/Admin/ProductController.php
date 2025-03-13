@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductGallery;
 use App\Models\ProductPhoto;
 use App\Models\ProductDescription;
+use App\Models\ProductProgram;
 use \App\Models\Category;
 use App\Models\ProductCategory;
 use Illuminate\Http\RedirectResponse;
@@ -73,6 +74,7 @@ class ProductController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:2|max:250',
             'text_json' => 'required|min:2|max:65535',
+            'program_text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
             'payment' => 'nullable',
             'categories' => 'required',
@@ -144,6 +146,20 @@ class ProductController extends Controller
 
         ProductDescription::create($description_array);
 
+        // Программа
+        if(array_key_exists('program_text_json', $validated)) {
+
+            $program_html = (new \App\Services\JsonToHtml($validated['program_text_json']))->render();
+
+            $program_array = [
+                'product_id' => $product->id,
+                'text_json' => $validated['program_text_json'],
+                'text_html' => $program_html,
+            ];
+
+            ProductProgram::create($program_array);
+        }
+
         // Галерея
         if(array_key_exists('input-gallery-file', $validated)) {
             $gallery_array = [];
@@ -204,13 +220,20 @@ class ProductController extends Controller
         // Передача данных в редактор Editor JS
         $to_editorjs = $product->description->text_json;
 
+        // Передача данных в редактор Editor JS
+        if ($product->program) {
+            $program_to_editorjs = $product->program->text_json;
+        } else {
+            $program_to_editorjs = '{}';
+        }
+
         // Рекомендации
         $recommendations = \App\Models\Recommendation::all();
 
         // Оплата
         $payments = \App\Models\Payment::all();
 
-        return view('dashboard.products-edit', compact('product', 'categories', 'recommendations', 'payments', 'current_category', 'to_editorjs'));
+        return view('dashboard.products-edit', compact('product', 'categories', 'recommendations', 'payments', 'current_category', 'to_editorjs', 'program_to_editorjs'));
     }
 
     /**
@@ -227,6 +250,7 @@ class ProductController extends Controller
             'categories' => 'required',
             'regular' => 'nullable',
             'text_json' => 'required|min:2|max:65535',
+            'program_text_json' => 'required|min:2|max:65535',
             'recommendation' => 'nullable',
             'payment' => 'nullable',
             'input-main-file' => [
@@ -301,6 +325,26 @@ class ProductController extends Controller
         ];
 
         ProductDescription::where('product_id', $product->id)->update($description_array);
+
+        // Обновление программы
+        if(isset($validated['program_text_json'])) {
+
+            $program_html = (new \App\Services\JsonToHtml($validated['program_text_json']))->render();
+
+            $program_array = [
+                'product_id' => $product->id,
+                'text_json' => $validated['program_text_json'],
+                'text_html' => $program_html,
+            ];
+
+            $exists = ProductProgram::where('product_id', $product->id)->exists();
+
+            if ($exists) {
+                ProductProgram::where('product_id', $product->id)->update($program_array);
+            } else {
+                ProductProgram::create($program_array);
+            }
+        }
 
         // Удаление старой галереи
         if ($validated['delete_gallery']) {

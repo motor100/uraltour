@@ -50,6 +50,15 @@ class Product extends Model
     }
 
     /**
+     * Получить программу товара.
+     * Один к одному
+     */
+    public function program(): HasOne
+    {
+        return $this->hasOne(ProductProgram::class);
+    }
+
+    /**
      * Получить галерею товара.
      * Один ко многим
      */

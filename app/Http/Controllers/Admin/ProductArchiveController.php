@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\ProductGallery;
 use App\Models\ProductPhoto;
 use App\Models\ProductDescription;
+use App\Models\ProductProgram;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Storage;
@@ -104,6 +105,9 @@ class ProductArchiveController extends Controller
 
         // Удаление модели описания
         ProductDescription::where('product_id', $id)->delete();
+
+        // Удаление модели программы
+        ProductProgram::where('product_id', $id)->delete();
 
         // Удаление модели галереи
         ProductGallery::where('product_id', $id)->delete();

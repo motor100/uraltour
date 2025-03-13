@@ -33,6 +33,13 @@
       <div id="editorjs"></div>
     </div>
     <div class="form-group mb-3">
+      <div class="label-text">Программа</div>
+      @if(old('program_text_json'))
+        <div id="program-to-editorjs" style="display: none;">{{ old('program_text_json') }}</div>
+      @endif
+      <div id="program-editorjs"></div>
+    </div>
+    <div class="form-group mb-3">
       <div class="label-text">Рекомендация</div>
       <select name="recommendation" class="form-select mt-1">
         <option value="" selected="selected"></option>
@@ -91,6 +98,7 @@
     </div>
 
     <input type="hidden" name="text_json" id="save-data-input" value="">
+    <input type="hidden" name="program_text_json" id="save-data-program-input" value="">
 
     @csrf
     <button type="submit" class="btn btn-primary">Добавить</button>

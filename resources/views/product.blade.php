@@ -114,6 +114,14 @@
         <div class="product-text">{!! nl2br($product->description->text_html) !!}</div>
       </div>
     @endif
+
+    @if($product->program)
+      <div class="product-plan product-description-item">
+        <div class="product-subtitle">Программа</div>
+        <div class="product-text">{!! nl2br($product->program->text_html) !!}</div>
+        <div class="product-note orange-color">* время ориентировочное и может изменяться в зависимости от различных условий.</div>
+      </div>
+    @endif
     
     @if($product->description->recommendation)
       <div class="product-recommendation product-description-item">

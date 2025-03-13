@@ -29,7 +29,7 @@ class Slug
 
         if (count($have_slug) > 0) {
             $newslug = $this->slug . '-%';
-            $slugs = $this->builder->where('slug', 'like', $newslug)->get();
+            $slugs = $this->builder->orWhere('slug', 'like', $newslug)->get();
 
             $count_slugs = count($slugs) + 1;
             $this->slug = $this->slug . '-' . $count_slugs;
