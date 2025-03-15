@@ -69,10 +69,17 @@ class MainController extends Controller
             // Свойство products возвращает коллекцию Illuminate\Database\Eloquent\Collection
             $products1 = $category->products();
 
-            // Сортировка по цене по параметру sort Illuminate\Database\Eloquent\BelongsToMany
-            $products = (new \App\Services\ProductSort($request))->sort_belonstomany($products1);
+            // Фильтр товаров
+            // Класс принимает параметры Illuminate\Database\Eloquent\BelongsToMany и Illuminate\Http\Request
+            $products = (new \App\Services\ProductFilter($products1, $request))->apply();
 
-            // Пагинация с параметрами
+            // Сортировка по цене по параметру sort=asc или sort=desc
+            // Класс принимает параметр Illuminate\Http\Request
+            // Метод sort_belonstomany() принимает параметр Illuminate\Database\Eloquent\BelongsToMany
+            $products = (new \App\Services\ProductSort($request))->sort_belonstomany($products);
+
+            // Пагинация с параметрами в строке запроса
+            // $products = $products->paginate(12)->withQueryString()->onEachSide(1);
             $products = $products->paginate(12)->withQueryString()->onEachSide(1);
 
             // Добавление краткого описания и текущей категории
@@ -90,35 +97,30 @@ class MainController extends Controller
                 $product->categories[0] = $category;
             }
 
+            // Создание аттрибутов для вывода фильтра
             $attributes = [];
 
-            // $products2 = $products1->get();
-            // dd($category->products);
             foreach($category->products as $product) {
-                // if ($product->products_attributes) {
-                // dd($product->products_attributes);
-                    foreach($product->products_attributes as $att) {
-                        if(isset($attributes[$att->attribute_id])) {
-                            
-                            $inc = false;
-                            foreach($attributes[$att->attribute_id]['values'] as $v) {
-                                if ($v->id == $att->id) {
-                                    $inc = true;
-                                }
+                foreach($product->products_attributes as $att) {
+                    if(isset($attributes[$att->attribute_id])) {
+                        
+                        $inc = false;
+                        foreach($attributes[$att->attribute_id]['values'] as $v) {
+                            if ($v->id == $att->id) {
+                                $inc = true;
                             }
+                        }
 
-                            if(!$inc) {
-                                $attributes[$att->attribute_id]['values'][] = $att;
-                            }
-                            
-                        } else {
-                            $attributes[$att->attribute_id]['title'] = $att->attribute->title;
-                            $attributes[$att->attribute_id]['slug'] = $att->attribute->slug;
+                        if(!$inc) {
                             $attributes[$att->attribute_id]['values'][] = $att;
                         }
+                        
+                    } else {
+                        $attributes[$att->attribute_id]['title'] = $att->attribute->title;
+                        $attributes[$att->attribute_id]['slug'] = $att->attribute->slug;
+                        $attributes[$att->attribute_id]['values'][] = $att;
                     }
-                // }
-
+                }
             }
 
             return view('category', compact('category', 'products', 'regular_products', 'attributes'));

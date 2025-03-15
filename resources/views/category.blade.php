@@ -26,7 +26,7 @@
     <div class="page-title">{{ $category->title }}</div>
   </div>
 
-  @if(count($products) > 0)
+  @if(count($products) > 0 || count($attributes) > 0)
     <div class="{{ count($regular_products) > 0 ? 'products-section' : 'products-section section' }}">
       <div class="container">
 
@@ -39,91 +39,6 @@
         </div>
 
         <div class="grid-container">
-          <!-- 
-          <form class="filter" action="{{ url()->current() }}" method="get">
-            <div class="checkbox-group">
-              <div class="checkbox-group__title">Вид тура</div>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 1</span>
-                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-1" @checked(is_array(request()->vid) && in_array('vid-1', request()->vid))>
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 2</span>
-                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-2" @checked(is_array(request()->vid) && in_array('vid-2', request()->vid))>
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 3</span>
-                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-3" @checked(is_array(request()->vid) && in_array('vid-3', request()->vid))>
-                  <span class="custom-checkbox"></span>
-                </label>
-                <label class="checkbox-label">
-                  <span class="custom-checkbox-text">Вид 4</span>
-                  <input type="checkbox" name="vid[]" class="checkbox" value="vid-4" @checked(is_array(request()->vid) && in_array('vid-4', request()->vid))>
-                  <span class="custom-checkbox"></span>
-                </label>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-group__title">Город</div>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Москва</span>
-                <input type="checkbox" name="gorod[]" class="checkbox" value="moskva" @checked(is_array(request()->gorod) && in_array('moskva', request()->gorod))>
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Екатеринбург</span>
-                <input type="checkbox" name="gorod[]" class="checkbox" value="ekaterinburg" @checked(is_array(request()->gorod) && in_array('ekaterinburg', request()->gorod))>
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Санкт-Петербург</span>
-                <input type="checkbox" name="gorod[]" class="checkbox" value="sankt-peterburg" @checked(is_array(request()->gorod) && in_array('sankt-peterburg', request()->gorod))>
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Казань</span>
-                <input type="checkbox" name="gorod[]" class="checkbox" value="kazan" @checked(is_array(request()->gorod) && in_array('kazan', request()->gorod))>
-                <span class="custom-checkbox"></span>
-              </label>
-            </div>
-            <div class="checkbox-group">
-              <div class="checkbox-group__title">Сложность</div>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Легкая</span>
-                <input type="checkbox" name="slozhnost[]" class="checkbox" value="legkaya" @checked(is_array(request()->slozhnost) && in_array('legkaya', request()->slozhnost))>
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Средняя</span>
-                <input type="checkbox" name="slozhnost[]" class="checkbox" value="srednyaya" @checked(is_array(request()->slozhnost) && in_array('srednyaya', request()->slozhnost))>
-                <span class="custom-checkbox"></span>
-              </label>
-              <label class="checkbox-label">
-                <span class="custom-checkbox-text">Сложная</span>
-                <input type="checkbox" name="slozhnost[]" class="checkbox" value="slozhnaya" @checked(is_array(request()->slozhnost) && in_array('slozhnaya', request()->slozhnost))>
-                <span class="custom-checkbox"></span>
-              </label>
-            </div>
-            <button type="submit" class="submit-btn primary-btn">Применить</button>
-            <a href="{{ url()->current() }}" class="secondary-btn clear-btn">
-              <svg class="clear-btn__svg" width="23" height="23" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_285_758)">
-                <path d="M15 9L9 15" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M9 9L15 15" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21Z" stroke-linecap="round" stroke-linejoin="round"/>
-                </g>
-                <defs>
-                <clipPath id="clip0_285_758">
-                <rect width="24" height="24" fill="white"/>
-                </clipPath>
-                </defs>
-              </svg>
-              <span class="clear-btn__text">Очистить</span>
-            </a>
-          </form>
-           -->
-
           <form class="filter" action="{{ url()->current() }}" method="get">
             @foreach($attributes as $attribute)
               <div class="checkbox-group">
@@ -215,15 +130,19 @@
               </div>
             </div>
              -->
-            <div class="products">
-              @foreach($products as $product)
-                @include('product-card')
-              @endforeach
-            </div>
+            @if (count($products) > 0)
+              <div class="products">
+                @foreach($products as $product)
+                  @include('product-card')
+                @endforeach
+              </div>
 
-            <div class="pagination-links">
-              {{ $products->links() }}
-            </div>
+              <div class="pagination-links">
+                {{ $products->links() }}
+              </div>
+            @else
+              <p>Не найдено</p>
+            @endif
 
           </div>
         </div>
